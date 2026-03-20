@@ -1,0 +1,626 @@
+/* ═══════════════════════════════════════════════════
+   INTRO.CSS — Sud Web Project — Ultra Premium
+   ═══════════════════════════════════════════════════ */
+
+:root {
+    --ink: #080C14;
+    --blue: #3B82F6;
+    --blue-l: #60A5FA;
+    --blue-d: #1D4ED8;
+    --mist: #94A3B8;
+    --ff-display: 'Playfair Display', Georgia, serif;
+    --ff-body: 'DM Sans', -apple-system, sans-serif;
+    --ease: cubic-bezier(.16, 1, .3, 1);
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: var(--ink);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ── CANVAS ───────────────────────────────────────── */
+#particles-canvas {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+}
+
+/* ── GRAIN TEXTURE ────────────────────────────────── */
+.grain {
+    position: fixed;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: .55;
+}
+
+/* ── LIGNE HORIZONTALE DÉCORATIVE ─────────────────── */
+.deco-line-h {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right,
+            transparent 0%,
+            rgba(59, 130, 246, .06) 20%,
+            rgba(59, 130, 246, .1) 50%,
+            rgba(59, 130, 246, .06) 80%,
+            transparent 100%);
+    z-index: 3;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 2s ease;
+}
+
+.deco-line-h.in {
+    opacity: 1;
+}
+
+/* ── COIN BAS GAUCHE ──────────────────────────────── */
+.corner-info {
+    position: fixed;
+    bottom: 2.5rem;
+    left: 2.5rem;
+    z-index: 20;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity .8s ease 2s, transform .8s var(--ease) 2s;
+    background: rgba(8, 12, 20, .6);
+    backdrop-filter: blur(10px);
+    padding: .6rem 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(96, 165, 250, .12);
+}
+
+.corner-info.in {
+    opacity: 1;
+    transform: none;
+}
+
+.corner-info p {
+    font-size: .62rem;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, .55);
+    font-family: var(--ff-body);
+    line-height: 2;
+}
+
+/* ── TEXTE VERTICAL DROITE ────────────────────────── */
+.side-label {
+    position: fixed;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    transform-origin: center;
+    font-size: .55rem;
+    font-weight: 700;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, .08);
+    font-family: var(--ff-body);
+    z-index: 20;
+    opacity: 0;
+    transition: opacity 1s ease 2.5s;
+}
+
+.side-label.in {
+    opacity: 1;
+}
+
+/* ── BARRE DE PROGRESSION ─────────────────────────── */
+.intro-progress {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 1px;
+    background: linear-gradient(90deg, var(--blue-d), var(--blue-l));
+    z-index: 30;
+    transition: width .08s linear;
+}
+
+.intro-progress::after {
+    content: '';
+    position: absolute;
+    right: -1px;
+    top: -2px;
+    width: 4px;
+    height: 5px;
+    background: var(--blue-l);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--blue-l), 0 0 20px var(--blue);
+}
+
+/* ── CONTENEUR ────────────────────────────────────── */
+#intro-container {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ── CONTENU ──────────────────────────────────────── */
+#content {
+    position: relative;
+    z-index: 20;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none;
+}
+
+#content.hidden {
+    visibility: hidden;
+}
+
+#content.visible {
+    pointer-events: auto;
+}
+
+/* ── EYEBROW ──────────────────────────────────────── */
+.intro-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    font-size: .65rem;
+    font-weight: 700;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--blue-l);
+    font-family: var(--ff-body);
+    margin-bottom: 1.75rem;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity .7s ease, transform .7s var(--ease);
+}
+
+.intro-eyebrow.in {
+    opacity: 1;
+    transform: none;
+}
+
+.eyebrow-line {
+    width: 28px;
+    height: 1px;
+    background: currentColor;
+    opacity: .45;
+}
+
+/* ── LOGO ─────────────────────────────────────────── */
+.logo-wrap {
+    position: relative;
+    margin-bottom: 1.75rem;
+    opacity: 0;
+    transform: scale(.8) translateY(12px);
+    transition: opacity 1s var(--ease), transform 1s var(--ease);
+}
+
+.logo-wrap.in {
+    opacity: 1;
+    transform: none;
+}
+
+.logo-hexagon svg {
+    filter:
+        drop-shadow(0 0 20px rgba(59, 130, 246, .7)) drop-shadow(0 0 50px rgba(59, 130, 246, .3));
+    animation: hexPulse 4s ease-in-out infinite;
+}
+
+@keyframes hexPulse {
+
+    0%,
+    100% {
+        filter: drop-shadow(0 0 20px rgba(59, 130, 246, .7)) drop-shadow(0 0 50px rgba(59, 130, 246, .3));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 32px rgba(96, 165, 250, 1)) drop-shadow(0 0 80px rgba(59, 130, 246, .55));
+    }
+}
+
+/* Anneau orbitant */
+.logo-orbit {
+    position: absolute;
+    inset: -18px;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    border-top-color: rgba(96, 165, 250, .5);
+    border-right-color: rgba(96, 165, 250, .2);
+    animation: orb 6s linear infinite;
+}
+
+.logo-orbit::before {
+    content: '';
+    position: absolute;
+    top: -2.5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    background: var(--blue-l);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--blue-l), 0 0 16px var(--blue);
+}
+
+.logo-orbit-2 {
+    position: absolute;
+    inset: -30px;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    border-bottom-color: rgba(59, 130, 246, .2);
+    animation: orb 10s linear infinite reverse;
+}
+
+@keyframes orb {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ── BRAND NAME ───────────────────────────────────── */
+.brand-name {
+    font-family: var(--ff-display);
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: -.03em;
+    line-height: 1;
+    margin-bottom: .5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .9s var(--ease), transform .9s var(--ease);
+    animation: textGlow 4s ease-in-out infinite;
+}
+
+@keyframes textGlow {
+
+    0%,
+    100% {
+        text-shadow: 0 0 50px rgba(59, 130, 246, .35), 0 0 100px rgba(59, 130, 246, .15);
+    }
+
+    50% {
+        text-shadow: 0 0 70px rgba(59, 130, 246, .65), 0 0 140px rgba(59, 130, 246, .35);
+    }
+}
+
+.brand-name.in {
+    opacity: 1;
+    transform: none;
+}
+
+/* ── LOCATION ─────────────────────────────────────── */
+.location {
+    font-family: var(--ff-body);
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: .6rem;
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity .7s ease, transform .7s var(--ease);
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+    /* Fond flouté pour lisibilité sur les particules */
+    background: rgba(8, 12, 20, .55);
+    backdrop-filter: blur(8px);
+    padding: .35rem 1.1rem;
+    border-radius: 999px;
+    border: 1px solid rgba(96, 165, 250, .2);
+    text-shadow: 0 0 20px rgba(96, 165, 250, .6);
+}
+
+/* .location::before et ::after supprimés — pill backdrop suffit */
+.location.in {
+    opacity: 1;
+    transform: none;
+}
+
+/* ── TAGLINE ──────────────────────────────────────── */
+.tagline {
+    font-family: var(--ff-body);
+    font-size: .95rem;
+    color: #e2e8f0;
+    font-weight: 500;
+    letter-spacing: .04em;
+    margin-bottom: 3.5rem;
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity .7s ease, transform .7s var(--ease);
+    /* Fond flouté pour lisibilité */
+    background: rgba(8, 12, 20, .5);
+    backdrop-filter: blur(8px);
+    padding: .4rem 1.25rem;
+    border-radius: 6px;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, .8);
+}
+
+.tagline.in {
+    opacity: 1;
+    transform: none;
+}
+
+/* ── BOUTON ───────────────────────────────────────── */
+.enter-button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: .875rem;
+    padding: 1.05rem 2.75rem;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, .2);
+    color: #fff;
+    border-radius: 999px;
+    font-family: var(--ff-body);
+    font-size: .78rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(14px);
+    transition:
+        opacity .7s ease,
+        transform .7s var(--ease),
+        border-color .3s ease,
+        box-shadow .3s ease;
+}
+
+.enter-button.in {
+    opacity: 1;
+    transform: none;
+}
+
+/* Fond bleu qui monte */
+.enter-button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--blue), var(--blue-d));
+    transform: translateY(101%);
+    transition: transform .45s var(--ease);
+    border-radius: inherit;
+    z-index: 0;
+}
+
+.enter-button:hover {
+    border-color: transparent;
+    box-shadow: 0 8px 40px rgba(59, 130, 246, .55);
+}
+
+.enter-button:hover::before {
+    transform: translateY(0);
+}
+
+/* Shimmer */
+.enter-button::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .18), transparent);
+    transform: translateX(-100%);
+    transition: transform .6s ease;
+    border-radius: inherit;
+    z-index: 1;
+}
+
+.enter-button:hover::after {
+    transform: translateX(100%);
+}
+
+.enter-button span,
+.enter-button svg {
+    position: relative;
+    z-index: 2;
+}
+
+.enter-button svg {
+    transition: transform .3s var(--ease);
+}
+
+.enter-button:hover svg {
+    transform: translateX(5px);
+}
+
+/* Anneau pulse autour du bouton */
+.btn-ring {
+    position: absolute;
+    inset: -8px;
+    border-radius: 999px;
+    border: 1px solid rgba(96, 165, 250, .2);
+    animation: ringPulse 2.8s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes ringPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: .8;
+    }
+
+    50% {
+        transform: scale(1.06);
+        opacity: 0;
+    }
+}
+
+/* ── LOADING ──────────────────────────────────────── */
+#loading {
+    position: fixed;
+    bottom: 2.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: .45rem;
+    z-index: 20;
+}
+
+#loading.hidden {
+    display: none;
+}
+
+.loading-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(96, 165, 250, .5);
+    animation: dotP 1.4s ease-in-out infinite;
+}
+
+.loading-dot:nth-child(2) {
+    animation-delay: .2s;
+}
+
+.loading-dot:nth-child(3) {
+    animation-delay: .4s;
+}
+
+@keyframes dotP {
+
+    0%,
+    100% {
+        opacity: .3;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.8);
+    }
+}
+
+/* ── SORTIE ───────────────────────────────────────── */
+#intro-container.exiting {
+    pointer-events: none;
+}
+
+/* ── RESPONSIVE ───────────────────────────────────── */
+@media (max-width: 768px) {
+    .brand-name {
+        font-size: 2.8rem;
+    }
+
+    .enter-button {
+        padding: .9rem 2rem;
+    }
+
+    .side-label,
+    .corner-info {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .brand-name {
+        font-size: 2.1rem;
+    }
+
+    .tagline {
+        font-size: .8rem;
+        margin-bottom: 2.5rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+    }
+}
+
+.enter-button:focus-visible {
+    outline: 2px solid var(--blue-l);
+    outline-offset: 6px;
+}
+
+/* ═══════════════════════════════════════════════════
+   ÉLÉMENTS SEO
+   ═══════════════════════════════════════════════════ */
+
+/* Texte SEO secondaire sous le bouton
+   Visible par Google, quasi invisible visuellement */
+.seo-text {
+    font-size: .65rem;
+    color: rgba(255, 255, 255, .18);
+    letter-spacing: .04em;
+    margin-top: 1.5rem;
+    font-family: var(--ff-body);
+    text-align: center;
+    max-width: 480px;
+    line-height: 1.8;
+    text-shadow: 0 0 12px rgba(8, 12, 20, .9);
+}
+
+/* Footer SEO — toujours présent dans le DOM */
+.intro-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
+    padding: .5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .2rem;
+    /* Invisible visuellement mais dans le DOM pour Google */
+    opacity: 0;
+    pointer-events: none;
+    font-size: .01px;
+    /* Taille micro — pas display:none */
+    color: transparent;
+}
+
+/* Quand le contenu est révélé, on rend le footer accessible */
+#content.visible~.intro-footer,
+.intro-footer {
+    pointer-events: auto;
+}
+
+.intro-footer nav {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.intro-footer a {
+    color: transparent;
+    text-decoration: none;
+    font-size: .01px;
+}
+
+.intro-footer p {
+    font-size: .01px;
+    color: transparent;
+}

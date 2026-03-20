@@ -1,0 +1,5 @@
+# robots.txt - Sud Web Project
+User-agent: *
+Allow: /
+
+Sitemap: https://www.sudwebproject.com/sitemap.xml

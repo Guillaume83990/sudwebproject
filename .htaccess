@@ -1,0 +1,45 @@
+# ================================================
+# CONFIGURATION .HTACCESS - SUD WEB PROJECT
+# ================================================
+
+# Activer le moteur de réécriture
+RewriteEngine On
+
+# Rediriger la racine vers intro.html
+RewriteRule ^$ intro.html [L]
+
+# Page d'erreur 404 personnalisée
+ErrorDocument 404 /404.html
+
+# Bloquer l'accès aux fichiers sensibles
+<FilesMatch "\.(htaccess|htpasswd|ini|log|sh|sql)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Désactiver la liste des répertoires
+Options -Indexes
+
+# Compression GZIP pour améliorer la vitesse
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
+
+# Cache des fichiers statiques
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# Sécurité supplémentaire
+<IfModule mod_headers.c>
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set X-Content-Type-Options "nosniff"
+</IfModule>

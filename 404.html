@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 — Page non trouvée | Sud Web Project</title>
+    <meta name="description" content="La page que vous recherchez n'existe pas ou a été déplacée." />
+    <meta name="robots" content="noindex, follow" />
+
+    <!-- ═══ FAVICON ═══ -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+    <meta name="theme-color" content="#080C14" />
+    <link rel="stylesheet" href="css/fonts-local.css" />
+    <link rel="stylesheet" href="css/404.css" />
+</head>
+
+<body>
+
+    <canvas id="particles-404" aria-hidden="true"></canvas>
+
+    <div class="error-container">
+
+        <!-- Logo -->
+        <div class="logo">
+            <a href="index.html" aria-label="Sud Web Project — Retour à l'accueil">
+                <svg viewBox="0 0 50 50" width="40" height="40" aria-hidden="true">
+                    <polygon points="25,2.5 45,13.75 45,36.25 25,47.5 5,36.25 5,13.75" fill="url(#g404)"
+                        stroke="#3B82F6" stroke-width="1.5" />
+                    <defs>
+                        <linearGradient id="g404" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#3B82F6" />
+                            <stop offset="100%" style="stop-color:#1D4ED8" />
+                        </linearGradient>
+                    </defs>
+                    <text x="25" y="31" text-anchor="middle" fill="white" font-size="15" font-family="monospace"
+                        font-weight="bold">&lt;/&gt;</text>
+                </svg>
+            </a>
+        </div>
+
+        <!-- Contenu -->
+        <div class="error-content">
+
+            <!-- 404 animé -->
+            <div class="error-code" aria-hidden="true">
+                <span class="glitch" data-text="404">404</span>
+            </div>
+
+            <h1>Page non trouvée</h1>
+
+            <p class="error-message">
+                Oups ! La page que vous recherchez n'existe pas ou a été déplacée.
+            </p>
+
+            <!-- Suggestions -->
+            <nav class="suggestions" aria-label="Pages suggérées">
+                <p class="suggestions-title">Que souhaitez-vous faire ?</p>
+                <div class="suggestions-links">
+                    <a href="index.html" class="suggestion-link">
+                        <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                            aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                        </svg>
+                        Retour à l'accueil
+                    </a>
+                    <a href="index.html#services" class="suggestion-link">
+                        <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                            aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        Nos services
+                    </a>
+                    <a href="index.html#contact" class="suggestion-link">
+                        <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                            aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        Me contacter
+                    </a>
+                </div>
+            </nav>
+
+            <p class="error-joke">
+                💡 <em>Cette page est aussi introuvable qu'un bug dans un code parfait...</em>
+            </p>
+
+        </div>
+    </div>
+
+    <script>
+        // Particules légères
+        var canvas = document.getElementById('particles-404');
+        var ctx = canvas.getContext('2d');
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resize();
+        window.addEventListener('resize', resize);
+
+        var particles = [];
+        for (var i = 0; i < 45; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                r: Math.random() * 1.5 + 0.3,
+                vx: (Math.random() - .5) * .4,
+                vy: (Math.random() - .5) * .4,
+                o: Math.random() * .35 + .1
+            });
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(function (p) {
+                p.x += p.vx; p.y += p.vy;
+                if (p.x < 0) p.x = canvas.width;
+                if (p.x > canvas.width) p.x = 0;
+                if (p.y < 0) p.y = canvas.height;
+                if (p.y > canvas.height) p.y = 0;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(59,130,246,' + p.o + ')';
+                ctx.fill();
+            });
+            requestAnimationFrame(animate);
+        }
+        animate();
+    </script>
+
+</body>
+
+</html>

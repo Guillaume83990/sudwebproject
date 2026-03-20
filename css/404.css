@@ -1,0 +1,207 @@
+/* ================================================
+   404.CSS — Sud Web Project
+   ================================================ */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #080C14;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: #CBD5E1;
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Grain */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: .4;
+}
+
+/* Canvas particules en arrière-plan */
+#particles-404 {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Container principal */
+.error-container {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+}
+
+/* Logo */
+.logo {
+    margin-bottom: 2.5rem;
+}
+
+/* Contenu */
+.error-content {
+    max-width: 560px;
+    width: 100%;
+    animation: fadeUp .6s ease both;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Numéro 404 */
+.error-code {
+    margin-bottom: 1.5rem;
+}
+
+.glitch {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(6rem, 18vw, 10rem);
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: -.04em;
+    line-height: 1;
+    display: inline-block;
+    position: relative;
+    background: linear-gradient(135deg, #fff 40%, #60A5FA);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: glitchAnim 4s infinite;
+}
+
+@keyframes glitchAnim {
+
+    0%,
+    90%,
+    100% {
+        transform: translate(0);
+        filter: none;
+    }
+
+    92% {
+        transform: translate(-3px, 1px);
+        filter: hue-rotate(90deg);
+    }
+
+    94% {
+        transform: translate(3px, -1px);
+        filter: hue-rotate(-90deg);
+    }
+
+    96% {
+        transform: translate(-2px, 0);
+        filter: none;
+    }
+}
+
+/* Titre */
+h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: -.02em;
+    margin-bottom: .75rem;
+}
+
+/* Message */
+.error-message {
+    color: #94A3B8;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Suggestions */
+.suggestions {
+    margin-bottom: 2rem;
+}
+
+.suggestions-title {
+    color: #64748B;
+    font-size: .82rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    margin-bottom: 1rem;
+}
+
+.suggestions-links {
+    display: flex;
+    gap: .75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.suggestion-link {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    color: #60A5FA;
+    text-decoration: none;
+    font-size: .88rem;
+    font-weight: 600;
+    padding: .6rem 1.2rem;
+    background: rgba(59, 130, 246, .08);
+    border: 1px solid rgba(59, 130, 246, .2);
+    border-radius: 50px;
+    transition: all .25s ease;
+}
+
+.suggestion-link:hover {
+    background: rgba(59, 130, 246, .15);
+    border-color: rgba(59, 130, 246, .4);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Blague */
+.error-joke {
+    color: #475569;
+    font-size: .85rem;
+    font-style: italic;
+    margin-top: 1.5rem;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .suggestions-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .suggestion-link {
+        width: 100%;
+        justify-content: center;
+    }
+}

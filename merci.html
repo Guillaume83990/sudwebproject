@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Merci ! Votre message a bien été reçu | Sud Web Project</title>
+    <meta name="description"
+        content="Votre demande de devis a bien été reçue. Guillaume Robin vous recontacte sous 24h." />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <!-- ═══ FAVICON — toutes plateformes ═══ -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon-96.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png" />
+    <meta name="msapplication-TileImage" content="assets/favicon-192.png" />
+    <meta name="msapplication-TileColor" content="#3B82F6" />
+    <meta name="theme-color" content="#080C14" />
+
+    <link rel="stylesheet" href="css/fonts-local.css" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #080C14;
+            font-family: 'DM Sans', system-ui, sans-serif;
+            color: #CBD5E1;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Grain */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+            opacity: .4;
+        }
+
+        /* Glow background */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(ellipse, rgba(59, 130, 246, .08), transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .merci-wrap {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 560px;
+            width: 100%;
+            animation: fadeUp .6s ease both;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Logo */
+        .merci-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: .6rem;
+            text-decoration: none;
+            margin-bottom: 2.5rem;
+        }
+
+        .merci-logo span {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: -.01em;
+        }
+
+        .merci-logo em {
+            color: #60A5FA;
+            font-style: normal;
+        }
+
+        /* Icône check */
+        .merci-icon {
+            width: 88px;
+            height: 88px;
+            background: linear-gradient(135deg, #3B82F6, #1D4ED8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            box-shadow: 0 0 0 0 rgba(59, 130, 246, .4);
+            animation: iconPulse 2.5s ease-in-out infinite;
+        }
+
+        @keyframes iconPulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(59, 130, 246, .4), 0 8px 32px rgba(59, 130, 246, .35);
+            }
+
+            50% {
+                box-shadow: 0 0 0 14px rgba(59, 130, 246, .0), 0 8px 40px rgba(59, 130, 246, .5);
+            }
+        }
+
+        .merci-icon svg {
+            width: 40px;
+            height: 40px;
+        }
+
+        /* Titre */
+        h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: -.025em;
+            margin-bottom: .75rem;
+        }
+
+        h1 em {
+            color: #60A5FA;
+            font-style: italic;
+        }
+
+        .merci-sub {
+            font-size: 1.05rem;
+            color: #94A3B8;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        /* Card infos */
+        .merci-card {
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid rgba(59, 130, 246, .2);
+            border-radius: 14px;
+            padding: 1.5rem 1.75rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .merci-card-row {
+            display: flex;
+            align-items: flex-start;
+            gap: .75rem;
+            padding: .5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, .05);
+        }
+
+        .merci-card-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .merci-card-row .icon {
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            margin-top: .1rem;
+        }
+
+        .merci-card-row p {
+            font-size: .9rem;
+            color: #CBD5E1;
+            line-height: 1.6;
+        }
+
+        .merci-card-row p strong {
+            color: #fff;
+        }
+
+        .merci-card-row a {
+            color: #60A5FA;
+            text-decoration: none;
+        }
+
+        .merci-card-row a:hover {
+            color: #fff;
+        }
+
+        /* CTA retour */
+        .btn-retour {
+            display: inline-flex;
+            align-items: center;
+            gap: .6rem;
+            background: linear-gradient(135deg, #3B82F6, #1D4ED8);
+            color: #fff;
+            text-decoration: none;
+            padding: .9rem 2.2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: .9rem;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, .4);
+            transition: all .3s ease;
+        }
+
+        .btn-retour:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 35px rgba(59, 130, 246, .55);
+        }
+
+        .merci-footer {
+            margin-top: 2.5rem;
+            color: #475569;
+            font-size: .8rem;
+        }
+
+        .merci-footer a {
+            color: #60A5FA;
+            text-decoration: none;
+        }
+
+        .merci-footer a:hover {
+            color: #fff;
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .merci-card {
+                padding: 1.25rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="merci-wrap">
+
+        <!-- Logo -->
+        <a href="index.html" class="merci-logo" aria-label="Sud Web Project — Accueil">
+            <svg viewBox="0 0 50 50" width="28" height="28" aria-hidden="true">
+                <polygon points="25,2.5 45,13.75 45,36.25 25,47.5 5,36.25 5,13.75" fill="url(#mG)" stroke="#3B82F6"
+                    stroke-width="1.5" />
+                <defs>
+                    <linearGradient id="mG" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#3B82F6" />
+                        <stop offset="100%" style="stop-color:#1D4ED8" />
+                    </linearGradient>
+                </defs>
+                <text x="25" y="31" text-anchor="middle" fill="white" font-size="15" font-family="monospace"
+                    font-weight="bold">&lt;/&gt;</text>
+            </svg>
+            <span>Sud<em>Web</em> Project</span>
+        </a>
+
+        <!-- Icône -->
+        <div class="merci-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 6L9 17l-5-5" />
+            </svg>
+        </div>
+
+        <!-- Titre -->
+        <h1>Merci <em>!</em></h1>
+        <p class="merci-sub">Votre message a bien été reçu.<br>Je vous recontacte très rapidement.</p>
+
+        <!-- Card infos -->
+        <div class="merci-card">
+            <div class="merci-card-row">
+                <span class="icon">⏱️</span>
+                <p><strong>Réponse garantie sous 24h</strong><br>Je reviendrai vers vous avec un devis détaillé, adapté
+                    à votre projet et votre budget.</p>
+            </div>
+            <div class="merci-card-row">
+                <span class="icon">📧</span>
+                <p>En attendant : <a href="mailto:contact@sudwebproject.com">contact@sudwebproject.com</a></p>
+            </div>
+            <div class="merci-card-row">
+                <span class="icon">📱</span>
+                <p><a href="tel:+33611547324">+33 6 11 54 73 24</a> — disponible lun–sam 8h–19h</p>
+            </div>
+        </div>
+
+        <!-- CTA retour -->
+        <a href="index.html" class="btn-retour">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M10 12L6 8l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+            Retour au site
+        </a>
+
+        <p class="merci-footer">
+            © <span id="yr"></span> Sud Web Project ·
+            <a href="mentions-legales.html">Mentions légales</a>
+        </p>
+
+    </div>
+
+    <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+
+</html>
