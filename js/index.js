@@ -213,14 +213,24 @@
     }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
 
     $$('[data-scroll]').forEach(function (el) {
-        /* Fallback : si déjà visible au chargement (PC grand écran), déclencher immédiatement */
         var rect = el.getBoundingClientRect();
         if (rect.top < window.innerHeight && rect.bottom > 0) {
+            /* Déjà dans le viewport au chargement — révéler immédiatement */
             el.classList.add('is-visible');
         } else {
             scrollObs.observe(el);
         }
     });
+
+    /* Sécurité : après 2s, révéler tout ce qui n'est toujours pas visible */
+    setTimeout(function () {
+        $$('[data-scroll]:not(.is-visible)').forEach(function (el) {
+            var rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight + 200) {
+                el.classList.add('is-visible');
+            }
+        });
+    }, 2000);
 
     /* Section labels */
     if (!PRM) {
@@ -257,7 +267,8 @@
         }, { threshold: 0.15, rootMargin: '0px 0px -20px 0px' });
 
         $$('.pf-img').forEach(function (el) {
-            el.classList.add('img-wipe');
+            /* img-wipe désactivé — images visibles immédiatement */
+            /* el.classList.add('img-wipe'); */
             imgObs.observe(el);
         });
     }
