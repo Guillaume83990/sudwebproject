@@ -760,3 +760,9 @@
         text-align: left;
     }
 }
+
+/* ── OVERRIDE SPLIT-REVEAL — toujours visible ────── */
+.split-reveal {
+    clip-path: inset(0 0 0% 0) !important;
+    opacity: 1 !important;
+}
