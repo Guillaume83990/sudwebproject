@@ -484,48 +484,63 @@ section {
     flex-shrink: 0;
 }
 
-.language-switcher {
+/* ── LANG TOGGLE — slider premium ──────────────── */
+.lang-toggle {
+    position: relative;
     display: flex;
-    gap: .35rem;
-    margin-right: auto;
-}
-
-.lang-btn {
-    display: inline-flex;
     align-items: center;
-    gap: .3rem;
-    padding: .3rem .65rem;
-    border-radius: 6px;
-    font-size: .72rem;
-    font-weight: 700;
-    letter-spacing: .04em;
-    color: var(--mist);
-    border: 1px solid transparent;
-    transition: all .25s ease;
-    line-height: 1;
-}
-
-.lang-flag {
-    font-size: 1rem;
-    line-height: 1;
-}
-
-.lang-code {
-    font-size: .72rem;
-    font-weight: 700;
-    letter-spacing: .05em;
-}
-
-.lang-btn:hover {
-    color: #fff;
-    border-color: rgba(255, 255, 255, .15);
+    width: 76px;
+    height: 30px;
     background: rgba(255, 255, 255, .06);
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    padding: 2px;
+    margin-right: auto;
+    cursor: pointer;
 }
 
-.lang-btn.active {
-    color: var(--blue-l);
-    border-color: var(--border-h);
-    background: rgba(59, 130, 246, .12);
+/* Slider qui glisse */
+.lang-slider {
+    position: absolute;
+    width: 34px;
+    height: 24px;
+    background: linear-gradient(135deg, var(--blue), var(--blue-d));
+    border-radius: 50px;
+    left: 2px;
+    transition: transform .3s var(--ease);
+    box-shadow: 0 2px 8px rgba(59, 130, 246, .4);
+    pointer-events: none;
+}
+
+/* EN actif : slider glisse à droite */
+.lang-toggle.en .lang-slider {
+    transform: translateX(38px);
+}
+
+.lang-opt {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    text-align: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    color: var(--mist);
+    transition: color .2s ease;
+    padding: 0;
+    line-height: 1;
+    font-family: var(--ff-body);
+}
+
+.lang-opt.active {
+    color: #fff;
+}
+
+.lang-opt:hover:not(.active) {
+    color: rgba(255, 255, 255, .7);
 }
 
 .nav-links {
@@ -2521,33 +2536,41 @@ section {
 .cookie-banner {
     position: fixed;
     bottom: 1.5rem;
+    left: 1rem;
+    right: 1rem;
+    max-width: 680px;
+    margin: 0 auto;
+    /* Centrage fiable sur tous les écrans */
     left: 50%;
     transform: translateX(-50%);
-    z-index: 9998;
-    max-width: 680px;
     width: calc(100% - 2rem);
-    background: rgba(15, 23, 42, .95);
+    z-index: 9998;
+    background: rgba(15, 23, 42, .97);
     backdrop-filter: blur(20px);
     border: 1px solid var(--border);
     border-radius: var(--r);
     box-shadow: 0 20px 60px rgba(0, 0, 0, .5);
     display: none;
+    box-sizing: border-box;
 }
 
 .cookie-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1.5rem;
-    padding: 1.25rem 1.75rem;
+    gap: 1rem;
+    padding: 1.1rem 1.5rem;
     flex-wrap: wrap;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .cookie-inner p {
     color: var(--mist);
-    font-size: .85rem;
+    font-size: .83rem;
     line-height: 1.6;
     flex: 1;
+    min-width: 180px;
 }
 
 .cookie-inner a {
@@ -2556,16 +2579,18 @@ section {
 
 .cookie-btns {
     display: flex;
-    gap: .75rem;
+    gap: .6rem;
     flex-shrink: 0;
 }
 
 .cookie-btn {
-    padding: .5rem 1.25rem;
+    padding: .5rem 1.1rem;
     border-radius: var(--r-sm);
-    font-size: .82rem;
+    font-size: .8rem;
     font-weight: 600;
     transition: all .25s ease;
+    white-space: nowrap;
+    cursor: pointer;
 }
 
 .cookie-btn-accept {
@@ -2585,6 +2610,36 @@ section {
 
 .cookie-btn-refuse:hover {
     color: #fff !important;
+}
+
+/* ── MOBILE : bannière pleine largeur en bas ─── */
+@media (max-width: 600px) {
+    .cookie-banner {
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: 100% !important;
+        transform: none !important;
+        border-radius: 14px 14px 0 0;
+        border-bottom: none;
+    }
+
+    .cookie-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: .75rem;
+        padding: 1.1rem 1.25rem;
+    }
+
+    .cookie-btns {
+        width: 100%;
+    }
+
+    .cookie-btn {
+        flex: 1;
+        text-align: center;
+        padding: .7rem .5rem;
+    }
 }
 
 /* ═════════════════════════════════════════════════
