@@ -5,18 +5,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- ═══ FAVICON — toutes plateformes ═══ -->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
-    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon-96.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
-    <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png" />
-    <meta name="msapplication-TileImage" content="assets/favicon-192.png" />
-    <meta name="msapplication-TileColor" content="#3B82F6" />
-    <meta name="theme-color" content="#080C14" />
-
     <!-- ═══ SEO ═══ -->
     <title>Création Site Internet Var (83) | Développeur Web Var — Sud Web Project</title>
     <meta name="description"
@@ -63,6 +51,18 @@
     <link rel="alternate" hreflang="fr" href="https://www.sudwebproject.com/creation-site-internet-var.html" />
     <link rel="alternate" hreflang="x-default" href="https://www.sudwebproject.com/creation-site-internet-var.html" />
 
+    <!-- ═══ FAVICON — toutes plateformes ═══ -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon-96.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png" />
+    <meta name="msapplication-TileImage" content="assets/favicon-192.png" />
+    <meta name="msapplication-TileColor" content="#3B82F6" />
+    <meta name="theme-color" content="#080C14" />
+
     <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="css/ville.css" />
     <link rel="stylesheet" href="css/cookies.css" />
@@ -96,11 +96,10 @@
                 </svg>
                 <span>Sud<em>Web</em> Project</span>
             </a>
-            <div class="language-switcher" role="group" aria-label="Langue">
-                <button class="lang-btn active" data-lang="fr" aria-pressed="true"><span
-                        class="lang-flag">🇫🇷</span><span class="lang-code">FR</span></button>
-                <button class="lang-btn" data-lang="en" aria-pressed="false"><span class="lang-flag">🇬🇧</span><span
-                        class="lang-code">EN</span></button>
+            <div class="lang-toggle" id="lang-toggle" role="group" aria-label="Langue">
+                <div class="lang-slider" aria-hidden="true"></div>
+                <button class="lang-opt active" data-lang="fr" aria-pressed="true">FR</button>
+                <button class="lang-opt" data-lang="en" aria-pressed="false">EN</button>
             </div>
             <ul class="nav-links" id="nav-menu">
                 <li><a href="index.html#services">Services</a></li>
@@ -175,7 +174,7 @@
     <section class="ville-intro-section" id="var-intro">
         <div class="container">
             <div class="ville-intro-grid">
-                <div class="ville-intro-text" data-scroll>
+                <div class="ville-intro-text">
                     <div class="section-label" data-i18n="var.intro.badge">Le Var en chiffres</div>
                     <h2 class="ville-h2">
                         <span class="split-reveal" data-i18n="var.intro.h2a">Le Var, un département</span>
@@ -216,7 +215,7 @@
     <!-- ═══ VILLES DESSERVIES ═══ -->
     <section class="ville-villes-section" id="villes">
         <div class="container">
-            <div class="section-head" data-scroll>
+            <div class="section-head">
                 <div class="section-label" data-i18n="var.villes.badge">Zone d'intervention</div>
                 <h2 class="section-title">
                     <span class="split-reveal" data-i18n="var.villes.h2a">Création site internet</span>
@@ -300,7 +299,7 @@
     <!-- ═══ POURQUOI ═══ -->
     <section class="ville-pourquoi">
         <div class="container">
-            <div class="section-head" data-scroll>
+            <div class="section-head">
                 <div class="section-label light" data-i18n="var.why.badge">Pourquoi me choisir ?</div>
                 <h2 class="section-title">
                     <span class="split-reveal" data-i18n="var.why.h2a">Un développeur web local</span>
@@ -346,7 +345,7 @@
     <!-- ═══ PROCESS ═══ -->
     <section class="ville-process">
         <div class="container">
-            <div class="section-head" data-scroll>
+            <div class="section-head">
                 <div class="section-label" data-i18n="var.process.badge">Comment ça se passe ?</div>
                 <h2 class="section-title">
                     <span class="split-reveal" data-i18n="var.process.h2a">Votre site internet dans le Var</span>
@@ -385,7 +384,7 @@
     <!-- ═══ TARIFS ═══ -->
     <section class="pricing" id="tarifs-var" aria-labelledby="tarifs-var-title">
         <div class="container">
-            <div class="section-head" data-scroll>
+            <div class="section-head">
                 <div class="section-label" data-i18n="var.tarifs.badge">Tarifs</div>
                 <h2 class="section-title" id="tarifs-var-title">
                     <span class="split-reveal" data-i18n="var.tarifs.h2a">Tarifs création site internet</span>
@@ -535,7 +534,7 @@
     <!-- ═══ FAQ SEO ═══ -->
     <section class="faq" id="faq-var" aria-labelledby="faq-var-title">
         <div class="container">
-            <div class="section-head" data-scroll>
+            <div class="section-head">
                 <div class="section-label" data-i18n="var.faq.badge">Questions fréquentes</div>
                 <h2 class="section-title" id="faq-var-title">
                     <span class="split-reveal" data-i18n="var.faq.h2a">Tout savoir sur la création</span>
@@ -574,7 +573,7 @@
     <!-- ═══ AVIS CLIENTS ═══ -->
     <section class="testi" id="avis-var" aria-labelledby="avis-var-title">
         <div class="container">
-            <div class="section-head" data-scroll>
+            <div class="section-head">
                 <div class="section-label" data-i18n="testi.badge">Ils m'ont fait confiance</div>
                 <h2 class="section-title" id="avis-var-title">
                     <span class="split-reveal" data-i18n="testi.t">Ce qu'ils en disent.</span>
@@ -612,7 +611,7 @@
     <!-- ═══ CTA FINAL ═══ -->
     <section class="ville-cta">
         <div class="container">
-            <div class="section-head" data-scroll>
+            <div class="section-head">
                 <h2 class="section-title" style="text-align:center">
                     <span class="split-reveal" data-i18n="var.cta.h2a">Votre entreprise dans le Var</span>
                     <span class="split-reveal ville-em" data-i18n="var.cta.h2b">mérite un site professionnel.</span>
@@ -628,7 +627,7 @@
                             stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                 </a>
-                <a href="tel:+33611547324" class="btn-ghost-hero" data-i18n="var.cta.btn2">📱 Appeler directement</a>
+                <a href="tel:+33611547324" class="btn-ghost-hero">06 11 54 73 24</a>
             </div>
         </div>
     </section>

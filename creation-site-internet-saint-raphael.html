@@ -4,19 +4,6 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- ═══ FAVICON — toutes plateformes ═══ -->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
-    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon-96.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
-    <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png" />
-    <meta name="msapplication-TileImage" content="assets/favicon-192.png" />
-    <meta name="msapplication-TileColor" content="#3B82F6" />
-    <meta name="theme-color" content="#080C14" />
-
     <title>Création Site Internet Saint-Raphaël | Développeur Web Saint-Raphaël — Sud Web Project</title>
     <meta name="description"
         content="Développeur web freelance à Saint-Raphaël (Var 83). Création de sites internet sur mesure pour entreprises de Saint-Raphaël — code à la main, SEO local Saint-Raphaël, PageSpeed 90+. Devis gratuit sous 24h." />
@@ -56,6 +43,18 @@
     <link rel="alternate" hreflang="x-default"
         href="https://www.sudwebproject.com/creation-site-internet-saint-raphael.html" />
 
+    <!-- ═══ FAVICON — toutes plateformes ═══ -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon-96.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png" />
+    <meta name="msapplication-TileImage" content="assets/favicon-192.png" />
+    <meta name="msapplication-TileColor" content="#3B82F6" />
+    <meta name="theme-color" content="#080C14" />
+
     <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="css/ville.css" />
     <link rel="stylesheet" href="css/cookies.css" />
@@ -87,11 +86,10 @@
                 </svg>
                 <span>Sud<em>Web</em> Project</span>
             </a>
-            <div class="language-switcher" role="group" aria-label="Choisir la langue">
-                <button class="lang-btn active" data-lang="fr" aria-pressed="true" aria-label="Version française"><span
-                        class="lang-flag">🇫🇷</span><span class="lang-code">FR</span></button>
-                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English version"><span
-                        class="lang-flag">🇬🇧</span><span class="lang-code">EN</span></button>
+            <div class="lang-toggle" id="lang-toggle" role="group" aria-label="Langue">
+                <div class="lang-slider" aria-hidden="true"></div>
+                <button class="lang-opt active" data-lang="fr" aria-pressed="true">FR</button>
+                <button class="lang-opt" data-lang="en" aria-pressed="false">EN</button>
             </div>
             <ul class="nav-links" id="nav-menu" role="list">
                 <li><a href="index.html#services" data-i18n="nav.services">Services</a></li>
@@ -158,7 +156,7 @@
     <section class="ville-intro-section" id="saint-raphael-intro" aria-labelledby="saint-raphael-intro-title">
         <div class="container">
             <div class="ville-intro-grid">
-                <div class="ville-intro-text" data-scroll>
+                <div class="ville-intro-text">
                     <div class="section-label" data-i18n="saint-raphael.intro.badge">À propos de Saint-Raphaël</div>
                     <h2 class="ville-h2" id="saint-raphael-intro-title">
                         <span class="split-reveal" data-i18n="saint-raphael.intro.h2a">Saint-Raphaël, une ville</span>
@@ -193,7 +191,7 @@
     <!-- TARIFS -->
     <section class="pricing" id="tarifs-saint-raphael" aria-labelledby="tarifs-saint-raphael-title">
         <div class="container">
-            <div class="section-head" data-scroll>
+            <div class="section-head">
                 <div class="section-label" data-i18n="saint-raphael.tarifs.badge">Tarifs</div>
                 <h2 class="section-title" id="tarifs-saint-raphael-title">
                     <span class="split-reveal" data-i18n="saint-raphael.tarifs.h2a">Tarifs création site internet</span>
@@ -340,7 +338,7 @@
     <!-- POURQUOI -->
     <section class="ville-pourquoi" aria-labelledby="pourquoi-saint-raphael-title">
         <div class="container">
-            <div class="section-head" data-scroll>
+            <div class="section-head">
                 <div class="section-label" style="color:var(--blue-l)" data-i18n="saint-raphael.why.badge">Développeur
                     web local</div>
                 <h2 class="section-title" id="pourquoi-saint-raphael-title">
@@ -390,7 +388,7 @@
     <!-- PROCESS -->
     <section class="ville-process" aria-labelledby="process-saint-raphael-title">
         <div class="container">
-            <div class="section-head" data-scroll>
+            <div class="section-head">
                 <div class="section-label" data-i18n="saint-raphael.process.badge">Comment ça se passe ?</div>
                 <h2 class="section-title" id="process-saint-raphael-title">
                     <span class="split-reveal" data-i18n="saint-raphael.process.h2a">Votre site internet à
@@ -430,7 +428,7 @@
     <!-- FAQ -->
     <section class="faq" id="faq-saint-raphael" aria-labelledby="faq-saint-raphael-title">
         <div class="container">
-            <div class="section-head" data-scroll>
+            <div class="section-head">
                 <div class="section-label" data-i18n="saint-raphael.faq.badge">Questions fréquentes · Saint-Raphaël
                 </div>
                 <h2 class="section-title" id="faq-saint-raphael-title">
@@ -471,7 +469,7 @@
     <!-- AVIS -->
     <section class="testi" id="avis-saint-raphael" aria-labelledby="avis-saint-raphael-title">
         <div class="container">
-            <div class="section-head" data-scroll>
+            <div class="section-head">
                 <div class="section-label" data-i18n="testi.badge">Ils m'ont fait confiance</div>
                 <h2 class="section-title" id="avis-saint-raphael-title"><span class="split-reveal"
                         data-i18n="testi.t">Ce qu'ils en disent.</span></h2>
@@ -508,7 +506,7 @@
     <!-- CTA -->
     <section class="ville-cta" aria-labelledby="cta-saint-raphael-title">
         <div class="container">
-            <div class="section-head" data-scroll>
+            <div class="section-head">
                 <h2 class="section-title" id="cta-saint-raphael-title" style="text-align:center">
                     <span class="split-reveal" data-i18n="saint-raphael.cta.h2a">Votre entreprise à Saint-Raphaël</span>
                     <span class="split-reveal ville-em" data-i18n="saint-raphael.cta.h2b">mérite un site
@@ -524,8 +522,7 @@
                         <path d="M3.75 9h10.5M9.75 4.5L14.25 9l-4.5 4.5" stroke="currentColor" stroke-width="1.5"
                             stroke-linecap="round" stroke-linejoin="round" />
                     </svg></a>
-                <a href="tel:+33611547324" class="btn-ghost-hero" data-i18n="saint-raphael.cta.btn2">📱 Appeler
-                    directement</a>
+                <a href="tel:+33611547324" class="btn-ghost-hero">06 11 54 73 24</a>
             </div>
             <p class="ville-seo-text" aria-hidden="true">Création site internet Saint-Raphaël · Développeur web
                 Saint-Raphaël · Site vitrine Saint-Raphaël · SEO local Saint-Raphaël · Agence web Var 83</p>

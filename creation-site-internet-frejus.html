@@ -5,18 +5,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- ═══ FAVICON — toutes plateformes ═══ -->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
-    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon-96.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
-    <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png" />
-    <meta name="msapplication-TileImage" content="assets/favicon-192.png" />
-    <meta name="msapplication-TileColor" content="#3B82F6" />
-    <meta name="theme-color" content="#080C14" />
-
     <!-- ═══ SEO ═══ -->
     <title>Création Site Internet Fréjus | Développeur Web Fréjus — Sud Web Project</title>
     <meta name="description"
@@ -64,6 +52,18 @@
     <link rel="alternate" hreflang="x-default"
         href="https://www.sudwebproject.com/creation-site-internet-frejus.html" />
 
+    <!-- ═══ FAVICON — toutes plateformes ═══ -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon-96.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png" />
+    <meta name="msapplication-TileImage" content="assets/favicon-192.png" />
+    <meta name="msapplication-TileColor" content="#3B82F6" />
+    <meta name="theme-color" content="#080C14" />
+
     <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="css/ville.css" />
     <link rel="stylesheet" href="css/cookies.css" />
@@ -97,11 +97,10 @@
                 </svg>
                 <span>Sud<em>Web</em> Project</span>
             </a>
-            <div class="language-switcher" role="group" aria-label="Choisir la langue">
-                <button class="lang-btn active" data-lang="fr" aria-pressed="true" aria-label="Version française"><span
-                        class="lang-flag">🇫🇷</span><span class="lang-code">FR</span></button>
-                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English version"><span
-                        class="lang-flag">🇬🇧</span><span class="lang-code">EN</span></button>
+            <div class="lang-toggle" id="lang-toggle" role="group" aria-label="Langue">
+                <div class="lang-slider" aria-hidden="true"></div>
+                <button class="lang-opt active" data-lang="fr" aria-pressed="true">FR</button>
+                <button class="lang-opt" data-lang="en" aria-pressed="false">EN</button>
             </div>
             <ul class="nav-links" id="nav-menu" role="list">
                 <li><a href="index.html#services" data-i18n="nav.services">Services</a></li>
@@ -177,7 +176,7 @@
     <section class="ville-intro-section" id="frejus-intro" aria-labelledby="frejus-intro-title">
         <div class="container">
             <div class="ville-intro-grid">
-                <div class="ville-intro-text" data-scroll>
+                <div class="ville-intro-text">
                     <div class="section-label" data-i18n="frejus.intro.badge">Pourquoi Fréjus ?</div>
                     <h2 class="ville-h2" id="frejus-intro-title">
                         <span class="split-reveal" data-i18n="frejus.intro.h2a">Fréjus, une ville active</span>
@@ -220,7 +219,7 @@
     <!-- ═══ TARIFS ═══ -->
     <section class="pricing" id="tarifs-frejus" aria-labelledby="tarifs-frejus-title">
         <div class="container">
-            <div class="section-head" data-scroll>
+            <div class="section-head">
                 <div class="section-label" data-i18n="frejus.tarifs.badge">Tarifs</div>
                 <h2 class="section-title" id="tarifs-frejus-title">
                     <span class="split-reveal" data-i18n="frejus.tarifs.h2a">Tarifs création site internet</span>
@@ -370,7 +369,7 @@
     <!-- ═══ POURQUOI ═══ -->
     <section class="ville-pourquoi" aria-labelledby="pourquoi-frejus-title">
         <div class="container">
-            <div class="section-head" data-scroll>
+            <div class="section-head">
                 <div class="section-label" style="color:var(--blue-l)" data-i18n="frejus.why.badge">Avantage développeur
                     local</div>
                 <h2 class="section-title" id="pourquoi-frejus-title">
@@ -418,7 +417,7 @@
     <!-- ═══ PROCESS ═══ -->
     <section class="ville-process" aria-labelledby="process-frejus-title">
         <div class="container">
-            <div class="section-head" data-scroll>
+            <div class="section-head">
                 <div class="section-label" data-i18n="frejus.process.badge">Comment ça se passe ?</div>
                 <h2 class="section-title" id="process-frejus-title">
                     <span class="split-reveal" data-i18n="frejus.process.h2a">Votre site internet à Fréjus</span>
@@ -457,7 +456,7 @@
     <!-- ═══ FAQ SEO ═══ -->
     <section class="faq" id="faq-frejus" aria-labelledby="faq-frejus-title">
         <div class="container">
-            <div class="section-head" data-scroll>
+            <div class="section-head">
                 <div class="section-label" data-i18n="frejus.faq.badge">Questions fréquentes · Fréjus</div>
                 <h2 class="section-title" id="faq-frejus-title">
                     <span class="split-reveal" data-i18n="frejus.faq.h2a">Tout savoir sur la création</span>
@@ -496,7 +495,7 @@
     <!-- ═══ AVIS CLIENTS ═══ -->
     <section class="testi" id="avis-frejus" aria-labelledby="avis-frejus-title">
         <div class="container">
-            <div class="section-head" data-scroll>
+            <div class="section-head">
                 <div class="section-label" data-i18n="testi.badge">Ils m'ont fait confiance</div>
                 <h2 class="section-title" id="avis-frejus-title">
                     <span class="split-reveal" data-i18n="testi.t">Ce qu'ils en disent.</span>
@@ -534,7 +533,7 @@
     <!-- ═══ CTA FINAL ═══ -->
     <section class="ville-cta" aria-labelledby="cta-frejus-title">
         <div class="container">
-            <div class="section-head" data-scroll>
+            <div class="section-head">
                 <h2 class="section-title" id="cta-frejus-title" style="text-align:center">
                     <span class="split-reveal" data-i18n="frejus.cta.h2a">Votre entreprise à Fréjus</span>
                     <span class="split-reveal ville-em" data-i18n="frejus.cta.h2b">mérite un site professionnel.</span>
@@ -551,7 +550,7 @@
                             stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                 </a>
-                <a href="tel:+33611547324" class="btn-ghost-hero" data-i18n="frejus.cta.btn2">📱 Appeler directement</a>
+                <a href="tel:+33611547324" class="btn-ghost-hero">06 11 54 73 24</a>
             </div>
             <!-- Texte SEO invisible-visuellement mais lisible Google -->
             <p class="ville-seo-text" aria-hidden="true">Création site internet Fréjus · Développeur web Fréjus · Site

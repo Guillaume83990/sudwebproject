@@ -18,7 +18,6 @@
     <meta name="geo.placename" content="Saint-Tropez, Var, Provence-Alpes-Côte d'Azur" />
     <meta name="geo.position" content="43.2677;6.6407" />
     <meta name="ICBM" content="43.2677, 6.6407" />
-
     <!-- ═══ FAVICON — toutes plateformes ═══ -->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
@@ -59,10 +58,15 @@
     <link rel="canonical" href="https://www.sudwebproject.com/" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
     <link rel="alternate" hreflang="fr" href="https://www.sudwebproject.com/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.sudwebproject.com/" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- Preload image hero LCP -->
     <link rel="preload" as="image" href="assets/images/port-saint-tropez.webp" fetchpriority="high" />
-
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
     <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="css/cookies.css" />
     <link rel="stylesheet" href="css/fonts-local.css" />
@@ -95,11 +99,10 @@
                 </svg>
                 <span>Sud<em>Web</em> Project</span>
             </a>
-            <div class="language-switcher" role="group" aria-label="Langue">
-                <button class="lang-btn active" data-lang="fr" aria-pressed="true" aria-label="Version française"><span
-                        class="lang-flag" aria-hidden="true">🇫🇷</span><span class="lang-code">FR</span></button>
-                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English version"><span
-                        class="lang-flag" aria-hidden="true">🇬🇧</span><span class="lang-code">EN</span></button>
+            <div class="lang-toggle" id="lang-toggle" role="group" aria-label="Langue">
+                <div class="lang-slider" aria-hidden="true"></div>
+                <button class="lang-opt active" data-lang="fr" aria-pressed="true">FR</button>
+                <button class="lang-opt" data-lang="en" aria-pressed="false">EN</button>
             </div>
             <ul class="nav-links" id="nav-menu">
                 <li><a href="#services" data-i18n="nav.services">Services</a></li>
@@ -235,7 +238,7 @@
                 </div>
                 <p class="section-sub" data-i18n="portfolio.sub"></p>
             </div>
-            <div class="pf-grid" data-scroll>
+            <div class="pf-grid">
                 <article class="pf-card">
                     <div class="pf-img">
                         <picture>
@@ -290,7 +293,7 @@
                     <div class="pf-img">
                         <picture>
                             <source media="(max-width: 768px)" srcset="assets/images/site-coiffure-mobile.webp"
-                                width="480" height="230" /><img src="assets/images/Site coiffure elise & ciseau.webp"
+                                width="480" height="230" /><img src="assets/images/site-coiffure.webp"
                                 alt="Création site internet salon coiffure Cogolin — site vitrine Var" loading="lazy"
                                 width="800" height="383" decoding="async" />
                         </picture>
@@ -770,7 +773,7 @@
                         <a href="/cdn-cgi/l/email-protection#c4a7abaab0a5a7b084b7b1a0b3a1a6b4b6abaea1a7b0eaa7aba9"
                             class="cmethod"><span class="cmethod-icon" aria-hidden="true">📧</span>
                             <div><strong data-i18n="contact.em.l">Email</strong><span><span class="__cf_email__"
-                                        data-cfemail="99faf6f7edf8faedd9eaecfdeefcfbe9ebf6f3fcfaedb7faf6f4">contact@sudwebproject.com</span></span>
+                                        data-cfemail="99faf6f7edf8faedd9eaecfdeefcfbe9ebf6f3fcfaedb7faf6f4">[email&#160;protected]</span></span>
                             </div>
                         </a>
                         <div class="cmethod"><span class="cmethod-icon" aria-hidden="true">📍</span>
@@ -894,7 +897,7 @@
                             </svg><a
                                 href="/cdn-cgi/l/email-protection#791a16170d181a0d390a0c1d0e1c1b090b16131c1a0d571a1614"><span
                                     class="__cf_email__"
-                                    data-cfemail="65060a0b110406112516100112000715170a0f0006114b060a08">contact@sudwebproject.com</span></a>
+                                    data-cfemail="65060a0b110406112516100112000715170a0f0006114b060a08">[email&#160;protected]</span></a>
                         </li>
                         <li><svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                                 <path
