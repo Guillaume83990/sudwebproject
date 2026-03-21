@@ -210,9 +210,17 @@
             setTimeout(function () { el.classList.add('is-visible'); }, i * 75);
             scrollObs.unobserve(el);
         });
-    }, { threshold: 0.1, rootMargin: '0px 0px -55px 0px' });
+    }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
 
-    $$('[data-scroll]').forEach(function (el) { scrollObs.observe(el); });
+    $$('[data-scroll]').forEach(function (el) {
+        /* Fallback : si déjà visible au chargement (PC grand écran), déclencher immédiatement */
+        var rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            el.classList.add('is-visible');
+        } else {
+            scrollObs.observe(el);
+        }
+    });
 
     /* Section labels */
     if (!PRM) {
