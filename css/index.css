@@ -421,8 +421,8 @@ section {
 }
 
 [data-scroll] {
-    opacity: 0;
-    transform: translateY(40px);
+    opacity: 1;
+    transform: none;
     transition: opacity .8s var(--ease), transform .8s var(--ease);
 }
 

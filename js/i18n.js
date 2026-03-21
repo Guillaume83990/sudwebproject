@@ -1365,15 +1365,20 @@
     }
 
     function updateBtns() {
-        document.querySelectorAll('.lang-btn[data-lang]').forEach(function (btn) {
+        /* Tous les boutons langue (anciens .lang-btn + nouveaux .lang-opt) */
+        document.querySelectorAll('.lang-btn[data-lang], .lang-opt[data-lang]').forEach(function (btn) {
             var active = btn.getAttribute('data-lang') === lang;
             btn.classList.toggle('active', active);
             btn.setAttribute('aria-pressed', active ? 'true' : 'false');
         });
+        /* Toggle slider : classe 'en' pour déplacer le slider */
+        document.querySelectorAll('.lang-toggle').forEach(function (tog) {
+            tog.classList.toggle('en', lang === 'en');
+        });
     }
 
     function init() {
-        document.querySelectorAll('.lang-btn[data-lang]').forEach(function (btn) {
+        document.querySelectorAll('.lang-btn[data-lang], .lang-opt[data-lang]').forEach(function (btn) {
             btn.addEventListener('click', function () {
                 setLang(this.getAttribute('data-lang'));
             });
