@@ -766,3 +766,61 @@
     clip-path: inset(0 0 0% 0) !important;
     opacity: 1 !important;
 }
+
+/* ── MOTS EN CASCADE (partagé avec index.css) ─────── */
+.sw-word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(-22px) rotate(-5deg);
+    animation: swWordDrop .5s cubic-bezier(.16, 1, .3, 1) both;
+}
+
+@keyframes swWordDrop {
+    from {
+        opacity: 0;
+        transform: translateY(-22px) rotate(-5deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sw-word {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+/* ── REVEAL SYSTEM pages villes ─────────────────── */
+.split-reveal {
+    display: block;
+    overflow: hidden;
+}
+
+.split-reveal .rv-inner {
+    display: block;
+    transform: translateY(110%);
+    opacity: 0;
+    transition: transform .8s cubic-bezier(.77, 0, .175, 1), opacity .7s ease;
+}
+
+.split-reveal:nth-child(2) .rv-inner {
+    transition-delay: .14s;
+}
+
+.split-reveal.revealed .rv-inner {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .split-reveal .rv-inner {
+        transform: none !important;
+        opacity: 1 !important;
+        transition: none !important;
+    }
+}

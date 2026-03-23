@@ -135,20 +135,32 @@
        03 · HERO REVEAL
        Animations de la section hero au load
     ══════════════════════════════════════════════ */
+    /* Wrap le contenu d'un .split-reveal dans un .rv-inner */
+    function wrapReveal(el) {
+        if (el.querySelector('.rv-inner')) return;
+        var inner = document.createElement('span');
+        inner.className = 'rv-inner';
+        inner.innerHTML = el.innerHTML;
+        el.innerHTML = '';
+        el.appendChild(inner);
+    }
+
     function heroReveal() {
         if (PRM) {
             $$('.hero-content .split-reveal').forEach(function (el) { el.classList.add('revealed'); });
             return;
         }
 
-        /* Titres H1 */
-        $$('.hero-title .split-reveal').forEach(function (el, i) {
-            var text = el.textContent.trim();
-            setTimeout(function () {
-                el.classList.add('revealed');
-                scramble(el, text, { delay: 0, duration: 600 });
-            }, 300 + i * 220);
+        /* H1 hero — slide-up lent */
+        $$('.hero-title .split-reveal').forEach(function (el) {
+            wrapReveal(el);
         });
+        /* Déclencher après un court délai (preloader fini) */
+        setTimeout(function () {
+            $$('.hero-title .split-reveal').forEach(function (el) {
+                el.classList.add('revealed');
+            });
+        }, 350);
 
         /* Séquence eyebrow → sub → actions → metrics */
         var heroSeq = ['.hero-eyebrow', '.hero-sub', '.hero-actions', '.hero-metrics', '.hero-scroll-hint'];
@@ -174,30 +186,44 @@
     }
 
     /* ══════════════════════════════════════════════
-       04 · SPLIT REVEAL au scroll (H2 sections)
+       04 · SPLIT REVEAL au scroll — simple et fiable
     ══════════════════════════════════════════════ */
+
+    /* Préparer TOUS les split-reveal hors hero : wrap + invisible */
+    $$('.split-reveal').forEach(function (el) {
+        if (el.closest('.hero-title')) return;
+        wrapReveal(el);
+    });
+
     if (!PRM) {
         var splitObs = new IntersectionObserver(function (entries) {
             entries.forEach(function (entry) {
                 if (!entry.isIntersecting) return;
-                var spans = $$('.split-reveal', entry.target);
-                if (entry.target.classList.contains('split-reveal')) spans = [entry.target];
-                spans.forEach(function (sp, i) {
-                    /* Révélation fluide clip-path uniquement — pas de scramble sur H2 */
-                    setTimeout(function () {
+                /* Révéler tous les split-reveal dans cet élément */
+                var targets = [entry.target];
+                if (!entry.target.classList.contains('split-reveal')) {
+                    targets = Array.from(entry.target.querySelectorAll('.split-reveal'));
+                }
+                targets.forEach(function (sp) {
+                    if (!sp.classList.contains('revealed')) {
                         sp.classList.add('revealed');
-                    }, i * 150 + 60);
+                        /* Ligne bleue sur le conteneur titre */
+                        var titleEl = sp.closest('.section-title, .about-title, .contact-title');
+                        if (titleEl) setTimeout(function () { titleEl.classList.add('line-active'); }, 500);
+                    }
                 });
                 splitObs.unobserve(entry.target);
             });
-        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        }, { threshold: 0.15 });
 
-        var seen = new Set();
+        /* Observer chaque split-reveal individuellement */
         $$('.split-reveal').forEach(function (el) {
-            var parent = el.closest('.section-head, .about-text, .contact-left, .about-title, .faq-grid');
-            var target = parent || el;
-            if (!seen.has(target)) { seen.add(target); splitObs.observe(target); }
+            if (el.closest('.hero-title')) return;
+            splitObs.observe(el);
         });
+    } else {
+        /* PRM : tout révéler immédiatement */
+        $$('.split-reveal').forEach(function (el) { el.classList.add('revealed'); });
     }
 
     /* ══════════════════════════════════════════════

@@ -96,7 +96,7 @@ button {
     opacity: .45;
 }
 
-/* ── CURSOR CUSTOM ───────────────────────────────── */
+/* ── CURSOR CUSTOM — croix fine haut de gamme ──── */
 @media (pointer: fine) {
     * {
         cursor: none !important;
@@ -108,41 +108,56 @@ button {
         left: 0;
         z-index: 9999;
         pointer-events: none;
+        mix-blend-mode: difference;
     }
 
+    /* Croix fine — 2 lignes perpendiculaires */
     .cursor-dot {
         position: absolute;
-        width: 6px;
-        height: 6px;
-        background: var(--blue-l);
-        border-radius: 50%;
+        width: 20px;
+        height: 20px;
         transform: translate(-50%, -50%);
-        transition: transform .1s ease, opacity .2s ease;
     }
 
-    .cursor-ring {
+    .cursor-dot::before,
+    .cursor-dot::after {
+        content: '';
         position: absolute;
-        width: 36px;
-        height: 36px;
-        border: 1.5px solid rgba(96, 165, 250, .5);
-        border-radius: 50%;
-        transform: translate(-50%, -50%);
-        transition:
-            transform .25s var(--ease),
-            width .25s var(--ease),
-            height .25s var(--ease),
-            border-color .25s ease;
+        background: #fff;
+        border-radius: 2px;
+        transition: transform .25s var(--ease), opacity .2s ease;
     }
 
-    body:has(a:hover, button:hover) .cursor-ring {
-        width: 56px;
-        height: 56px;
-        border-color: rgba(96, 165, 250, .8);
+    /* Barre horizontale */
+    .cursor-dot::before {
+        width: 20px;
+        height: 1.5px;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
     }
 
-    body:has(.btn-hero:hover) .cursor-dot {
-        transform: translate(-50%, -50%) scale(3);
-        opacity: 0;
+    /* Barre verticale */
+    .cursor-dot::after {
+        width: 1.5px;
+        height: 20px;
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+    }
+
+    /* Hover liens/boutons — croix s'agrandit légèrement */
+    body:has(a:hover, button:hover) .cursor-dot::before {
+        width: 28px;
+    }
+
+    body:has(a:hover, button:hover) .cursor-dot::after {
+        height: 28px;
+    }
+
+    /* L'anneau est caché — on n'en a plus besoin */
+    .cursor-ring {
+        display: none;
     }
 }
 
@@ -403,21 +418,95 @@ section {
 /* ═════════════════════════════════════════════════
    ANIMATIONS SCROLL REVEAL
    ═════════════════════════════════════════════════ */
+/* ══════════════════════════════════════════════════
+   REVEAL SYSTEM — Agence luxe
+   Hero : slide-up lent 1.4s
+   Sections : slide-up rapide 0.8s + ligne bleue
+   ══════════════════════════════════════════════════ */
+
+/* Conteneur — masque le débordement du slide */
 .split-reveal {
     display: block;
     overflow: hidden;
-    clip-path: inset(0 0 0% 0);
-    opacity: 1;
-    transition: clip-path .9s var(--ease), opacity .6s ease;
 }
 
-.split-reveal.revealed {
-    clip-path: inset(0 0 0% 0);
+/* État initial — texte caché sous le bas du conteneur */
+.split-reveal .rv-inner {
+    display: block;
+    transform: translateY(110%);
+    opacity: 0;
+}
+
+/* ── HERO — lent, grand, majestueux ── */
+.hero-title .split-reveal .rv-inner {
+    transition: transform 1.4s cubic-bezier(.77, 0, .175, 1),
+        opacity 1.2s ease;
+}
+
+.hero-title .split-reveal:nth-child(2) .rv-inner {
+    transition-delay: .18s;
+}
+
+/* ── SECTIONS H2 — rapide, punchy ── */
+.section-title .split-reveal .rv-inner,
+.about-title .split-reveal .rv-inner,
+.contact-title .split-reveal .rv-inner {
+    transition: transform .8s cubic-bezier(.77, 0, .175, 1),
+        opacity .7s ease;
+}
+
+.section-title .split-reveal:nth-child(2) .rv-inner,
+.about-title .split-reveal:nth-child(2) .rv-inner,
+.contact-title .split-reveal:nth-child(2) .rv-inner {
+    transition-delay: .14s;
+}
+
+/* ── ACTIF ── */
+.split-reveal.revealed .rv-inner {
+    transform: translateY(0);
     opacity: 1;
 }
 
-.split-reveal:nth-child(2).revealed {
-    transition-delay: .15s;
+/* ── LIGNE BLEUE — sous les H2 sections uniquement ── */
+.section-title,
+.about-title,
+.contact-title {
+    position: relative;
+}
+
+.section-title::after,
+.about-title::after,
+.contact-title::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--blue-l);
+    transition: width 1s cubic-bezier(.77, 0, .175, 1) .5s;
+}
+
+.section-title.line-active::after,
+.about-title.line-active::after,
+.contact-title.line-active::after {
+    width: 3.5rem;
+}
+
+/* PRM — tout visible immédiatement */
+@media (prefers-reduced-motion: reduce) {
+    .split-reveal .rv-inner {
+        transform: none !important;
+        opacity: 1 !important;
+        transition: none !important;
+    }
+
+    .section-title::after,
+    .about-title::after,
+    .contact-title::after {
+        width: 3.5rem !important;
+        transition: none !important;
+    }
 }
 
 [data-scroll] {
@@ -3344,4 +3433,165 @@ section {
         top .0s,
         transform .2s cubic-bezier(.16, 1, .3, 1),
         opacity .2s ease !important;
+}
+
+
+/* ═══════════════════════════════════════════════════
+   PREMIUM UPGRADE — Aération Luxe & Typographie
+   Ajouté après refonte copywriting H1
+   ═══════════════════════════════════════════════════ */
+
+/* ── 1. AÉRATION SECTIONS — 10rem desktop / 90px tablet / 72px mobile ── */
+.why {
+    padding: 10rem 2rem;
+}
+
+.portfolio {
+    padding: 10rem 2rem;
+}
+
+.pricing {
+    padding: 10rem 2rem;
+}
+
+.testi {
+    padding: 10rem 2rem;
+}
+
+.about {
+    padding: 10rem 2rem;
+}
+
+.faq {
+    padding: 10rem 2rem;
+}
+
+.contact {
+    padding: 10rem 2rem;
+}
+
+.zone {
+    padding: 8rem 2rem;
+}
+
+@media (max-width: 1024px) {
+
+    .why,
+    .portfolio,
+    .pricing,
+    .testi,
+    .about,
+    .faq,
+    .contact {
+        padding: 7rem 2rem;
+    }
+
+    .zone {
+        padding: 6rem 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .why,
+    .portfolio,
+    .pricing,
+    .testi,
+    .about,
+    .faq,
+    .contact {
+        padding: 5.5rem 1rem;
+    }
+
+    .zone {
+        padding: 4.5rem 1rem;
+    }
+}
+
+/* ── 2. HERO TITLE — adapté au long H1 ── */
+/* Le nouveau H1 est plus long → on réduit légèrement le clamp */
+.hero-title {
+    font-size: clamp(2.2rem, 4.5vw, 5rem);
+    line-height: 1.08;
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: clamp(1.75rem, 7vw, 2.6rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.65rem;
+        line-height: 1.12;
+    }
+}
+
+/* ── 3. PARAGRAPHES — lisibilité maximale ── */
+.why-card p {
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--mist);
+}
+
+.about-lead {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    max-width: 620px;
+}
+
+.about-pt p {
+    font-size: .95rem;
+    line-height: 1.8;
+}
+
+.hero-sub {
+    font-size: 1.15rem;
+    line-height: 1.85;
+    max-width: 520px;
+}
+
+.section-intro-seo {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    max-width: 780px;
+}
+
+/* ── 4. SECTION HEADS — respiration verticale ── */
+.section-head {
+    margin-bottom: 4.5rem;
+}
+
+/* ── 5. WHY CARDS — padding plus généreux ── */
+.why-card {
+    padding: 3.25rem;
+}
+
+@media (max-width: 768px) {
+    .why-card {
+        padding: 2rem 1.5rem;
+    }
+}
+
+/* ── 6. BOUTONS — glow renforcé sur CTA principal ── */
+.btn-hero:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 50px rgba(59, 130, 246, .65);
+}
+
+.nav-cta:hover {
+    background: var(--blue-d);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(59, 130, 246, .4);
+}
+
+/* ── 7. ZONE D'INTERVENTION — liste enrichie ── */
+.zone-seo p {
+    font-size: 1rem;
+    line-height: 1.9;
+    color: #374151;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
 }
