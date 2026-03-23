@@ -3,6 +3,9 @@
 #  OVH Hébergement mutualisé
 # ═══════════════════════════════════════════════════════════════
 
+# ── Page d'accueil = intro.html ──────────────────────────────
+DirectoryIndex intro.html index.html
+
 # ── HTTPS forcé ──────────────────────────────────────────────
 RewriteEngine On
 RewriteCond %{HTTPS} off
