@@ -59,9 +59,16 @@
     <link rel="alternate" hreflang="fr" href="https://www.sudwebproject.com/" />
     <link rel="alternate" hreflang="x-default" href="https://www.sudwebproject.com/" />
 
-    <!-- ═══ CSS ═══ -->
-    <link rel="stylesheet" href="css/fonts-local.css" />
-    <link rel="stylesheet" href="css/intro.css" />
+    <!-- ═══ CSS — non-bloquant pour perf ═══ -->
+    <!-- Preload police principale uniquement -->
+    <link rel="preload" href="assets/fonts/playfair-display-v40-latin-900.woff2" as="font" type="font/woff2"
+        crossorigin />
+
+    <!-- intro.css chargé de façon non-bloquante -->
+    <link rel="preload" href="css/intro.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript>
+        <link rel="stylesheet" href="css/intro.css" />
+    </noscript>
 </head>
 
 <body>
@@ -149,7 +156,7 @@
     </footer>
 
     <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
-    <script src="js/intro.js"></script>
+    <script src="js/intro.js" defer></script>
 </body>
 
 </html>
