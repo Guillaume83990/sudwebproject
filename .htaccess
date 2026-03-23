@@ -15,9 +15,6 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 RewriteCond %{HTTP_HOST} !^www\. [NC]
 RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# ── index.html → / (fix canonical Lighthouse 100) ────────────
-RewriteCond %{THE_REQUEST} /index\.html[\s?] [NC]
-RewriteRule ^index\.html$ https://www.sudwebproject.com/ [L,R=301]
 
 
 # ── COMPRESSION GZIP ─────────────────────────────────────────
