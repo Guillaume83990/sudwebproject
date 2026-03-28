@@ -1,4 +1,18 @@
 /**
+ * global.js — Sud Web Project
+ * Chargé sur TOUTES les pages du site.
+ * Basé sur index.js — adapté pour hero-metier-title et métriques métier.
+ * ─────────────────────────────────────────────────────────
+ * 01 · Preloader     07 · Cursor magnétique
+ * 02 · Scramble      08 · Magnetic buttons
+ * 03 · Hero reveal   09 · Parallax
+ * 04 · Split reveal  10 · Glow cards
+ * 05 · Scroll reveal 11 · Nav mobile
+ * 06 · Image wipe    12 · Particules canvas
+ *                    13 · Morph button
+ *                    14 · Back to top
+ */
+/**
  * index.js — Sud Web Project — Ultra Premium
  * ══════════════════════════════════════════════════
  * Inspiré de nobl.io & accordion.net.au
@@ -147,7 +161,7 @@
 
     function heroReveal() {
         if (PRM) {
-            $$('.hero-content .split-reveal').forEach(function (el) { el.classList.add('revealed'); });
+            $$('.hero-title .split-reveal, .hero-metier-title .split-reveal').forEach(function (el) { el.classList.add('revealed'); });
             return;
         }
 
@@ -163,7 +177,7 @@
         }, 350);
 
         /* Séquence eyebrow → sub → actions → metrics */
-        var heroSeq = ['.hero-eyebrow', '.hero-sub', '.hero-actions', '.hero-metrics', '.hero-scroll-hint'];
+        var heroSeq = ['.hero-eyebrow', '.hero-metier-badge', '.hero-sub', '.hero-metier-sub', '.hero-actions', '.hero-metier-actions', '.hero-metrics', '.hero-metier-metrics', '.hero-scroll-hint'];
         heroSeq.forEach(function (sel, i) {
             var el = $(sel);
             if (!el) return;
@@ -305,7 +319,7 @@
     ══════════════════════════════════════════════ */
     function animCounters() {
         if (PRM) return;
-        $$('.metric-n').forEach(function (el) {
+        $$('.metric-n, .hm-metric-n').forEach(function (el) {
             var raw = el.textContent.trim();
             var num = parseInt(raw);
             var suf = raw.replace(/[0-9]/g, '');
@@ -464,7 +478,7 @@
     /* ══════════════════════════════════════════════
        11 · GLOW RADIAL SUR LES CARTES
     ══════════════════════════════════════════════ */
-    $$('.why-card, .price-card, .testi-card, .maint-plan').forEach(function (card) {
+    $$('.why-card, .price-card, .testi-card, .maint-plan, .benefice-card, .tarif-card-e, .faq-elec-item').forEach(function (card) {
         card.addEventListener('mousemove', function (e) {
             var r = card.getBoundingClientRect();
             card.style.setProperty('--mx', (e.clientX - r.left) + 'px');

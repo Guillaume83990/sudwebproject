@@ -1,5 +1,16 @@
-# robots.txt - Sud Web Project
+# robots.txt — Sud Web Project
+# https://www.sudwebproject.com
+ 
 User-agent: *
 Allow: /
-
+Allow: /assets/
+Allow: /css/
+Allow: /js/
+ 
+# Exclure les fichiers système et temporaires
+Disallow: /cdn-cgi/
+Disallow: /*.log$
+Disallow: /*.bak$
+Disallow: /*.sql$
+ 
 Sitemap: https://www.sudwebproject.com/sitemap.xml

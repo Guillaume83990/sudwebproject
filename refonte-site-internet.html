@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Refonte Site Internet Saint-Tropez & Var — Performance & SEO | Sud Web Project</title>
+    <meta name="description"
+        content="Refonte de site internet à Saint-Tropez et dans le Var. Transformez votre site lent en machine ultra-rapide : 99/100 Lighthouse, SEO local, design premium. Audit gratuit sous 24h." />
+    <meta name="keywords"
+        content="refonte site internet saint-tropez, refonte site internet var, refonte site web sainte-maxime, vitesse chargement site saint-tropez, score lighthouse var, amélioration performance site var 83, refonte site artisan var" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Guillaume Robin — Sud Web Project" />
+    <meta name="geo.region" content="FR-83" />
+    <meta name="geo.placename" content="Saint-Tropez, Var, Provence-Alpes-Côte d'Azur" />
+    <meta name="geo.position" content="43.2677;6.6407" />
+    <meta name="ICBM" content="43.2677, 6.6407" />
+    <meta name="theme-color" content="#080C14" />
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon-96.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png" />
+    <meta name="msapplication-TileImage" content="assets/favicon-192.png" />
+    <meta name="msapplication-TileColor" content="#3B82F6" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title"
+        content="Refonte Site Internet Saint-Tropez & Var — 99/100 Lighthouse | Sud Web Project" />
+    <meta property="og:description"
+        content="Votre site est lent, invisible sur Google ou visuellement dépassé ? Je le transforme en machine premium — 99/100 Lighthouse, SEO local, design haut de gamme." />
+    <meta property="og:url" content="https://www.sudwebproject.com/refonte-site-internet.html" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Sud Web Project" />
+    <meta property="og:image" content="https://www.sudwebproject.com/assets/images/og-sudwebproject.webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Refonte site internet Saint-Tropez Var — Sud Web Project" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Refonte Site Internet Saint-Tropez & Var — 99/100 Lighthouse" />
+    <meta name="twitter:description"
+        content="Transformez votre site lent en machine ultra-rapide. 99/100 Lighthouse, SEO local, design premium. Audit gratuit 24h." />
+    <meta name="twitter:image" content="https://www.sudwebproject.com/assets/images/og-sudwebproject.webp" />
+    <script
+        type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Refonte de site internet — Sud Web Project","description":"Refonte de site internet à Saint-Tropez et dans le Var. Performance maximale, SEO local, design premium.","provider":{"@type":"ProfessionalService","name":"Sud Web Project","url":"https://www.sudwebproject.com","telephone":"+33611547324"},"areaServed":[{"@type":"City","name":"Saint-Tropez"},{"@type":"City","name":"Sainte-Maxime"},{"@type":"City","name":"Ramatuelle"},{"@type":"City","name":"Gassin"},{"@type":"City","name":"Grimaud"},{"@type":"AdministrativeArea","name":"Var"}],"offers":{"@type":"Offer","description":"Audit de performance gratuit sous 24h"}}</script>
+    <script
+        type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.sudwebproject.com"},{"@type":"ListItem","position":2,"name":"Services","item":"https://www.sudwebproject.com/#services"},{"@type":"ListItem","position":3,"name":"Refonte de site internet","item":"https://www.sudwebproject.com/refonte-site-internet.html"}]}</script>
+    <link rel="canonical" href="https://www.sudwebproject.com/refonte-site-internet.html" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    <link rel="alternate" hreflang="fr" href="https://www.sudwebproject.com/refonte-site-internet.html" />
+    <link rel="alternate" hreflang="x-default" href="https://www.sudwebproject.com/refonte-site-internet.html" />
+    <link rel="stylesheet" href="css/fonts-local.css" />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/electricien.css" />
+    <link rel="stylesheet" href="css/cookies.css" />
+    <style>
+        /* ── Grille bénéfices 3 colonnes ── */
+        .refonte-benefits {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 1024px) {
+            .refonte-benefits {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .refonte-benefits {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .benefit-card {
+            background: var(--glass-2);
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+            padding: 2.5rem 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+        }
+
+        .benefit-card:hover {
+            border-color: var(--border-h);
+            transform: translateY(-5px);
+        }
+
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--blue), var(--blue-l));
+            opacity: 0;
+            transition: opacity var(--dur) var(--ease);
+        }
+
+        .benefit-card:hover::before {
+            opacity: 1;
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.25rem;
+            display: block;
+            filter: drop-shadow(0 0 14px rgba(59, 130, 246, .5));
+        }
+
+        .benefit-card h2 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .benefit-card p {
+            color: var(--mist);
+            font-size: .95rem;
+            line-height: 1.8;
+        }
+
+        .benefit-card strong {
+            color: #fff;
+        }
+
+        /* ── Score visuel ── */
+        .score-visual {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            background: rgba(34, 197, 94, .06);
+            border: 1px solid rgba(34, 197, 94, .2);
+            border-radius: var(--r-sm);
+            padding: 1rem 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .score-big {
+            font-family: var(--ff-display);
+            font-size: 3rem;
+            font-weight: 900;
+            color: #22c55e;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .score-visual p {
+            color: var(--mist);
+            font-size: .85rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .score-visual strong {
+            color: #fff;
+        }
+
+        /* ── Comparatif avant/après ── */
+        .avant-apres {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 1.5rem;
+            align-items: center;
+            margin: 3rem 0;
+        }
+
+        @media (max-width: 640px) {
+            .avant-apres {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .aa-arrow {
+                transform: rotate(90deg);
+            }
+        }
+
+        .aa-card {
+            background: var(--glass-2);
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .aa-card.aa-after {
+            border-color: rgba(34, 197, 94, .3);
+            background: rgba(34, 197, 94, .04);
+        }
+
+        .aa-num {
+            font-family: var(--ff-display);
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .aa-num.bad {
+            color: #ef4444;
+        }
+
+        .aa-num.good {
+            color: #22c55e;
+        }
+
+        .aa-label {
+            font-size: .8rem;
+            color: var(--mist);
+            margin-top: .4rem;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+        }
+
+        .aa-arrow {
+            font-size: 2rem;
+            color: var(--blue-l);
+            text-align: center;
+        }
+
+        /* ── Maillage interne ── */
+        .maillage-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .maillage-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .maillage-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .maillage-card {
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+            background: var(--glass-2);
+            border: 1px solid var(--border);
+            border-radius: var(--r-sm);
+            padding: 1.5rem;
+            text-decoration: none;
+            color: inherit;
+            transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+        }
+
+        .maillage-card:hover {
+            border-color: var(--blue-l);
+            transform: translateY(-3px);
+            color: inherit;
+        }
+
+        .maillage-card .mc-icon {
+            font-size: 1.5rem;
+        }
+
+        .maillage-card h3 {
+            font-size: .95rem;
+            font-weight: 700;
+            color: #fff;
+            margin: 0;
+        }
+
+        .maillage-card p {
+            font-size: .8rem;
+            color: var(--mist);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .maillage-card .mc-arrow {
+            color: var(--blue-l);
+            font-size: .85rem;
+            margin-top: .25rem;
+            font-weight: 600;
+        }
+
+        /* ── Symptômes ── */
+        .symptomes-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 640px) {
+            .symptomes-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .symptome-item {
+            display: flex;
+            align-items: flex-start;
+            gap: .75rem;
+            background: var(--glass-2);
+            border: 1px solid var(--border);
+            border-radius: var(--r-sm);
+            padding: 1.25rem 1.5rem;
+        }
+
+        .symptome-item .si-icon {
+            font-size: 1.25rem;
+            flex-shrink: 0;
+            margin-top: .1rem;
+        }
+
+        .symptome-item p {
+            font-size: .9rem;
+            color: var(--mist);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .symptome-item p strong {
+            color: #fff;
+        }
+
+        /* ── CTA audit ── */
+        .audit-cta {
+            background: linear-gradient(135deg, rgba(59, 130, 246, .12) 0%, rgba(29, 78, 216, .08) 100%);
+            border: 1px solid rgba(59, 130, 246, .3);
+            border-radius: var(--r);
+            padding: 3.5rem 2.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .audit-cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, .06) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .audit-cta h2 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .audit-cta p {
+            color: var(--mist);
+            font-size: 1rem;
+            line-height: 1.8;
+            max-width: 560px;
+            margin: 0 auto 2rem;
+        }
+
+        .audit-cta .cta-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .audit-note {
+            font-size: .8rem;
+            color: var(--mist);
+            margin-top: 1.5rem;
+            opacity: .7;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="cursor" id="cursor" aria-hidden="true">
+        <div class="cursor-dot"></div>
+        <div class="cursor-ring"></div>
+    </div>
+
+    <!-- ═══ NAV ═══ -->
+    <nav id="main-nav" class="nav" role="navigation" aria-label="Navigation principale">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo" aria-label="Sud Web Project — Accueil">
+                <svg viewBox="0 0 50 50" width="30" height="30" aria-hidden="true">
+                    <polygon points="25,2.5 45,13.75 45,36.25 25,47.5 5,36.25 5,13.75" fill="url(#nG)" stroke="#3B82F6"
+                        stroke-width="1.5" />
+                    <defs>
+                        <linearGradient id="nG" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#3B82F6" />
+                            <stop offset="100%" style="stop-color:#1D4ED8" />
+                        </linearGradient>
+                    </defs><text x="25" y="31" text-anchor="middle" fill="white" font-size="15" font-family="monospace"
+                        font-weight="bold">&lt;/&gt;</text>
+                </svg>
+                <span>Sud<em>Web</em> Project</span>
+            </a>
+            <div class="lang-toggle" id="lang-toggle" role="group" aria-label="Langue">
+                <div class="lang-slider" aria-hidden="true"></div>
+                <button class="lang-opt active" data-lang="fr" aria-pressed="true">FR</button>
+                <button class="lang-opt" data-lang="en" aria-pressed="false">EN</button>
+            </div>
+            <ul class="nav-links" id="nav-menu" role="list">
+                <li><a href="index.html#services" data-i18n="nav.services">Services</a></li>
+                <li><a href="index.html#portfolio" data-i18n="nav.portfolio">Réalisations</a></li>
+                <li><a href="index.html#tarifs" data-i18n="nav.pricing">Tarifs</a></li>
+                <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
+            </ul>
+            <a href="index.html#contact" class="nav-cta" data-i18n="nav.cta">Devis gratuit</a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false"
+                aria-controls="nav-menu"><span></span><span></span><span></span></button>
+        </div>
+        <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+    </nav>
+
+    <!-- ═══ BREADCRUMB ═══ -->
+    <nav class="breadcrumb" aria-label="Fil d'ariane">
+        <div class="breadcrumb-inner">
+            <a href="index.html">Accueil</a>
+            <span class="breadcrumb-sep" aria-hidden="true">›</span>
+            <a href="index.html#services" data-i18n="nav.services">Services</a>
+            <span class="breadcrumb-sep" aria-hidden="true">›</span>
+            <span class="breadcrumb-current" data-i18n="refonte.bc">Refonte de site internet</span>
+        </div>
+    </nav>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="hero-metier" id="hero" aria-labelledby="refonte-title">
+        <div class="hero-metier-inner container">
+            <div class="hero-metier-content">
+                <div class="hero-metier-badge">
+                    <span class="hero-badge-dot" aria-hidden="true"></span>
+                    <span data-i18n="refonte.hero.badge">Service · Refonte de site internet · Saint-Tropez, Var
+                        83</span>
+                </div>
+                <h1 class="hero-metier-title" id="refonte-title">
+                    <span class="split-reveal" data-i18n="refonte.hero.h1.1">Refonte de site internet</span>
+                    <span class="split-reveal section-em" data-i18n="refonte.hero.h1.2">à Saint-Tropez — de lent à
+                        imbattable.</span>
+                </h1>
+                <p class="hero-metier-sub" data-i18n="refonte.hero.sub">Votre site actuel freine votre activité sans que
+                    vous le sachiez. Chaque seconde de chargement supplémentaire vous coûte des clients. Je transforme
+                    votre site obsolète en vitrine premium — 99/100 sur Lighthouse, SEO local optimisé, design qui
+                    impose le respect.</p>
+                <div class="hero-metier-actions">
+                    <a href="#audit" class="btn-hero">
+                        <span data-i18n="refonte.hero.cta1">Demander mon audit gratuit →</span>
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                            <path d="M3.75 9h10.5M9.75 4.5L14.25 9l-4.5 4.5" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                    <a href="tel:+33611547324" class="btn-ghost-hero" data-i18n="refonte.hero.cta2">+33 6 11 54 73
+                        24</a>
+                </div>
+                <div class="hero-metier-metrics">
+                    <div class="hm-metric"><span class="hm-metric-n" style="color:#22c55e">99</span><span
+                            class="hm-metric-l">Score Lighthouse</span></div>
+                    <div class="hm-sep" aria-hidden="true"></div>
+                    <div class="hm-metric"><span class="hm-metric-n" style="color:#22c55e">100</span><span
+                            class="hm-metric-l">SEO</span></div>
+                    <div class="hm-sep" aria-hidden="true"></div>
+                    <div class="hm-metric"><span class="hm-metric-n" style="color:#22c55e">24h</span><span
+                            class="hm-metric-l">Audit gratuit</span></div>
+                    <div class="hm-sep" aria-hidden="true"></div>
+                    <div class="hm-metric"><span class="hm-metric-n" style="color:#22c55e">100%</span><span
+                            class="hm-metric-l">Sur-mesure</span></div>
+                </div>
+            </div>
+            <!-- Score visuel avant/après -->
+            <div class="hero-metier-img" style="display:flex;align-items:center;justify-content:center;padding:2rem">
+                <div style="width:100%">
+                    <div class="avant-apres">
+                        <div class="aa-card">
+                            <div class="aa-num bad">34</div>
+                            <div class="aa-label">Votre site actuel</div>
+                            <p style="font-size:.78rem;color:var(--mist);margin-top:.5rem">3s+ de
+                                chargement<br>Invisible sur Google</p>
+                        </div>
+                        <div class="aa-arrow" aria-hidden="true">→</div>
+                        <div class="aa-card aa-after">
+                            <div class="aa-num good">99</div>
+                            <div class="aa-label">Après la refonte</div>
+                            <p style="font-size:.78rem;color:var(--mist);margin-top:.5rem">Chargement &lt; 1s<br>Top des
+                                résultats Google</p>
+                        </div>
+                    </div>
+                    <p style="text-align:center;font-size:.75rem;color:var(--mist);margin-top:.75rem;opacity:.7">Score
+                        Google Lighthouse — résultat réel client</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ SYMPTÔMES ═══ -->
+    <section style="padding:5rem 2rem" aria-labelledby="symptomes-title">
+        <div class="container">
+            <div class="section-head">
+                <div class="section-label" data-i18n="refonte.sym.badge">Votre site a peut-être ces symptômes</div>
+                <h2 class="section-title" id="symptomes-title">
+                    <span class="split-reveal" data-i18n="refonte.sym.h1">Les signaux qui coûtent</span>
+                    <span class="split-reveal section-em" data-i18n="refonte.sym.h2">des clients chaque jour.</span>
+                </h2>
+            </div>
+            <div class="symptomes-list">
+                <div class="symptome-item" data-scroll>
+                    <span class="si-icon">🐌</span>
+                    <p><strong>Chargement lent sur mobile</strong> — Plus de 3 secondes et 53% de vos visiteurs partent
+                        sans revenir. Sur mobile, la vitesse de chargement est le premier filtre de vos clients
+                        potentiels.</p>
+                </div>
+                <div class="symptome-item" data-scroll>
+                    <span class="si-icon">👻</span>
+                    <p><strong>Invisible sur Google</strong> — Votre concurrent apparaît en position 1 sur "électricien
+                        Saint-Tropez" ou "restaurant Sainte-Maxime". Vous, vous êtes en page 3. C'est un manque à gagner
+                        quotidien.</p>
+                </div>
+                <div class="symptome-item" data-scroll>
+                    <span class="si-icon">📱</span>
+                    <p><strong>Design vieilli ou non responsive</strong> — Un site qui date de 5 ans communique
+                        involontairement que votre activité aussi. Dans le Golfe de Saint-Tropez, l'image est un critère
+                        de choix décisif.</p>
+                </div>
+                <div class="symptome-item" data-scroll>
+                    <span class="si-icon">🔧</span>
+                    <p><strong>WordPress lent et fragile</strong> — Plugins en retard, mises à jour risquées, temps de
+                        chargement qui s'alourdit. Un CMS surchargé est une bombe à retardement pour votre visibilité
+                        Google.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ BÉNÉFICES ═══ -->
+    <section
+        style="padding:2rem 2rem 6rem;background:linear-gradient(180deg,transparent,rgba(59,130,246,.03),transparent)"
+        aria-labelledby="benefices-title">
+        <div class="container">
+            <div class="section-head">
+                <div class="section-label" data-i18n="refonte.ben.badge">Ce que la refonte change concrètement</div>
+                <h2 class="section-title" id="benefices-title">
+                    <span class="split-reveal" data-i18n="refonte.ben.h1">Trois transformations</span>
+                    <span class="split-reveal section-em" data-i18n="refonte.ben.h2">qui changent tout pour votre
+                        activité.</span>
+                </h2>
+            </div>
+            <div class="refonte-benefits">
+
+                <!-- H2 #1 — Prestige visuel -->
+                <article class="benefit-card" data-scroll>
+                    <span class="benefit-icon" aria-hidden="true">✨</span>
+                    <h2 data-i18n="refonte.b1.h">Prestige visuel : une image à la hauteur du Golfe</h2>
+                    <p data-i18n="refonte.b1.p">Dans le Golfe de Saint-Tropez, vos clients comparent votre site à ceux
+                        des meilleurs établissements de la région. Un design vieilli communique un message silencieux :
+                        <strong>manque de soin, manque de modernité</strong>. La refonte repart de zéro — identité
+                        visuelle cohérente, typographie soignée, photographies mises en valeur. Résultat : votre site
+                        impose le même prestige que votre activité.</p>
+                </article>
+
+                <!-- H2 #2 — Vitesse de chargement -->
+                <article class="benefit-card" data-scroll>
+                    <span class="benefit-icon" aria-hidden="true">⚡</span>
+                    <h2 data-i18n="refonte.b2.h">Vitesse de chargement : 99/100 sur Lighthouse</h2>
+                    <p data-i18n="refonte.b2.p">Le score Lighthouse est la mesure de référence de Google pour évaluer la
+                        qualité technique d'un site. <strong>Mes refontes atteignent systématiquement 99/100</strong> —
+                        ce qui place votre site dans le top 1% des sites français. Concrètement : chargement en moins
+                        d'une seconde sur mobile, zéro temps d'attente entre les pages. Vos visiteurs restent. Ils
+                        convertissent.</p>
+                    <div class="score-visual">
+                        <div class="score-big">99</div>
+                        <div>
+                            <p><strong>Score Lighthouse moyen</strong> sur mes projets de refonte — contre 34 en moyenne
+                                pour les sites WordPress artisans non optimisés dans le Var.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- H2 #3 — Visibilité SEO locale -->
+                <article class="benefit-card" data-scroll>
+                    <span class="benefit-icon" aria-hidden="true">🔍</span>
+                    <h2 data-i18n="refonte.b3.h">Visibilité locale : premier sur Google Saint-Tropez</h2>
+                    <p data-i18n="refonte.b3.p">La performance technique est aujourd'hui un signal de classement majeur
+                        pour Google. Un site refait à 99/100 Lighthouse avec un SEO local structuré — balises H1
+                        géolocalisées, Schema.org, Google Business Profile aligné — <strong>remonte mécaniquement dans
+                            les résultats</strong>. Votre activité à Saint-Tropez, Sainte-Maxime, Ramatuelle ou Grimaud
+                        devient visible pour les clients qui cherchent exactement ce que vous proposez.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ PROCESSUS ═══ -->
+    <section style="padding:0 2rem 6rem" aria-labelledby="process-title">
+        <div class="container">
+            <div class="section-head">
+                <div class="section-label" data-i18n="refonte.proc.badge">Comment ça se passe</div>
+                <h2 class="section-title" id="process-title">
+                    <span class="split-reveal" data-i18n="refonte.proc.h1">De l'audit au lancement</span>
+                    <span class="split-reveal section-em" data-i18n="refonte.proc.h2">en 4 étapes nettes.</span>
+                </h2>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem">
+                <div style="text-align:center;padding:2rem 1rem" data-scroll>
+                    <div style="font-size:2rem;margin-bottom:1rem">🔬</div>
+                    <div
+                        style="font-family:var(--ff-display);font-size:2.5rem;font-weight:900;color:rgba(59,130,246,.2);line-height:1">
+                        01</div>
+                    <h3 style="font-size:1rem;font-weight:700;margin:.75rem 0 .5rem" data-i18n="refonte.step1.t">Audit
+                        gratuit</h3>
+                    <p style="font-size:.85rem;color:var(--mist);line-height:1.6" data-i18n="refonte.step1.d">Analyse
+                        complète de votre site actuel — performance, SEO, design, parcours client. Résultats chiffrés
+                        sous 24h.</p>
+                </div>
+                <div style="text-align:center;padding:2rem 1rem" data-scroll>
+                    <div style="font-size:2rem;margin-bottom:1rem">🎨</div>
+                    <div
+                        style="font-family:var(--ff-display);font-size:2.5rem;font-weight:900;color:rgba(59,130,246,.2);line-height:1">
+                        02</div>
+                    <h3 style="font-size:1rem;font-weight:700;margin:.75rem 0 .5rem" data-i18n="refonte.step2.t">
+                        Proposition</h3>
+                    <p style="font-size:.85rem;color:var(--mist);line-height:1.6" data-i18n="refonte.step2.d">Devis
+                        détaillé, maquette de direction artistique, planning de livraison. Vous validez avant que je
+                        commence.</p>
+                </div>
+                <div style="text-align:center;padding:2rem 1rem" data-scroll>
+                    <div style="font-size:2rem;margin-bottom:1rem">⚙️</div>
+                    <div
+                        style="font-family:var(--ff-display);font-size:2.5rem;font-weight:900;color:rgba(59,130,246,.2);line-height:1">
+                        03</div>
+                    <h3 style="font-size:1rem;font-weight:700;margin:.75rem 0 .5rem" data-i18n="refonte.step3.t">
+                        Développement</h3>
+                    <p style="font-size:.85rem;color:var(--mist);line-height:1.6" data-i18n="refonte.step3.d">Code
+                        sur-mesure, zéro template. Chaque page optimisée individuellement pour atteindre 99/100
+                        Lighthouse.</p>
+                </div>
+                <div style="text-align:center;padding:2rem 1rem" data-scroll>
+                    <div style="font-size:2rem;margin-bottom:1rem">🚀</div>
+                    <div
+                        style="font-family:var(--ff-display);font-size:2.5rem;font-weight:900;color:rgba(59,130,246,.2);line-height:1">
+                        04</div>
+                    <h3 style="font-size:1rem;font-weight:700;margin:.75rem 0 .5rem" data-i18n="refonte.step4.t">
+                        Lancement &amp; suivi</h3>
+                    <p style="font-size:.85rem;color:var(--mist);line-height:1.6" data-i18n="refonte.step4.d">Mise en
+                        ligne, vérification des scores, soumission au moteur. Je reste disponible après le lancement.
+                    </p>
+                </div>
+            </div>
+            <style>
+                @media(max-width:768px) {
+                    section .container [style*="grid-template-columns:repeat(4"] {
+                        grid-template-columns: 1fr 1fr !important
+                    }
+                }
+            </style>
+        </div>
+    </section>
+
+    <!-- ═══ MAILLAGE INTERNE ═══ -->
+    <section style="padding:0 2rem 6rem" aria-labelledby="maillage-title">
+        <div class="container">
+            <div class="section-head">
+                <div class="section-label" data-i18n="refonte.mail.badge">Aller plus loin</div>
+                <h2 class="section-title" id="maillage-title">
+                    <span class="split-reveal" data-i18n="refonte.mail.h1">Refonte, maintenance</span>
+                    <span class="split-reveal section-em" data-i18n="refonte.mail.h2">et résultats concrets.</span>
+                </h2>
+            </div>
+            <div class="maillage-grid">
+                <a href="maintenance.html" class="maillage-card" data-scroll>
+                    <span class="mc-icon">🛡️</span>
+                    <h3 data-i18n="refonte.mail.c1.t">Maintenance &amp; sécurité</h3>
+                    <p data-i18n="refonte.mail.c1.d">Après la refonte, gardez votre site performant et sécurisé.
+                        Hébergement, sauvegardes, mises à jour — je m'occupe de tout.</p>
+                    <span class="mc-arrow">Voir nos offres maintenance →</span>
+                </a>
+                <a href="etude-cas-restaurant.html" class="maillage-card" data-scroll>
+                    <span class="mc-icon">🍽️</span>
+                    <h3 data-i18n="refonte.mail.c2.t">Étude de cas — Restaurant</h3>
+                    <p data-i18n="refonte.mail.c2.d">100/100 performances mobile & desktop, multilingue FR/EN/IT,
+                        WhatsApp intelligent. Voyez ce qu'un site premium peut atteindre.</p>
+                    <span class="mc-arrow">Voir l'étude de cas →</span>
+                </a>
+                <a href="etude-cas-electricien.html" class="maillage-card" data-scroll>
+                    <span class="mc-icon">🔌</span>
+                    <h3 data-i18n="refonte.mail.c3.t">Étude de cas — Électricien</h3>
+                    <p data-i18n="refonte.mail.c3.d">De 34 à 100/100 desktop, SEO 100/100. Un artisan du Var qui domine
+                        désormais Google sur sa zone.</p>
+                    <span class="mc-arrow">Voir l'étude de cas →</span>
+                </a>
+                <a href="index.html" class="maillage-card" data-scroll>
+                    <span class="mc-icon">⚓</span>
+                    <h3>Refonte à Saint-Tropez</h3>
+                    <p>Ramatuelle · Gassin · Grimaud · Cogolin · Port Grimaud — j'interviens dans tout le Golfe de
+                        Saint-Tropez.</p>
+                    <span class="mc-arrow">Voir la zone d'intervention →</span>
+                </a>
+                <a href="creation-site-internet-sainte-maxime.html" class="maillage-card" data-scroll>
+                    <span class="mc-icon">🌊</span>
+                    <h3>Refonte à Sainte-Maxime</h3>
+                    <p>Station premium, forte clientèle internationale. Un site refait à 99/100 capte les recherches
+                        locales toute l'année.</p>
+                    <span class="mc-arrow">Voir la page Sainte-Maxime →</span>
+                </a>
+                <a href="creation-site-internet-var.html" class="maillage-card" data-scroll>
+                    <span class="mc-icon">🗺️</span>
+                    <h3 data-i18n="refonte.mail.c6.t">Tout le Var (83)</h3>
+                    <p data-i18n="refonte.mail.c6.d">Fréjus, Saint-Raphaël, Toulon, Hyères, Draguignan — je réalise des
+                        refontes dans tout le département.</p>
+                    <span class="mc-arrow">Voir toutes les zones →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ CTA AUDIT ═══ -->
+    <section style="padding:0 2rem 6rem" id="audit" aria-labelledby="audit-title">
+        <div class="container">
+            <div class="audit-cta" data-scroll>
+                <div class="section-label" style="justify-content:center;margin-bottom:1.5rem"
+                    data-i18n="refonte.cta.badge">Audit gratuit — réponse sous 24h</div>
+                <h2 id="audit-title" data-i18n="refonte.cta.h">Votre site mérite mieux. Découvrez exactement pourquoi.
+                </h2>
+                <p data-i18n="refonte.cta.p">Je scanne votre site actuel — performance, SEO, design, parcours client —
+                    et vous envoie un rapport chiffré sous 24h. Sans engagement, sans jargon. Juste les faits et ce
+                    qu'on peut faire ensemble.</p>
+                <div class="cta-actions">
+                    <a href="index.html#contact" class="btn-hero">
+                        <span data-i18n="refonte.cta.btn1">Demander mon audit gratuit →</span>
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                            <path d="M3.75 9h10.5M9.75 4.5L14.25 9l-4.5 4.5" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                    <a href="tel:+33611547324" class="btn-ghost-hero">
+                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                            <path
+                                d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                        </svg>
+                        +33 6 11 54 73 24
+                    </a>
+                </div>
+                <p class="audit-note" data-i18n="refonte.cta.note">💡 Audit 100% gratuit · Sans engagement · Réponse
+                    sous 24h · Basé à Saint-Tropez, Var 83</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="footer" id="main-footer" role="contentinfo">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo"><svg viewBox="0 0 50 50" width="32" height="32" aria-hidden="true">
+                            <polygon points="25,2.5 45,13.75 45,36.25 25,47.5 5,36.25 5,13.75" fill="url(#fG)"
+                                stroke="#3B82F6" stroke-width="1.5" />
+                            <defs>
+                                <linearGradient id="fG" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#3B82F6" />
+                                    <stop offset="100%" style="stop-color:#1D4ED8" />
+                                </linearGradient>
+                            </defs><text x="25" y="31" text-anchor="middle" fill="white" font-size="15"
+                                font-family="monospace" font-weight="bold">&lt;/&gt;</text>
+                        </svg><span>Sud<em>Web</em> Project</span></div>
+                    <p class="footer-tag" data-i18n="footer.tag.full"></p>
+                    <p class="footer-desc" data-i18n="footer.desc.full"></p>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer.nav">Navigation</h4>
+                    <ul>
+                        <li><a href="index.html#services" data-i18n="footer.link.services">Création site internet</a>
+                        </li>
+                        <li><a href="index.html#portfolio" data-i18n="footer.link.portfolio">Réalisations</a></li>
+                        <li><a href="index.html#tarifs" data-i18n="footer.link.pricing">Tarifs</a></li>
+                        <li><a href="index.html#apropos" data-i18n="footer.link.about">À propos</a></li>
+                        <li><a href="index.html#contact" data-i18n="footer.link.contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer.zone">Zone d'intervention</h4>
+                    <ul class="footer-cities">
+                        <li><a href="index.html">Saint-Tropez</a></li>
+                        <li>Ramatuelle · Gassin · Grimaud</li>
+                        <li><a href="creation-site-internet-sainte-maxime.html">Sainte-Maxime</a></li>
+                        <li><a href="creation-site-internet-frejus.html">Fréjus</a></li>
+                        <li><a href="creation-site-internet-saint-raphael.html">Saint-Raphaël</a></li>
+                        <li><a href="creation-site-internet-toulon.html">Toulon</a></li>
+                        <li><a href="creation-site-internet-var.html">Tout le Var (83)</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer.contact">Contact</h4>
+                    <ul class="footer-contact">
+                        <li><svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                            </svg><a href="mailto:contact@sudwebproject.com">contact@sudwebproject.com</a></li>
+                        <li><svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                <path
+                                    d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                            </svg><a href="tel:+33611547324">+33 6 11 54 73 24</a></li>
+                        <li><svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                    d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                    clip-rule="evenodd" />
+                            </svg><span>Saint-Tropez, Var 83</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer.copy"></p>
+                <div class="footer-legal"><a href="mentions-legales.html">Mentions légales</a><span
+                        aria-hidden="true">·</span><a
+                        href="mentions-legales.html#confidentialite">Confidentialité</a><span
+                        aria-hidden="true">·</span><a href="mentions-legales.html#cgv">CGV</a></div>
+            </div>
+        </div>
+        <div class="footer-seo">
+            <p data-i18n="footer.seo.links"></p>
+        </div>
+        <button id="back-to-top" class="btt" aria-label="Retour en haut"><svg width="18" height="18" viewBox="0 0 18 18"
+                fill="none" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4.5 9l4.5-4.5L13.5 9M9 4.5V13.5" />
+            </svg></button>
+    </footer>
+
+    <a href="index.html#contact" class="morph-btn" id="morph-btn" aria-label="Nouveau projet — refonte site internet">
+        <div class="morph-inner"><span class="morph-icon" aria-hidden="true">✦</span><span class="morph-text"
+                data-i18n="morph.cta">Nouveau projet</span></div>
+        <svg class="morph-ring" viewBox="0 0 100 100" aria-hidden="true">
+            <circle cx="50" cy="50" r="46" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"
+                stroke-dasharray="2 4" stroke-linecap="round" />
+        </svg>
+    </a>
+
+    <div class="cookie-banner" role="dialog" aria-label="Consentement cookies">
+        <div class="cookie-inner">
+            <p data-i18n="cookies.t">🍪 Ce site utilise des cookies analytiques. <a href="mentions-legales.html#cookies"
+                    data-i18n="cookies.link">En savoir plus</a></p>
+            <div class="cookie-btns"><button id="cookie-accept" class="cookie-btn cookie-btn-accept"
+                    data-i18n="cookies.ok">Accepter</button><button id="cookie-refuse"
+                    class="cookie-btn cookie-btn-refuse" data-i18n="cookies.no">Refuser</button></div>
+        </div>
+    </div>
+
+    <script src="js/i18n.js?v=3" defer></script>
+    <script src="js/global.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="js/emailjs-contact.js" defer></script>
+    <script src="js/cookies.js" defer></script>
+</body>
+
+</html>

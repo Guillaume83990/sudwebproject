@@ -1102,6 +1102,7 @@ section {
     padding: 2.75rem;
     overflow: hidden;
     transition: all var(--dur) var(--ease);
+    text-align: center;
 }
 
 .why-card::before {
@@ -1274,7 +1275,7 @@ section {
 }
 
 .pf-body {
-    padding: 1.5rem;
+    padding: 1.75rem 1.75rem 1.5rem;
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -1319,8 +1320,8 @@ section {
 
 .pf-foot {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: stretch;
     gap: .75rem;
     padding-top: 1rem;
     border-top: 1px solid var(--border);
@@ -1332,7 +1333,6 @@ section {
     font-weight: 700;
     color: var(--blue-l);
     line-height: 1.3;
-    flex-shrink: 0;
 }
 
 /* Sous-texte prix — "artisans & TPE" */
@@ -1347,18 +1347,18 @@ section {
 
 /* Bouton "Voir la démo" — impactant, pulse au hover */
 .pf-link {
-    display: inline-flex;
+    display: flex;
     align-items: center;
+    justify-content: center;
     gap: .4rem;
-    padding: .5rem 1rem;
+    padding: .625rem 1rem;
     background: linear-gradient(135deg, var(--blue), var(--blue-d));
     color: #fff !important;
     border-radius: 50px;
     font-size: .78rem;
     font-weight: 700;
     letter-spacing: .03em;
-    white-space: nowrap;
-    flex-shrink: 0;
+    width: 100%;
     position: relative;
     overflow: hidden;
     transition: transform .3s var(--ease), box-shadow .3s ease;
@@ -3594,4 +3594,702 @@ section {
     max-width: 640px;
     margin-left: auto;
     margin-right: auto;
+}
+
+
+/* ═══════════════════════════════════════════════════
+   TRANSITION OVERLAY — Fade entre pages
+   ═══════════════════════════════════════════════════ */
+#page-transition {
+    position: fixed;
+    inset: 0;
+    background: #080C14;
+    opacity: 1;
+    pointer-events: none;
+    z-index: 99998;
+    will-change: opacity;
+    /* Fallback : si GSAP ne charge pas, l'overlay disparaît en CSS */
+    animation: fadeOutOverlay 0.6s ease 0.1s forwards;
+}
+
+@keyframes fadeOutOverlay {
+    to {
+        opacity: 0;
+    }
+}
+
+/* ═══════════════════════════════════════════════════
+   HUB MÉTIERS
+   ═══════════════════════════════════════════════════ */
+.hub-metiers {
+    padding: 8rem 2rem;
+    background: var(--ink-2);
+    position: relative;
+}
+
+.hub-metiers::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, .25), transparent);
+}
+
+.hub-metiers .section-title {
+    text-align: center;
+}
+
+.hub-italic {
+    font-style: italic;
+    color: var(--blue-l);
+}
+
+.hub-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin: 3.5rem 0 0;
+}
+
+.hub-card {
+    background: var(--glass-2);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    padding: 2rem;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    position: relative;
+    overflow: hidden;
+    transition: all var(--dur) var(--ease);
+}
+
+.hub-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--blue), transparent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .5s var(--ease);
+}
+
+.hub-card:hover {
+    border-color: var(--border-h);
+    transform: translateY(-6px);
+    box-shadow: 0 16px 50px rgba(0, 0, 0, .4);
+}
+
+.hub-card:hover::before {
+    transform: scaleX(1);
+}
+
+.hub-card-icon {
+    font-size: 2rem;
+    margin-bottom: .5rem;
+    filter: drop-shadow(0 0 10px rgba(59, 130, 246, .4));
+}
+
+.hub-card h3 {
+    font-family: var(--ff-display);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.hub-card p {
+    font-size: .85rem;
+    color: var(--mist);
+    line-height: 1.6;
+    flex: 1;
+}
+
+.hub-card-arrow {
+    font-size: 1.1rem;
+    color: var(--blue-l);
+    align-self: flex-end;
+    transition: transform .3s var(--ease);
+    margin-top: .5rem;
+}
+
+.hub-card:hover .hub-card-arrow {
+    transform: translateX(6px);
+}
+
+/* ═══════════════════════════════════════════════════
+   ÉTUDES DE CAS
+   ═══════════════════════════════════════════════════ */
+.etudes-cas {
+    padding: 8rem 2rem;
+    background: var(--ink);
+}
+
+.etudes-cas .section-title {
+    text-align: center;
+}
+
+.etudes-italic {
+    font-style: italic;
+    color: var(--blue-l);
+}
+
+.etudes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 3.5rem 0 0;
+}
+
+.etude-card {
+    background: var(--glass-2);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+    overflow: hidden;
+    transition: all var(--dur) var(--ease);
+}
+
+.etude-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--blue-d), var(--blue-l));
+}
+
+.etude-card:hover {
+    border-color: var(--border-h);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .4);
+}
+
+.etude-icon {
+    font-size: 2.5rem;
+    filter: drop-shadow(0 0 12px rgba(59, 130, 246, .5));
+    padding: 2.5rem 2.5rem 1.25rem;
+    text-align: center;
+    width: 100%;
+}
+
+.etude-metier {
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--blue-l);
+}
+
+.etude-card h3 {
+    font-family: var(--ff-display);
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-align: center;
+    color: #fff;
+    line-height: 1.25;
+}
+
+.etude-card p {
+    color: var(--mist);
+    font-size: .95rem;
+    line-height: 1.75;
+    flex: 1;
+    text-align: center;
+}
+
+.etude-card .btn-outline-sm {
+    align-self: flex-start;
+    margin-top: .5rem;
+}
+
+/* ═══════════════════════════════════════════════════
+   PORTFOLIO — liens maillage métier
+   ═══════════════════════════════════════════════════ */
+.pf-links-metier {
+    display: flex;
+    flex-direction: column;
+    gap: .35rem;
+    padding: .875rem 1.5rem;
+    background: rgba(59, 130, 246, .05);
+    border-top: 1px solid var(--border);
+}
+
+.pf-link-metier {
+    font-size: .78rem;
+    font-weight: 600;
+    color: var(--blue-l);
+    text-decoration: none;
+    transition: all .2s ease;
+    display: flex;
+    align-items: center;
+    gap: .3rem;
+}
+
+.pf-link-metier:hover {
+    color: #fff;
+    transform: translateX(4px);
+}
+
+/* ═══════════════════════════════════════════════════
+   RESPONSIVE NOUVELLES SECTIONS
+   ═══════════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+    .hub-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .etudes-grid {
+        grid-template-columns: 1fr;
+        max-width: 560px;
+        margin-inline: auto;
+    }
+}
+
+
+
+/* ═══════════════════════════════════════════════════
+   HUB MÉTIERS
+   ═══════════════════════════════════════════════════ */
+.hub-metiers {
+    padding: 8rem 2rem;
+    background: linear-gradient(180deg, var(--ink-2) 0%, var(--ink) 100%);
+}
+
+.hub-metiers .section-head {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.hub-italic {
+    font-style: italic;
+    color: var(--blue-l);
+}
+
+.hub-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 3rem;
+}
+
+.hub-card {
+    background: var(--glass-2);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    padding: 2.25rem 1.75rem 2rem;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: .75rem;
+    transition: all var(--dur) var(--ease);
+    position: relative;
+    overflow: hidden;
+}
+
+.hub-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--blue), transparent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .5s var(--ease);
+}
+
+.hub-card:hover {
+    border-color: var(--border-h);
+    transform: translateY(-6px);
+    box-shadow: 0 16px 50px rgba(0, 0, 0, .4);
+}
+
+.hub-card:hover::before {
+    transform: scaleX(1);
+}
+
+.hub-icon {
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.hub-card h3 {
+    font-family: var(--ff-display);
+    font-size: 1.1rem;
+    color: #fff;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.hub-card p {
+    color: var(--mist);
+    font-size: .875rem;
+    line-height: 1.7;
+    flex: 1;
+}
+
+.hub-link {
+    font-size: .8rem;
+    font-weight: 700;
+    color: var(--blue-l);
+    letter-spacing: .02em;
+    transition: transform .2s ease;
+    display: inline-block;
+    margin-top: auto;
+    padding-top: .5rem;
+}
+
+.hub-card:hover .hub-link {
+    transform: translateX(4px);
+}
+
+/* ═══════════════════════════════════════════════════
+   ÉTUDES DE CAS
+   ═══════════════════════════════════════════════════ */
+.etudes-cas {
+    padding: 8rem 2rem;
+    background: var(--ink-2);
+}
+
+.etudes-cas .section-head {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.etudes-italic {
+    font-style: italic;
+    color: var(--blue-l);
+}
+
+.etudes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.etude-card {
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: all var(--dur) var(--ease);
+    position: relative;
+}
+
+.etude-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--blue-d), var(--blue-l));
+}
+
+.etude-card:hover {
+    border-color: var(--border-h);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .45);
+}
+
+.etude-icon {
+    font-size: 3rem;
+    padding: 2.25rem 2.25rem 1rem;
+    line-height: 1;
+    filter: drop-shadow(0 0 12px rgba(59, 130, 246, .4));
+    text-align: center;
+    width: 100%;
+}
+
+.etude-body {
+    padding: 0 2.5rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: .75rem;
+    flex: 1;
+}
+
+.etude-metier {
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--blue-l);
+}
+
+.etude-card h3 {
+    font-family: var(--ff-display);
+    font-size: 1.2rem;
+    color: #fff;
+    line-height: 1.3;
+}
+
+.etude-card p {
+    color: var(--mist);
+    font-size: .9rem;
+    line-height: 1.75;
+    flex: 1;
+}
+
+.etude-body .btn-outline-sm {
+    margin-top: 1.25rem;
+    align-self: center;
+    text-align: center;
+}
+
+/* ═══════════════════════════════════════════════════
+   LIENS MÉTIER SOUS LES CARTES PORTFOLIO
+   ═══════════════════════════════════════════════════ */
+.pf-links-metier {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+    padding: .75rem 1.75rem 1.25rem;
+    border-top: 1px solid var(--border);
+    background: rgba(8, 12, 20, .3);
+}
+
+.pf-metier-link {
+    font-size: .78rem;
+    color: var(--blue-l);
+    font-weight: 600;
+    transition: all .2s ease;
+    display: inline-block;
+    padding: .2rem 0;
+}
+
+.pf-metier-link:hover {
+    color: #fff;
+    transform: translateX(4px);
+}
+
+/* ═══════════════════════════════════════════════════
+   HERO — Phrase SEO
+   ═══════════════════════════════════════════════════ */
+.hero-seo-phrase {
+    font-size: .9rem;
+    color: var(--mist-2);
+    line-height: 1.7;
+    max-width: 500px;
+    margin-top: -.5rem;
+    margin-bottom: 2rem;
+}
+
+/* ═══════════════════════════════════════════════════
+   RESPONSIVE nouvelles sections
+   ═══════════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+    .hub-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .etudes-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .hub-metiers {
+        padding: 5rem 1.25rem;
+    }
+
+    .etudes-cas {
+        padding: 5rem 1.25rem;
+    }
+
+    .hub-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .etudes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hub-card {
+        padding: 1.75rem 1.5rem;
+        text-align: center;
+    }
+
+    .pf-links-metier {
+        padding: .75rem 1.5rem;
+    }
+
+    .etude-icon {
+        padding: 2rem 2rem 1rem;
+    }
+
+    .etude-body {
+        padding: 0 1.75rem 2rem;
+    }
+
+    .hero-seo-phrase {
+        font-size: .85rem;
+        text-align: center;
+        max-width: 100%;
+    }
+}
+
+/* ── BLOC REFONTE — à ajouter dans index.css ──────── */
+.refonte-block {
+    padding: 5rem 2rem;
+    background: linear-gradient(135deg, var(--ink-2) 0%, rgba(59, 130, 246, .05) 50%, var(--ink) 100%);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.refonte-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 4rem;
+    align-items: center;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.refonte-content .section-label {
+    margin-bottom: 1rem;
+}
+
+.refonte-title {
+    font-family: var(--ff-display);
+    font-size: clamp(1.6rem, 2.5vw, 2.25rem);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.15;
+    letter-spacing: -.025em;
+    margin-bottom: 1rem;
+}
+
+.refonte-content p {
+    color: var(--mist);
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 1.75rem;
+    max-width: 520px;
+}
+
+.refonte-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: .6rem;
+}
+
+/* Score visuel */
+.refonte-visual {
+    flex-shrink: 0;
+}
+
+.refonte-score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+    background: var(--glass-2);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    padding: 2rem 2.5rem;
+    text-align: center;
+    position: relative;
+}
+
+.refonte-score::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--blue), transparent);
+    border-radius: var(--r) var(--r) 0 0;
+}
+
+.refonte-score>div {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.score-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .3rem;
+}
+
+.score-num {
+    font-family: var(--ff-display);
+    font-size: 2.8rem;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -.03em;
+}
+
+.score-bad {
+    color: #ef4444;
+}
+
+.score-good {
+    color: #22c55e;
+}
+
+.score-lbl {
+    font-size: .72rem;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--mist);
+}
+
+.score-arrow {
+    font-size: 1.5rem;
+    color: var(--blue-l);
+    font-weight: 700;
+}
+
+.score-sub {
+    font-size: .75rem;
+    color: var(--mist-2);
+    margin-top: .25rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .refonte-inner {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .refonte-visual {
+        display: flex;
+        justify-content: center;
+    }
+
+    .refonte-block {
+        padding: 4rem 1.25rem;
+    }
 }
