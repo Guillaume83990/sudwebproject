@@ -3,7 +3,8 @@
 #  OVH Hébergement mutualisé
 # ═══════════════════════════════════════════════════════════════
 
-DirectoryIndex intro.html index.html
+# ── Page d'accueil = intro.html UNIQUEMENT ───────────────────
+DirectoryIndex intro.html
 
 # ── HTTPS forcé ──────────────────────────────────────────────
 RewriteEngine On
