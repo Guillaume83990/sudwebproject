@@ -1794,3 +1794,16 @@ section {
 .footer-seo a:hover {
     color: var(--blue-l);
 }
+
+/* ── WILL-CHANGE animations composées ── */
+.why-card,
+.hub-card,
+.pf-card,
+.etude-card,
+.testi-card,
+.price-card,
+.zone-card,
+.maint-plan,
+.opt-item {
+    will-change: transform;
+}
