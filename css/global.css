@@ -1080,12 +1080,10 @@ section {
     0%,
     100% {
         transform: scale(1);
-        box-shadow: 0 4px 20px rgba(59, 130, 246, .45);
     }
 
     50% {
         transform: scale(1.07);
-        box-shadow: 0 8px 35px rgba(59, 130, 246, .65);
     }
 }
 
@@ -1793,17 +1791,4 @@ section {
 
 .footer-seo a:hover {
     color: var(--blue-l);
-}
-
-/* ── WILL-CHANGE animations composées ── */
-.why-card,
-.hub-card,
-.pf-card,
-.etude-card,
-.testi-card,
-.price-card,
-.zone-card,
-.maint-plan,
-.opt-item {
-    will-change: transform;
 }

@@ -75,13 +75,9 @@
 
     <!-- CSS non critique en defer -->
     <link rel="stylesheet" href="css/cookies.css" media="print" onload="this.media='all'" />
-    <noscript>
-        <link rel="stylesheet" href="css/cookies.css" />
-    </noscript>
+
     <link rel="stylesheet" href="css/fonts-local.css" media="print" onload="this.media='all'" />
-    <noscript>
-        <link rel="stylesheet" href="css/fonts-local.css" />
-    </noscript>
+
 
     <!-- INTRO OVERLAY — CSS pur, aucun JS requis -->
     <style>
@@ -170,10 +166,12 @@
             position: fixed;
             bottom: 0;
             left: 0;
+            width: 100%;
             height: 2px;
             background: linear-gradient(90deg, #1D4ED8, #60A5FA);
+            transform-origin: left;
             animation: progressGrow 1.4s ease forwards;
-            will-change: width;
+            will-change: transform;
         }
 
         @keyframes introItemIn {
@@ -185,11 +183,11 @@
 
         @keyframes progressGrow {
             from {
-                width: 0;
+                transform: scaleX(0);
             }
 
             to {
-                width: 100%;
+                transform: scaleX(1);
             }
         }
 
@@ -729,7 +727,8 @@
                     <div class="pf-body">
                         <h3 data-i18n="pf.4.t">Restaurant gastronomique</h3>
                         <p data-i18n="pf.4.d.v2">Site 7 pages haut de gamme — menu multilingue FR/EN/IT,
-                            <strong>WhatsApp intelligent</strong>, galerie immersive.</p>
+                            <strong>WhatsApp intelligent</strong>, galerie immersive.
+                        </p>
                         <ul class="pf-tags">
                             <li data-i18n="pf.tag.whatsapp">WhatsApp réservations</li>
                             <li data-i18n="pf.tag.multilang">Multilingue FR/EN/IT</li>
@@ -1214,9 +1213,10 @@
                                 aria-hidden="true">📱</span>
                             <div><strong data-i18n="contact.ph.l">Téléphone</strong><span>+33 6 11 54 73 24</span></div>
                         </a>
-                        <a href="mailto:contact@sudwebproject.com" class="cmethod"><span class="cmethod-icon"
-                                aria-hidden="true">📧</span>
-                            <div><strong data-i18n="contact.em.l">Email</strong><span>contact@sudwebproject.com</span>
+                        <a href="/cdn-cgi/l/email-protection#ef8c80819b8e8c9baf9c9a8b988a8d9f9d80858a8c9bc18c8082"
+                            class="cmethod"><span class="cmethod-icon" aria-hidden="true">📧</span>
+                            <div><strong data-i18n="contact.em.l">Email</strong><span><span class="__cf_email__"
+                                        data-cfemail="accfc3c2d8cdcfd8ecdfd9c8dbc9cedcdec3c6c9cfd882cfc3c1">contact@sudwebproject.com</span></span>
                             </div>
                         </a>
                         <div class="cmethod"><span class="cmethod-icon" aria-hidden="true">📍</span>
@@ -1345,7 +1345,11 @@
                         <li><svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                                 <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                                 <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                            </svg><a href="mailto:contact@sudwebproject.com">contact@sudwebproject.com</a></li>
+                            </svg><a
+                                href="/cdn-cgi/l/email-protection#adcec2c3d9ccced9edded8c9dac8cfdddfc2c7c8ced983cec2c0"><span
+                                    class="__cf_email__"
+                                    data-cfemail="3b5854554f5a584f7b484e5f4c5e594b4954515e584f15585456">contact@sudwebproject.com</span></a>
+                        </li>
                         <li><svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                                 <path
                                     d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
@@ -1379,33 +1383,23 @@
             </svg>
         </button>
     </footer>
-
-    <a href="#contact" class="morph-btn" id="morph-btn" aria-label="Nouveau projet — création site internet">
-        <div class="morph-inner"><span class="morph-icon" aria-hidden="true">✦</span><span class="morph-text"
-                data-i18n="morph.cta">Nouveau projet</span></div>
-        <svg class="morph-ring" viewBox="0 0 100 100" aria-hidden="true">
-            <circle cx="50" cy="50" r="46" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"
-                stroke-dasharray="2 4" stroke-linecap="round" />
-        </svg>
-    </a>
-
-    <div class="cookie-banner" role="dialog" aria-label="Consentement cookies">
-        <div class="cookie-inner">
-            <p data-i18n="cookies.t">🍪 Ce site utilise des cookies analytiques. <a href="mentions-legales.html#cookies"
-                    data-i18n="cookies.link">En savoir plus</a></p>
-            <div class="cookie-btns">
-                <button id="cookie-accept" class="cookie-btn cookie-btn-accept" data-i18n="cookies.ok">Accepter</button>
-                <button id="cookie-refuse" class="cookie-btn cookie-btn-refuse" data-i18n="cookies.no">Refuser</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Scripts — defer pour ne pas bloquer le rendu -->
     <script src="js/i18n.js?v=4" defer></script>
     <script src="js/global.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
-    <script src="js/emailjs-contact.js" defer></script>
-    <script src="js/cookies.js" defer></script>
+    <!-- EmailJS + cookies chargés en idle pour réduire TBT -->
+    <script>
+        window.addEventListener('load', function () {
+            var ric = window.requestIdleCallback || function (cb) { setTimeout(cb, 200); };
+            ric(function () {
+                var s1 = document.createElement('script');
+                s1.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
+                s1.onload = function () {
+                    var s2 = document.createElement('script'); s2.src = 'js/emailjs-contact.js'; document.head.appendChild(s2);
+                };
+                document.head.appendChild(s1);
+                var s3 = document.createElement('script'); s3.src = 'js/cookies.js'; document.head.appendChild(s3);
+            });
+        });
+    </script>
 </body>
 
 </html>
