@@ -1,22 +1,44 @@
 /* ═══════════════════════════════════════════════════
    VILLE.CSS — Sud Web Project
-   Styles spécifiques aux pages villes.
-   Charger APRÈS global.css.
-   Sections : breadcrumb, hero-ville, intro, chiffres,
-   pourquoi, process, cta final.
+   Pages villes : Cogolin, Grimaud, Ramatuelle, etc.
+   Charger APRÈS global.css et index.css.
    ═══════════════════════════════════════════════════ */
 
-/* ── BREADCRUMB VILLE ────────────────────────────── */
+/* ── GSAP — PAS de pré-cachage CSS ──────────────────
+   GSAP cache les éléments lui-même via JS avant de les
+   animer. Si on les cache en CSS et que GSAP échoue,
+   tout reste invisible. On laisse tout visible par défaut.
+   ─────────────────────────────────────────────────── */
+.gsap-fade-up,
+.gsap-fade-in,
+.gsap-scale-in {
+    /* Visible par défaut — GSAP overrride en JS */
+}
+
+/* Fallback prefers-reduced-motion (GSAP respecte ça aussi) */
+@media (prefers-reduced-motion: reduce) {
+
+    .gsap-fade-up,
+    .gsap-fade-in,
+    .gsap-scale-in {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+/* ── BREADCRUMB ──────────────────────────────────── */
 .ville-breadcrumb {
     padding: .75rem 0;
     border-bottom: 1px solid var(--border);
-    background: rgba(8, 12, 20, .6);
-    backdrop-filter: blur(10px);
+    background: rgba(8, 12, 20, .75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     position: sticky;
     top: 65px;
     z-index: 100;
-    font-size: .8rem;
+    font-size: .78rem;
     color: var(--mist-2);
+    letter-spacing: .02em;
 }
 
 .ville-breadcrumb .container {
@@ -27,11 +49,16 @@
 
 .ville-breadcrumb a {
     color: var(--mist-2);
+    text-decoration: none;
     transition: color .2s;
 }
 
 .ville-breadcrumb a:hover {
     color: var(--blue-l);
+}
+
+.ville-breadcrumb .bc-sep {
+    color: var(--border-h);
 }
 
 .ville-breadcrumb span:last-child {
@@ -41,41 +68,95 @@
 
 /* ── HERO VILLE ──────────────────────────────────── */
 .ville-hero {
-    min-height: 80vh;
-    padding: 9rem 2rem 6rem;
+    min-height: 92vh;
+    padding: 11rem 2rem 8rem;
     display: flex;
     align-items: center;
+    justify-content: center;
+    text-align: center;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(135deg, var(--ink) 0%, var(--ink-2) 60%, rgba(59, 130, 246, .05) 100%);
 }
 
 .ville-hero-bg {
     position: absolute;
     inset: 0;
     background:
-        radial-gradient(ellipse 65% 55% at 65% 40%, rgba(59, 130, 246, .09), transparent),
-        radial-gradient(ellipse 40% 40% at 20% 80%, rgba(29, 78, 216, .06), transparent);
+        radial-gradient(ellipse 70% 60% at 50% 30%, rgba(59, 130, 246, .11), transparent),
+        radial-gradient(ellipse 45% 45% at 80% 80%, rgba(29, 78, 216, .07), transparent);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.ville-hero-img {
+    position: absolute;
+    inset: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    opacity: .12;
+    filter: blur(1px) saturate(.6);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.ville-hero-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            rgba(8, 12, 20, .6) 0%,
+            rgba(8, 12, 20, .3) 40%,
+            rgba(8, 12, 20, .85) 100%);
+    z-index: 1;
     pointer-events: none;
 }
 
 .ville-hero .container {
     position: relative;
     z-index: 2;
-    max-width: 900px;
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .ville-hero-badge {
     display: inline-flex;
     align-items: center;
     gap: .6rem;
-    font-size: .8rem;
-    font-weight: 600;
-    letter-spacing: .1em;
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .14em;
     text-transform: uppercase;
-    color: var(--mist);
-    margin-bottom: 1.5rem;
-    animation: fadeSlideDown .8s var(--ease) .2s both;
+    color: var(--blue-l);
+    background: rgba(59, 130, 246, .1);
+    border: 1px solid rgba(59, 130, 246, .25);
+    border-radius: 100px;
+    padding: .45rem 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.ville-hero-badge .badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--blue-l);
+    animation: pulseDot 2s ease infinite;
+}
+
+@keyframes pulseDot {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: .5;
+        transform: scale(1.5);
+    }
 }
 
 .ville-hero-title {
@@ -85,16 +166,8 @@
     line-height: 1.05;
     letter-spacing: -.03em;
     color: #fff;
-    margin-bottom: 1.5rem;
-}
-
-/* split-reveal dans le hero ville — lent comme index */
-.ville-hero-title .split-reveal .rv-inner {
-    transition: transform 1.4s cubic-bezier(.77, 0, .175, 1), opacity 1.2s ease;
-}
-
-.ville-hero-title .split-reveal:nth-child(2) .rv-inner {
-    transition-delay: .18s;
+    margin-bottom: 1.75rem;
+    text-align: center;
 }
 
 .ville-em {
@@ -106,44 +179,128 @@
 .ville-hero-sub {
     font-size: 1.1rem;
     color: var(--mist);
-    line-height: 1.8;
-    max-width: 600px;
-    margin-bottom: 2.5rem;
-    animation: fadeSlideDown .8s var(--ease) .9s both;
+    line-height: 1.85;
+    max-width: 620px;
+    margin: 0 auto 1.75rem;
+    text-align: center;
 }
 
 .ville-hero-sub strong {
     color: #fff;
 }
 
+.ville-hero-text {
+    font-size: .975rem;
+    color: var(--mist-2);
+    line-height: 1.8;
+    max-width: 560px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+}
+
 .ville-hero-actions {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
-    margin-bottom: 3rem;
-    animation: fadeSlideDown .8s var(--ease) 1.1s both;
+    justify-content: center;
+    margin-bottom: 3.5rem;
 }
 
 .ville-hero-metrics {
     display: flex;
     align-items: center;
-    gap: 2rem;
-    animation: fadeSlideDown .8s var(--ease) 1.3s both;
+    gap: 2.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--border);
+    width: 100%;
 }
 
-/* ── INTRO VILLE ─────────────────────────────────── */
+.ville-hero-metrics .metric {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .25rem;
+}
+
+.ville-hero-metrics .metric-n {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -.02em;
+    font-family: var(--ff-display);
+}
+
+.ville-hero-metrics .metric-l {
+    font-size: .72rem;
+    color: var(--mist-2);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    text-align: center;
+}
+
+.ville-hero-metrics .metric-sep {
+    width: 1px;
+    height: 36px;
+    background: var(--border);
+}
+
+/* Scroll hint */
+.ville-scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+    color: var(--mist-2);
+    font-size: .7rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    z-index: 2;
+}
+
+.ville-scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--blue-l), transparent);
+    animation: scrollPulse 2s ease infinite;
+}
+
+@keyframes scrollPulse {
+    0% {
+        opacity: 0;
+        transform: scaleY(0);
+        transform-origin: top;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: scaleY(1);
+        transform-origin: top;
+    }
+}
+
+/* ── INTRO ───────────────────────────────────────── */
 .ville-intro-section {
-    padding: 7rem 2rem;
+    padding: 8rem 2rem;
     background: var(--ink-2);
 }
 
 .ville-intro-grid {
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 5rem;
-    align-items: start;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 6rem;
+    align-items: center;
 }
-
 
 .ville-intro-text .section-label {
     margin-bottom: 1rem;
@@ -152,12 +309,49 @@
 .ville-intro-text p {
     color: var(--mist);
     font-size: 1rem;
-    line-height: 1.85;
+    line-height: 1.9;
     margin-top: 1.25rem;
 }
 
 .ville-intro-text p strong {
     color: #fff;
+}
+
+.ville-intro-img-wrap {
+    position: relative;
+    border-radius: var(--r);
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    box-shadow: 0 32px 80px rgba(0, 0, 0, .5);
+    margin-bottom: 1.5rem;
+}
+
+.ville-intro-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 6s ease;
+}
+
+.ville-intro-img-wrap:hover img {
+    transform: scale(1.04);
+}
+
+.ville-intro-img-label {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    background: rgba(8, 12, 20, .8);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--border);
+    border-radius: var(--r-sm);
+    padding: .5rem 1rem;
+    font-size: .75rem;
+    color: var(--mist);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: .4rem;
 }
 
 .ville-h2 {
@@ -170,12 +364,17 @@
     margin-bottom: .5rem;
 }
 
-.ville-h2 .split-reveal .rv-inner {
-    transition: transform .8s cubic-bezier(.77, 0, .175, 1), opacity .7s ease;
-}
-
-.ville-h2 .split-reveal:nth-child(2) .rv-inner {
-    transition-delay: .14s;
+.ville-punchline {
+    margin-top: 1.75rem;
+    padding: 1.25rem 1.75rem;
+    border-left: 3px solid var(--blue-l);
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--blue-l);
+    background: rgba(59, 130, 246, .07);
+    border-radius: 0 var(--r-sm) var(--r-sm) 0;
+    font-family: var(--ff-display);
+    line-height: 1.6;
 }
 
 /* ── CHIFFRES ────────────────────────────────────── */
@@ -189,11 +388,12 @@
     background: var(--glass-2);
     border: 1px solid var(--border);
     border-radius: var(--r);
-    padding: 1.75rem 1.5rem;
+    padding: 2rem 1.5rem;
     text-align: center;
     transition: all var(--dur) var(--ease);
     position: relative;
     overflow: hidden;
+    cursor: default;
 }
 
 .ville-chiffre-card::before {
@@ -203,15 +403,16 @@
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, var(--blue), transparent);
+    background: linear-gradient(90deg, var(--blue), var(--blue-l), transparent);
     transform: scaleX(0);
     transform-origin: left;
-    transition: transform .5s var(--ease);
+    transition: transform .6s var(--ease);
 }
 
 .ville-chiffre-card:hover {
     border-color: var(--border-h);
-    transform: translateY(-4px);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, .4);
 }
 
 .ville-chiffre-card:hover::before {
@@ -221,318 +422,61 @@
 .chiffre-num {
     display: block;
     font-family: var(--ff-display);
-    font-size: 2rem;
+    font-size: 2.25rem;
     font-weight: 900;
     color: var(--blue-l);
     line-height: 1;
-    margin-bottom: .5rem;
+    margin-bottom: .6rem;
     letter-spacing: -.02em;
 }
 
 .chiffre-label {
     display: block;
-    font-size: .78rem;
+    font-size: .77rem;
     font-weight: 600;
     color: var(--mist);
     text-transform: uppercase;
-    letter-spacing: .08em;
-    line-height: 1.4;
+    letter-spacing: .09em;
+    line-height: 1.5;
 }
 
-/* ── POURQUOI ────────────────────────────────────── */
-.ville-pourquoi {
-    padding: 7rem 2rem;
+/* ── MÉTIERS ─────────────────────────────────────── */
+.ville-metiers {
+    padding: 8rem 2rem;
     background: var(--ink);
 }
 
-.ville-pourquoi .section-head {
-    margin-bottom: 4rem;
-}
-
-/* ── PROCESS ─────────────────────────────────────── */
-.ville-process {
-    padding: 7rem 2rem;
-    background: linear-gradient(180deg, var(--ink-2) 0%, var(--ink) 100%);
-}
-
-.process-steps-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    position: relative;
-}
-
-.process-steps-grid::before {
-    content: '';
-    position: absolute;
-    top: 32px;
-    left: 10%;
-    right: 10%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--blue), transparent);
-    opacity: .3;
-}
-
-.process-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 1rem;
-    position: relative;
-    z-index: 1;
-}
-
-.process-num-circle {
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--blue), var(--blue-d));
-    color: #fff;
-    font-family: var(--ff-display);
-    font-size: 1.4rem;
-    font-weight: 900;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 20px rgba(59, 130, 246, .45);
-    flex-shrink: 0;
-}
-
-.process-item h3 {
-    font-family: var(--ff-display);
-    font-size: 1rem;
-    color: #fff;
-    font-weight: 700;
-    line-height: 1.3;
-}
-
-.process-item p {
-    color: var(--mist);
-    font-size: .875rem;
-    line-height: 1.7;
-}
-
-/* ── CTA FINAL ───────────────────────────────────── */
-.ville-cta {
-    padding: 7rem 2rem;
-    background: linear-gradient(135deg, var(--ink-2) 0%, rgba(59, 130, 246, .05) 50%, var(--ink) 100%);
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.ville-cta::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(59, 130, 246, .07), transparent);
-    pointer-events: none;
-}
-
-.ville-cta .container {
-    position: relative;
-    z-index: 1;
-    max-width: 780px;
-}
-
+/* Centrage section-head pour toutes les sections villes */
+.ville-metiers .section-head,
+.ville-pourquoi .section-head,
+.ville-process .section-head,
+.ville-villes-block .section-head,
+.ville-faq .section-head,
+.ville-tarifs .section-head,
 .ville-cta .section-head {
     text-align: center;
-}
-
-.ville-cta-actions {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 2.5rem;
-}
-
-.ville-seo-text {
-    font-size: .72rem;
-    color: var(--mist-2);
-    margin-top: 2.5rem;
-    line-height: 1.8;
-}
-
-/* ── RESPONSIVE ──────────────────────────────────── */
-@media (max-width: 1024px) {
-    .ville-intro-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-
-    .process-steps-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .process-steps-grid::before {
-        display: none;
-    }
-
-    .ville-chiffres-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media (max-width: 768px) {
-    .ville-hero {
-        padding: 5.5rem 1.25rem 3.5rem;
-        min-height: auto;
-        text-align: center;
-    }
-
-    .ville-hero .container {
-        text-align: center;
-    }
-
-    .ville-hero-title {
-        font-size: clamp(2rem, 8vw, 3rem);
-    }
-
-    .ville-hero-badge {
-        justify-content: center;
-    }
-
-    .ville-hero-sub {
-        font-size: 1rem;
-        max-width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .ville-hero-actions {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .ville-hero-actions .btn-hero,
-    .ville-hero-actions .btn-ghost-hero {
-        width: 100%;
-        justify-content: center;
-        max-width: 360px;
-    }
-
-    .ville-hero-metrics {
-        gap: 1rem;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .metric-n {
-        font-size: 1.4rem;
-    }
-
-    .metric-l {
-        font-size: .65rem;
-    }
-
-    .ville-intro-section {
-        padding: 5rem 1.25rem;
-    }
-
-    .ville-chiffres-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .process-steps-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .ville-pourquoi {
-        padding: 5rem 1.25rem;
-    }
-
-    .ville-process {
-        padding: 5rem 1.25rem;
-    }
-
-    .ville-cta {
-        padding: 5rem 1.25rem;
-    }
-
-    .ville-cta-actions {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .ville-cta-actions .btn-hero,
-    .ville-cta-actions .btn-ghost-hero {
-        width: 100%;
-        justify-content: center;
-        max-width: 360px;
-    }
-}
-
-@media (max-width: 480px) {
-    .ville-hero-title {
-        font-size: 1.75rem;
-    }
-
-    .ville-chiffres-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .chiffre-num {
-        font-size: 1.6rem;
-    }
-
-    .process-num-circle {
-        width: 52px;
-        height: 52px;
-        font-size: 1.2rem;
-    }
-}
-
-/* ── HERO TEXT ───────────────────────────────────── */
-.ville-hero-text {
-    font-size: 1rem;
-    color: var(--mist);
-    line-height: 1.8;
-    max-width: 580px;
-    margin-bottom: 2.5rem;
-    animation: fadeSlideDown .8s var(--ease) .75s both;
-}
-
-/* ── PUNCHLINE ────────────────────────────────────── */
-.ville-punchline {
-    margin-top: 1.5rem;
-    padding: 1rem 1.5rem;
-    border-left: 3px solid var(--blue-l);
-    font-style: italic;
-    font-size: 1.05rem;
-    color: var(--blue-l);
-    background: rgba(59, 130, 246, .06);
-    border-radius: 0 var(--r-sm) var(--r-sm) 0;
-    font-family: var(--ff-display);
-}
-
-/* ── SOLUTIONS PAR MÉTIER ────────────────────────── */
-.ville-metiers {
-    padding: 7rem 2rem;
-    background: var(--ink);
+    margin-bottom: 4rem;
 }
 
 .ville-metiers-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    margin: 3rem 0 2rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 2rem;
 }
 
 .ville-metier-card {
     background: var(--glass-2);
     border: 1px solid var(--border);
     border-radius: var(--r);
-    padding: 1.75rem 1.5rem;
+    padding: 2rem 1.5rem;
     text-decoration: none;
     color: inherit;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: .75rem;
+    gap: .85rem;
     transition: all var(--dur) var(--ease);
     position: relative;
     overflow: hidden;
@@ -545,7 +489,7 @@
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, var(--blue), transparent);
+    background: linear-gradient(90deg, var(--blue), var(--blue-l));
     transform: scaleX(0);
     transform-origin: left;
     transition: transform .5s var(--ease);
@@ -553,7 +497,8 @@
 
 .ville-metier-card:hover {
     border-color: var(--border-h);
-    transform: translateY(-5px);
+    transform: translateY(-6px);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, .45);
 }
 
 .ville-metier-card:hover::before {
@@ -561,8 +506,9 @@
 }
 
 .ville-metier-icon {
-    font-size: 2.25rem;
+    font-size: 2.5rem;
     line-height: 1;
+    display: block;
 }
 
 .ville-metier-label {
@@ -571,166 +517,29 @@
     color: #fff;
 }
 
-.ville-metier-arrow {
-    font-size: .85rem;
-    color: var(--blue-l);
-    font-weight: 700;
-    margin-top: auto;
-}
-
-.ville-cas-preuve {
-    text-align: center;
-    margin-top: 1rem;
-}
-
-.ville-cas-link {
-    display: inline-flex;
-    align-items: center;
-    gap: .5rem;
-    color: var(--blue-l);
-    font-size: .95rem;
-    font-weight: 600;
-    transition: all .2s ease;
-    border-bottom: 1px solid rgba(96, 165, 250, .3);
-    padding-bottom: 2px;
-}
-
-.ville-cas-link:hover {
-    color: #fff;
-    border-color: rgba(255, 255, 255, .4);
-}
-
-/* ── MAILLAGE VILLES ─────────────────────────────── */
-.ville-villes-block {
-    padding: 7rem 2rem;
-    background: var(--ink-2);
-}
-
-.ville-villes-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem;
-    margin: 3rem 0 2rem;
-}
-
-.ville-ville-card {
-    background: var(--glass);
-    border: 1px solid var(--border);
-    border-radius: var(--r);
-    padding: 2rem 1.5rem;
-    text-decoration: none;
-    color: inherit;
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
-    transition: all var(--dur) var(--ease);
-}
-
-.ville-ville-card:hover {
-    border-color: var(--border-h);
-    transform: translateY(-5px);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, .4);
-}
-
-.ville-ville-icon {
-    font-size: 2rem;
-    line-height: 1;
-}
-
-.ville-ville-name {
-    font-family: var(--ff-display);
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #fff;
-}
-
-.ville-ville-sub {
+.ville-metier-desc {
     font-size: .85rem;
     color: var(--mist);
-    line-height: 1.5;
+    line-height: 1.55;
     flex: 1;
 }
 
-.ville-ville-link {
-    font-size: .8rem;
-    font-weight: 700;
+.ville-metier-arrow {
+    font-size: .82rem;
     color: var(--blue-l);
-    margin-top: .5rem;
+    font-weight: 700;
+    margin-top: auto;
     transition: transform .2s ease;
-    display: inline-block;
 }
 
-.ville-ville-card:hover .ville-ville-link {
+.ville-metier-card:hover .ville-metier-arrow {
     transform: translateX(4px);
 }
 
-/* ── RESPONSIVE nouvelles sections ──────────────── */
-@media (max-width: 1024px) {
-    .ville-metiers-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .ville-villes-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media (max-width: 768px) {
-    .ville-metiers {
-        padding: 5rem 1.25rem;
-    }
-
-    .ville-villes-block {
-        padding: 5rem 1.25rem;
-    }
-
-    .ville-metiers-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: .75rem;
-    }
-
-    .ville-villes-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .ville-metier-card {
-        padding: 1.5rem 1rem;
-    }
-
-    .ville-hero-text {
-        font-size: .95rem;
-        max-width: 100%;
-    }
-
-    .ville-punchline {
-        font-size: .95rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .ville-metiers-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-/* ── TARIFS PAGE VILLE — espacement ────────────────── */
-.pricing .section-head {
-    text-align: left;
-}
-
-.pricing .section-sub {
-    margin-top: 1.5rem;
-}
-
-.pricing .section-title {
-    margin-bottom: .25rem;
-}
-
-/* ── MÉTIERS — CTA supplémentaire ────────────────────── */
 .ville-metiers-cta-bottom {
     text-align: center;
-    margin-top: 2rem;
-    padding-top: 2rem;
+    margin-top: 2.5rem;
+    padding-top: 2.5rem;
     border-top: 1px solid var(--border);
     display: flex;
     flex-direction: column;
@@ -740,28 +549,25 @@
 
 .ville-metiers-cta-bottom p {
     color: var(--mist);
-    font-size: 1rem;
+    font-size: .975rem;
     line-height: 1.7;
     max-width: 500px;
 }
 
-/* ── LISTE MÉTIERS (format ligne) ───────────────── */
+/* ── MÉTIERS FORMAT LIGNE ────────────────────────── */
 .ville-metiers-list {
     display: flex;
     flex-direction: column;
-    gap: .75rem;
-    margin: 3rem 0 1.75rem;
+    gap: .85rem;
     max-width: 820px;
-    margin-inline: auto;
-    margin-top: 3rem;
-    margin-bottom: 1.75rem;
+    margin: 0 auto 2rem;
 }
 
 .ville-metier-row {
     display: flex;
     align-items: center;
-    gap: 1.25rem;
-    padding: 1.25rem 1.75rem;
+    gap: 1.5rem;
+    padding: 1.4rem 1.75rem;
     background: var(--glass-2);
     border: 1px solid var(--border);
     border-radius: var(--r);
@@ -804,7 +610,7 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: .15rem;
+    gap: .2rem;
 }
 
 .vmr-title {
@@ -816,6 +622,7 @@
 .vmr-desc {
     font-size: .875rem;
     color: var(--mist);
+    line-height: 1.5;
 }
 
 .vmr-arrow {
@@ -835,69 +642,335 @@
     color: var(--mist);
     font-size: .95rem;
     font-style: italic;
-    margin-top: 1.5rem;
-    padding-top: 1.5rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
     border-top: 1px solid var(--border);
 }
 
-/* ── PREUVE CONCRÈTE ─────────────────────────────── */
+/* ── POURQUOI ────────────────────────────────────── */
+.ville-pourquoi {
+    padding: 8rem 2rem;
+    background: var(--ink-2);
+}
+
+.ville-pourquoi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.ville-pourquoi-card {
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    padding: 2.25rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: all var(--dur) var(--ease);
+    position: relative;
+    overflow: hidden;
+}
+
+.ville-pourquoi-card::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: -30px;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(59, 130, 246, .15), transparent 70%);
+    opacity: 0;
+    transition: opacity .4s ease;
+    pointer-events: none;
+}
+
+.ville-pourquoi-card:hover {
+    border-color: var(--border-h);
+    transform: translateY(-6px);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, .4);
+}
+
+.ville-pourquoi-card:hover::after {
+    opacity: 1;
+}
+
+.ville-pourquoi-icon {
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.ville-pourquoi-card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.3;
+}
+
+.ville-pourquoi-card p {
+    font-size: .875rem;
+    color: var(--mist);
+    line-height: 1.75;
+    flex: 1;
+}
+
+/* ── PROCESS ─────────────────────────────────────── */
+.ville-process {
+    padding: 8rem 2rem;
+    background: linear-gradient(180deg, var(--ink) 0%, var(--ink-2) 100%);
+}
+
+.process-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    position: relative;
+}
+
+.process-steps-grid::before {
+    content: '';
+    position: absolute;
+    top: 32px;
+    left: 12%;
+    right: 12%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--blue-l), var(--blue), transparent);
+    opacity: .25;
+    pointer-events: none;
+}
+
+.process-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.25rem;
+    position: relative;
+    z-index: 1;
+}
+
+.process-num-circle {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--blue), var(--blue-d));
+    color: #fff;
+    font-family: var(--ff-display);
+    font-size: 1.4rem;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 24px rgba(59, 130, 246, .5), 0 0 0 6px rgba(59, 130, 246, .08);
+    flex-shrink: 0;
+    transition: transform .3s var(--ease), box-shadow .3s ease;
+}
+
+.process-item:hover .process-num-circle {
+    transform: scale(1.1);
+    box-shadow: 0 8px 32px rgba(59, 130, 246, .7), 0 0 0 10px rgba(59, 130, 246, .1);
+}
+
+.process-item h3 {
+    font-family: var(--ff-display);
+    font-size: 1.05rem;
+    color: #fff;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.process-item p {
+    color: var(--mist);
+    font-size: .875rem;
+    line-height: 1.75;
+}
+
+/* ── TARIFS ──────────────────────────────────────── */
+.ville-tarifs {
+    padding: 8rem 2rem;
+    background: var(--ink-2);
+}
+
+.ville-tarifs .price-grid {
+    margin-top: 0;
+}
+
+/* ── PREUVE ──────────────────────────────────────── */
 .ville-preuve {
-    padding: 6rem 2rem;
+    padding: 7rem 2rem;
     background: linear-gradient(135deg, var(--ink-2) 0%, rgba(59, 130, 246, .04) 100%);
 }
 
 .ville-preuve-inner {
-    max-width: 640px;
+    max-width: 680px;
     margin: 0 auto;
     text-align: center;
 }
 
-.ville-preuve-inner .section-label {
-    justify-content: center;
+/* ── MAILLAGE VILLES ─────────────────────────────── */
+.ville-villes-block {
+    padding: 8rem 2rem;
+    background: var(--ink-2);
 }
 
-.ville-preuve-inner p {
+.ville-villes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.ville-ville-card {
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    padding: 2.25rem 1.75rem;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: .65rem;
+    transition: all var(--dur) var(--ease);
+    position: relative;
+    overflow: hidden;
+}
+
+.ville-ville-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--blue-d), var(--blue-l));
+    transform: scaleX(0);
+    transition: transform .5s var(--ease);
+}
+
+.ville-ville-card:hover {
+    border-color: var(--border-h);
+    transform: translateY(-6px);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, .45);
+}
+
+.ville-ville-card:hover::before {
+    transform: scaleX(1);
+}
+
+.ville-ville-card.active-city {
+    border-color: var(--border-h);
+    background: rgba(59, 130, 246, .07);
+    cursor: default;
+}
+
+.ville-ville-icon {
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.ville-ville-name {
+    font-family: var(--ff-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.ville-ville-sub {
+    font-size: .85rem;
     color: var(--mist);
-    font-size: 1.05rem;
+    line-height: 1.55;
+    flex: 1;
+}
+
+.ville-ville-tag {
+    font-size: .75rem;
+    font-weight: 700;
+    color: var(--blue-l);
+    margin-top: .25rem;
+    transition: transform .2s ease;
+    display: inline-block;
+}
+
+.ville-ville-card:hover .ville-ville-tag {
+    transform: translateX(4px);
+}
+
+.ville-seo-phrase {
+    text-align: center;
+    color: var(--mist-2);
+    font-size: .85rem;
+    margin-top: 1.75rem;
     line-height: 1.8;
-    margin: 1.5rem 0 2rem;
 }
 
-.ville-preuve-inner .btn-primary {
-    margin: 0 auto;
+.ville-seo-phrase a {
+    color: var(--blue-l);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(96, 165, 250, .25);
+    transition: border-color .2s;
 }
 
-/* ── BLOC CONVERSION ─────────────────────────────── */
+.ville-seo-phrase a:hover {
+    border-color: var(--blue-l);
+}
+
+/* ── PUNCHLINE ───────────────────────────────────── */
+.ville-punchline {
+    margin-top: 1.5rem;
+    padding: 1rem 1.5rem;
+    border-left: 3px solid var(--blue-l);
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--blue-l);
+    background: rgba(59, 130, 246, .06);
+    border-radius: 0 var(--r-sm) var(--r-sm) 0;
+    font-family: var(--ff-display);
+}
+
+/* ── CAS PREUVE ──────────────────────────────────── */
+.ville-cas-link {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    color: var(--blue-l);
+    font-size: .95rem;
+    font-weight: 600;
+    transition: all .2s ease;
+    border-bottom: 1px solid rgba(96, 165, 250, .3);
+    padding-bottom: 2px;
+    text-decoration: none;
+}
+
+.ville-cas-link:hover {
+    color: #fff;
+    border-color: rgba(255, 255, 255, .4);
+}
+
+/* ── CONVERSION ──────────────────────────────────── */
 .ville-conversion {
-    padding: 7rem 2rem;
+    padding: 8rem 2rem;
     background: linear-gradient(135deg, var(--blue-d) 0%, var(--ink-2) 60%);
     position: relative;
     overflow: hidden;
+    text-align: center;
 }
 
 .ville-conversion::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse 60% 60% at 30% 50%, rgba(59, 130, 246, .12), transparent);
+    background: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(59, 130, 246, .12), transparent);
     pointer-events: none;
 }
 
 .ville-conversion-inner {
-    max-width: 680px;
+    max-width: 700px;
+    margin: 0 auto;
     position: relative;
     z-index: 1;
-}
-
-.ville-conversion-inner .section-label {
-    color: rgba(255, 255, 255, .6);
-}
-
-.ville-conversion-inner p {
-    color: rgba(255, 255, 255, .8);
-    font-size: 1.05rem;
-    line-height: 1.8;
-    margin-top: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .ville-conv-punch {
@@ -905,50 +978,329 @@
     font-size: 1.3rem;
     font-weight: 700;
     color: #fff !important;
-    margin: 1.75rem 0 2rem;
-    padding: 1rem 1.5rem;
+    margin: 2rem 0 2.5rem;
+    padding: 1.25rem 1.75rem;
     border-left: 3px solid rgba(255, 255, 255, .5);
-    background: rgba(255, 255, 255, .06);
+    background: rgba(255, 255, 255, .07);
     border-radius: 0 var(--r-sm) var(--r-sm) 0;
+    text-align: left;
+    width: 100%;
 }
 
-/* ── SEO PHRASE ──────────────────────────────────── */
-.ville-seo-phrase {
+/* ── FAQ ─────────────────────────────────────────── */
+.ville-faq {
+    padding: 8rem 2rem;
+    background: var(--ink);
+}
+
+.ville-faq-list {
+    max-width: 780px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.ville-faq-item {
+    background: var(--glass-2);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    overflow: hidden;
+    transition: border-color .3s ease;
+}
+
+.ville-faq-item[open] {
+    border-color: var(--border-h);
+}
+
+.ville-faq-item summary {
+    padding: 1.4rem 1.75rem;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    font-weight: 600;
+    font-size: .975rem;
+    color: #E2E8F0;
+    transition: color .2s;
+    user-select: none;
+}
+
+.ville-faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.ville-faq-item summary h3 {
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.ville-faq-item summary:hover {
+    color: #fff;
+}
+
+.faq-toggle {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(59, 130, 246, .15);
+    border: 1px solid rgba(59, 130, 246, .3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--blue-l);
+    font-size: 1.1rem;
+    font-weight: 700;
+    transition: all .25s ease;
+    line-height: 1;
+}
+
+.ville-faq-item[open] .faq-toggle {
+    background: var(--blue);
+    border-color: var(--blue);
+    color: #fff;
+    transform: rotate(45deg);
+}
+
+.ville-faq-item p {
+    padding: 0 1.75rem 1.4rem;
+    font-size: .9rem;
+    color: var(--mist);
+    line-height: 1.8;
+    border-top: 1px solid var(--border);
+    padding-top: 1.25rem;
+    margin: 0;
+}
+
+.ville-faq-item p strong {
+    color: #fff;
+}
+
+/* ── CTA FINAL ───────────────────────────────────── */
+.ville-cta {
+    padding: 9rem 2rem;
+    background: linear-gradient(135deg, var(--ink-2) 0%, rgba(59, 130, 246, .06) 50%, var(--ink) 100%);
     text-align: center;
-    color: var(--mist-2);
-    font-size: .875rem;
-    margin-top: 2rem;
-    line-height: 1.7;
+    position: relative;
+    overflow: hidden;
 }
 
-/* ── RESPONSIVE nouvelles sections ──────────────── */
+.ville-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 65% 65% at 50% 50%, rgba(59, 130, 246, .08), transparent);
+    pointer-events: none;
+}
+
+.ville-cta::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    border: 1px solid rgba(59, 130, 246, .06);
+    pointer-events: none;
+    box-shadow: 0 0 0 100px rgba(59, 130, 246, .03), 0 0 0 200px rgba(59, 130, 246, .02);
+}
+
+.ville-cta .container {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ville-cta-sub {
+    color: var(--mist);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    max-width: 560px;
+}
+
+.ville-cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2.5rem;
+}
+
+.ville-seo-text {
+    font-size: .72rem;
+    color: var(--mist-2);
+    margin-top: 2rem;
+    line-height: 1.8;
+    text-align: center;
+}
+
+/* ── RESPONSIVE ──────────────────────────────────── */
+@media (max-width: 1100px) {
+    .ville-intro-grid {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+    }
+
+    .ville-pourquoi-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ville-metiers-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .process-steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .process-steps-grid::before {
+        display: none;
+    }
+
+    .ville-villes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ville-chiffres-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
 @media (max-width: 768px) {
-    .ville-metier-row {
-        padding: 1rem 1.25rem;
-        gap: 1rem;
+    .ville-hero {
+        padding: 6rem 1.25rem 4rem;
+        min-height: auto;
     }
 
-    .vmr-icon {
-        font-size: 1.5rem;
+    .ville-hero-title {
+        font-size: clamp(2rem, 8vw, 3rem);
     }
 
-    .vmr-title {
-        font-size: .95rem;
+    .ville-hero-metrics {
+        gap: 1.25rem;
+        padding-top: 2rem;
     }
 
-    .ville-preuve {
-        padding: 4.5rem 1.25rem;
+    .ville-hero-metrics .metric-sep {
+        height: 28px;
     }
 
+    .ville-intro-section,
+    .ville-metiers,
+    .ville-pourquoi,
+    .ville-process,
+    .ville-preuve,
+    .ville-villes-block,
+    .ville-faq,
+    .ville-cta,
+    .ville-tarifs,
     .ville-conversion {
-        padding: 5rem 1.25rem;
+        padding: 5.5rem 1.25rem;
     }
 
-    .ville-conv-punch {
-        font-size: 1.1rem;
+    .ville-hero-actions,
+    .ville-cta-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .ville-hero-actions .btn-hero,
+    .ville-hero-actions .btn-ghost-hero,
+    .ville-hero-actions .btn-outline,
+    .ville-cta-actions .btn-hero,
+    .ville-cta-actions .btn-ghost-hero,
+    .ville-cta-actions .btn-outline {
+        width: 100%;
+        justify-content: center;
+        max-width: 340px;
+    }
+
+    .ville-pourquoi-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ville-metiers-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: .75rem;
+    }
+
+    .ville-metier-card {
+        padding: 1.5rem 1rem;
+    }
+
+    .ville-metier-icon {
+        font-size: 2rem;
+    }
+
+    .process-steps-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .process-item {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+    .process-item h3,
+    .process-item p {
+        text-align: center;
+    }
+
+    .ville-villes-grid {
+        grid-template-columns: 1fr;
     }
 
     .ville-metier-row:hover {
         transform: none;
     }
+}
+
+@media (max-width: 480px) {
+    .ville-hero-title {
+        font-size: 1.8rem;
+    }
+
+    .ville-chiffres-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ville-metiers-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .chiffre-num {
+        font-size: 1.8rem;
+    }
+
+    .process-num-circle {
+        width: 52px;
+        height: 52px;
+        font-size: 1.2rem;
+    }
+}
+
+.ville-hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: .18;
+    filter: blur(1px) saturate(.6);
+    pointer-events: none;
+    z-index: 0;
 }

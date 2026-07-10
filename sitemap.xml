@@ -4,124 +4,234 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-  <!-- ═══ PAGE D'ACCUEIL ═══ -->
+  <!-- ═══════════════════════════════════════════
+       PAGE D'ACCUEIL
+  ═══════════════════════════════════════════ -->
   <url>
     <loc>https://www.sudwebproject.com/</loc>
-    <lastmod>2026-03-28</lastmod>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- ═══ SERVICES ═══ -->
+  <!-- ═══════════════════════════════════════════
+       SERVICES TRANSVERSAUX
+  ═══════════════════════════════════════════ -->
   <url>
     <loc>https://www.sudwebproject.com/refonte-site-internet.html</loc>
-    <lastmod>2026-03-28</lastmod>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.sudwebproject.com/maintenance.html</loc>
-    <lastmod>2026-03-28</lastmod>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- ═══ PAGES MÉTIERS ═══ -->
+  <!-- ═══════════════════════════════════════════
+       HUB RÉGIONAL
+  ═══════════════════════════════════════════ -->
+  <url>
+    <loc>https://www.sudwebproject.com/creation-site-internet-var.html</loc>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- ═══════════════════════════════════════════
+       PAGES MÉTIERS (piliers)
+  ═══════════════════════════════════════════ -->
   <url>
     <loc>https://www.sudwebproject.com/electricien-var.html</loc>
-    <lastmod>2026-03-28</lastmod>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.sudwebproject.com/creation-site-internet-serrurier.html</loc>
-    <lastmod>2026-03-28</lastmod>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.sudwebproject.com/creation-site-internet-coiffeur.html</loc>
-    <lastmod>2026-03-28</lastmod>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.sudwebproject.com/creation-site-internet-restaurant.html</loc>
-    <lastmod>2026-03-28</lastmod>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.sudwebproject.com/creation-site-internet-agence-immobiliere.html</loc>
-    <lastmod>2026-03-28</lastmod>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.sudwebproject.com/creation-site-internet-location-yacht.html</loc>
-    <lastmod>2026-03-28</lastmod>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- ═══════════════════════════════════════════
+       PAGES MÉTIER × VILLE
+  ═══════════════════════════════════════════ -->
+  <url>
+    <loc>https://www.sudwebproject.com/site-internet-agence-immobiliere-saint-tropez.html</loc>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://www.sudwebproject.com/site-internet-agence-immobiliere-sainte-maxime.html</loc>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.sudwebproject.com/site-internet-agence-immobiliere-grimaud.html</loc>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.sudwebproject.com/site-internet-broker-yacht-saint-tropez.html</loc>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.sudwebproject.com/site-internet-restaurant-saint-tropez.html</loc>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.sudwebproject.com/site-internet-restaurant-sainte-maxime.html</loc>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.sudwebproject.com/site-internet-conciergerie-saint-tropez.html</loc>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.sudwebproject.com/creation-site-internet-electricien-cogolin.html</loc>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
 
-  <!-- ═══ ÉTUDES DE CAS ═══ -->
+  <!-- ═══════════════════════════════════════════
+       ÉTUDES DE CAS
+  ═══════════════════════════════════════════ -->
   <url>
     <loc>https://www.sudwebproject.com/etude-cas-electricien.html</loc>
-    <lastmod>2026-03-28</lastmod>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.sudwebproject.com/etude-cas-coiffeur.html</loc>
-    <lastmod>2026-03-28</lastmod>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.sudwebproject.com/etude-cas-restaurant.html</loc>
-    <lastmod>2026-03-28</lastmod>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- ═══ PAGES VILLES ═══ -->
+  <!-- ═══════════════════════════════════════════
+       PAGES VILLES
+  ═══════════════════════════════════════════ -->
   <url>
-    <loc>https://www.sudwebproject.com/creation-site-internet-var.html</loc>
-    <lastmod>2026-03-28</lastmod>
+    <loc>https://www.sudwebproject.com/creation-site-internet-saint-tropez.html</loc>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://www.sudwebproject.com/creation-site-internet-frejus.html</loc>
-    <lastmod>2026-03-28</lastmod>
+    <loc>https://www.sudwebproject.com/creation-site-internet-sainte-maxime.html</loc>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.sudwebproject.com/creation-site-internet-sainte-maxime.html</loc>
-    <lastmod>2026-03-28</lastmod>
+    <loc>https://www.sudwebproject.com/creation-site-internet-cogolin.html</loc>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.sudwebproject.com/creation-site-internet-grimaud.html</loc>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.sudwebproject.com/creation-site-internet-ramatuelle.html</loc>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.sudwebproject.com/creation-site-internet-gassin.html</loc>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.sudwebproject.com/creation-site-internet-cavalaire.html</loc>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.sudwebproject.com/creation-site-internet-frejus.html</loc>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.sudwebproject.com/creation-site-internet-saint-raphael.html</loc>
-    <lastmod>2026-03-28</lastmod>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.sudwebproject.com/creation-site-internet-toulon.html</loc>
-    <lastmod>2026-03-28</lastmod>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- ═══ MENTIONS LÉGALES ═══ -->
+  <!-- ═══════════════════════════════════════════
+       MENTIONS LÉGALES & COOKIES
+  ═══════════════════════════════════════════ -->
   <url>
     <loc>https://www.sudwebproject.com/mentions-legales.html</loc>
-    <lastmod>2026-03-28</lastmod>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://www.sudwebproject.com/cookies.html</loc>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
   </url>
 
 </urlset>

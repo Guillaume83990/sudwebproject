@@ -441,9 +441,127 @@
         }
 
         /* ── RESPONSIVE ───────────────────────────────── */
+
+        /* Tablette 768–1024px */
+        @media (max-width: 1024px) {
+            main {
+                max-width: 100%;
+                padding: 8rem 3rem 6rem;
+            }
+
+            .info-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .page-title {
+                font-size: clamp(1.8rem, 4vw, 2.8rem);
+            }
+        }
+
+        /* Mobile 480–768px */
         @media (max-width: 768px) {
             main {
-                padding: 7rem 1rem 5rem;
+                padding: 6rem 1.25rem 4rem;
+            }
+
+            .nav-inner {
+                padding: .85rem 1.25rem;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: .6rem;
+            }
+
+            .page-title {
+                font-size: 1.85rem;
+                letter-spacing: -.02em;
+            }
+
+            .page-subtitle {
+                font-size: .88rem;
+            }
+
+            .page-header {
+                margin-bottom: 2.5rem;
+                padding-bottom: 2rem;
+            }
+
+            .sommaire {
+                padding: 1.25rem;
+                gap: .45rem;
+                margin-bottom: 2.5rem;
+            }
+
+            .sommaire a {
+                font-size: .72rem;
+                padding: .35rem .75rem;
+            }
+
+            .legal-section {
+                margin-bottom: 3rem;
+            }
+
+            .legal-section-title {
+                font-size: 1.3rem;
+                flex-wrap: wrap;
+                gap: .5rem;
+            }
+
+            .legal-block {
+                padding: 1.25rem;
+            }
+
+            .legal-block h3 {
+                font-size: .95rem;
+            }
+
+            .legal-block p,
+            .legal-block ul li {
+                font-size: .88rem;
+            }
+
+            .legal-alert {
+                padding: 1rem 1.25rem;
+                font-size: .88rem;
+            }
+
+            .legal-cta {
+                padding: 2rem 1.25rem;
+            }
+
+            .legal-cta h3 {
+                font-size: 1.35rem;
+            }
+
+            .legal-cta p {
+                font-size: .88rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .legal-cta-btn {
+                font-size: .82rem;
+                padding: .8rem 1.6rem;
+            }
+
+            .info-item {
+                padding: .85rem 1rem;
+            }
+
+            .info-item .info-value {
+                font-size: .83rem;
+                word-break: break-all;
+            }
+        }
+
+        /* Très petit mobile <480px */
+        @media (max-width: 480px) {
+            main {
+                padding: 5.5rem 1rem 3rem;
+            }
+
+            .nav-inner {
+                padding: .75rem 1rem;
             }
 
             .info-grid {
@@ -451,11 +569,37 @@
             }
 
             .page-title {
-                font-size: 2rem;
+                font-size: 1.6rem;
             }
 
-            .nav-inner {
+            .legal-section-title {
+                font-size: 1.15rem;
+            }
+
+            .sommaire {
                 padding: 1rem;
+            }
+
+            .legal-block {
+                padding: 1rem;
+            }
+
+            .legal-cta {
+                padding: 1.5rem 1rem;
+            }
+
+            .legal-cta h3 {
+                font-size: 1.2rem;
+            }
+
+            .legal-cta-btn {
+                width: 100%;
+                justify-content: center;
+                font-size: .8rem;
+            }
+
+            .legal-footer p {
+                font-size: .76rem;
             }
         }
     </style>
@@ -647,8 +791,7 @@
                 <h3>Cookies utilisés</h3>
                 <p>Ce site utilise un nombre limité de cookies :</p>
                 <ul>
-                    <li><strong>Cookie de préférence de langue</strong> (<code>swp_lang</code>) — mémorise votre choix
-                        de langue (FR/EN). Durée : session.</li>
+
                     <li><strong>Cookie de consentement cookies</strong> — mémorise votre choix d'acceptation ou de
                         refus. Durée : 12 mois.</li>
                     <li><strong>Cookies analytiques</strong> (si acceptés) — mesure d'audience anonymisée via Cloudflare
@@ -700,7 +843,7 @@
                 <h3>Devis et commande</h3>
                 <p>Tout projet fait l'objet d'un <strong>devis gratuit et sans engagement</strong>, valable 30 jours à
                     compter de son émission. La commande est confirmée par la signature du devis et le versement d'un
-                    acompte de <strong>40% du montant total HT</strong>.</p>
+                    acompte de <strong>50% du montant total HT</strong>.</p>
             </div>
 
             <div class="legal-block">
@@ -714,10 +857,10 @@
             <div class="legal-block">
                 <h3>Modalités de paiement</h3>
                 <ul>
-                    <li><strong>40%</strong> à la signature du devis (acompte de démarrage)</li>
-                    <li><strong>60%</strong> à la livraison finale, avant mise en ligne</li>
+                    <li><strong>50%</strong> à la signature du devis (acompte de démarrage)</li>
+                    <li><strong>50%</strong> à la livraison finale, avant mise en ligne</li>
                 </ul>
-                <p>Paiement par virement bancaire ou chèque. Les retards de paiement entraînent des pénalités de
+                <p>Paiement par virement bancaire. Les retards de paiement entraînent des pénalités de
                     <strong>3 fois le taux légal</strong>, conformément à l'article L441-6 du Code de Commerce.
                 </p>
             </div>
@@ -808,6 +951,15 @@
     </footer>
 
     <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+
+    <div class="cookie-banner" role="dialog" aria-label="Cookies"
+        style="display:none;opacity:0;transform:translateX(-50%) translateY(20px);">
+        <p>Ce site utilise des cookies analytiques anonymisés. <a href="cookies.html">En savoir plus</a></p>
+        <div>
+            <button id="cookie-refuse">Refuser</button>
+            <button id="cookie-accept">Accepter</button>
+        </div>
+    </div>
 </body>
 
 </html>

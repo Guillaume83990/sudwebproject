@@ -1,0 +1,272 @@
+/* ════════════════════════════════════════════════════════
+   AGENCE IMMOBILIÈRE — CSS LUXE
+   Dépendances : global.css, index.css, ville.css
+   ════════════════════════════════════════════════════════ */
+
+/* ── BANDE PHOTOS HORIZONTALE ── */
+.immo-photos-band {
+    padding: 0;
+    background: var(--ink-2);
+    overflow: hidden;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.immo-photos-track {
+    display: flex;
+    gap: 2px;
+    height: 340px;
+}
+
+.immo-photo-item {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+    opacity: 0;
+    transform: scaleY(.96);
+    /* GSAP anime opacity + scaleY */
+}
+
+.immo-photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .9s cubic-bezier(.25, .46, .45, .94);
+    transform: scale(1.08);
+}
+
+.immo-photo-item:hover img {
+    transform: scale(1.0);
+}
+
+/* Placeholder si image absente */
+.immo-photo-placeholder {
+    background: var(--glass-2);
+    border: 1px dashed var(--border);
+}
+
+.immo-photo-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2.5rem 1.25rem .75rem;
+    background: linear-gradient(to top, rgba(8, 12, 20, .75), transparent);
+    font-size: .72rem;
+    color: rgba(255, 255, 255, .7);
+    font-weight: 500;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity .4s ease, transform .4s ease;
+}
+
+.immo-photo-item:hover .immo-photo-caption {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ── SECTION PHOTO IMMERSIVE ── */
+.immo-hero-photo {
+    position: relative;
+    height: 520px;
+    overflow: hidden;
+    background: var(--ink);
+}
+
+.immo-hero-photo-img {
+    position: absolute;
+    inset: -5% 0;
+    /* Espace pour parallax */
+}
+
+.immo-hero-photo-img img {
+    width: 100%;
+    height: 110%;
+    object-fit: cover;
+    display: block;
+    /* GSAP anime le translateY pour l'effet parallax */
+}
+
+.immo-hero-photo-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            rgba(8, 12, 20, .25) 0%,
+            rgba(8, 12, 20, .05) 45%,
+            transparent 70%);
+}
+
+.immo-hero-photo-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 5rem 2rem 2.5rem;
+    background: linear-gradient(to top, rgba(8, 12, 20, .75) 0%, transparent 100%);
+    text-align: center;
+    /* GSAP anime l'apparition */
+}
+
+.immo-photo-eyebrow {
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, .6);
+    margin-bottom: .85rem;
+    display: block;
+}
+
+.immo-photo-statement {
+    font-family: var(--ff-display);
+    font-size: clamp(1.75rem, 4vw, 3.25rem);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.15;
+    letter-spacing: -.02em;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, .5);
+    max-width: 820px;
+    margin: 0 auto;
+}
+
+.immo-photo-statement em {
+    font-style: italic;
+    color: var(--blue-l);
+}
+
+/* ── ANIMATIONS GÉNÉRALES — classes GSAP targets ── */
+
+/* Révélation vers le haut (défaut) */
+.gsap-fade-up {
+    opacity: 0;
+    transform: translateY(32px);
+}
+
+/* Révélation photos */
+.gsap-photo-reveal {
+    opacity: 0;
+    transform: scaleY(.96);
+    transform-origin: bottom;
+}
+
+/* Parallax container */
+.gsap-parallax-img img {
+    will-change: transform;
+}
+
+/* ── LIGNE DORÉE LUXE — diviseur discret ── */
+.immo-luxury-divider {
+    height: 1px;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(59, 130, 246, .15) 20%,
+            rgba(180, 150, 100, .3) 50%,
+            rgba(59, 130, 246, .15) 80%,
+            transparent 100%);
+    margin: 0;
+}
+
+/* ── COMPTEUR ANIMÉ ── */
+.immo-counter-strip {
+    background: var(--ink-2);
+    padding: 4rem 2rem;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.immo-counter-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--border);
+}
+
+.immo-counter-item {
+    background: var(--ink-2);
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+}
+
+.immo-counter-num {
+    display: block;
+    font-family: var(--ff-display);
+    font-size: 3rem;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1;
+    letter-spacing: -.04em;
+    /* GSAP anime le chiffre via textContent */
+}
+
+.immo-counter-unit {
+    color: var(--blue-l);
+    font-size: .9em;
+}
+
+.immo-counter-label {
+    display: block;
+    font-size: .72rem;
+    font-weight: 600;
+    color: var(--mist-2);
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    margin-top: .5rem;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+    .immo-photos-track {
+        height: 260px;
+    }
+
+    .immo-counter-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .immo-photos-track {
+        height: auto;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .immo-photo-item {
+        height: 200px;
+        flex: none;
+    }
+
+    .immo-hero-photo {
+        height: 380px;
+    }
+
+    .immo-photo-statement {
+        font-size: clamp(1.75rem, 6vw, 2.5rem);
+    }
+
+    .immo-counter-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .immo-counter-num {
+        font-size: 2.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .immo-photos-track {
+        display: none;
+    }
+
+    /* Masquer la bande sur très petit écran pour PageSpeed */
+    .immo-counter-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+    }
+}
