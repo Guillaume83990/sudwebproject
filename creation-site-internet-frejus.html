@@ -36,7 +36,7 @@
 
     <!-- Schema.org -->
     <script
-        type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Sud Web Project — Développeur Web Fréjus","description":"Création de sites internet sur mesure à Fréjus. Spécialisé artisans, PME, restaurants, agences immobilières et entreprises locales du Var 83.","url":"https://www.sudwebproject.com/creation-site-internet-frejus.html","telephone":"+33611547324","email":"contact@sudwebproject.com","address":{"@type":"PostalAddress","addressLocality":"Fréjus","addressRegion":"Provence-Alpes-Côte d'Azur","postalCode":"83600","addressCountry":"FR"},"geo":{"@type":"GeoCoordinates","latitude":"43.4332","longitude":"6.7370"},"areaServed":[{"@type":"City","name":"Fréjus"},{"@type":"City","name":"Saint-Raphaël"},{"@type":"City","name":"Saint-Tropez"},{"@type":"AdministrativeArea","name":"Var"}],"priceRange":"€€","openingHours":"Mo-Sa 08:00-19:00","aggregateRating":{"@type":"AggregateRating","ratingValue":"5","reviewCount":"3","bestRating":"5"}}</script>
+        type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Sud Web Project — Développeur Web Fréjus","description":"Création de sites internet sur mesure à Fréjus. Spécialisé artisans, PME, restaurants, agences immobilières et entreprises locales du Var 83.","url":"https://www.sudwebproject.com/creation-site-internet-frejus.html","telephone":"+33611547324","email":"contact@sudwebproject.com","address":{"@type":"PostalAddress","addressLocality":"Fréjus","addressRegion":"Provence-Alpes-Côte d'Azur","postalCode":"83600","addressCountry":"FR"},"geo":{"@type":"GeoCoordinates","latitude":"43.4332","longitude":"6.7370"},"areaServed":[{"@type":"City","name":"Fréjus"},{"@type":"City","name":"Saint-Raphaël"},{"@type":"City","name":"Saint-Tropez"},{"@type":"AdministrativeArea","name":"Var"}],"priceRange":"€€","openingHours":"Mo-Sa 08:00-19:00"}</script>
     <script
         type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Combien coûte la création d'un site internet à Fréjus ?","acceptedAnswer":{"@type":"Answer","text":"La création d'un site internet à Fréjus commence à partir de 600€ pour un site vitrine 3 pages. Un site Premium 6 pages est à partir de 1 300€. Devis gratuit sous 24h, sans engagement."}},{"@type":"Question","name":"Quel développeur web choisir à Fréjus ?","acceptedAnswer":{"@type":"Answer","text":"Sud Web Project est un développeur web freelance dans le Var, spécialisé en création de sites internet sur mesure pour artisans, PME et entreprises locales de Fréjus. Code à la main, SEO local, 100/100 PageSpeed."}},{"@type":"Question","name":"Vous déplacez-vous à Fréjus ?","acceptedAnswer":{"@type":"Answer","text":"Oui, je me déplace à Fréjus et dans tout le Var. Première consultation gratuite, en présentiel ou en visio."}},{"@type":"Question","name":"Quel délai pour créer un site internet à Fréjus ?","acceptedAnswer":{"@type":"Answer","text":"Un site essentiel est livré en 4 à 5 jours ouvrés. Un site Premium en 1 à 3 semaines. Délais garantis dans le devis."}}]}</script>
     <script
@@ -49,113 +49,109 @@
         href="https://www.sudwebproject.com/creation-site-internet-frejus.html" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
-    <!-- Preload font -->
-    <link rel="preload" href="assets/fonts/playfair-display-v40-latin-900.woff2" as="font" type="font/woff2"
+    <!-- Preload LCP -->
+    <link rel="preload" as="image" media="(min-width: 769px)" href="assets/images/ville-frejus-1280.webp"
+        type="image/webp" fetchpriority="high"
+        imagesrcset="assets/images/ville-frejus-640.webp 640w, assets/images/ville-frejus-960.webp 960w, assets/images/ville-frejus-1280.webp 1280w, assets/images/ville-frejus-1535.webp 1535w"
+        imagesizes="100vw" />
+    <link rel="preload" href="assets/fonts/instrument-serif-v5-latin-regular.woff2" as="font" type="font/woff2"
         crossorigin />
 
-    <!-- CSS -->
+    <!-- CSS — l'ordre compte : ville-hero.css ferme la pile -->
     <link rel="stylesheet" href="css/global.css" />
     <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="css/ville.css" />
     <link rel="stylesheet" href="css/cookies.css" media="print" onload="this.media='all'" />
-    <link rel="stylesheet" href="css/fonts-local.css" media="print" onload="this.media='all'" />
+    <link rel="stylesheet" href="css/fonts-local.css" />
+    <link rel="stylesheet" href="css/motion.css" />
+    <link rel="stylesheet" href="css/depth.css" />
+    <link rel="stylesheet" href="css/metiers.css" />
+    <link rel="stylesheet" href="css/refonte.css" />
+    <link rel="stylesheet" href="css/type.css" />
+    <link rel="stylesheet" href="css/refine.css" />
+    <link rel="stylesheet" href="css/space.css" />
+    <link rel="stylesheet" href="css/breath.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/ville-hero.css" />
+    <link rel="stylesheet" href="css/ville-lux.css" />
 
     <style>
         html {
             scroll-padding-top: 72px;
         }
 
-        /* ── ATOUTS — 3 colonnes ── */
-        .frej-atouts {
-            padding: 8rem 2rem;
-            background: var(--ink-2);
+        /* ── H1 long : la colonne s'élargit et le corps descend, pour que le
+              hero tienne dans l'écran et laisse voir le nom géant en bas ── */
+        .ville-hero-title {
+            font-size: clamp(1.65rem, 2.8vw, 2.55rem);
+            line-height: 1.16;
+            max-width: min(44rem, 66vw);
         }
 
-        .frej-atouts-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-top: 3rem;
+        .ville-hero-sub {
+            max-width: min(38rem, 56vw);
         }
 
-        .frej-atout-card {
-            background: var(--glass-2);
-            border: 1px solid var(--border);
-            border-radius: var(--r);
-            padding: 2.25rem 1.75rem;
-            position: relative;
-            overflow: hidden;
-            transition: all var(--dur) var(--ease);
+        @media (max-width: 900px) {
+            .ville-hero-title {
+                font-size: clamp(1.5rem, 5vw, 2rem);
+                max-width: 100%;
+            }
+
+            .ville-hero-sub {
+                max-width: 100%;
+            }
         }
 
-        .frej-atout-card::before {
-            content: '';
+        @media (max-height: 800px) and (min-width: 901px) {
+            .ville-hero-title {
+                font-size: clamp(1.45rem, 2.2vw, 2.05rem);
+            }
+
+            .ville-hero-sub {
+                font-size: .9rem;
+                line-height: 1.7;
+            }
+        }
+
+        /* ── PHOTOS — identique au gabarit Saint-Tropez ── */
+        .photo-placeholder {
             position: absolute;
-            top: 0;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: .5rem;
+            color: var(--mist-2);
+            font-size: .8rem;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .st-photo-caption {
+            position: absolute;
+            bottom: 0;
             left: 0;
             right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--blue), var(--blue-l));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform .5s var(--ease);
-        }
-
-        .frej-atout-card:hover {
-            border-color: var(--border-h);
-            transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, .4);
-        }
-
-        .frej-atout-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .frej-atout-icon {
-            font-size: 2.5rem;
-            display: block;
-            margin-bottom: 1.25rem;
-        }
-
-        .frej-atout-num {
-            position: absolute;
-            top: 1.25rem;
-            right: 1.5rem;
-            font-family: var(--ff-display);
-            font-size: 3.5rem;
-            font-weight: 900;
-            color: rgba(59, 130, 246, .06);
-            line-height: 1;
-            user-select: none;
-        }
-
-        .frej-atout-card h3 {
-            font-family: var(--ff-display);
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: .75rem;
-            line-height: 1.3;
-        }
-
-        .frej-atout-card p {
-            font-size: .875rem;
+            background: linear-gradient(to top, rgba(5, 8, 15, .88), transparent);
+            padding: 1.5rem 1rem .75rem;
+            font-size: .72rem;
+            letter-spacing: .04em;
             color: var(--mist);
-            line-height: 1.75;
+            font-weight: 500;
         }
 
-        /* ── PHOTOS ── */
-        .frej-photo-hero {
+        .st-photo-hero {
             position: relative;
             border-radius: var(--r);
             overflow: hidden;
-            aspect-ratio: 16/7;
-            background: var(--glass-2);
+            aspect-ratio: 21/9;
             border: 1px solid var(--border);
             margin: 3rem 0;
         }
 
-        .frej-photo-hero img {
+        .st-photo-hero img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -163,92 +159,22 @@
             transition: transform 8s ease;
         }
 
-        .frej-photo-hero:hover img {
+        .st-photo-hero:hover img {
             transform: scale(1.03);
-        }
-
-        .frej-photo-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(8, 12, 20, .85), transparent);
-            padding: 1.5rem 1rem .75rem;
-            font-size: .75rem;
-            color: var(--mist);
-            font-weight: 500;
-        }
-
-        .frej-photo-ph {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: .75rem;
-            color: var(--mist-2);
-            font-size: .85rem;
-        }
-
-        .frej-photo-ph .ph-icon {
-            font-size: 3rem;
-        }
-
-        .frej-photo-duo {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin: 3rem 0;
-        }
-
-        .frej-photo-item {
-            position: relative;
-            border-radius: var(--r);
-            overflow: hidden;
-            aspect-ratio: 4/3;
-            background: var(--glass-2);
-            border: 1px solid var(--border);
-        }
-
-        .frej-photo-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 5s ease;
-        }
-
-        .frej-photo-item:hover img {
-            transform: scale(1.05);
-        }
-
-        .frej-photo-item .frej-photo-ph {
-            font-size: .78rem;
-        }
-
-        .frej-photo-item .frej-photo-ph .ph-icon {
-            font-size: 2rem;
         }
 
         /* ── SEO PROSE ── */
         .seo-prose {
             padding: 7rem 2rem;
-            background: var(--ink);
         }
 
         .seo-prose-inner {
-            max-width: 780px;
+            max-width: 820px;
             margin: 0 auto;
         }
 
         .seo-prose h2 {
-            font-family: var(--ff-display);
-            font-size: clamp(1.4rem, 2.5vw, 1.9rem);
-            font-weight: 700;
-            color: #E2E8F0;
             margin: 2.5rem 0 .85rem;
-            line-height: 1.25;
         }
 
         .seo-prose h2:first-child {
@@ -276,41 +202,186 @@
             border-color: var(--blue-l);
         }
 
-        /* ── RÉALISATIONS ── */
-        .frej-realisations {
+        /* ── GRILLE TEXTE / IMAGE — gabarit ── */
+        .st-luxe-section {
             padding: 8rem 2rem;
-            background: var(--ink-2);
         }
 
-        .frej-real-grid {
+        .st-luxe-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        /* ── LES TROIS OFFRES — lignes numérotées ── */
+        .frej-offres {
+            display: flex;
+            flex-direction: column;
+            border-top: 1px solid var(--border);
+        }
+
+        .frej-offre {
+            padding: 1.75rem 0;
+            border-bottom: 1px solid var(--border);
+            display: grid;
+            grid-template-columns: 3.5rem 1fr;
+            gap: 1rem;
+            align-items: start;
+        }
+
+        .frej-offre-num {
+            font-size: .72rem;
+            font-weight: 600;
+            letter-spacing: .14em;
+            color: var(--blue-l);
+            padding-top: .35rem;
+        }
+
+        .frej-offre h3 {
+            margin: 0 0 .5rem;
+        }
+
+        .frej-offre h3 a {
+            color: inherit;
+            text-decoration: none;
+            transition: color var(--dur) var(--ease);
+        }
+
+        .frej-offre h3 a:hover {
+            color: var(--blue-l);
+        }
+
+        .frej-offre p {
+            font-size: .875rem;
+            color: var(--mist);
+            line-height: 1.75;
+            margin: 0;
+        }
+
+        /* ── MÉTIERS — identique au gabarit ── */
+        .st-metiers-premium {
+            padding: 8rem 2rem;
+        }
+
+        .st-metier-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+            overflow: hidden;
+            margin-bottom: 1rem;
+            transition: border-color var(--dur) var(--ease);
+        }
+
+        .st-metier-row:hover {
+            border-color: var(--border-h);
+        }
+
+        .st-metier-main {
+            padding: 2rem 2.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .st-metier-main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, var(--blue-l), transparent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .5s var(--ease);
+        }
+
+        .st-metier-row:hover .st-metier-main::before {
+            transform: scaleX(1);
+        }
+
+        .st-metier-title {
+            font-family: var(--ff-display);
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: #E9EEF6;
+            line-height: 1.3;
+            display: block;
+        }
+
+        .st-metier-main p {
+            font-size: .875rem;
+            color: var(--mist);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .st-metier-links {
+            padding: 2rem 2.25rem;
+            border-left: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: .65rem;
+        }
+
+        .st-metier-links a {
+            font-size: .82rem;
+            color: var(--blue-l);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: .4rem;
+            transition: color var(--dur) var(--ease), gap .25s var(--ease);
+        }
+
+        .st-metier-links a::before {
+            content: '→';
+            font-size: .75rem;
+            flex-shrink: 0;
+        }
+
+        .st-metier-links a:hover {
+            color: #fff;
+            gap: .65rem;
+        }
+
+        /* ── RÉALISATIONS — identique au gabarit ── */
+        .st-realisations {
+            padding: 8rem 2rem;
+        }
+
+        .st-real-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
             margin-top: 3rem;
         }
 
-        .frej-real-card {
-            background: var(--glass-2);
+        .st-real-card {
             border: 1px solid var(--border);
             border-radius: var(--r);
             overflow: hidden;
             transition: all var(--dur) var(--ease);
         }
 
-        .frej-real-card:hover {
+        .st-real-card:hover {
             border-color: var(--border-h);
             transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, .4);
         }
 
-        .frej-real-img {
+        .st-real-img {
             position: relative;
             aspect-ratio: 16/9;
-            background: var(--glass);
             overflow: hidden;
         }
 
-        .frej-real-img img {
+        .st-real-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -318,107 +389,71 @@
             transition: transform 5s ease;
         }
 
-        .frej-real-card:hover .frej-real-img img {
+        .st-real-card:hover .st-real-img img {
             transform: scale(1.05);
         }
 
-        .frej-real-body {
+        .st-real-body {
             padding: 1.75rem;
         }
 
-        .frej-real-tag {
-            font-size: .72rem;
-            font-weight: 700;
+        .st-real-tag {
+            font-size: .68rem;
+            font-weight: 600;
             color: var(--blue-l);
             text-transform: uppercase;
-            letter-spacing: .1em;
-            margin-bottom: .5rem;
+            letter-spacing: .16em;
+            margin-bottom: .65rem;
             display: block;
         }
 
-        .frej-real-body h3 {
-            font-family: var(--ff-display);
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #fff;
+        .st-real-body h3 {
             margin-bottom: .5rem;
-            line-height: 1.3;
         }
 
-        .frej-real-body p {
+        .st-real-body p {
             font-size: .875rem;
             color: var(--mist);
-            line-height: 1.6;
+            line-height: 1.7;
             margin-bottom: 1.25rem;
         }
 
-        /* ── MAILLAGE PILLS ── */
-        .frej-maillage {
-            background: var(--ink-2);
-            padding: 5rem 2rem;
-            border-top: 1px solid var(--border);
-        }
-
-        .frej-maillage-inner {
-            max-width: 860px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .frej-maillage h2 {
-            font-family: var(--ff-display);
-            font-size: clamp(1.2rem, 2vw, 1.6rem);
-            font-weight: 700;
-            color: #E2E8F0;
-            margin-bottom: 1.25rem;
-        }
-
-        .frej-liens-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: .75rem;
-            justify-content: center;
-            margin-bottom: .5rem;
-        }
-
-        .frej-lien-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: .4rem;
-            padding: .55rem 1.1rem;
-            background: var(--glass-2);
-            border: 1px solid var(--border);
-            border-radius: 100px;
-            font-size: .82rem;
-            color: var(--mist);
-            text-decoration: none;
-            transition: all .25s ease;
-            font-weight: 500;
-        }
-
-        .frej-lien-pill:hover {
-            border-color: var(--blue-l);
-            color: var(--blue-l);
-            background: rgba(59, 130, 246, .06);
-        }
-
-        @media (max-width: 1024px) {
-            .frej-atouts-grid {
-                grid-template-columns: 1fr 1fr;
+        @media (max-width: 900px) {
+            .st-luxe-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
             }
         }
 
         @media (max-width: 768px) {
-            .frej-atouts-grid {
+
+            .st-real-grid,
+            .st-metier-row {
                 grid-template-columns: 1fr;
             }
 
-            .frej-photo-duo {
-                grid-template-columns: 1fr;
+            .st-metier-links {
+                border-left: none;
+                border-top: 1px solid var(--border);
+                justify-content: flex-start;
             }
 
-            .frej-real-grid {
+            .st-photo-hero {
+                aspect-ratio: 16/10;
+                margin: 2rem 0;
+            }
+
+            .frej-offre {
                 grid-template-columns: 1fr;
+                gap: .35rem;
+            }
+
+            .seo-prose,
+            .st-luxe-section,
+            .st-metiers-premium,
+            .st-realisations {
+                padding-left: 1.35rem;
+                padding-right: 1.35rem;
             }
         }
     </style>
@@ -480,12 +515,21 @@
 
         <!-- ═══ HERO ═══ -->
         <section class="ville-hero" aria-labelledby="h1-frejus">
-            <img class="ville-hero-img" src="assets/images/frejus-ville-var.webp"
-                srcset="assets/images/frejus-ville-var-mobile.webp 768w, assets/images/frejus-ville-var.webp 1440w"
-                sizes="100vw" alt="Fréjus — ville romaine et port, Var 83, Provence-Alpes-Côte d'Azur" width="1440"
-                height="900" fetchpriority="high" decoding="async" onerror="this.style.display='none'" />
+            <img class="ville-hero-img" src="assets/images/ville-frejus-1280.webp" srcset="assets/images/ville-frejus-640.webp 640w,
+                        assets/images/ville-frejus-960.webp 960w,
+                        assets/images/ville-frejus-1280.webp 1280w,
+                        assets/images/ville-frejus-1535.webp 1535w" sizes="100vw"
+                alt="Arches de l'aqueduc romain de Fréjus au crépuscule — Var 83" width="1535" height="863"
+                fetchpriority="high" decoding="async" />
             <div class="ville-hero-img-overlay"></div>
             <div class="ville-hero-bg"></div>
+
+            <span class="ville-mark" aria-hidden="true">Fréjus</span>
+
+            <div class="ville-coord" aria-hidden="true">
+                <span class="ville-coord-line"></span>
+                <span class="ville-coord-val">43.4332° N · 6.7370° E</span>
+            </div>
 
             <div class="container">
                 <div class="ville-hero-badge">
@@ -512,41 +556,20 @@
                                 stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </a>
-                    <a href="tel:+33611547324" class="btn-ghost-hero">📞 +33 6 11 54 73 24</a>
+                    <a href="tel:+33611547324" class="btn-ghost-hero">+33 6 11 54 73 24</a>
                 </div>
-
-                <div class="ville-hero-metrics">
-                    <div class="metric"><span class="metric-n">54 000</span><span class="metric-l">Habitants
-                            permanents</span></div>
-                    <div class="metric-sep" aria-hidden="true"></div>
-                    <div class="metric"><span class="metric-n">600€</span><span class="metric-l">À partir de</span>
-                    </div>
-                    <div class="metric-sep" aria-hidden="true"></div>
-                    <div class="metric"><span class="metric-n">100%</span><span class="metric-l">Code sur mesure</span>
-                    </div>
-                    <div class="metric-sep" aria-hidden="true"></div>
-                    <div class="metric"><span class="metric-n">24h</span><span class="metric-l">Réponse garantie</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ville-scroll-hint" aria-hidden="true"><span>Scroll</span>
-                <div class="ville-scroll-line"></div>
             </div>
         </section>
 
         <!-- ═══ PHOTO PANORAMIQUE ═══ -->
-        <section style="padding:0 2rem;background:var(--ink-2);">
-            <div class="container">
-                <div class="frej-photo-hero">
-                    <img src="assets/images/frejus-panoramique.webp"
-                        srcset="assets/images/frejus-panoramique-mobile.webp 768w, assets/images/frejus-panoramique.webp 1280w"
-                        sizes="100vw" alt="Vue panoramique de Fréjus — amphithéâtre romain, port et Var 83" width="1280"
-                        height="560" loading="lazy" decoding="async" onerror="this.style.display='none'" />
-                    <div class="frej-photo-ph"><span class="ph-icon">🏛️</span><span>Photo panoramique Fréjus — à
-                            ajouter</span><small>frejus-panoramique.webp</small></div>
-                    <div class="frej-photo-caption">Fréjus — ville romaine, port de plaisance et Var 83</div>
-                </div>
+        <section class="st-band" aria-hidden="true">
+            <div class="st-photo-hero">
+                <img src="assets/images/frej-arenes-1400.webp" srcset="assets/images/frej-arenes-700.webp 700w,
+                            assets/images/frej-arenes-1000.webp 1000w,
+                            assets/images/frej-arenes-1400.webp 1400w" sizes="100vw"
+                    alt="Gradins déserts de l'amphithéâtre romain de Fréjus au petit matin — Var 83" width="1400"
+                    height="600" loading="lazy" decoding="async" />
+                <div class="st-photo-caption">Fréjus — ville romaine, port de plaisance et Var 83</div>
             </div>
         </section>
 
@@ -557,9 +580,9 @@
                     <div class="ville-intro-text">
                         <div class="section-label">Fréjus en chiffres</div>
                         <h2 class="ville-h2" id="intro-title">
-                            Fréjus : 54 000 habitants,<br>
-                            <span class="ville-em" style="font-size:inherit;">un tissu économique dense, et des
-                                entreprises locales à développer en ligne.</span>
+                            <span class="split-reveal">Fréjus : 54 000 habitants,</span>
+                            <span class="split-reveal ville-em" style="display:inline;font-size:inherit;">un tissu
+                                économique dense, et des entreprises locales à développer en ligne.</span>
                         </h2>
                         <p>Fréjus est une <strong>ville économique majeure du Var</strong>. Artisans du bâtiment,
                             commerces de proximité, restaurants, agences immobilières, conciergeries, prestataires de
@@ -578,36 +601,45 @@
                             après l'avoir trouvé sur Google.
                         </blockquote>
                         <a href="/#contact" class="btn-primary" style="margin-top:1.5rem;display:inline-flex;">Obtenir
-                            mon devis gratuit →</a>
+                            mon devis gratuit</a>
                     </div>
 
                     <div>
-                        <div class="ville-intro-img-wrap" style="margin-bottom:1.5rem;">
-                            <img src="assets/images/frejus-centre-ville.webp"
-                                alt="Centre-ville de Fréjus — commerces et architecture romaine, Var 83" width="600"
-                                height="450" loading="lazy" decoding="async"
-                                onerror="this.parentElement.style.display='none'" />
-                            <div class="ville-intro-img-label">📍 Fréjus, Var 83</div>
+                        <div class="ville-intro-img-wrap">
+                            <img src="assets/images/frej-pierre-760.webp" srcset="assets/images/frej-pierre-560.webp 560w,
+                                    assets/images/frej-pierre-760.webp 760w,
+                                    assets/images/frej-pierre-1000.webp 1000w" sizes="(max-width: 1100px) 100vw, 40vw"
+                                alt="Mur romain en petit appareil et assises de brique — Fréjus, Var 83" width="1000"
+                                height="1333" loading="lazy" decoding="async" />
+                            <div class="ville-intro-img-label">Fréjus, Var 83</div>
                         </div>
-                        <div class="ville-chiffres-grid">
-                            <div class="ville-chiffre-card gsap-fade-up"><span class="chiffre-num">54 000</span><span
-                                    class="chiffre-label">Habitants permanents</span></div>
-                            <div class="ville-chiffre-card gsap-fade-up"><span class="chiffre-num">2e</span><span
-                                    class="chiffre-label">Ville du Var par population</span></div>
-                            <div class="ville-chiffre-card gsap-fade-up"><span class="chiffre-num">12 mois</span><span
-                                    class="chiffre-label">Activité économique</span></div>
-                            <div class="ville-chiffre-card gsap-fade-up"><span class="chiffre-num">90%</span><span
-                                    class="chiffre-label">Recherches locales sur mobile</span></div>
+                        <div class="ville-chiffres-grid" style="margin-top:1.5rem;">
+                            <div class="ville-chiffre-card gsap-fade-up">
+                                <span class="chiffre-num">54 000</span>
+                                <span class="chiffre-label">Habitants permanents</span>
+                            </div>
+                            <div class="ville-chiffre-card gsap-fade-up">
+                                <span class="chiffre-num">2e</span>
+                                <span class="chiffre-label">Ville du Var par population</span>
+                            </div>
+                            <div class="ville-chiffre-card gsap-fade-up">
+                                <span class="chiffre-num">12 mois</span>
+                                <span class="chiffre-label">Activité économique</span>
+                            </div>
+                            <div class="ville-chiffre-card gsap-fade-up">
+                                <span class="chiffre-num">90%</span>
+                                <span class="chiffre-label">Recherches locales sur mobile</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ═══ ATOUTS ═══ -->
-        <section class="frej-atouts" aria-labelledby="atouts-title">
+        <!-- ═══ LES TROIS OFFRES ═══ -->
+        <section class="st-luxe-section" aria-labelledby="atouts-title">
             <div class="container">
-                <div class="section-head" style="text-align:center;margin-bottom:0;">
+                <div class="section-head" style="text-align:center;margin-bottom:3rem;">
                     <div class="section-label">Création site internet Fréjus</div>
                     <h2 class="section-title" id="atouts-title">
                         <span class="split-reveal">Quel site internet pour</span>
@@ -617,36 +649,51 @@
                     <p class="section-intro-seo">De la création à la maintenance, je m'occupe de tout pour les
                         professionnels de Fréjus. Un seul interlocuteur, disponible, qui code lui-même votre site.</p>
                 </div>
-                <div class="frej-atouts-grid">
-                    <div class="frej-atout-card gsap-fade-up">
-                        <span class="frej-atout-icon">🛠️</span>
-                        <span class="frej-atout-num">01</span>
-                        <h3>Création site internet Fréjus</h3>
-                        <p>Site vitrine sur mesure, 100% code à la main. 3 à 7 pages, responsive mobile, SEO local
-                            Fréjus intégré dès le départ. Livré en 4 à 5 jours pour un site essentiel.</p>
+                <div class="st-luxe-grid">
+                    <div class="st-luxe-text">
+                        <div class="frej-offres">
+                            <div class="frej-offre gsap-fade-up">
+                                <span class="frej-offre-num">01</span>
+                                <div>
+                                    <h3>Création site internet Fréjus</h3>
+                                    <p>Site vitrine sur mesure, 100% code à la main. 3 à 7 pages, responsive mobile,
+                                        SEO local Fréjus intégré dès le départ. Livré en 4 à 5 jours pour un site
+                                        essentiel.</p>
+                                </div>
+                            </div>
+                            <div class="frej-offre gsap-fade-up">
+                                <span class="frej-offre-num">02</span>
+                                <div>
+                                    <h3><a href="refonte-site-internet.html">Refonte site internet Fréjus</a></h3>
+                                    <p>Votre site est lent, vieilli ou invisible sur Google ? Je le refonds entièrement
+                                        — nouveau design, nouveau code, nouveau SEO. Score PageSpeed visé 90+.</p>
+                                </div>
+                            </div>
+                            <div class="frej-offre gsap-fade-up">
+                                <span class="frej-offre-num">03</span>
+                                <div>
+                                    <h3><a href="maintenance.html">Maintenance site internet Fréjus</a></h3>
+                                    <p>Forfaits mensuels à partir de 60€ — modifications, sauvegardes, mises à jour
+                                        sécurité. Votre site reste rapide et sécurisé 365 jours par an.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="frej-atout-card gsap-fade-up">
-                        <span class="frej-atout-icon">🔄</span>
-                        <span class="frej-atout-num">02</span>
-                        <h3><a href="refonte-site-internet.html" style="color:inherit;text-decoration:none;">Refonte
-                                site internet Fréjus</a></h3>
-                        <p>Votre site est lent, vieilli ou invisible sur Google ? Je le refonds entièrement — nouveau
-                            design, nouveau code, nouveau SEO. Score PageSpeed garanti 90+.</p>
-                    </div>
-                    <div class="frej-atout-card gsap-fade-up">
-                        <span class="frej-atout-icon">🛡️</span>
-                        <span class="frej-atout-num">03</span>
-                        <h3><a href="maintenance.html" style="color:inherit;text-decoration:none;">Maintenance site
-                                internet Fréjus</a></h3>
-                        <p>Forfaits mensuels à partir de 60€ — modifications, sauvegardes, mises à jour sécurité. Votre
-                            site reste rapide et sécurisé 365 jours par an.</p>
+
+                    <div class="st-photo-square">
+                        <img src="assets/images/frej-arcades-850.webp" srcset="assets/images/frej-arcades-620.webp 620w,
+                                assets/images/frej-arcades-850.webp 850w,
+                                assets/images/frej-arcades-1100.webp 1100w" sizes="(max-width: 900px) 100vw, 45vw"
+                            alt="Arcades romaines en enfilade dans l'ombre — Fréjus, Var 83" width="1100" height="1100"
+                            loading="lazy" decoding="async" />
+                        <div class="st-photo-caption">Fréjus — l'ouvrage, deux mille ans après</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ═══ MÉTIERS — maillage centré entreprises locales ═══ -->
-        <section class="ville-metiers" aria-labelledby="metiers-title">
+        <!-- ═══ MÉTIERS ═══ -->
+        <section class="st-metiers-premium" aria-labelledby="metiers-title">
             <div class="container">
                 <div class="section-head">
                     <div class="section-label">Solutions par secteur d'activité — Fréjus</div>
@@ -660,65 +707,77 @@
                         conciergeries et PME du Var 83.</p>
                 </div>
 
-                <div class="ville-metiers-grid">
-                    <!-- Agence immo — important à Fréjus -->
-                    <a href="creation-site-internet-agence-immobiliere.html" class="ville-metier-card gsap-fade-up">
-                        <span class="ville-metier-icon">🏡</span>
-                        <span class="ville-metier-label">Agence immobilière Fréjus</span>
-                        <p class="ville-metier-desc">Listings filtrables, fiches biens, galerie premium. Visible sur
-                            "agence immobilière Fréjus", "appartement Fréjus", "immobilier Var 83". Cible locataires,
-                            acheteurs et investisseurs.</p>
-                        <span class="ville-metier-arrow">→ Page agence immo</span>
-                    </a>
-                    <!-- Restaurant -->
-                    <a href="creation-site-internet-restaurant.html" class="ville-metier-card gsap-fade-up">
-                        <span class="ville-metier-icon">🍽️</span>
-                        <span class="ville-metier-label">Restaurant à Fréjus</span>
-                        <p class="ville-metier-desc">Menu en ligne, galerie, réservation directe. Visible sur
-                            "restaurant Fréjus", "brasserie Var 83", "où manger Fréjus Saint-Raphaël". Booste les
-                            couverts.</p>
-                        <span class="ville-metier-arrow">→ Page restaurant</span>
-                    </a>
-                    <!-- Électricien -->
-                    <a href="electricien-var.html" class="ville-metier-card gsap-fade-up">
-                        <span class="ville-metier-icon">🔌</span>
-                        <span class="ville-metier-label">Électricien à Fréjus</span>
-                        <p class="ville-metier-desc">Bouton d'urgence mobile, formulaire devis. Référencé sur
-                            "électricien Fréjus", "dépannage électrique Var 83", "électricien Saint-Raphaël". Génère des
-                            appels immédiats.</p>
-                        <span class="ville-metier-arrow">→ Voir la démo artisan</span>
-                    </a>
-                    <!-- Serrurier -->
-                    <a href="creation-site-internet-serrurier.html" class="ville-metier-card gsap-fade-up">
-                        <span class="ville-metier-icon">🔐</span>
-                        <span class="ville-metier-label">Serrurier à Fréjus</span>
-                        <p class="ville-metier-desc">Premier résultat sur "serrurier Fréjus", "ouverture de porte Var
-                            83". Bouton d'appel urgent visible immédiatement sur mobile. Conversion maximale.</p>
-                        <span class="ville-metier-arrow">→ Page serrurier</span>
-                    </a>
-                    <!-- Coiffeur -->
-                    <a href="creation-site-internet-coiffeur.html" class="ville-metier-card gsap-fade-up">
-                        <span class="ville-metier-icon">✂️</span>
-                        <span class="ville-metier-label">Salon de coiffure à Fréjus</span>
-                        <p class="ville-metier-desc">Galerie réalisations, prise de rendez-vous. Référencé sur "coiffeur
-                            Fréjus", "salon beauté Var 83". Attire une clientèle locale tout au long de l'année.</p>
-                        <span class="ville-metier-arrow">→ Page coiffeur</span>
-                    </a>
-                    <!-- Conciergerie — ajout spécifique Fréjus -->
-                    <a href="site-internet-conciergerie-saint-tropez.html" class="ville-metier-card gsap-fade-up">
-                        <span class="ville-metier-icon">🤵</span>
-                        <span class="ville-metier-label">Conciergerie &amp; services premium</span>
-                        <p class="ville-metier-desc">Site multilingue, formulaire de services, interface haut de gamme.
-                            Référencé sur "conciergerie Fréjus", "services premium Var 83 Saint-Raphaël".</p>
-                        <span class="ville-metier-arrow">→ Page conciergerie</span>
-                    </a>
+                <div class="st-metier-row gsap-fade-up">
+                    <div class="st-metier-main">
+                        <span class="st-metier-title">Agence immobilière Fréjus</span>
+                        <p>Listings filtrables, fiches biens, galerie premium. Visible sur "agence immobilière Fréjus",
+                            "appartement Fréjus", "immobilier Var 83". Cible locataires, acheteurs et investisseurs.</p>
+                    </div>
+                    <div class="st-metier-links">
+                        <a href="creation-site-internet-agence-immobiliere.html">Page agence immo</a>
+                    </div>
+                </div>
+
+                <div class="st-metier-row gsap-fade-up">
+                    <div class="st-metier-main">
+                        <span class="st-metier-title">Restaurant à Fréjus</span>
+                        <p>Menu en ligne, galerie, réservation directe. Visible sur "restaurant Fréjus", "brasserie Var
+                            83", "où manger Fréjus Saint-Raphaël". Booste les couverts.</p>
+                    </div>
+                    <div class="st-metier-links">
+                        <a href="creation-site-internet-restaurant.html">Page restaurant</a>
+                    </div>
+                </div>
+
+                <div class="st-metier-row gsap-fade-up">
+                    <div class="st-metier-main">
+                        <span class="st-metier-title">Électricien à Fréjus</span>
+                        <p>Bouton d'urgence mobile, formulaire devis. Référencé sur "électricien Fréjus", "dépannage
+                            électrique Var 83", "électricien Saint-Raphaël". Génère des appels immédiats.</p>
+                    </div>
+                    <div class="st-metier-links">
+                        <a href="electricien-var.html">Voir la démo artisan</a>
+                    </div>
+                </div>
+
+                <div class="st-metier-row gsap-fade-up">
+                    <div class="st-metier-main">
+                        <span class="st-metier-title">Serrurier à Fréjus</span>
+                        <p>Premier résultat sur "serrurier Fréjus", "ouverture de porte Var 83". Bouton d'appel urgent
+                            visible immédiatement sur mobile. Conversion maximale.</p>
+                    </div>
+                    <div class="st-metier-links">
+                        <a href="creation-site-internet-serrurier.html">Page serrurier</a>
+                    </div>
+                </div>
+
+                <div class="st-metier-row gsap-fade-up">
+                    <div class="st-metier-main">
+                        <span class="st-metier-title">Salon de coiffure à Fréjus</span>
+                        <p>Galerie réalisations, prise de rendez-vous. Référencé sur "coiffeur Fréjus", "salon beauté
+                            Var 83". Attire une clientèle locale tout au long de l'année.</p>
+                    </div>
+                    <div class="st-metier-links">
+                        <a href="creation-site-internet-coiffeur.html">Page coiffeur</a>
+                    </div>
+                </div>
+
+                <div class="st-metier-row gsap-fade-up">
+                    <div class="st-metier-main">
+                        <span class="st-metier-title">Conciergerie &amp; services premium</span>
+                        <p>Site multilingue, formulaire de services, interface haut de gamme. Référencé sur
+                            "conciergerie Fréjus", "services premium Var 83 Saint-Raphaël".</p>
+                    </div>
+                    <div class="st-metier-links">
+                        <a href="site-internet-conciergerie-saint-tropez.html">Page conciergerie</a>
+                    </div>
                 </div>
 
                 <div class="ville-metiers-cta-bottom">
                     <p><strong style="color:#fff;">Votre activité n'est pas listée ?</strong> J'accompagne tous les
                         professionnels de Fréjus — plombier, menuisier, paysagiste, photographe, architecte, prestataire
                         événementiel, PME de services… Chaque site internet est conçu sur mesure.</p>
-                    <a href="/#contact" class="btn-primary">Parlons de votre projet →</a>
+                    <a href="/#contact" class="btn-primary">Parlons de votre projet</a>
                 </div>
             </div>
         </section>
@@ -740,23 +799,6 @@
                         visible. Et à Fréjus, la concurrence en ligne est encore <strong>largement
                             sous-exploitée</strong> — ce qui signifie que vous pouvez atteindre la première page Google
                         rapidement.</p>
-
-                    <div class="frej-photo-duo">
-                        <div class="frej-photo-item">
-                            <img src="assets/images/amphiteatre-frejus.webp"
-                                alt="Amphithéâtre romain de Fréjus — patrimoine antique, Var 83" width="600"
-                                height="400" loading="lazy" decoding="async" onerror="this.style.display='none'" />
-                            <div class="frej-photo-ph"></div>
-                            <div class="frej-photo-caption">Amphithéâtre romain de Fréjus</div>
-                        </div>
-                        <div class="frej-photo-item">
-                            <img src="assets/images/port-frejus.webp"
-                                alt="Port de Fréjus — bateaux et front de mer, Var 83" width="600" height="400"
-                                loading="lazy" decoding="async" onerror="this.style.display='none'" />
-                            <div class="frej-photo-ph"></div>
-                            <div class="frej-photo-caption">Port de Fréjus, Var 83</div>
-                        </div>
-                    </div>
 
                     <h2>SEO local Fréjus — être trouvé sur Google avant vos concurrents</h2>
                     <p>Le référencement local à Fréjus présente un avantage majeur : <strong>la concurrence en ligne est
@@ -788,11 +830,22 @@
             </div>
         </section>
 
+        <!-- ═══ RESPIRATION ═══ -->
+        <section class="breath">
+            <div class="breath-inner">
+                <span class="breath-mark" aria-hidden="true"></span>
+                <p class="breath-line">Ici, la saison n'existe pas.
+                    <em>Novembre compte autant que le mois d'août.</em>
+                </p>
+                <span class="breath-sign">Sud Web Project — Fréjus</span>
+            </div>
+        </section>
+
         <!-- ═══ RÉALISATIONS ═══ -->
-        <section class="frej-realisations" aria-labelledby="real-title">
+        <section class="st-realisations" aria-labelledby="real-title">
             <div class="container">
                 <div class="section-head" style="text-align:center;margin-bottom:3rem;">
-                    <div class="section-label">Exemples de réalisations — Fréjus & Var</div>
+                    <div class="section-label">Exemples de réalisations — Fréjus &amp; Var</div>
                     <h2 class="section-title" id="real-title">
                         <span class="split-reveal">Des sites qui génèrent</span>
                         <span class="split-reveal"><em style="font-style:italic;color:var(--blue-l);">des clients à
@@ -802,82 +855,89 @@
                         artisans, restaurateurs, agences immobilières et PME de Fréjus et du Var 83.</p>
                 </div>
 
-                <div class="frej-real-grid">
-                    <div class="frej-real-card gsap-fade-up">
-                        <div class="frej-real-img">
+                <div class="st-real-grid">
+                    <div class="st-real-card">
+                        <div class="st-real-img">
                             <img src="assets/images/photo-electricien.webp"
                                 alt="Site internet artisan Fréjus — réalisation Sud Web Project Var 83" width="800"
                                 height="450" loading="lazy" decoding="async" onerror="this.style.display='none'" />
+                            <div class="photo-placeholder"></div>
                         </div>
-                        <div class="frej-real-body">
-                            <span class="frej-real-tag">Web Premium · Artisan · Fréjus / Var 83</span>
-                            <h3>Artisan — Fréjus & Var 83</h3>
+                        <div class="st-real-body">
+                            <span class="st-real-tag">Web Premium · Artisan · Fréjus / Var 83</span>
+                            <h3>Artisan — Fréjus &amp; Var 83</h3>
                             <p>6 pages, 100/100 PageSpeed. Bouton d'urgence, formulaire devis, SEO local "électricien
                                 Fréjus". Premiers résultats Google en 4 semaines.</p>
                             <a href="https://guillaume83990.github.io/electricien-st-tropez/" target="_blank"
-                                rel="noopener noreferrer" class="ville-cas-link">Voir la démo →</a>
-                            <a href="etude-cas-electricien.html" class="ville-cas-link"
-                                style="font-size:.8rem;opacity:.8;display:block;margin-top:.6rem;">→ Étude de cas
-                                complète</a>
+                                rel="noopener noreferrer" class="ville-cas-link">Voir la démo</a>
+                            <div style="margin-top:.75rem;">
+                                <a href="etude-cas-electricien.html" class="ville-cas-link"
+                                    style="font-size:.8rem;opacity:.8;">Étude de cas complète</a>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="frej-real-card gsap-fade-up">
-                        <div class="frej-real-img">
+                    <div class="st-real-card">
+                        <div class="st-real-img">
                             <img src="assets/images/photo-restaurant-gastronomique.webp"
                                 alt="Site internet restaurant Fréjus — La Table Méditerranéenne" width="800"
                                 height="450" loading="lazy" decoding="async" onerror="this.style.display='none'" />
+                            <div class="photo-placeholder"></div>
                         </div>
-                        <div class="frej-real-body">
-                            <span class="frej-real-tag">Web Ultra · Restaurant · Fréjus / Var 83</span>
-                            <h3>Restaurant — Fréjus & Saint-Raphaël</h3>
+                        <div class="st-real-body">
+                            <span class="st-real-tag">Web Ultra · Restaurant · Fréjus / Var 83</span>
+                            <h3>Restaurant — Fréjus &amp; Saint-Raphaël</h3>
                             <p>7 pages, multilingue FR/EN/IT, réservation WhatsApp, galerie immersive. 100/100
                                 PageSpeed. Référencé sur "restaurant Fréjus" et "restaurant Var 83".</p>
                             <a href="https://guillaume83990.github.io/la-table-mediterraneenne/" target="_blank"
-                                rel="noopener noreferrer" class="ville-cas-link">Voir la démo →</a>
-                            <a href="etude-cas-restaurant.html" class="ville-cas-link"
-                                style="font-size:.8rem;opacity:.8;display:block;margin-top:.6rem;">→ Étude de cas
-                                complète</a>
+                                rel="noopener noreferrer" class="ville-cas-link">Voir la démo</a>
+                            <div style="margin-top:.75rem;">
+                                <a href="etude-cas-restaurant.html" class="ville-cas-link"
+                                    style="font-size:.8rem;opacity:.8;">Étude de cas complète</a>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="frej-real-card gsap-fade-up">
-                        <div class="frej-real-img">
+                    <div class="st-real-card">
+                        <div class="st-real-img">
                             <img src="assets/images/photo-salon-coiffure.webp"
                                 alt="Site internet coiffeur Fréjus — réalisation Sud Web Project" width="800"
                                 height="450" loading="lazy" decoding="async" onerror="this.style.display='none'" />
+                            <div class="photo-placeholder"></div>
                         </div>
-                        <div class="frej-real-body">
-                            <span class="frej-real-tag">Web Premium · Coiffeur · Fréjus / Var 83</span>
-                            <h3>Salon de coiffure — Fréjus & Var 83</h3>
+                        <div class="st-real-body">
+                            <span class="st-real-tag">Web Premium · Coiffeur · Fréjus / Var 83</span>
+                            <h3>Salon de coiffure — Fréjus &amp; Var 83</h3>
                             <p>Galerie réalisations, prise de rendez-vous directe. 100/100 PageSpeed. SEO "coiffeur
                                 Fréjus", "salon beauté Saint-Raphaël", "coiffeur Var 83".</p>
                             <a href="https://guillaume83990.github.io/elise-et-ciseaux/" target="_blank"
-                                rel="noopener noreferrer" class="ville-cas-link">Voir la démo →</a>
-                            <a href="etude-cas-coiffeur.html" class="ville-cas-link"
-                                style="font-size:.8rem;opacity:.8;display:block;margin-top:.6rem;">→ Étude de cas
-                                complète</a>
+                                rel="noopener noreferrer" class="ville-cas-link">Voir la démo</a>
+                            <div style="margin-top:.75rem;">
+                                <a href="etude-cas-coiffeur.html" class="ville-cas-link"
+                                    style="font-size:.8rem;opacity:.8;">Étude de cas complète</a>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="frej-real-card gsap-fade-up">
-                        <div class="frej-real-img">
+                    <div class="st-real-card">
+                        <div class="st-real-img">
                             <img src="assets/images/photo-votre-projet.webp"
                                 alt="Votre futur site internet à Fréjus — Sud Web Project Var 83" width="800"
                                 height="450" loading="lazy" decoding="async" onerror="this.style.display='none'" />
+                            <div class="photo-placeholder"></div>
                         </div>
-                        <div class="frej-real-body">
-                            <span class="frej-real-tag">Votre projet · Fréjus · Var 83</span>
+                        <div class="st-real-body">
+                            <span class="st-real-tag">Votre projet · Fréjus · Var 83</span>
                             <h3>Votre site internet à Fréjus</h3>
                             <p>Artisan, restaurant, commerce, agence immobilière, PME… Devis gratuit sous 24h. Maquette
                                 avant de commencer. Livraison en quelques jours.</p>
-                            <a href="/#contact" class="ville-cas-link">Demander un devis gratuit →</a>
+                            <a href="/#contact" class="ville-cas-link">Demander un devis gratuit</a>
                         </div>
                     </div>
                 </div>
 
                 <div style="text-align:center;margin-top:3rem;">
-                    <a href="/#portfolio" class="btn-outline">Voir toutes les réalisations →</a>
+                    <a href="/#portfolio" class="btn-outline">Voir toutes les réalisations</a>
                 </div>
             </div>
         </section>
@@ -886,7 +946,7 @@
         <section class="ville-pourquoi" aria-labelledby="pourquoi-title">
             <div class="container">
                 <div class="section-head">
-                    <div class="section-label">Développeur web local — Fréjus & Var</div>
+                    <div class="section-label">Développeur web local — Fréjus &amp; Var</div>
                     <h2 class="section-title" id="pourquoi-title">
                         <span class="split-reveal">Ce que vous gagnez</span>
                         <span class="split-reveal"><em style="font-style:italic;color:var(--blue-l);">en choisissant un
@@ -895,39 +955,39 @@
                 </div>
                 <div class="ville-pourquoi-grid">
                     <div class="ville-pourquoi-card gsap-fade-up">
-                        <div class="ville-pourquoi-icon">🎯</div>
+                        <div class="ville-pourquoi-icon" aria-hidden="true"></div>
                         <h3>SEO local Fréjus dès la mise en ligne</h3>
                         <p>H1 géolocalisé Fréjus, Schema.org LocalBusiness, Google Business Profile configuré. Vous
                             apparaissez sur "votre activité + Fréjus" et "votre activité + Var 83" en 4 à 8 semaines.
                         </p>
                     </div>
                     <div class="ville-pourquoi-card gsap-fade-up">
-                        <div class="ville-pourquoi-icon">⚡</div>
+                        <div class="ville-pourquoi-icon" aria-hidden="true"></div>
                         <h3>100/100 PageSpeed — zéro WordPress</h3>
                         <p>Code à la main, images WebP optimisées. Votre site charge en moins d'une seconde sur mobile.
                             Vos concurrents ont des sites lents — le vôtre sera le plus rapide de Fréjus.</p>
                     </div>
                     <div class="ville-pourquoi-card gsap-fade-up">
-                        <div class="ville-pourquoi-icon">📍</div>
+                        <div class="ville-pourquoi-icon" aria-hidden="true"></div>
                         <h3>Développeur dans le Var — je me déplace</h3>
                         <p>Basé dans le Var, je me déplace à Fréjus pour la première réunion. Consultation gratuite en
                             présentiel ou en visioconférence. Un interlocuteur local, pas une agence distante.</p>
                     </div>
                     <div class="ville-pourquoi-card gsap-fade-up">
-                        <div class="ville-pourquoi-icon">🏛️</div>
+                        <div class="ville-pourquoi-icon" aria-hidden="true"></div>
                         <h3>Fréjus + Saint-Raphaël — double visibilité</h3>
                         <p>Je cible les deux villes dans votre SEO. "Artisan Fréjus Saint-Raphaël", "restaurant Fréjus"
                             — vous couvrez un bassin de 80 000 habitants et maximisez votre visibilité locale.</p>
                     </div>
                     <div class="ville-pourquoi-card gsap-fade-up">
-                        <div class="ville-pourquoi-icon">🛡️</div>
+                        <div class="ville-pourquoi-icon" aria-hidden="true"></div>
                         <h3>Maintenance disponible — 60€/mois</h3>
                         <p>Votre site reste rapide, sécurisé et à jour. Forfaits <a href="maintenance.html"
                                 style="color:var(--blue-l);">maintenance</a> à partir de 60€/mois : modifications
                             mensuelles, sauvegardes, mises à jour sécurité, support email.</p>
                     </div>
                     <div class="ville-pourquoi-card gsap-fade-up">
-                        <div class="ville-pourquoi-icon">✅</div>
+                        <div class="ville-pourquoi-icon" aria-hidden="true"></div>
                         <h3>Propriétaire à 100% — aucun abonnement</h3>
                         <p>Code, contenu, domaine — tout vous appartient. Aucune plateforme propriétaire, aucun
                             abonnement obligatoire. Liberté totale.</p>
@@ -936,41 +996,14 @@
             </div>
         </section>
 
-        <!-- ═══ PROCESS ═══ -->
-        <section class="ville-process" aria-labelledby="process-title">
-            <div class="container">
-                <div class="section-head">
-                    <div class="section-label">Méthode de travail</div>
-                    <h2 class="section-title" id="process-title">
-                        Comment je crée votre site internet à Fréjus —<br>
-                        <em style="font-style:italic;color:var(--blue-l);">méthode et délais.</em>
-                    </h2>
-                </div>
-                <div class="process-steps-grid">
-                    <div class="process-item gsap-fade-up">
-                        <div class="process-num-circle">01</div>
-                        <h3>Échange & devis sous 24h</h3>
-                        <p>On discute de votre activité à Fréjus, votre clientèle cible, vos objectifs. Devis clair et
-                            détaillé sous 24h. Gratuit, sans engagement.</p>
-                    </div>
-                    <div class="process-item gsap-fade-up">
-                        <div class="process-num-circle">02</div>
-                        <h3>Maquette & validation</h3>
-                        <p>Direction artistique adaptée à votre activité et votre marché local. Vous validez avant tout
-                            développement. Aucune surprise.</p>
-                    </div>
-                    <div class="process-item gsap-fade-up">
-                        <div class="process-num-circle">03</div>
-                        <h3>Développement & SEO Fréjus</h3>
-                        <p>Code à la main, optimisé pour Fréjus et le Var. Tests mobile, vitesse, accessibilité.</p>
-                    </div>
-                    <div class="process-item gsap-fade-up">
-                        <div class="process-num-circle">04</div>
-                        <h3>Mise en ligne & premiers résultats</h3>
-                        <p>Lancement, Google Search Console, Google Business Profile Fréjus. Premiers contacts Google en
-                            4 à 8 semaines. Maintenance disponible après.</p>
-                    </div>
-                </div>
+        <!-- ═══ RESPIRATION ═══ -->
+        <section class="breath">
+            <div class="breath-inner">
+                <span class="breath-mark" aria-hidden="true"></span>
+                <p class="breath-line">Deux mille ans que cette ville bâtit.
+                    <em>Elle sait reconnaître ce qui est bien fait.</em>
+                </p>
+                <span class="breath-sign">Sud Web Project — Fréjus</span>
             </div>
         </section>
 
@@ -989,7 +1022,7 @@
                 <div class="price-grid">
                     <article class="price-card gsap-fade-up">
                         <div class="price-head">
-                            <span class="price-icon" aria-hidden="true">🌐</span>
+                            <span class="price-icon" aria-hidden="true"></span>
                             <h3>Web Essentiel</h3>
                             <div class="price-val"><span class="price-from">À partir de</span><span
                                     class="price-num">600€</span></div>
@@ -1001,12 +1034,12 @@
                             <li>✓ SEO local Fréjus inclus</li>
                             <li>✓ Propriété 100% à vous</li>
                         </ul>
-                        <a href="/#contact" class="btn-outline">Devis gratuit →</a>
+                        <a href="/#contact" class="btn-outline">Devis gratuit</a>
                     </article>
                     <article class="price-card price-feat gsap-fade-up">
-                        <div class="price-top-badge">⭐ Idéal entreprises locales Fréjus</div>
+                        <div class="price-top-badge">Idéal entreprises locales Fréjus</div>
                         <div class="price-head">
-                            <span class="price-icon" aria-hidden="true">🛍️</span>
+                            <span class="price-icon" aria-hidden="true"></span>
                             <h3>Web Premium</h3>
                             <div class="price-val"><span class="price-from">À partir de</span><span class="price-num">1
                                     300€</span></div>
@@ -1015,15 +1048,15 @@
                             <li>✓ Jusqu'à 6 pages optimisées</li>
                             <li>✓ Design 100% sur-mesure</li>
                             <li>✓ Galerie professionnelle</li>
-                            <li>✓ SEO avancé Fréjus & Var</li>
+                            <li>✓ SEO avancé Fréjus &amp; Var</li>
                             <li>✓ Google Business optimisé</li>
                             <li>✓ Propriété 100% à vous</li>
                         </ul>
-                        <a href="/#contact" class="btn-primary">Devis gratuit →</a>
+                        <a href="/#contact" class="btn-primary">Devis gratuit</a>
                     </article>
                     <article class="price-card gsap-fade-up">
                         <div class="price-head">
-                            <span class="price-icon" aria-hidden="true">👑</span>
+                            <span class="price-icon" aria-hidden="true"></span>
                             <h3>Web Ultra</h3>
                             <div class="price-val"><span class="price-from">Tarif</span><span class="price-num"
                                     style="font-size:1.6rem;">Sur devis</span></div>
@@ -1036,46 +1069,13 @@
                             <li>✓ Réservation / e-commerce</li>
                             <li>✓ 100% responsive</li>
                         </ul>
-                        <a href="/#contact" class="btn-outline">Devis gratuit →</a>
+                        <a href="/#contact" class="btn-outline">Devis gratuit</a>
                     </article>
                 </div>
             </div>
         </section>
 
-        <!-- ═══ MAILLAGE PILLS — métiers + villes ciblés Fréjus ═══ -->
-        <section class="frej-maillage" aria-label="Maillage interne métiers et villes Fréjus">
-            <div class="frej-maillage-inner">
-                <h2>Site internet à Fréjus — tous les secteurs d'activité</h2>
-                <div class="frej-liens-grid">
-                    <a href="creation-site-internet-agence-immobiliere.html" class="frej-lien-pill">🏡 Site agence immo
-                        Fréjus</a>
-                    <a href="creation-site-internet-restaurant.html" class="frej-lien-pill">🍽️ Site restaurant
-                        Fréjus</a>
-                    <a href="electricien-var.html" class="frej-lien-pill">🔌 Site électricien Fréjus</a>
-                    <a href="creation-site-internet-serrurier.html" class="frej-lien-pill">🔐 Site serrurier Fréjus</a>
-                    <a href="creation-site-internet-coiffeur.html" class="frej-lien-pill">✂️ Site coiffeur Fréjus</a>
-                    <a href="site-internet-conciergerie-saint-tropez.html" class="frej-lien-pill">🤵 Site conciergerie
-                        Fréjus</a>
-                    <a href="refonte-site-internet.html" class="frej-lien-pill">🔄 Refonte site internet Fréjus</a>
-                    <a href="maintenance.html" class="frej-lien-pill">🛡️ Maintenance site Fréjus</a>
-                </div>
-
-                <h2 style="margin-top:2.5rem;">Développeur web dans tout le Var — de Fréjus à Saint-Tropez</h2>
-                <div class="frej-liens-grid">
-                    <a href="creation-site-internet-saint-raphael.html" class="frej-lien-pill">⛵ Site internet
-                        Saint-Raphaël</a>
-                    <a href="creation-site-internet-saint-tropez.html" class="frej-lien-pill">⚓ Site internet
-                        Saint-Tropez</a>
-                    <a href="creation-site-internet-sainte-maxime.html" class="frej-lien-pill">🌊 Site internet
-                        Sainte-Maxime</a>
-                    <a href="creation-site-internet-cogolin.html" class="frej-lien-pill">🏭 Site internet Cogolin</a>
-                    <a href="creation-site-internet-grimaud.html" class="frej-lien-pill">🏰 Site internet Grimaud</a>
-                    <a href="creation-site-internet-var.html" class="frej-lien-pill">🗺️ Tout le Var (83)</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══ VILLES MAILLAGE — villes ciblées uniquement ═══ -->
+        <!-- ═══ VILLES MAILLAGE ═══ -->
         <section class="ville-villes-block" aria-labelledby="villes-title">
             <div class="container">
                 <div class="section-head">
@@ -1091,43 +1091,43 @@
                 </div>
                 <div class="ville-villes-grid">
                     <div class="ville-ville-card active-city">
-                        <span class="ville-ville-icon">🏛️</span>
+                        <span class="ville-ville-icon" aria-hidden="true"></span>
                         <span class="ville-ville-name">Fréjus</span>
                         <span class="ville-ville-sub">Vous êtes ici — création site internet Fréjus, Var 83.</span>
-                        <span class="ville-ville-tag">✓ Page active</span>
+                        <span class="ville-ville-tag">Page active</span>
                     </div>
                     <a href="creation-site-internet-saint-raphael.html" class="ville-ville-card gsap-fade-up">
-                        <span class="ville-ville-icon">⛵</span>
+                        <span class="ville-ville-icon" aria-hidden="true"></span>
                         <span class="ville-ville-name">Saint-Raphaël</span>
                         <span class="ville-ville-sub">35 000 habitants, port actif, tissu PME dense. Bassin commun avec
                             Fréjus.</span>
-                        <span class="ville-ville-tag">Page dédiée →</span>
+                        <span class="ville-ville-tag">Page dédiée</span>
                     </a>
                     <a href="creation-site-internet-saint-tropez.html" class="ville-ville-card gsap-fade-up">
-                        <span class="ville-ville-icon">⚓</span>
+                        <span class="ville-ville-icon" aria-hidden="true"></span>
                         <span class="ville-ville-name">Saint-Tropez</span>
                         <span class="ville-ville-sub">Siège de Sud Web Project. Restaurants, agences immo,
                             conciergeries, entreprises premium.</span>
-                        <span class="ville-ville-tag">Page dédiée →</span>
+                        <span class="ville-ville-tag">Page dédiée</span>
                     </a>
                     <a href="creation-site-internet-sainte-maxime.html" class="ville-ville-card gsap-fade-up">
-                        <span class="ville-ville-icon">🌊</span>
+                        <span class="ville-ville-icon" aria-hidden="true"></span>
                         <span class="ville-ville-name">Sainte-Maxime</span>
                         <span class="ville-ville-sub">Station premium face à Saint-Tropez, active 12 mois par an.</span>
-                        <span class="ville-ville-tag">Page dédiée →</span>
+                        <span class="ville-ville-tag">Page dédiée</span>
                     </a>
                     <a href="creation-site-internet-cogolin.html" class="ville-ville-card gsap-fade-up">
-                        <span class="ville-ville-icon">🏭</span>
+                        <span class="ville-ville-icon" aria-hidden="true"></span>
                         <span class="ville-ville-name">Cogolin</span>
                         <span class="ville-ville-sub">Capitale artisanale du Golfe. Artisans et PME locaux.</span>
-                        <span class="ville-ville-tag">Page dédiée →</span>
+                        <span class="ville-ville-tag">Page dédiée</span>
                     </a>
                     <a href="creation-site-internet-grimaud.html" class="ville-ville-card gsap-fade-up">
-                        <span class="ville-ville-icon">🏰</span>
+                        <span class="ville-ville-icon" aria-hidden="true"></span>
                         <span class="ville-ville-name">Grimaud</span>
                         <span class="ville-ville-sub">Village médiéval et Port Grimaud international. Commerces,
                             restaurants, immobilier.</span>
-                        <span class="ville-ville-tag">Page dédiée →</span>
+                        <span class="ville-ville-tag">Page dédiée</span>
                     </a>
                 </div>
                 <p class="ville-seo-phrase">
@@ -1155,8 +1155,8 @@
                 <div class="ville-faq-list">
                     <details class="ville-faq-item gsap-fade-up">
                         <summary>
-                            <h3>Combien coûte la création d'un site internet à Fréjus ?</h3><span
-                                class="faq-toggle">+</span>
+                            <h3>Combien coûte la création d'un site internet à Fréjus ?</h3>
+                            <span class="faq-toggle">+</span>
                         </summary>
                         <p>La création d'un site internet à Fréjus commence à <strong>partir de 600€</strong> pour un
                             site vitrine 3 pages (responsive, SEO Fréjus inclus, formulaire de contact). Un site Premium
@@ -1166,8 +1166,17 @@
                     </details>
                     <details class="ville-faq-item gsap-fade-up">
                         <summary>
-                            <h3>En combien de temps mon site Fréjus apparaît sur Google ?</h3><span
-                                class="faq-toggle">+</span>
+                            <h3>Quel délai pour créer un site internet à Fréjus ?</h3>
+                            <span class="faq-toggle">+</span>
+                        </summary>
+                        <p>Un site essentiel est livré en <strong>4 à 5 jours ouvrés</strong>. Un site Premium en
+                            <strong>1 à 3 semaines</strong>. Délais garantis dans le devis.
+                        </p>
+                    </details>
+                    <details class="ville-faq-item gsap-fade-up">
+                        <summary>
+                            <h3>En combien de temps mon site Fréjus apparaît sur Google ?</h3>
+                            <span class="faq-toggle">+</span>
                         </summary>
                         <p>À Fréjus, la concurrence en ligne est modérée — vous pouvez atteindre la <strong>première
                                 page Google en 4 à 8 semaines</strong> sur les requêtes locales. Je configure Google
@@ -1176,7 +1185,8 @@
                     </details>
                     <details class="ville-faq-item gsap-fade-up">
                         <summary>
-                            <h3>Quel développeur web choisir à Fréjus ?</h3><span class="faq-toggle">+</span>
+                            <h3>Quel développeur web choisir à Fréjus ?</h3>
+                            <span class="faq-toggle">+</span>
                         </summary>
                         <p>Un développeur web local dans le Var qui code à la main — pas une agence qui utilise des
                             templates WordPress. Le code sur mesure garantit des performances maximales (100/100
@@ -1185,7 +1195,8 @@
                     </details>
                     <details class="ville-faq-item gsap-fade-up">
                         <summary>
-                            <h3>Vous déplacez-vous à Fréjus ?</h3><span class="faq-toggle">+</span>
+                            <h3>Vous déplacez-vous à Fréjus ?</h3>
+                            <span class="faq-toggle">+</span>
                         </summary>
                         <p>Oui. Développeur web freelance dans le Var, je me déplace à Fréjus pour la première réunion.
                             La consultation est gratuite — en présentiel à Fréjus ou en visioconférence selon votre
@@ -1193,8 +1204,8 @@
                     </details>
                     <details class="ville-faq-item gsap-fade-up">
                         <summary>
-                            <h3>Proposez-vous la maintenance de site internet à Fréjus ?</h3><span
-                                class="faq-toggle">+</span>
+                            <h3>Proposez-vous la maintenance de site internet à Fréjus ?</h3>
+                            <span class="faq-toggle">+</span>
                         </summary>
                         <p>Oui. Forfaits <a href="maintenance.html">maintenance site internet</a> à partir de
                             <strong>60€/mois</strong> (2h de modifications, mises à jour sécurité, sauvegardes, support
@@ -1203,8 +1214,8 @@
                     </details>
                     <details class="ville-faq-item gsap-fade-up">
                         <summary>
-                            <h3>Intervenez-vous aussi à Saint-Raphaël et dans le reste du Var ?</h3><span
-                                class="faq-toggle">+</span>
+                            <h3>Intervenez-vous aussi à Saint-Raphaël et dans le reste du Var ?</h3>
+                            <span class="faq-toggle">+</span>
                         </summary>
                         <p>Oui. J'accompagne les professionnels de tout le Var : <a
                                 href="creation-site-internet-saint-raphael.html">Saint-Raphaël</a>, <a
@@ -1214,44 +1225,6 @@
                                 href="creation-site-internet-grimaud.html">Grimaud</a> et <a
                                 href="creation-site-internet-var.html">tout le Var (83)</a>.</p>
                     </details>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══ TÉMOIGNAGES ═══ -->
-        <section class="testi" aria-labelledby="testi-title">
-            <div class="container">
-                <div class="section-head">
-                    <div class="section-label">Ils m'ont fait confiance</div>
-                    <h2 class="section-title" id="testi-title"><span class="split-reveal">Ce qu'ils en disent.</span>
-                    </h2>
-                </div>
-                <div class="testi-grid">
-                    <article class="testi-card gsap-fade-up">
-                        <div class="testi-stars" aria-label="5 étoiles sur 5">★★★★★</div>
-                        <p>«&nbsp;Très satisfait du travail réalisé pour mon site internet de photographe.
-                            Professionnel, réactif et à l'écoute. Si vous cherchez un développeur web dans le Var, je
-                            recommande sans hésiter.&nbsp;»</p>
-                        <div class="testi-auth"><span class="testi-av" aria-hidden="true">📸</span>
-                            <div><strong>Servane Roy Berton</strong><span>Photographe · Avis Google ⭐</span></div>
-                        </div>
-                    </article>
-                    <article class="testi-card gsap-fade-up">
-                        <div class="testi-stars" aria-label="5 étoiles sur 5">★★★★★</div>
-                        <p>«&nbsp;Très bon accompagnement, conseils clairs et travail de qualité. Je recommande
-                            fortement pour toute création de site web dans le Var.&nbsp;»</p>
-                        <div class="testi-auth"><span class="testi-av" aria-hidden="true">💼</span>
-                            <div><strong>Clement Dolphens</strong><span>Avis Google ⭐ · Var</span></div>
-                        </div>
-                    </article>
-                    <article class="testi-card gsap-fade-up">
-                        <div class="testi-stars" aria-label="5 étoiles sur 5">★★★★★</div>
-                        <p>«&nbsp;Super expérience avec Sud Web Project. Mon site a été créé rapidement et correspond
-                            parfaitement à mes attentes. Un excellent développeur web, sérieux et compétent.&nbsp;»</p>
-                        <div class="testi-auth"><span class="testi-av" aria-hidden="true">🌟</span>
-                            <div><strong>Heloise Berton</strong><span>Avis Google ⭐ · Saint-Tropez</span></div>
-                        </div>
-                    </article>
                 </div>
             </div>
         </section>
@@ -1271,13 +1244,13 @@
                     quelques jours.</p>
                 <div class="ville-cta-actions">
                     <a href="/#contact" class="btn-hero">
-                        Obtenir mon devis gratuit →
+                        Obtenir mon devis gratuit
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
                             <path d="M3.75 9h10.5M9.75 4.5L14.25 9l-4.5 4.5" stroke="currentColor" stroke-width="1.5"
                                 stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </a>
-                    <a href="tel:+33611547324" class="btn-ghost-hero">📞 +33 6 11 54 73 24</a>
+                    <a href="tel:+33611547324" class="btn-ghost-hero">+33 6 11 54 73 24</a>
                 </div>
                 <p class="ville-seo-text">Devis 100% gratuit · Sans engagement · Réponse sous 24h · Déplacement à Fréjus
                     · Développeur web Var 83</p>
@@ -1313,7 +1286,7 @@
                 <div class="footer-col">
                     <h3>Villes proches</h3>
                     <ul>
-                        <li><a href="creation-site-internet-frejus.html" class="footer-active">Fréjus ✓</a></li>
+                        <li><a href="creation-site-internet-frejus.html" class="footer-active">Fréjus</a></li>
                         <li><a href="creation-site-internet-saint-raphael.html">Saint-Raphaël</a></li>
                         <li><a href="creation-site-internet-saint-tropez.html">Saint-Tropez</a></li>
                         <li><a href="creation-site-internet-sainte-maxime.html">Sainte-Maxime</a></li>
@@ -1373,10 +1346,14 @@
                     <a href="mentions-legales.html#confidentialite">Confidentialité</a>
                     <span aria-hidden="true">·</span>
                     <a href="mentions-legales.html#cgv">CGV</a>
+                    <span aria-hidden="true">·</span>
                     <a href="cookies.html">Cookies</a>
                 </div>
             </div>
         </div>
+
+        <span class="footer-mark" aria-hidden="true">Sud<em>Web</em> Project</span>
+
         <div class="footer-seo">
             <p>Création site internet Fréjus · Développeur web Fréjus · Site internet entreprises Fréjus · Restaurant
                 Fréjus site web · Agence immobilière Fréjus site ·
@@ -1396,10 +1373,29 @@
         </button>
     </footer>
 
+    <!-- ═══ LIBRAIRIES ═══ -->
+    <script src="js/vendor/gsap.min.js" defer></script>
+    <script src="js/vendor/ScrollTrigger.min.js" defer></script>
+    <script src="js/vendor/lenis.min.js" defer></script>
+
+    <!-- motion.js pose les valeurs GSAP par défaut : avant tout le reste -->
+    <script src="js/motion.js" defer></script>
+
+    <!-- ═══ SCRIPTS DU SITE ═══ -->
     <script src="js/global.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+    <script src="js/lux.js" defer></script>
+    <script src="js/metiers.js" defer></script>
+    <script src="js/refonte.js" defer></script>
+    <script src="js/footer.js" defer></script>
     <script src="js/ville-animations.js" defer></script>
+    <!-- ville-hero.js reprend la main sur le hero : après ville-animations.js -->
+    <script src="js/ville-hero.js" defer></script>
+    <!-- ville-lux.js : la grammaire de l'accueil sur tous les autres blocs -->
+    <script src="js/ville-lux.js" defer></script>
+    <script src="js/breath.js" defer></script>
+    <!-- titles.js reprend la main sur les titres : toujours en dernier -->
+    <script src="js/titles.js" defer></script>
+
     <script>
         window.addEventListener('load', function () {
             var ric = window.requestIdleCallback || function (cb) { setTimeout(cb, 200); };
@@ -1409,12 +1405,15 @@
         });
     </script>
 
-    <div class="cookie-banner" role="dialog" aria-label="Cookies"
-        style="display:none;opacity:0;transform:translateX(-50%) translateY(20px);">
-        <p>Ce site utilise des cookies analytiques anonymisés. <a href="cookies.html">En savoir plus</a></p>
-        <div>
-            <button id="cookie-refuse">Refuser</button>
-            <button id="cookie-accept">Accepter</button>
+    <div class="cookie-banner" role="dialog" aria-label="Consentement cookies" aria-live="polite">
+        <div class="cookie-inner">
+            <p>Ce site utilise des cookies analytiques anonymisés pour mesurer l'audience.
+                <a href="cookies.html">En savoir plus</a>
+            </p>
+            <div class="cookie-btns">
+                <button id="cookie-refuse" class="cookie-btn cookie-btn-refuse">Refuser</button>
+                <button id="cookie-accept" class="cookie-btn cookie-btn-accept">Accepter</button>
+            </div>
         </div>
     </div>
 

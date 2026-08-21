@@ -48,262 +48,109 @@
         href="https://www.sudwebproject.com/creation-site-internet-cavalaire.html" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
-    <!-- Preload font -->
-    <link rel="preload" href="assets/fonts/playfair-display-v40-latin-900.woff2" as="font" type="font/woff2"
+    <!-- Preload LCP -->
+    <link rel="preload" as="image" media="(min-width: 769px)" href="assets/images/ville-cavalaire-1280.webp"
+        type="image/webp" fetchpriority="high"
+        imagesrcset="assets/images/ville-cavalaire-640.webp 640w, assets/images/ville-cavalaire-960.webp 960w, assets/images/ville-cavalaire-1280.webp 1280w, assets/images/ville-cavalaire-1535.webp 1535w"
+        imagesizes="100vw" />
+    <link rel="preload" href="assets/fonts/instrument-serif-v5-latin-regular.woff2" as="font" type="font/woff2"
         crossorigin />
 
-    <!-- CSS -->
+    <!-- CSS — l'ordre compte : ville-hero.css ferme la pile -->
     <link rel="stylesheet" href="css/global.css" />
     <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="css/ville.css" />
     <link rel="stylesheet" href="css/cookies.css" media="print" onload="this.media='all'" />
-    <link rel="stylesheet" href="css/fonts-local.css" media="print" onload="this.media='all'" />
+    <link rel="stylesheet" href="css/fonts-local.css" />
+    <link rel="stylesheet" href="css/motion.css" />
+    <link rel="stylesheet" href="css/depth.css" />
+    <link rel="stylesheet" href="css/metiers.css" />
+    <link rel="stylesheet" href="css/refonte.css" />
+    <link rel="stylesheet" href="css/type.css" />
+    <link rel="stylesheet" href="css/refine.css" />
+    <link rel="stylesheet" href="css/space.css" />
+    <link rel="stylesheet" href="css/breath.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/ville-hero.css" />
+    <link rel="stylesheet" href="css/ville-lux.css" />
 
     <style>
         html {
             scroll-padding-top: 72px;
         }
 
-        /* ── ATOUTS ── */
-        .cav-atouts {
-            padding: 8rem 2rem;
-            background: var(--ink-2);
+        /* ── H1 long : la colonne s'élargit et le corps descend, pour que le
+              hero tienne dans l'écran et laisse voir le nom géant en bas ── */
+        .ville-hero-title {
+            font-size: clamp(1.65rem, 2.8vw, 2.55rem);
+            line-height: 1.16;
+            max-width: min(44rem, 66vw);
         }
 
-        .cav-atouts-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-top: 3rem;
+        .ville-hero-sub {
+            max-width: min(38rem, 56vw);
         }
 
-        .cav-atout-card {
-            background: var(--glass-2);
-            border: 1px solid var(--border);
-            border-radius: var(--r);
-            padding: 2.25rem 1.75rem;
-            position: relative;
-            overflow: hidden;
-            transition: all var(--dur) var(--ease);
+        @media (max-width: 900px) {
+            .ville-hero-title {
+                font-size: clamp(1.5rem, 5vw, 2rem);
+                max-width: 100%;
+            }
+
+            .ville-hero-sub {
+                max-width: 100%;
+            }
         }
 
-        .cav-atout-card::before {
-            content: '';
+        @media (max-height: 800px) and (min-width: 901px) {
+            .ville-hero-title {
+                font-size: clamp(1.45rem, 2.2vw, 2.05rem);
+            }
+
+            .ville-hero-sub {
+                font-size: .9rem;
+                line-height: 1.7;
+            }
+        }
+
+        /* ── PHOTOS — identique au gabarit Saint-Tropez ── */
+        .photo-placeholder {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--blue), var(--blue-l));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform .5s var(--ease);
-        }
-
-        .cav-atout-card:hover {
-            border-color: var(--border-h);
-            transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, .4);
-        }
-
-        .cav-atout-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .cav-atout-icon {
-            font-size: 2.5rem;
-            display: block;
-            margin-bottom: 1.25rem;
-        }
-
-        .cav-atout-num {
-            position: absolute;
-            top: 1.25rem;
-            right: 1.5rem;
-            font-family: var(--ff-display);
-            font-size: 3.5rem;
-            font-weight: 900;
-            color: rgba(59, 130, 246, .06);
-            line-height: 1;
-            user-select: none;
-        }
-
-        .cav-atout-card h3 {
-            font-family: var(--ff-display);
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: .75rem;
-            line-height: 1.3;
-        }
-
-        .cav-atout-card p {
-            font-size: .875rem;
-            color: var(--mist);
-            line-height: 1.75;
-        }
-
-        /* ── STATS ── */
-        .cav-stats {
-            padding: 5rem 2rem;
-            background: var(--ink);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .cav-stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-        }
-
-        .cav-stat {
-            text-align: center;
-            padding: 2rem 1rem;
-            background: var(--glass-2);
-            border: 1px solid var(--border);
-            border-radius: var(--r);
-            transition: all var(--dur) var(--ease);
-        }
-
-        .cav-stat:hover {
-            border-color: var(--border-h);
-            transform: translateY(-4px);
-        }
-
-        .cav-stat-num {
-            display: block;
-            font-family: var(--ff-display);
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: var(--blue-l);
-            line-height: 1;
-            margin-bottom: .5rem;
-            letter-spacing: -.02em;
-        }
-
-        .cav-stat-label {
-            font-size: .77rem;
-            font-weight: 600;
-            color: var(--mist);
-            text-transform: uppercase;
-            letter-spacing: .09em;
-            line-height: 1.5;
-        }
-
-        /* ── MAINTENANCE BLOC ── */
-        .cav-maintenance {
-            padding: 7rem 2rem;
-            background: linear-gradient(135deg, var(--ink-2) 0%, rgba(59, 130, 246, .05) 100%);
-            border-top: 1px solid var(--border);
-        }
-
-        .cav-maintenance-inner {
-            max-width: 920px;
-            margin: 0 auto;
-        }
-
-        .cav-maintenance-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .cav-maint-card {
-            background: var(--glass-2);
-            border: 1px solid var(--border);
-            border-radius: var(--r);
-            padding: 2.25rem 2rem;
-            position: relative;
-            transition: all var(--dur) var(--ease);
-        }
-
-        .cav-maint-card.featured {
-            border-color: var(--blue);
-            background: rgba(59, 130, 246, .06);
-        }
-
-        .cav-maint-card.featured::before {
-            content: '⭐ Populaire';
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--blue);
-            color: #fff;
-            font-size: .7rem;
-            font-weight: 700;
-            letter-spacing: .08em;
-            text-transform: uppercase;
-            padding: .3rem .85rem;
-            border-radius: 100px;
-        }
-
-        .cav-maint-card:hover {
-            border-color: var(--border-h);
-            transform: translateY(-4px);
-        }
-
-        .cav-maint-name {
-            font-family: var(--ff-display);
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: .5rem;
-        }
-
-        .cav-maint-price {
-            font-family: var(--ff-display);
-            font-size: 2rem;
-            font-weight: 900;
-            color: var(--blue-l);
-            line-height: 1;
-            margin-bottom: 1.25rem;
-        }
-
-        .cav-maint-price span {
-            font-size: 1rem;
-            font-weight: 400;
-            color: var(--mist);
-        }
-
-        .cav-maint-feats {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 1.5rem;
+            inset: 0;
             display: flex;
             flex-direction: column;
-            gap: .6rem;
+            align-items: center;
+            justify-content: center;
+            gap: .5rem;
+            color: var(--mist-2);
+            font-size: .8rem;
+            text-align: center;
+            padding: 1rem;
         }
 
-        .cav-maint-feats li {
-            font-size: .875rem;
+        .st-photo-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(5, 8, 15, .88), transparent);
+            padding: 1.5rem 1rem .75rem;
+            font-size: .72rem;
+            letter-spacing: .04em;
             color: var(--mist);
-            display: flex;
-            align-items: flex-start;
-            gap: .6rem;
+            font-weight: 500;
         }
 
-        .cav-maint-feats li::before {
-            content: '✓';
-            color: var(--blue-l);
-            font-weight: 700;
-            flex-shrink: 0;
-        }
-
-        /* ── PHOTOS ── */
-        .cav-photo-hero {
+        .st-photo-hero {
             position: relative;
             border-radius: var(--r);
             overflow: hidden;
-            aspect-ratio: 16/7;
-            background: var(--glass-2);
+            aspect-ratio: 21/9;
             border: 1px solid var(--border);
             margin: 3rem 0;
         }
 
-        .cav-photo-hero img {
+        .st-photo-hero img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -311,92 +158,22 @@
             transition: transform 8s ease;
         }
 
-        .cav-photo-hero:hover img {
+        .st-photo-hero:hover img {
             transform: scale(1.03);
-        }
-
-        .cav-photo-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(8, 12, 20, .85), transparent);
-            padding: 1.5rem 1rem .75rem;
-            font-size: .75rem;
-            color: var(--mist);
-            font-weight: 500;
-        }
-
-        .cav-photo-ph {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: .75rem;
-            color: var(--mist-2);
-            font-size: .85rem;
-        }
-
-        .cav-photo-ph .ph-icon {
-            font-size: 3rem;
-        }
-
-        .cav-photo-duo {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin: 3rem 0;
-        }
-
-        .cav-photo-item {
-            position: relative;
-            border-radius: var(--r);
-            overflow: hidden;
-            aspect-ratio: 4/3;
-            background: var(--glass-2);
-            border: 1px solid var(--border);
-        }
-
-        .cav-photo-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 5s ease;
-        }
-
-        .cav-photo-item:hover img {
-            transform: scale(1.05);
-        }
-
-        .cav-photo-item .cav-photo-ph {
-            font-size: .78rem;
-        }
-
-        .cav-photo-item .cav-photo-ph .ph-icon {
-            font-size: 2rem;
         }
 
         /* ── SEO PROSE ── */
         .seo-prose {
             padding: 7rem 2rem;
-            background: var(--ink);
         }
 
         .seo-prose-inner {
-            max-width: 780px;
+            max-width: 820px;
             margin: 0 auto;
         }
 
         .seo-prose h2 {
-            font-family: var(--ff-display);
-            font-size: clamp(1.4rem, 2.5vw, 1.9rem);
-            font-weight: 700;
-            color: #E2E8F0;
             margin: 2.5rem 0 .85rem;
-            line-height: 1.25;
         }
 
         .seo-prose h2:first-child {
@@ -424,41 +201,267 @@
             border-color: var(--blue-l);
         }
 
-        /* ── RÉALISATIONS ── */
-        .cav-realisations {
+        /* ── GRILLE TEXTE / IMAGE — gabarit ── */
+        .st-luxe-section {
             padding: 8rem 2rem;
-            background: var(--ink-2);
         }
 
-        .cav-real-grid {
+        .st-luxe-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        /* ── LES TROIS OFFRES — lignes numérotées ── */
+        .cav-offres {
+            display: flex;
+            flex-direction: column;
+            border-top: 1px solid var(--border);
+        }
+
+        .cav-offre {
+            padding: 1.75rem 0;
+            border-bottom: 1px solid var(--border);
+            display: grid;
+            grid-template-columns: 3.5rem 1fr;
+            gap: 1rem;
+            align-items: start;
+        }
+
+        .cav-offre-num {
+            font-size: .72rem;
+            font-weight: 600;
+            letter-spacing: .14em;
+            color: var(--blue-l);
+            padding-top: .35rem;
+        }
+
+        .cav-offre h3 {
+            margin: 0 0 .5rem;
+        }
+
+        .cav-offre h3 a {
+            color: inherit;
+            text-decoration: none;
+            transition: color var(--dur) var(--ease);
+        }
+
+        .cav-offre h3 a:hover {
+            color: var(--blue-l);
+        }
+
+        .cav-offre p {
+            font-size: .875rem;
+            color: var(--mist);
+            line-height: 1.75;
+            margin: 0;
+        }
+
+        /* ── MAINTENANCE — deux forfaits réglés ── */
+        .cav-maintenance {
+            padding: 8rem 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .cav-maintenance-inner {
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        .cav-maintenance-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .cav-maint-card {
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+            padding: 2.25rem 2rem;
+            position: relative;
+            transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+        }
+
+        .cav-maint-card.featured {
+            border-color: var(--border-h);
+        }
+
+        .cav-maint-card:hover {
+            border-color: var(--border-h);
+            transform: translateY(-4px);
+        }
+
+        .cav-maint-badge {
+            display: block;
+            font-size: .68rem;
+            font-weight: 600;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--blue-l);
+            margin-bottom: .85rem;
+        }
+
+        .cav-maint-name {
+            font-family: var(--ff-display);
+            font-size: 1.2rem;
+            color: #E9EEF6;
+            margin-bottom: .5rem;
+        }
+
+        .cav-maint-price {
+            font-family: var(--ff-display);
+            font-size: 2rem;
+            color: var(--blue-l);
+            line-height: 1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -.02em;
+        }
+
+        .cav-maint-price span {
+            font-size: 1rem;
+            color: var(--mist);
+        }
+
+        .cav-maint-feats {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1.75rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cav-maint-feats li {
+            font-size: .875rem;
+            color: var(--mist);
+            padding: .7rem 0;
+            border-top: 1px solid var(--border);
+        }
+
+        /* ── MÉTIERS — identique au gabarit ── */
+        .st-metiers-premium {
+            padding: 8rem 2rem;
+        }
+
+        .st-metier-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+            overflow: hidden;
+            margin-bottom: 1rem;
+            transition: border-color var(--dur) var(--ease);
+        }
+
+        .st-metier-row:hover {
+            border-color: var(--border-h);
+        }
+
+        .st-metier-main {
+            padding: 2rem 2.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .st-metier-main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, var(--blue-l), transparent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .5s var(--ease);
+        }
+
+        .st-metier-row:hover .st-metier-main::before {
+            transform: scaleX(1);
+        }
+
+        .st-metier-title {
+            font-family: var(--ff-display);
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: #E9EEF6;
+            line-height: 1.3;
+            display: block;
+        }
+
+        .st-metier-main p {
+            font-size: .875rem;
+            color: var(--mist);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .st-metier-links {
+            padding: 2rem 2.25rem;
+            border-left: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: .65rem;
+        }
+
+        .st-metier-links a {
+            font-size: .82rem;
+            color: var(--blue-l);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: .4rem;
+            transition: color var(--dur) var(--ease), gap .25s var(--ease);
+        }
+
+        .st-metier-links a::before {
+            content: '→';
+            font-size: .75rem;
+            flex-shrink: 0;
+        }
+
+        .st-metier-links a:hover {
+            color: #fff;
+            gap: .65rem;
+        }
+
+        /* ── RÉALISATIONS — identique au gabarit ── */
+        .st-realisations {
+            padding: 8rem 2rem;
+        }
+
+        .st-real-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
             margin-top: 3rem;
         }
 
-        .cav-real-card {
-            background: var(--glass-2);
+        .st-real-card {
             border: 1px solid var(--border);
             border-radius: var(--r);
             overflow: hidden;
             transition: all var(--dur) var(--ease);
         }
 
-        .cav-real-card:hover {
+        .st-real-card:hover {
             border-color: var(--border-h);
             transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, .4);
         }
 
-        .cav-real-img {
+        .st-real-img {
             position: relative;
             aspect-ratio: 16/9;
-            background: var(--glass);
             overflow: hidden;
         }
 
-        .cav-real-img img {
+        .st-real-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -466,126 +469,76 @@
             transition: transform 5s ease;
         }
 
-        .cav-real-card:hover .cav-real-img img {
+        .st-real-card:hover .st-real-img img {
             transform: scale(1.05);
         }
 
-        .cav-real-body {
+        .st-real-body {
             padding: 1.75rem;
         }
 
-        .cav-real-tag {
-            font-size: .72rem;
-            font-weight: 700;
+        .st-real-tag {
+            font-size: .68rem;
+            font-weight: 600;
             color: var(--blue-l);
             text-transform: uppercase;
-            letter-spacing: .1em;
-            margin-bottom: .5rem;
+            letter-spacing: .16em;
+            margin-bottom: .65rem;
             display: block;
         }
 
-        .cav-real-body h3 {
-            font-family: var(--ff-display);
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #fff;
+        .st-real-body h3 {
             margin-bottom: .5rem;
-            line-height: 1.3;
         }
 
-        .cav-real-body p {
+        .st-real-body p {
             font-size: .875rem;
             color: var(--mist);
-            line-height: 1.6;
+            line-height: 1.7;
             margin-bottom: 1.25rem;
         }
 
-        /* ── MAILLAGE PILLS ── */
-        .cav-maillage {
-            background: var(--ink-2);
-            padding: 5rem 2rem;
-            border-top: 1px solid var(--border);
-        }
-
-        .cav-maillage-inner {
-            max-width: 860px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .cav-maillage h2 {
-            font-family: var(--ff-display);
-            font-size: clamp(1.2rem, 2vw, 1.6rem);
-            font-weight: 700;
-            color: #E2E8F0;
-            margin-bottom: 1.25rem;
-        }
-
-        .cav-liens-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: .75rem;
-            justify-content: center;
-            margin-bottom: .5rem;
-        }
-
-        .cav-lien-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: .4rem;
-            padding: .55rem 1.1rem;
-            background: var(--glass-2);
-            border: 1px solid var(--border);
-            border-radius: 100px;
-            font-size: .82rem;
-            color: var(--mist);
-            text-decoration: none;
-            transition: all .25s ease;
-            font-weight: 500;
-        }
-
-        .cav-lien-pill:hover {
-            border-color: var(--blue-l);
-            color: var(--blue-l);
-            background: rgba(59, 130, 246, .06);
-        }
-
-        @media (max-width: 1024px) {
-            .cav-atouts-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .cav-atouts-grid {
+        @media (max-width: 900px) {
+            .st-luxe-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .cav-stats-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: .75rem;
+                gap: 3rem;
             }
 
             .cav-maintenance-grid {
                 grid-template-columns: 1fr;
             }
-
-            .cav-photo-duo {
-                grid-template-columns: 1fr;
-            }
-
-            .cav-real-grid {
-                grid-template-columns: 1fr;
-            }
         }
 
-        @media (max-width: 480px) {
-            .cav-stats-grid {
+        @media (max-width: 768px) {
+
+            .st-real-grid,
+            .st-metier-row {
                 grid-template-columns: 1fr;
             }
 
-            .cav-stat-num {
-                font-size: 1.8rem;
+            .st-metier-links {
+                border-left: none;
+                border-top: 1px solid var(--border);
+                justify-content: flex-start;
+            }
+
+            .st-photo-hero {
+                aspect-ratio: 16/10;
+                margin: 2rem 0;
+            }
+
+            .cav-offre {
+                grid-template-columns: 1fr;
+                gap: .35rem;
+            }
+
+            .seo-prose,
+            .st-luxe-section,
+            .st-metiers-premium,
+            .st-realisations,
+            .cav-maintenance {
+                padding-left: 1.35rem;
+                padding-right: 1.35rem;
             }
         }
     </style>
@@ -647,12 +600,21 @@
 
         <!-- ═══ HERO ═══ -->
         <section class="ville-hero" aria-labelledby="h1-cavalaire">
-            <img class="ville-hero-img" src="assets/images/cavalaire-plage-port.webp"
-                srcset="assets/images/cavalaire-plage-port-mobile.webp 768w, assets/images/cavalaire-plage-port.webp 1440w"
-                sizes="100vw" alt="Plage et port de Cavalaire-sur-Mer — station balnéaire Golfe de Saint-Tropez, Var 83"
-                width="1440" height="900" fetchpriority="high" decoding="async" onerror="this.style.display='none'" />
+            <img class="ville-hero-img" src="assets/images/ville-cavalaire-1280.webp" srcset="assets/images/ville-cavalaire-640.webp 640w,
+                        assets/images/ville-cavalaire-960.webp 960w,
+                        assets/images/ville-cavalaire-1280.webp 1280w,
+                        assets/images/ville-cavalaire-1535.webp 1535w" sizes="100vw"
+                alt="Plage déserte de Cavalaire-sur-Mer à l'heure bleue, hors saison — Var 83" width="1535" height="863"
+                fetchpriority="high" decoding="async" />
             <div class="ville-hero-img-overlay"></div>
             <div class="ville-hero-bg"></div>
+
+            <span class="ville-mark" aria-hidden="true">Cavalaire</span>
+
+            <div class="ville-coord" aria-hidden="true">
+                <span class="ville-coord-line"></span>
+                <span class="ville-coord-val">43.1726° N · 6.5245° E</span>
+            </div>
 
             <div class="container">
                 <div class="ville-hero-badge">
@@ -680,42 +642,21 @@
                                 stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </a>
-                    <a href="tel:+33611547324" class="btn-ghost-hero">📞 +33 6 11 54 73 24</a>
+                    <a href="tel:+33611547324" class="btn-ghost-hero">+33 6 11 54 73 24</a>
                 </div>
-
-                <div class="ville-hero-metrics">
-                    <div class="metric"><span class="metric-n">600€</span><span class="metric-l">À partir de</span>
-                    </div>
-                    <div class="metric-sep" aria-hidden="true"></div>
-                    <div class="metric"><span class="metric-n">60€/mois</span><span class="metric-l">Maintenance
-                            site</span></div>
-                    <div class="metric-sep" aria-hidden="true"></div>
-                    <div class="metric"><span class="metric-n">100%</span><span class="metric-l">Code sur mesure</span>
-                    </div>
-                    <div class="metric-sep" aria-hidden="true"></div>
-                    <div class="metric"><span class="metric-n">24h</span><span class="metric-l">Réponse garantie</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ville-scroll-hint" aria-hidden="true"><span>Scroll</span>
-                <div class="ville-scroll-line"></div>
             </div>
         </section>
 
         <!-- ═══ PHOTO PANORAMIQUE ═══ -->
-        <section style="padding:0 2rem;background:var(--ink);">
-            <div class="container">
-                <div class="cav-photo-hero">
-                    <img src="assets/images/cavalaire-panoramique.webp"
-                        srcset="assets/images/cavalaire-panoramique-mobile.webp 768w, assets/images/cavalaire-panoramique.webp 1280w"
-                        sizes="100vw"
-                        alt="Vue panoramique de Cavalaire-sur-Mer — plages, port et Golfe de Saint-Tropez, Var 83"
-                        width="1280" height="560" loading="lazy" decoding="async" onerror="this.style.display='none'" />
-                    <div class="cav-photo-ph"></div>
-                    <div class="cav-photo-caption">Cavalaire-sur-Mer — 8 km de plages, port actif et Golfe de
-                        Saint-Tropez · Var 83</div>
-                </div>
+        <section class="st-band" aria-hidden="true">
+            <div class="st-photo-hero">
+                <img src="assets/images/cav-transats-1400.webp" srcset="assets/images/cav-transats-700.webp 700w,
+                            assets/images/cav-transats-1000.webp 1000w,
+                            assets/images/cav-transats-1400.webp 1400w" sizes="100vw"
+                    alt="Plage privée fermée hors saison, transats empilés et parasols repliés — Cavalaire-sur-Mer, Var 83"
+                    width="1400" height="600" loading="lazy" decoding="async" />
+                <div class="st-photo-caption">Cavalaire-sur-Mer — 8 km de plages, port actif et Golfe de Saint-Tropez ·
+                    Var 83</div>
             </div>
         </section>
 
@@ -726,9 +667,9 @@
                     <div class="ville-intro-text">
                         <div class="section-label">Cavalaire-sur-Mer en chiffres</div>
                         <h2 class="ville-h2" id="intro-title">
-                            Cavalaire-sur-Mer : 8 km de plage,<br>
-                            <span class="ville-em" style="font-size:inherit;">une station dynamique, des professionnels
-                                à développer en ligne.</span>
+                            <span class="split-reveal">Cavalaire-sur-Mer : 8 km de plage,</span>
+                            <span class="split-reveal ville-em" style="display:inline;font-size:inherit;">une station
+                                dynamique, des professionnels à développer en ligne.</span>
                         </h2>
                         <p>Avec <strong>7 500 habitants permanents</strong> et une capacité d'accueil qui explose en
                             été, Cavalaire-sur-Mer est l'une des stations balnéaires les plus dynamiques du Var.
@@ -749,36 +690,47 @@
                             concurrent après l'avoir trouvé sur Google.
                         </blockquote>
                         <a href="/#contact" class="btn-primary" style="margin-top:1.5rem;display:inline-flex;">Obtenir
-                            mon devis gratuit →</a>
+                            mon devis gratuit</a>
                     </div>
 
                     <div>
-                        <div class="ville-intro-img-wrap" style="margin-bottom:1.5rem;">
-                            <img src="assets/images/cavalaire-village.webp"
-                                alt="Centre de Cavalaire-sur-Mer — commerces et port, Var 83" width="600" height="450"
-                                loading="lazy" decoding="async" onerror="this.parentElement.style.display='none'" />
-                            <div class="ville-intro-img-label">📍 Cavalaire-sur-Mer, Var 83</div>
+                        <div class="ville-intro-img-wrap">
+                            <img src="assets/images/cav-ganivelles-760.webp" srcset="assets/images/cav-ganivelles-560.webp 560w,
+                                    assets/images/cav-ganivelles-760.webp 760w,
+                                    assets/images/cav-ganivelles-1000.webp 1000w"
+                                sizes="(max-width: 1100px) 100vw, 40vw"
+                                alt="Ganivelles de bois le long de la dune au crépuscule — Cavalaire-sur-Mer, Var 83"
+                                width="1000" height="1333" loading="lazy" decoding="async" />
+                            <div class="ville-intro-img-label">Cavalaire-sur-Mer, Var 83</div>
                         </div>
-                        <div class="ville-chiffres-grid">
-                            <div class="ville-chiffre-card gsap-fade-up"><span class="chiffre-num">7 500</span><span
-                                    class="chiffre-label">Habitants permanents</span></div>
-                            <div class="ville-chiffre-card gsap-fade-up"><span class="chiffre-num">8 km</span><span
-                                    class="chiffre-label">De plages de sable fin</span></div>
-                            <div class="ville-chiffre-card gsap-fade-up"><span class="chiffre-num">+50 000</span><span
-                                    class="chiffre-label">Touristes en haute saison</span></div>
-                            <div class="ville-chiffre-card gsap-fade-up"><span class="chiffre-num">90%</span><span
-                                    class="chiffre-label">Recherches locales sur mobile</span></div>
+                        <div class="ville-chiffres-grid" style="margin-top:1.5rem;">
+                            <div class="ville-chiffre-card gsap-fade-up">
+                                <span class="chiffre-num">7 500</span>
+                                <span class="chiffre-label">Habitants permanents</span>
+                            </div>
+                            <div class="ville-chiffre-card gsap-fade-up">
+                                <span class="chiffre-num">8 km</span>
+                                <span class="chiffre-label">De plages de sable fin</span>
+                            </div>
+                            <div class="ville-chiffre-card gsap-fade-up">
+                                <span class="chiffre-num">+50 000</span>
+                                <span class="chiffre-label">Touristes en haute saison</span>
+                            </div>
+                            <div class="ville-chiffre-card gsap-fade-up">
+                                <span class="chiffre-num">90%</span>
+                                <span class="chiffre-label">Recherches locales sur mobile</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ═══ ATOUTS ═══ -->
-        <section class="cav-atouts" aria-labelledby="atouts-title">
+        <!-- ═══ LES TROIS OFFRES ═══ -->
+        <section class="st-luxe-section" aria-labelledby="atouts-title">
             <div class="container">
-                <div class="section-head" style="text-align:center;margin-bottom:0;">
-                    <div class="section-label">Création & maintenance site internet Cavalaire</div>
+                <div class="section-head" style="text-align:center;margin-bottom:3rem;">
+                    <div class="section-label">Création &amp; maintenance site internet Cavalaire</div>
                     <h2 class="section-title" id="atouts-title">
                         <span class="split-reveal">Création site internet à Cavalaire —</span>
                         <span class="split-reveal"><em style="font-style:italic;color:var(--blue-l);">quel site pour
@@ -787,52 +739,52 @@
                     <p class="section-intro-seo">De la création à la maintenance mensuelle — je m'occupe de tout pour
                         les professionnels de Cavalaire-sur-Mer. Un seul interlocuteur, local, disponible.</p>
                 </div>
-                <div class="cav-atouts-grid">
-                    <div class="cav-atout-card gsap-fade-up">
-                        <span class="cav-atout-icon">🛠️</span>
-                        <span class="cav-atout-num">01</span>
-                        <h3>Création site internet Cavalaire</h3>
-                        <p>Site vitrine sur mesure, codé à la main. 3 à 7 pages, 100% responsive mobile, SEO local
-                            Cavalaire intégré dès le départ. Livraison en 4 à 5 jours pour un site essentiel.</p>
+                <div class="st-luxe-grid">
+                    <div class="st-luxe-text">
+                        <div class="cav-offres">
+                            <div class="cav-offre gsap-fade-up">
+                                <span class="cav-offre-num">01</span>
+                                <div>
+                                    <h3>Création site internet Cavalaire</h3>
+                                    <p>Site vitrine sur mesure, codé à la main. 3 à 7 pages, 100% responsive mobile, SEO
+                                        local Cavalaire intégré dès le départ. Livraison en 4 à 5 jours pour un site
+                                        essentiel.</p>
+                                </div>
+                            </div>
+                            <div class="cav-offre gsap-fade-up">
+                                <span class="cav-offre-num">02</span>
+                                <div>
+                                    <h3><a href="refonte-site-internet.html">Refonte site internet Cavalaire</a></h3>
+                                    <p>Votre site est lent, vieilli ou invisible sur Google ? Je le refonds entièrement
+                                        — nouveau design, nouveau code, nouvelles performances. Score PageSpeed
+                                        avant/après mesuré.</p>
+                                </div>
+                            </div>
+                            <div class="cav-offre gsap-fade-up">
+                                <span class="cav-offre-num">03</span>
+                                <div>
+                                    <h3><a href="maintenance.html">Maintenance site internet Cavalaire</a></h3>
+                                    <p>Forfaits mensuels à partir de 60€ — modifications, sauvegardes, mises à jour
+                                        sécurité, monitoring. Votre site reste rapide et sécurisé 365 jours par an.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="cav-atout-card gsap-fade-up">
-                        <span class="cav-atout-icon">🔄</span>
-                        <span class="cav-atout-num">02</span>
-                        <h3><a href="refonte-site-internet.html" style="color:inherit;text-decoration:none;">Refonte
-                                site internet Cavalaire</a></h3>
-                        <p>Votre site est lent, vieilli ou invisible sur Google ? Je le refonds entièrement — nouveau
-                            design, nouveau code, nouvelles performances. Score PageSpeed avant/après garanti.</p>
-                    </div>
-                    <div class="cav-atout-card gsap-fade-up">
-                        <span class="cav-atout-icon">🛡️</span>
-                        <span class="cav-atout-num">03</span>
-                        <h3><a href="maintenance.html" style="color:inherit;text-decoration:none;">Maintenance site
-                                internet Cavalaire</a></h3>
-                        <p>Forfaits mensuels à partir de 60€ — modifications, sauvegardes, mises à jour sécurité,
-                            monitoring. Votre site reste rapide et sécurisé 365 jours par an.</p>
+
+                    <div class="st-photo-square">
+                        <img src="assets/images/cav-sable-850.webp" srcset="assets/images/cav-sable-620.webp 620w,
+                                assets/images/cav-sable-850.webp 850w,
+                                assets/images/cav-sable-1100.webp 1100w" sizes="(max-width: 900px) 100vw, 45vw"
+                            alt="Sable ridé par le vent au crépuscule — Cavalaire-sur-Mer, Var 83" width="1100"
+                            height="1100" loading="lazy" decoding="async" />
+                        <div class="st-photo-caption">Cavalaire — la plage, hors saison</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ═══ STATS ═══ -->
-        <section class="cav-stats" aria-label="Cavalaire-sur-Mer en chiffres">
-            <div class="container">
-                <div class="cav-stats-grid">
-                    <div class="cav-stat gsap-fade-up"><span class="cav-stat-num">4–5j</span><span
-                            class="cav-stat-label">Délai site essentiel</span></div>
-                    <div class="cav-stat gsap-fade-up"><span class="cav-stat-num">100/100</span><span
-                            class="cav-stat-label">Score PageSpeed</span></div>
-                    <div class="cav-stat gsap-fade-up"><span class="cav-stat-num">4–8 sem.</span><span
-                            class="cav-stat-label">Premiers résultats Google</span></div>
-                    <div class="cav-stat gsap-fade-up"><span class="cav-stat-num">60€/mois</span><span
-                            class="cav-stat-label">Maintenance à partir de</span></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══ MÉTIERS — maillage ciblé Cavalaire ═══ -->
-        <section class="ville-metiers" aria-labelledby="metiers-title">
+        <!-- ═══ MÉTIERS ═══ -->
+        <section class="st-metiers-premium" aria-labelledby="metiers-title">
             <div class="container">
                 <div class="section-head">
                     <div class="section-label">Solutions par secteur d'activité — Cavalaire</div>
@@ -846,68 +798,80 @@
                     </p>
                 </div>
 
-                <div class="ville-metiers-grid">
-                    <!-- Agence immo — fort à Cavalaire -->
-                    <a href="creation-site-internet-agence-immobiliere.html" class="ville-metier-card gsap-fade-up">
-                        <span class="ville-metier-icon">🏡</span>
-                        <span class="ville-metier-label">Agence immobilière Cavalaire</span>
-                        <p class="ville-metier-desc">Listings filtrables, fiches biens, galerie premium. Visible sur
-                            "agence immobilière Cavalaire", "villa Cavalaire-sur-Mer", "appartement vue mer Var 83".
-                            Cible acheteurs, locataires et investisseurs.</p>
-                        <span class="ville-metier-arrow">→ Page agence immo</span>
-                    </a>
-                    <!-- Restaurant -->
-                    <a href="creation-site-internet-restaurant.html" class="ville-metier-card gsap-fade-up">
-                        <span class="ville-metier-icon">🍽️</span>
-                        <span class="ville-metier-label">Restaurant & bar Cavalaire</span>
-                        <p class="ville-metier-desc">Menu en ligne, galerie appétissante, réservation directe. Référencé
-                            sur "restaurant Cavalaire-sur-Mer", "bar bord de mer Var 83". Booste les couverts toute
-                            l'année.</p>
-                        <span class="ville-metier-arrow">→ Page restaurant</span>
-                    </a>
-                    <!-- Conciergerie — ajouté -->
-                    <a href="site-internet-conciergerie-saint-tropez.html" class="ville-metier-card gsap-fade-up">
-                        <span class="ville-metier-icon">🤵</span>
-                        <span class="ville-metier-label">Conciergerie &amp; services saisonniers</span>
-                        <p class="ville-metier-desc">Site multilingue, formulaire de demande de services, interface haut
-                            de gamme. Référencé sur "conciergerie Cavalaire", "conciergerie Golfe Saint-Tropez",
-                            "services saisonniers Var 83".</p>
-                        <span class="ville-metier-arrow">→ Page conciergerie</span>
-                    </a>
-                    <!-- Coiffeur -->
-                    <a href="creation-site-internet-coiffeur.html" class="ville-metier-card gsap-fade-up">
-                        <span class="ville-metier-icon">✂️</span>
-                        <span class="ville-metier-label">Salon de coiffure Cavalaire</span>
-                        <p class="ville-metier-desc">Galerie de réalisations, prise de rendez-vous directe. Référencé
-                            sur "coiffeur Cavalaire-sur-Mer", "salon beauté Var 83", "coiffeur Golfe Saint-Tropez".
-                            Attire clients locaux et touristes.</p>
-                        <span class="ville-metier-arrow">→ Page coiffeur</span>
-                    </a>
-                    <!-- Électricien -->
-                    <a href="electricien-var.html" class="ville-metier-card gsap-fade-up">
-                        <span class="ville-metier-icon">🔌</span>
-                        <span class="ville-metier-label">Électricien & artisan Cavalaire</span>
-                        <p class="ville-metier-desc">Bouton d'urgence mobile, formulaire devis. Référencé sur
-                            "électricien Cavalaire", "artisan Var 83", "dépannage Golfe Saint-Tropez". Génère des appels
-                            immédiats.</p>
-                        <span class="ville-metier-arrow">→ Voir la démo artisan</span>
-                    </a>
-                    <!-- Serrurier — maintenu mais discret -->
-                    <a href="creation-site-internet-serrurier.html" class="ville-metier-card gsap-fade-up"
-                        style="opacity:.85;">
-                        <span class="ville-metier-icon">🔐</span>
-                        <span class="ville-metier-label">Serrurier & urgences Cavalaire</span>
-                        <p class="ville-metier-desc">Premier résultat sur "serrurier Cavalaire", "ouverture porte Var
-                            83". Bouton appel urgent visible immédiatement sur mobile. Conversion maximale.</p>
-                        <span class="ville-metier-arrow">→ Page serrurier</span>
-                    </a>
+                <div class="st-metier-row gsap-fade-up">
+                    <div class="st-metier-main">
+                        <span class="st-metier-title">Agence immobilière Cavalaire</span>
+                        <p>Listings filtrables, fiches biens, galerie premium. Visible sur "agence immobilière
+                            Cavalaire", "villa Cavalaire-sur-Mer", "appartement vue mer Var 83". Cible acheteurs,
+                            locataires et investisseurs.</p>
+                    </div>
+                    <div class="st-metier-links">
+                        <a href="creation-site-internet-agence-immobiliere.html">Page agence immo</a>
+                    </div>
+                </div>
+
+                <div class="st-metier-row gsap-fade-up">
+                    <div class="st-metier-main">
+                        <span class="st-metier-title">Restaurant &amp; bar Cavalaire</span>
+                        <p>Menu en ligne, galerie appétissante, réservation directe. Référencé sur "restaurant
+                            Cavalaire-sur-Mer", "bar bord de mer Var 83". Booste les couverts toute l'année.</p>
+                    </div>
+                    <div class="st-metier-links">
+                        <a href="creation-site-internet-restaurant.html">Page restaurant</a>
+                    </div>
+                </div>
+
+                <div class="st-metier-row gsap-fade-up">
+                    <div class="st-metier-main">
+                        <span class="st-metier-title">Conciergerie &amp; services saisonniers</span>
+                        <p>Site multilingue, formulaire de demande de services, interface haut de gamme. Référencé sur
+                            "conciergerie Cavalaire", "conciergerie Golfe Saint-Tropez", "services saisonniers Var 83".
+                        </p>
+                    </div>
+                    <div class="st-metier-links">
+                        <a href="site-internet-conciergerie-saint-tropez.html">Page conciergerie</a>
+                    </div>
+                </div>
+
+                <div class="st-metier-row gsap-fade-up">
+                    <div class="st-metier-main">
+                        <span class="st-metier-title">Salon de coiffure Cavalaire</span>
+                        <p>Galerie de réalisations, prise de rendez-vous directe. Référencé sur "coiffeur
+                            Cavalaire-sur-Mer", "salon beauté Var 83", "coiffeur Golfe Saint-Tropez". Attire clients
+                            locaux et touristes.</p>
+                    </div>
+                    <div class="st-metier-links">
+                        <a href="creation-site-internet-coiffeur.html">Page coiffeur</a>
+                    </div>
+                </div>
+
+                <div class="st-metier-row gsap-fade-up">
+                    <div class="st-metier-main">
+                        <span class="st-metier-title">Électricien &amp; artisan Cavalaire</span>
+                        <p>Bouton d'urgence mobile, formulaire devis. Référencé sur "électricien Cavalaire", "artisan
+                            Var 83", "dépannage Golfe Saint-Tropez". Génère des appels immédiats.</p>
+                    </div>
+                    <div class="st-metier-links">
+                        <a href="electricien-var.html">Voir la démo artisan</a>
+                    </div>
+                </div>
+
+                <div class="st-metier-row gsap-fade-up">
+                    <div class="st-metier-main">
+                        <span class="st-metier-title">Serrurier &amp; urgences Cavalaire</span>
+                        <p>Premier résultat sur "serrurier Cavalaire", "ouverture porte Var 83". Bouton appel urgent
+                            visible immédiatement sur mobile. Conversion maximale.</p>
+                    </div>
+                    <div class="st-metier-links">
+                        <a href="creation-site-internet-serrurier.html">Page serrurier</a>
+                    </div>
                 </div>
 
                 <div class="ville-metiers-cta-bottom">
                     <p><strong style="color:#fff;">Votre activité n'est pas listée ?</strong> J'accompagne tous les
                         professionnels de Cavalaire-sur-Mer — hôtels, campings, photographes, piscinistes, paysagistes,
                         prestataires événementiels… Chaque site internet est conçu sur mesure.</p>
-                    <a href="/#contact" class="btn-primary">Discutons de votre projet →</a>
+                    <a href="/#contact" class="btn-primary">Discutons de votre projet</a>
                 </div>
             </div>
         </section>
@@ -926,23 +890,6 @@
                         qu'un propriétaire tape "agence immobilière Cavalaire" pour vendre sa villa — <strong>qui
                             apparaît en premier ?</strong> Le professionnel avec un site internet optimisé. Pas
                         forcément le meilleur, mais le plus visible.</p>
-
-                    <div class="cav-photo-duo">
-                        <div class="cav-photo-item">
-                            <img src="assets/images/port-cavalaire.webp"
-                                alt="Port de Cavalaire-sur-Mer — bateaux et front de mer, Var 83" width="600"
-                                height="400" loading="lazy" decoding="async" onerror="this.style.display='none'" />
-                            <div class="cav-photo-ph"></div>
-                            <div class="cav-photo-caption">Port de Cavalaire-sur-Mer</div>
-                        </div>
-                        <div class="cav-photo-item">
-                            <img src="assets/images/plage-cavalaire.webp"
-                                alt="Plage de Cavalaire-sur-Mer — sable fin et mer turquoise, Var 83" width="600"
-                                height="400" loading="lazy" decoding="async" onerror="this.style.display='none'" />
-                            <div class="cav-photo-ph"></div>
-                            <div class="cav-photo-caption">Plages de Cavalaire-sur-Mer, Var 83</div>
-                        </div>
-                    </div>
 
                     <h2>Maintenance site internet Cavalaire — garder votre site performant toute l'année</h2>
                     <p>Créer un site internet, c'est bien. Le maintenir à jour, sécurisé et performant, c'est ce qui
@@ -970,7 +917,18 @@
             </div>
         </section>
 
-        <!-- ═══ MAINTENANCE DÉTAIL ═══ -->
+        <!-- ═══ RESPIRATION ═══ -->
+        <section class="breath">
+            <div class="breath-inner">
+                <span class="breath-mark" aria-hidden="true"></span>
+                <p class="breath-line">En novembre, la plage est vide.
+                    <em>Les recherches, elles, continuent.</em>
+                </p>
+                <span class="breath-sign">Sud Web Project — Cavalaire-sur-Mer</span>
+            </div>
+        </section>
+
+        <!-- ═══ MAINTENANCE ═══ -->
         <section class="cav-maintenance" aria-labelledby="maint-title">
             <div class="cav-maintenance-inner">
                 <div class="section-head" style="text-align:center;margin-bottom:0;">
@@ -985,8 +943,27 @@
                         avant, pendant et après la saison.</p>
                 </div>
 
+                <div class="ville-chiffres-grid" style="margin-top:3rem;">
+                    <div class="ville-chiffre-card gsap-fade-up">
+                        <span class="chiffre-num">4–5j</span>
+                        <span class="chiffre-label">Délai site essentiel</span>
+                    </div>
+                    <div class="ville-chiffre-card gsap-fade-up">
+                        <span class="chiffre-num">100/100</span>
+                        <span class="chiffre-label">Score PageSpeed</span>
+                    </div>
+                    <div class="ville-chiffre-card gsap-fade-up">
+                        <span class="chiffre-num">4–8 sem.</span>
+                        <span class="chiffre-label">Premiers résultats Google</span>
+                    </div>
+                    <div class="ville-chiffre-card gsap-fade-up">
+                        <span class="chiffre-num">60€/mois</span>
+                        <span class="chiffre-label">Maintenance à partir de</span>
+                    </div>
+                </div>
+
                 <div class="cav-maintenance-grid">
-                    <div class="cav-maint-card">
+                    <div class="cav-maint-card gsap-fade-up">
                         <div class="cav-maint-name">Maintenance Basique</div>
                         <div class="cav-maint-price">60€<span>/mois</span></div>
                         <ul class="cav-maint-feats">
@@ -996,9 +973,10 @@
                             <li>Support email sous 48h</li>
                             <li>Monitoring des performances</li>
                         </ul>
-                        <a href="/#contact" class="btn-outline">Souscrire →</a>
+                        <a href="/#contact" class="btn-outline">Souscrire</a>
                     </div>
-                    <div class="cav-maint-card featured">
+                    <div class="cav-maint-card featured gsap-fade-up">
+                        <span class="cav-maint-badge">Populaire</span>
                         <div class="cav-maint-name">Maintenance Pro</div>
                         <div class="cav-maint-price">120€<span>/mois</span></div>
                         <ul class="cav-maint-feats">
@@ -1009,7 +987,7 @@
                             <li>Compte-rendu mensuel performances</li>
                             <li>Optimisation SEO continue</li>
                         </ul>
-                        <a href="/#contact" class="btn-primary">Souscrire →</a>
+                        <a href="/#contact" class="btn-primary">Souscrire</a>
                     </div>
                 </div>
                 <p style="text-align:center;margin-top:2rem;font-size:.875rem;color:var(--mist-2);">
@@ -1020,10 +998,10 @@
         </section>
 
         <!-- ═══ RÉALISATIONS ═══ -->
-        <section class="cav-realisations" aria-labelledby="real-title">
+        <section class="st-realisations" aria-labelledby="real-title">
             <div class="container">
                 <div class="section-head" style="text-align:center;margin-bottom:3rem;">
-                    <div class="section-label">Réalisations — site internet Cavalaire & Golfe</div>
+                    <div class="section-label">Réalisations — site internet Cavalaire &amp; Golfe</div>
                     <h2 class="section-title" id="real-title">
                         <span class="split-reveal">Des sites concrets</span>
                         <span class="split-reveal"><em style="font-style:italic;color:var(--blue-l);">pour des activités
@@ -1033,82 +1011,89 @@
                         professionnels de Cavalaire-sur-Mer et du Golfe de Saint-Tropez.</p>
                 </div>
 
-                <div class="cav-real-grid">
-                    <div class="cav-real-card gsap-fade-up">
-                        <div class="cav-real-img">
+                <div class="st-real-grid">
+                    <div class="st-real-card">
+                        <div class="st-real-img">
                             <img src="assets/images/photo-restaurant-gastronomique.webp"
                                 alt="Site internet restaurant Cavalaire-sur-Mer" width="800" height="450" loading="lazy"
                                 decoding="async" onerror="this.style.display='none'" />
+                            <div class="photo-placeholder"></div>
                         </div>
-                        <div class="cav-real-body">
-                            <span class="cav-real-tag">Web Ultra · Restaurant · Cavalaire / Golfe</span>
+                        <div class="st-real-body">
+                            <span class="st-real-tag">Web Ultra · Restaurant · Cavalaire / Golfe</span>
                             <h3>Restaurant — Cavalaire-sur-Mer, bord de mer</h3>
                             <p>7 pages, multilingue FR/EN/IT, réservation WhatsApp, galerie immersive. 100/100
                                 PageSpeed. La référence pour les restaurants du front de mer à Cavalaire.</p>
                             <a href="https://guillaume83990.github.io/la-table-mediterraneenne/" target="_blank"
-                                rel="noopener noreferrer" class="ville-cas-link">Voir la démo →</a>
-                            <a href="etude-cas-restaurant.html" class="ville-cas-link"
-                                style="font-size:.8rem;opacity:.8;display:block;margin-top:.6rem;">→ Étude de cas
-                                complète</a>
+                                rel="noopener noreferrer" class="ville-cas-link">Voir la démo</a>
+                            <div style="margin-top:.75rem;">
+                                <a href="etude-cas-restaurant.html" class="ville-cas-link"
+                                    style="font-size:.8rem;opacity:.8;">Étude de cas complète</a>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="cav-real-card gsap-fade-up">
-                        <div class="cav-real-img">
+                    <div class="st-real-card">
+                        <div class="st-real-img">
                             <img src="assets/images/photo-electricien.webp"
                                 alt="Site internet artisan Cavalaire — électricien Var 83" width="800" height="450"
                                 loading="lazy" decoding="async" onerror="this.style.display='none'" />
+                            <div class="photo-placeholder"></div>
                         </div>
-                        <div class="cav-real-body">
-                            <span class="cav-real-tag">Web Premium · Artisan · Cavalaire / Var 83</span>
-                            <h3>Artisan local — Cavalaire-sur-Mer & Golfe</h3>
+                        <div class="st-real-body">
+                            <span class="st-real-tag">Web Premium · Artisan · Cavalaire / Var 83</span>
+                            <h3>Artisan local — Cavalaire-sur-Mer &amp; Golfe</h3>
                             <p>6 pages, 100/100 PageSpeed. Bouton d'urgence, devis en ligne. SEO "électricien
                                 Cavalaire", "artisan Golfe Saint-Tropez". Résultats en 4 semaines.</p>
                             <a href="https://guillaume83990.github.io/electricien-st-tropez/" target="_blank"
-                                rel="noopener noreferrer" class="ville-cas-link">Voir la démo →</a>
-                            <a href="etude-cas-electricien.html" class="ville-cas-link"
-                                style="font-size:.8rem;opacity:.8;display:block;margin-top:.6rem;">→ Étude de cas
-                                complète</a>
+                                rel="noopener noreferrer" class="ville-cas-link">Voir la démo</a>
+                            <div style="margin-top:.75rem;">
+                                <a href="etude-cas-electricien.html" class="ville-cas-link"
+                                    style="font-size:.8rem;opacity:.8;">Étude de cas complète</a>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="cav-real-card gsap-fade-up">
-                        <div class="cav-real-img">
+                    <div class="st-real-card">
+                        <div class="st-real-img">
                             <img src="assets/images/coiffeur-cavalaire.webp"
                                 alt="Site internet salon de coiffure Cavalaire-sur-Mer" width="800" height="450"
                                 loading="lazy" decoding="async" onerror="this.style.display='none'" />
+                            <div class="photo-placeholder"></div>
                         </div>
-                        <div class="cav-real-body">
-                            <span class="cav-real-tag">Web Premium · Coiffeur · Cavalaire / Var 83</span>
+                        <div class="st-real-body">
+                            <span class="st-real-tag">Web Premium · Coiffeur · Cavalaire / Var 83</span>
                             <h3>Salon de coiffure — Cavalaire-sur-Mer</h3>
                             <p>Galerie de réalisations, prise de rendez-vous directe. 100/100 PageSpeed. Référencé sur
                                 "coiffeur Cavalaire-sur-Mer" et "salon Golfe Saint-Tropez".</p>
                             <a href="https://guillaume83990.github.io/elise-et-ciseaux/" target="_blank"
-                                rel="noopener noreferrer" class="ville-cas-link">Voir la démo →</a>
-                            <a href="etude-cas-coiffeur.html" class="ville-cas-link"
-                                style="font-size:.8rem;opacity:.8;display:block;margin-top:.6rem;">→ Étude de cas
-                                complète</a>
+                                rel="noopener noreferrer" class="ville-cas-link">Voir la démo</a>
+                            <div style="margin-top:.75rem;">
+                                <a href="etude-cas-coiffeur.html" class="ville-cas-link"
+                                    style="font-size:.8rem;opacity:.8;">Étude de cas complète</a>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="cav-real-card gsap-fade-up">
-                        <div class="cav-real-img">
+                    <div class="st-real-card">
+                        <div class="st-real-img">
                             <img src="assets/images/photo-votre-projet.webp"
                                 alt="Votre futur site internet à Cavalaire-sur-Mer — Sud Web Project" width="800"
                                 height="450" loading="lazy" decoding="async" onerror="this.style.display='none'" />
+                            <div class="photo-placeholder"></div>
                         </div>
-                        <div class="cav-real-body">
-                            <span class="cav-real-tag">Votre projet · Cavalaire-sur-Mer · Var 83</span>
+                        <div class="st-real-body">
+                            <span class="st-real-tag">Votre projet · Cavalaire-sur-Mer · Var 83</span>
                             <h3>Votre site internet à Cavalaire-sur-Mer</h3>
                             <p>Restaurant, agence immo, conciergerie, artisan… Devis gratuit sous 24h. Maquette avant de
                                 commencer. Maintenance mensuelle disponible.</p>
-                            <a href="/#contact" class="ville-cas-link">Demander un devis gratuit →</a>
+                            <a href="/#contact" class="ville-cas-link">Demander un devis gratuit</a>
                         </div>
                     </div>
                 </div>
 
                 <div style="text-align:center;margin-top:3rem;">
-                    <a href="/#portfolio" class="btn-outline">Voir toutes les réalisations →</a>
+                    <a href="/#portfolio" class="btn-outline">Voir toutes les réalisations</a>
                 </div>
             </div>
         </section>
@@ -1126,38 +1111,38 @@
                 </div>
                 <div class="ville-pourquoi-grid">
                     <div class="ville-pourquoi-card gsap-fade-up">
-                        <div class="ville-pourquoi-icon">🎯</div>
+                        <div class="ville-pourquoi-icon" aria-hidden="true"></div>
                         <h3>SEO local Cavalaire dès la mise en ligne</h3>
                         <p>H1 géolocalisé, Schema.org LocalBusiness, Google Business Profile configuré. Vous apparaissez
                             sur "votre activité + Cavalaire" et "votre activité + Golfe Saint-Tropez" en 4 à 8 semaines.
                         </p>
                     </div>
                     <div class="ville-pourquoi-card gsap-fade-up">
-                        <div class="ville-pourquoi-icon">⚡</div>
+                        <div class="ville-pourquoi-icon" aria-hidden="true"></div>
                         <h3>100/100 PageSpeed — mobile en priorité</h3>
                         <p>Zéro WordPress, code à la main. Vos clients cherchent depuis la plage en 4G — votre site
                             charge en moins d'une seconde. Google récompense la vitesse.</p>
                     </div>
                     <div class="ville-pourquoi-card gsap-fade-up">
-                        <div class="ville-pourquoi-icon">🛡️</div>
+                        <div class="ville-pourquoi-icon" aria-hidden="true"></div>
                         <h3>Maintenance incluse si vous le souhaitez</h3>
                         <p>À partir de 60€/mois, je maintiens votre site : modifications, sauvegardes, sécurité. Idéal
                             pour les pros de Cavalaire avec une forte activité saisonnière.</p>
                     </div>
                     <div class="ville-pourquoi-card gsap-fade-up">
-                        <div class="ville-pourquoi-icon">📍</div>
+                        <div class="ville-pourquoi-icon" aria-hidden="true"></div>
                         <h3>25 minutes de Cavalaire — je me déplace</h3>
                         <p>Basé à Saint-Tropez, je connais le marché de Cavalaire et du Golfe. Je me déplace chez vous.
                             Pas une agence distante — un développeur web local.</p>
                     </div>
                     <div class="ville-pourquoi-card gsap-fade-up">
-                        <div class="ville-pourquoi-icon">📅</div>
+                        <div class="ville-pourquoi-icon" aria-hidden="true"></div>
                         <h3>Visible en saison ET hors saison</h3>
                         <p>J'optimise votre site pour les deux régimes de Cavalaire : le pic estival avec les touristes
                             et le flux régulier hors saison avec les résidents permanents.</p>
                     </div>
                     <div class="ville-pourquoi-card gsap-fade-up">
-                        <div class="ville-pourquoi-icon">✅</div>
+                        <div class="ville-pourquoi-icon" aria-hidden="true"></div>
                         <h3>Propriétaire à 100% — zéro abonnement forcé</h3>
                         <p>Code, contenu, domaine — tout vous appartient. Aucun enfermement dans une plateforme. La
                             maintenance est proposée, jamais obligatoire.</p>
@@ -1166,42 +1151,14 @@
             </div>
         </section>
 
-        <!-- ═══ PROCESS ═══ -->
-        <section class="ville-process" aria-labelledby="process-title">
-            <div class="container">
-                <div class="section-head">
-                    <div class="section-label">Méthode de travail</div>
-                    <h2 class="section-title" id="process-title">
-                        Comment je crée votre site internet à Cavalaire —<br>
-                        <em style="font-style:italic;color:var(--blue-l);">de A à Z.</em>
-                    </h2>
-                </div>
-                <div class="process-steps-grid">
-                    <div class="process-item gsap-fade-up">
-                        <div class="process-num-circle">01</div>
-                        <h3>Échange & devis sous 24h</h3>
-                        <p>On discute de votre activité à Cavalaire, votre clientèle, vos objectifs saisonniers. Devis
-                            clair et détaillé sous 24h. Gratuit, sans engagement.</p>
-                    </div>
-                    <div class="process-item gsap-fade-up">
-                        <div class="process-num-circle">02</div>
-                        <h3>Maquette & validation</h3>
-                        <p>Direction artistique adaptée à votre activité et votre clientèle de Cavalaire. Vous validez
-                            avant tout développement. Aucune surprise.</p>
-                    </div>
-                    <div class="process-item gsap-fade-up">
-                        <div class="process-num-circle">03</div>
-                        <h3>Développement & SEO Cavalaire</h3>
-                        <p>Code à la main, optimisé pour Cavalaire-sur-Mer et le Golfe. Tests mobile, vitesse,
-                            accessibilité.</p>
-                    </div>
-                    <div class="process-item gsap-fade-up">
-                        <div class="process-num-circle">04</div>
-                        <h3>Mise en ligne & premiers résultats</h3>
-                        <p>Lancement, Google Search Console, Google Business Profile Cavalaire. Premiers contacts Google
-                            en 4 à 8 semaines. Maintenance disponible après.</p>
-                    </div>
-                </div>
+        <!-- ═══ RESPIRATION ═══ -->
+        <section class="breath">
+            <div class="breath-inner">
+                <span class="breath-mark" aria-hidden="true"></span>
+                <p class="breath-line">Personne ne laisse son bateau sans entretien.
+                    <em>Un site non plus.</em>
+                </p>
+                <span class="breath-sign">Sud Web Project — Cavalaire-sur-Mer</span>
             </div>
         </section>
 
@@ -1220,7 +1177,7 @@
                 <div class="price-grid">
                     <article class="price-card gsap-fade-up">
                         <div class="price-head">
-                            <span class="price-icon" aria-hidden="true">🌐</span>
+                            <span class="price-icon" aria-hidden="true"></span>
                             <h3>Web Essentiel</h3>
                             <div class="price-val"><span class="price-from">À partir de</span><span
                                     class="price-num">600€</span></div>
@@ -1232,12 +1189,12 @@
                             <li>✓ SEO local Cavalaire inclus</li>
                             <li>✓ Propriété 100% à vous</li>
                         </ul>
-                        <a href="/#contact" class="btn-outline">Devis gratuit →</a>
+                        <a href="/#contact" class="btn-outline">Devis gratuit</a>
                     </article>
                     <article class="price-card price-feat gsap-fade-up">
-                        <div class="price-top-badge">⭐ Idéal pros de Cavalaire</div>
+                        <div class="price-top-badge">Idéal pros de Cavalaire</div>
                         <div class="price-head">
-                            <span class="price-icon" aria-hidden="true">🛍️</span>
+                            <span class="price-icon" aria-hidden="true"></span>
                             <h3>Web Premium</h3>
                             <div class="price-val"><span class="price-from">À partir de</span><span class="price-num">1
                                     300€</span></div>
@@ -1246,15 +1203,15 @@
                             <li>✓ Jusqu'à 6 pages optimisées</li>
                             <li>✓ Design 100% sur-mesure</li>
                             <li>✓ Galerie professionnelle</li>
-                            <li>✓ SEO avancé Cavalaire & Golfe</li>
+                            <li>✓ SEO avancé Cavalaire &amp; Golfe</li>
                             <li>✓ Google Business optimisé</li>
                             <li>✓ Propriété 100% à vous</li>
                         </ul>
-                        <a href="/#contact" class="btn-primary">Devis gratuit →</a>
+                        <a href="/#contact" class="btn-primary">Devis gratuit</a>
                     </article>
                     <article class="price-card gsap-fade-up">
                         <div class="price-head">
-                            <span class="price-icon" aria-hidden="true">👑</span>
+                            <span class="price-icon" aria-hidden="true"></span>
                             <h3>Web Ultra</h3>
                             <div class="price-val"><span class="price-from">Tarif</span><span class="price-num"
                                     style="font-size:1.6rem;">Sur devis</span></div>
@@ -1267,45 +1224,13 @@
                             <li>✓ Réservation / e-commerce</li>
                             <li>✓ 100% responsive</li>
                         </ul>
-                        <a href="/#contact" class="btn-outline">Devis gratuit →</a>
+                        <a href="/#contact" class="btn-outline">Devis gratuit</a>
                     </article>
                 </div>
             </div>
         </section>
 
-        <!-- ═══ MAILLAGE PILLS — métiers + villes ciblés Cavalaire ═══ -->
-        <section class="cav-maillage" aria-label="Maillage interne métiers et villes Cavalaire">
-            <div class="cav-maillage-inner">
-                <h2>Site internet & maintenance à Cavalaire — tous les services</h2>
-                <div class="cav-liens-grid">
-                    <a href="creation-site-internet-agence-immobiliere.html" class="cav-lien-pill">🏡 Site agence immo
-                        Cavalaire</a>
-                    <a href="creation-site-internet-restaurant.html" class="cav-lien-pill">🍽️ Site restaurant
-                        Cavalaire</a>
-                    <a href="site-internet-conciergerie-saint-tropez.html" class="cav-lien-pill">🤵 Site conciergerie
-                        Cavalaire</a>
-                    <a href="creation-site-internet-coiffeur.html" class="cav-lien-pill">✂️ Site coiffeur Cavalaire</a>
-                    <a href="electricien-var.html" class="cav-lien-pill">🔌 Site artisan Cavalaire</a>
-                    <a href="refonte-site-internet.html" class="cav-lien-pill">🔄 Refonte site Cavalaire</a>
-                    <a href="maintenance.html" class="cav-lien-pill">🛡️ Maintenance site Cavalaire</a>
-                </div>
-
-                <h2 style="margin-top:2.5rem;">Développeur web dans tout le Golfe de Saint-Tropez</h2>
-                <div class="cav-liens-grid">
-                    <a href="creation-site-internet-saint-tropez.html" class="cav-lien-pill">⚓ Site internet
-                        Saint-Tropez</a>
-                    <a href="creation-site-internet-ramatuelle.html" class="cav-lien-pill">🌿 Site internet
-                        Ramatuelle</a>
-                    <a href="creation-site-internet-cogolin.html" class="cav-lien-pill">🏭 Site internet Cogolin</a>
-                    <a href="creation-site-internet-sainte-maxime.html" class="cav-lien-pill">🌊 Site internet
-                        Sainte-Maxime</a>
-                    <a href="creation-site-internet-grimaud.html" class="cav-lien-pill">🏰 Site internet Grimaud</a>
-                    <a href="creation-site-internet-var.html" class="cav-lien-pill">🗺️ Tout le Var (83)</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══ VILLES MAILLAGE — villes ciblées ═══ -->
+        <!-- ═══ VILLES MAILLAGE ═══ -->
         <section class="ville-villes-block" aria-labelledby="villes-title">
             <div class="container">
                 <div class="section-head">
@@ -1321,45 +1246,45 @@
                 </div>
                 <div class="ville-villes-grid">
                     <div class="ville-ville-card active-city">
-                        <span class="ville-ville-icon">🏖️</span>
+                        <span class="ville-ville-icon" aria-hidden="true"></span>
                         <span class="ville-ville-name">Cavalaire-sur-Mer</span>
                         <span class="ville-ville-sub">Vous êtes ici — création et maintenance site internet
                             Cavalaire.</span>
-                        <span class="ville-ville-tag">✓ Page active</span>
+                        <span class="ville-ville-tag">Page active</span>
                     </div>
                     <a href="creation-site-internet-saint-tropez.html" class="ville-ville-card gsap-fade-up">
-                        <span class="ville-ville-icon">⚓</span>
+                        <span class="ville-ville-icon" aria-hidden="true"></span>
                         <span class="ville-ville-name">Saint-Tropez</span>
                         <span class="ville-ville-sub">Siège de Sud Web Project. Restaurants gastronomiques, agences
                             immo, conciergeries.</span>
-                        <span class="ville-ville-tag">Page dédiée →</span>
+                        <span class="ville-ville-tag">Page dédiée</span>
                     </a>
                     <a href="creation-site-internet-ramatuelle.html" class="ville-ville-card gsap-fade-up">
-                        <span class="ville-ville-icon">🌿</span>
+                        <span class="ville-ville-icon" aria-hidden="true"></span>
                         <span class="ville-ville-name">Ramatuelle</span>
                         <span class="ville-ville-sub">Village perché, plage de Pampelonne, restaurants étoilés,
                             vignobles AOC.</span>
-                        <span class="ville-ville-tag">Page dédiée →</span>
+                        <span class="ville-ville-tag">Page dédiée</span>
                     </a>
                     <a href="creation-site-internet-cogolin.html" class="ville-ville-card gsap-fade-up">
-                        <span class="ville-ville-icon">🏭</span>
+                        <span class="ville-ville-icon" aria-hidden="true"></span>
                         <span class="ville-ville-name">Cogolin</span>
                         <span class="ville-ville-sub">Capitale artisanale du Golfe. Artisans, PME et commerces
                             locaux.</span>
-                        <span class="ville-ville-tag">Page dédiée →</span>
+                        <span class="ville-ville-tag">Page dédiée</span>
                     </a>
                     <a href="creation-site-internet-sainte-maxime.html" class="ville-ville-card gsap-fade-up">
-                        <span class="ville-ville-icon">🌊</span>
+                        <span class="ville-ville-icon" aria-hidden="true"></span>
                         <span class="ville-ville-name">Sainte-Maxime</span>
                         <span class="ville-ville-sub">Station premium face à Saint-Tropez. Restaurants, immobilier,
                             commerces.</span>
-                        <span class="ville-ville-tag">Page dédiée →</span>
+                        <span class="ville-ville-tag">Page dédiée</span>
                     </a>
                     <a href="creation-site-internet-grimaud.html" class="ville-ville-card gsap-fade-up">
-                        <span class="ville-ville-icon">🏰</span>
+                        <span class="ville-ville-icon" aria-hidden="true"></span>
                         <span class="ville-ville-name">Grimaud</span>
                         <span class="ville-ville-sub">Village médiéval et Port Grimaud international.</span>
-                        <span class="ville-ville-tag">Page dédiée →</span>
+                        <span class="ville-ville-tag">Page dédiée</span>
                     </a>
                 </div>
                 <p class="ville-seo-phrase">
@@ -1388,8 +1313,8 @@
                 <div class="ville-faq-list">
                     <details class="ville-faq-item gsap-fade-up">
                         <summary>
-                            <h3>Combien coûte la création d'un site internet à Cavalaire-sur-Mer ?</h3><span
-                                class="faq-toggle">+</span>
+                            <h3>Combien coûte la création d'un site internet à Cavalaire-sur-Mer ?</h3>
+                            <span class="faq-toggle">+</span>
                         </summary>
                         <p>La création d'un site internet à Cavalaire commence à <strong>partir de 600€</strong> pour un
                             site vitrine 3 pages (responsive, SEO Cavalaire inclus). Un site Premium 6 pages est à
@@ -1397,8 +1322,8 @@
                     </details>
                     <details class="ville-faq-item gsap-fade-up">
                         <summary>
-                            <h3>Proposez-vous la maintenance de site internet à Cavalaire ?</h3><span
-                                class="faq-toggle">+</span>
+                            <h3>Proposez-vous la maintenance de site internet à Cavalaire ?</h3>
+                            <span class="faq-toggle">+</span>
                         </summary>
                         <p>Oui, c'est un service clé pour les pros de Cavalaire. Je propose deux forfaits :
                             <strong>Basique à 60€/mois</strong> (2h de modifications, sauvegardes, mises à jour
@@ -1408,8 +1333,8 @@
                     </details>
                     <details class="ville-faq-item gsap-fade-up">
                         <summary>
-                            <h3>Mon site sera-t-il visible sur Google pour les recherches à Cavalaire ?</h3><span
-                                class="faq-toggle">+</span>
+                            <h3>Mon site sera-t-il visible sur Google pour les recherches à Cavalaire ?</h3>
+                            <span class="faq-toggle">+</span>
                         </summary>
                         <p>Oui. Chaque site est optimisé pour le référencement local Cavalaire dès la mise en ligne : H1
                             géolocalisé Cavalaire-sur-Mer, Schema.org LocalBusiness, Google Business Profile configuré,
@@ -1417,7 +1342,8 @@
                     </details>
                     <details class="ville-faq-item gsap-fade-up">
                         <summary>
-                            <h3>Vous déplacez-vous à Cavalaire-sur-Mer ?</h3><span class="faq-toggle">+</span>
+                            <h3>Vous déplacez-vous à Cavalaire-sur-Mer ?</h3>
+                            <span class="faq-toggle">+</span>
                         </summary>
                         <p>Oui. Basé à Saint-Tropez, je suis à 25 minutes de Cavalaire. Je me déplace chez vous pour la
                             première réunion. La consultation est gratuite — en présentiel à Cavalaire ou en
@@ -1425,8 +1351,8 @@
                     </details>
                     <details class="ville-faq-item gsap-fade-up">
                         <summary>
-                            <h3>Intervenez-vous aussi dans les communes autour de Cavalaire ?</h3><span
-                                class="faq-toggle">+</span>
+                            <h3>Intervenez-vous aussi dans les communes autour de Cavalaire ?</h3>
+                            <span class="faq-toggle">+</span>
                         </summary>
                         <p>Oui. J'accompagne les professionnels de tout le Golfe : <a
                                 href="creation-site-internet-saint-tropez.html">Saint-Tropez</a>, <a
@@ -1444,7 +1370,7 @@
         <section class="ville-cta" aria-labelledby="cta-title">
             <div class="container">
                 <div class="section-head">
-                    <div class="section-label">Création & maintenance site internet Cavalaire-sur-Mer</div>
+                    <div class="section-label">Création &amp; maintenance site internet Cavalaire-sur-Mer</div>
                     <h2 class="section-title" id="cta-title">
                         Cavalaire mérite un site internet<br>
                         <em style="font-style:italic;color:var(--blue-l);">aussi dynamique que sa station.</em>
@@ -1455,13 +1381,13 @@
                     de commencer.</p>
                 <div class="ville-cta-actions">
                     <a href="/#contact" class="btn-hero">
-                        Obtenir mon devis gratuit →
+                        Obtenir mon devis gratuit
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
                             <path d="M3.75 9h10.5M9.75 4.5L14.25 9l-4.5 4.5" stroke="currentColor" stroke-width="1.5"
                                 stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </a>
-                    <a href="tel:+33611547324" class="btn-ghost-hero">📞 +33 6 11 54 73 24</a>
+                    <a href="tel:+33611547324" class="btn-ghost-hero">+33 6 11 54 73 24</a>
                 </div>
                 <p class="ville-seo-text">Devis 100% gratuit · Sans engagement · Réponse sous 24h · Déplacement à
                     Cavalaire-sur-Mer · Maintenance site internet disponible · Var 83</p>
@@ -1498,8 +1424,8 @@
                 <div class="footer-col">
                     <h3>Villes proches</h3>
                     <ul>
-                        <li><a href="creation-site-internet-cavalaire.html" class="footer-active">Cavalaire-sur-Mer
-                                ✓</a></li>
+                        <li><a href="creation-site-internet-cavalaire.html" class="footer-active">Cavalaire-sur-Mer</a>
+                        </li>
                         <li><a href="creation-site-internet-saint-tropez.html">Saint-Tropez</a></li>
                         <li><a href="creation-site-internet-ramatuelle.html">Ramatuelle</a></li>
                         <li><a href="creation-site-internet-cogolin.html">Cogolin</a></li>
@@ -1560,10 +1486,14 @@
                     <a href="mentions-legales.html#confidentialite">Confidentialité</a>
                     <span aria-hidden="true">·</span>
                     <a href="mentions-legales.html#cgv">CGV</a>
+                    <span aria-hidden="true">·</span>
                     <a href="cookies.html">Cookies</a>
                 </div>
             </div>
         </div>
+
+        <span class="footer-mark" aria-hidden="true">Sud<em>Web</em> Project</span>
+
         <div class="footer-seo">
             <p>Création site internet Cavalaire · Développeur web Cavalaire-sur-Mer · Maintenance site internet
                 Cavalaire · Restaurant Cavalaire site web · Agence immobilière Cavalaire · Conciergerie Cavalaire site ·
@@ -1583,10 +1513,29 @@
         </button>
     </footer>
 
+    <!-- ═══ LIBRAIRIES ═══ -->
+    <script src="js/vendor/gsap.min.js" defer></script>
+    <script src="js/vendor/ScrollTrigger.min.js" defer></script>
+    <script src="js/vendor/lenis.min.js" defer></script>
+
+    <!-- motion.js pose les valeurs GSAP par défaut : avant tout le reste -->
+    <script src="js/motion.js" defer></script>
+
+    <!-- ═══ SCRIPTS DU SITE ═══ -->
     <script src="js/global.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+    <script src="js/lux.js" defer></script>
+    <script src="js/metiers.js" defer></script>
+    <script src="js/refonte.js" defer></script>
+    <script src="js/footer.js" defer></script>
     <script src="js/ville-animations.js" defer></script>
+    <!-- ville-hero.js reprend la main sur le hero : après ville-animations.js -->
+    <script src="js/ville-hero.js" defer></script>
+    <!-- ville-lux.js : la grammaire de l'accueil sur tous les autres blocs -->
+    <script src="js/ville-lux.js" defer></script>
+    <script src="js/breath.js" defer></script>
+    <!-- titles.js reprend la main sur les titres : toujours en dernier -->
+    <script src="js/titles.js" defer></script>
+
     <script>
         window.addEventListener('load', function () {
             var ric = window.requestIdleCallback || function (cb) { setTimeout(cb, 200); };
@@ -1596,12 +1545,15 @@
         });
     </script>
 
-    <div class="cookie-banner" role="dialog" aria-label="Cookies"
-        style="display:none;opacity:0;transform:translateX(-50%) translateY(20px);">
-        <p>Ce site utilise des cookies analytiques anonymisés. <a href="cookies.html">En savoir plus</a></p>
-        <div>
-            <button id="cookie-refuse">Refuser</button>
-            <button id="cookie-accept">Accepter</button>
+    <div class="cookie-banner" role="dialog" aria-label="Consentement cookies" aria-live="polite">
+        <div class="cookie-inner">
+            <p>Ce site utilise des cookies analytiques anonymisés pour mesurer l'audience.
+                <a href="cookies.html">En savoir plus</a>
+            </p>
+            <div class="cookie-btns">
+                <button id="cookie-refuse" class="cookie-btn cookie-btn-refuse">Refuser</button>
+                <button id="cookie-accept" class="cookie-btn cookie-btn-accept">Accepter</button>
+            </div>
         </div>
     </div>
 

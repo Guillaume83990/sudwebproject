@@ -1,0 +1,551 @@
+/* ═══════════════════════════════════════════════════════════════
+   DEPTH.CSS — Sud Web Project
+   Système de profondeur : fonds unifiés, lumière directionnelle,
+   relief en couches, performance.
+   À CHARGER JUSTE AVANT type.css, après tous les autres CSS.
+   Ne touche à aucun texte, lien, balise ou donnée structurée.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ───────────────────────────────────────────────────────────────
+   1 · LA RAMPE DE PROFONDEUR
+   Cinq niveaux au lieu de trois aplats, plus froids et plus
+   creusés. Les variables existantes sont redéfinies : tout le
+   site en hérite sans qu'aucune règle ne soit réécrite.
+   ─────────────────────────────────────────────────────────────── */
+:root {
+    --ink: #05080F;
+    /* fond de page, le plus lointain */
+    --ink-2: #090F1B;
+    /* sections alternées */
+    --ink-3: #101927;
+    /* surfaces avancées */
+
+    --glass: #0C1421;
+    /* cartes — désormais opaque */
+    --glass-2: #101A2A;
+    /* cartes en avant */
+
+    --border: rgba(147, 196, 253, .09);
+    --border-h: rgba(147, 196, 253, .26);
+
+    /* Ombres en couches : contact serré + portée + ambiante.
+       C'est ce qui fait qu'un objet semble posé et non collé. */
+    --sh-1:
+        0 1px 2px rgba(0, 0, 0, .5),
+        0 4px 12px rgba(0, 0, 0, .28);
+    --sh-2:
+        0 1px 2px rgba(0, 0, 0, .5),
+        0 8px 22px rgba(0, 0, 0, .34),
+        0 22px 55px rgba(0, 0, 0, .26);
+    --sh-3:
+        0 2px 4px rgba(0, 0, 0, .55),
+        0 14px 36px rgba(0, 0, 0, .4),
+        0 40px 90px rgba(0, 0, 0, .3);
+
+    /* Arête supérieure éclairée : un contour devient une arête */
+    --lit: inset 0 1px 0 rgba(255, 255, 255, .055);
+    --lit-h: inset 0 1px 0 rgba(255, 255, 255, .1);
+}
+
+/* ───────────────────────────────────────────────────────────────
+   2 · LA LUMIÈRE DIRECTIONNELLE
+   Une seule source, constante sur toute la page. C'est elle qui
+   donne l'impression d'un espace éclairé plutôt que d'une suite
+   de rectangles.
+   ─────────────────────────────────────────────────────────────── */
+html {
+    background: var(--ink);
+}
+
+body {
+    background: transparent;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 90% 60% at 12% -5%, rgba(59, 130, 246, .13), transparent 60%),
+        radial-gradient(ellipse 70% 50% at 92% 108%, rgba(37, 99, 235, .09), transparent 62%),
+        radial-gradient(ellipse 120% 80% at 50% 50%, rgba(9, 15, 27, 0), rgba(3, 5, 10, .55) 100%);
+}
+
+/* ───────────────────────────────────────────────────────────────
+   3 · LES SECTIONS DEVIENNENT TRANSPARENTES
+   On ne doit jamais voir où une section s'arrête. Les fonds
+   opaques laissent place à des voiles très légers posés sur
+   l'atmosphère commune.
+   ─────────────────────────────────────────────────────────────── */
+.hero,
+.why,
+.portfolio,
+.pricing,
+.testi,
+.about,
+.faq,
+.contact,
+.zone,
+.hub-metiers,
+.etudes-cas,
+.services-compl,
+.solutions-spe,
+.refonte-block,
+.seo-prose,
+.st-luxe-section,
+.st-realisations,
+.st-metiers-premium,
+.st-services,
+.ville-hero,
+.ville-intro-section,
+.ville-metiers,
+.ville-pourquoi,
+.ville-process,
+.ville-tarifs,
+.ville-preuve,
+.ville-villes-block,
+.ville-faq,
+.ville-cta,
+.ville-conversion,
+.trust-bar,
+.footer {
+    background: transparent;
+}
+
+/* Voile alterné, à peine perceptible — il crée le rythme
+   sans jamais produire de rupture nette */
+.why,
+.pricing,
+.about,
+.contact,
+.etudes-cas,
+.solutions-spe,
+.seo-prose,
+.st-realisations,
+.st-services,
+.ville-metiers,
+.ville-process,
+.ville-faq {
+    background:
+        linear-gradient(180deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, .012) 22%,
+            rgba(255, 255, 255, .012) 78%,
+            rgba(255, 255, 255, 0) 100%);
+}
+
+/* Filet de séparation : une ligne qui s'efface sur les bords,
+   jamais un trait franc d'un bord à l'autre */
+.why::after,
+.portfolio::after,
+.pricing::after,
+.testi::after,
+.about::after,
+.faq::after,
+.zone::after,
+.hub-metiers::after,
+.etudes-cas::after,
+.services-compl::after,
+.seo-prose::after,
+.st-luxe-section::after,
+.st-realisations::after,
+.st-metiers-premium::after,
+.ville-intro-section::after,
+.ville-metiers::after,
+.ville-pourquoi::after,
+.ville-process::after,
+.ville-villes-block::after,
+.ville-faq::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(147, 196, 253, .1) 25%,
+            rgba(147, 196, 253, .14) 50%,
+            rgba(147, 196, 253, .1) 75%,
+            transparent);
+    pointer-events: none;
+}
+
+/* La trame technique — plan d'architecte, 2 % d'opacité.
+   Sur trois sections seulement : c'est ce qu'on remarque à peine
+   qui distingue d'un template. */
+.hub-metiers::before,
+.st-metiers-premium::before,
+.ville-villes-block::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: .5;
+    background-image:
+        linear-gradient(rgba(147, 196, 253, .028) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(147, 196, 253, .028) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: radial-gradient(ellipse 75% 65% at 50% 50%, #000, transparent 85%);
+    -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 50%, #000, transparent 85%);
+}
+
+/* ───────────────────────────────────────────────────────────────
+   4 · LA SECTION BLANCHE DISPARAÎT
+   .zone était la seule plaque claire du site — la plus grosse
+   rupture de gamme. Elle passe en sombre, sans qu'aucun texte,
+   lien ou libellé ne change.
+   ─────────────────────────────────────────────────────────────── */
+.zone .section-label {
+    color: var(--blue-l);
+}
+
+.zone .section-label::before {
+    background: var(--blue-l);
+}
+
+.zone .section-title {
+    color: #fff;
+}
+
+.zone-italic {
+    color: var(--blue-l);
+}
+
+.zone .section-intro-seo {
+    color: #b0bec5;
+}
+
+.zone .section-intro-seo strong {
+    color: #fff;
+}
+
+.zone-card {
+    background: var(--glass-2);
+    border: 1px solid var(--border);
+    box-shadow: var(--sh-1), var(--lit);
+}
+
+.zone-card:hover {
+    border-color: var(--border-h);
+    box-shadow: var(--sh-2), var(--lit-h);
+}
+
+.zone-card h3 {
+    color: #fff;
+}
+
+.zone-card p {
+    color: #94A3B8;
+}
+
+.zone-active {
+    background: rgba(59, 130, 246, .08);
+    border-color: var(--border-h);
+}
+
+.zone-var {
+    background: rgba(59, 130, 246, .05);
+    border-color: var(--border);
+}
+
+.zone-var::before {
+    background: var(--blue-l);
+}
+
+.zone-var:hover {
+    border-color: var(--border-h);
+    box-shadow: var(--sh-2), var(--lit-h);
+}
+
+.zone-tag {
+    background: rgba(59, 130, 246, .12);
+    color: var(--blue-l);
+}
+
+.zone-tag-link {
+    background: rgba(255, 255, 255, .05);
+    color: var(--blue-l);
+}
+
+.zone-tag-green {
+    background: rgba(59, 130, 246, .12);
+    color: var(--blue-l);
+}
+
+.zone-seo p {
+    color: #94A3B8;
+}
+
+.zone-seo strong {
+    color: #fff;
+}
+
+.zone .btn-outline-sm {
+    color: var(--blue-l) !important;
+    border-color: var(--border-h);
+}
+
+/* ───────────────────────────────────────────────────────────────
+   5 · LE RELIEF DES CARTES
+   Ombres en couches + arête supérieure éclairée. Aucune carte ne
+   change de taille : seule la façon dont la lumière l'attrape.
+   ─────────────────────────────────────────────────────────────── */
+.why-card,
+.pf-card,
+.price-card,
+.testi-card,
+.hub-card,
+.hub-v3-card,
+.etude-card,
+.svc-card,
+.spe-col,
+.faq-item,
+.maint-block,
+.maint-plan,
+.opts-block,
+.opt-item,
+.contact-form-wrap,
+.cmethod,
+.refonte-score,
+.st-real-card,
+.st-service-card,
+.st-photo-item,
+.st-photo-hero,
+.st-metier-row,
+.ville-chiffre-card,
+.ville-pourquoi-card,
+.ville-ville-card,
+.ville-faq-item,
+.ville-metier-card,
+.ville-intro-img-wrap,
+.about-img-wrap,
+.hero-img-wrap {
+    background-color: var(--glass-2);
+    box-shadow: var(--sh-1), var(--lit);
+}
+
+.why-card:hover,
+.pf-card:hover,
+.price-card:hover,
+.testi-card:hover,
+.hub-card:hover,
+.hub-v3-card:hover,
+.etude-card:hover,
+.svc-card:hover,
+.spe-col:hover,
+.st-real-card:hover,
+.st-service-card:hover,
+.st-metier-row:hover,
+.ville-chiffre-card:hover,
+.ville-pourquoi-card:hover,
+.ville-ville-card:hover,
+.ville-metier-card:hover {
+    box-shadow: var(--sh-2), var(--lit-h);
+}
+
+.price-feat,
+.maint-plan-feat {
+    background-color: var(--ink-3);
+    box-shadow: var(--sh-3), var(--lit-h);
+}
+
+.hero-img-wrap,
+.about-img-wrap,
+.ville-intro-img-wrap,
+.st-photo-hero {
+    box-shadow: var(--sh-3);
+}
+
+/* ───────────────────────────────────────────────────────────────
+   6 · PERFORMANCE
+   backdrop-filter est le premier facteur de saccade au scroll sur
+   mobile : chaque couche floutée force le navigateur à recomposer
+   la zone sous l'élément. On le conserve uniquement là où il a une
+   vraie fonction — au-dessus du contenu qui défile.
+   ─────────────────────────────────────────────────────────────── */
+.why-card,
+.price-card,
+.testi-card,
+.maint-block,
+.opts-block,
+.hub-v3-card,
+.spe-col,
+.svc-card,
+.etude-card,
+.faq-item,
+.contact-form-wrap,
+.cmethod,
+.ville-chiffre-card,
+.ville-pourquoi-card,
+.ville-ville-card,
+.ville-faq-item,
+.ville-metier-card,
+.ville-metier-row,
+.st-real-card,
+.st-service-card,
+.ville-intro-img-label,
+.ville-breadcrumb {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+.ville-breadcrumb {
+    background: rgba(5, 8, 15, .92);
+}
+
+.ville-intro-img-label {
+    background: rgba(5, 8, 15, .88);
+}
+
+/* Le grain repeignait tout l'écran à chaque frame de scroll */
+.grain {
+    opacity: .22;
+}
+
+/* Le tilt et les effets lourds n'ont pas lieu d'être au tactile */
+@media (hover: none) {
+
+    .why-card,
+    .pf-card,
+    .price-card,
+    .testi-card,
+    .hub-v3-card,
+    .etude-card,
+    .svc-card,
+    .st-real-card,
+    .ville-chiffre-card,
+    .ville-pourquoi-card,
+    .ville-ville-card {
+        transition: none;
+    }
+}
+
+/* ───────────────────────────────────────────────────────────────
+   7 · LE HERO
+   Halo recentré sur la nouvelle lumière directionnelle.
+   ─────────────────────────────────────────────────────────────── */
+.hero::before {
+    background: radial-gradient(ellipse 70% 60% at 62% 38%, rgba(59, 130, 246, .09), transparent 68%);
+}
+
+.ville-hero-bg {
+    background:
+        radial-gradient(ellipse 75% 62% at 50% 28%, rgba(59, 130, 246, .1), transparent 65%),
+        radial-gradient(ellipse 50% 48% at 84% 84%, rgba(29, 78, 216, .06), transparent 70%);
+}
+
+.ville-hero-img {
+    opacity: .15;
+}
+
+.ville-hero-img-overlay {
+    background: linear-gradient(to bottom,
+            rgba(5, 8, 15, .72) 0%,
+            rgba(5, 8, 15, .38) 42%,
+            rgba(5, 8, 15, .9) 100%);
+}
+
+/* ───────────────────────────────────────────────────────────────
+   8 · NAV ET FOOTER
+   Le flou reste sur la nav : là, il a une fonction réelle.
+   ─────────────────────────────────────────────────────────────── */
+.nav {
+    background: rgba(5, 8, 15, .72);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav.scrolled {
+    background: rgba(5, 8, 15, .93);
+    box-shadow: 0 1px 0 var(--border), 0 12px 40px rgba(0, 0, 0, .5);
+}
+
+.footer {
+    background: linear-gradient(180deg, transparent, rgba(0, 0, 0, .35));
+}
+
+.footer::before {
+    background: linear-gradient(90deg, transparent, rgba(147, 196, 253, .3), transparent);
+}
+
+/* ───────────────────────────────────────────────────────────────
+   9 · DÉTAILS DE FINITION
+   ─────────────────────────────────────────────────────────────── */
+.trust-bar {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, .012);
+}
+
+.pf-badge {
+    box-shadow: var(--sh-1);
+}
+
+.btn-hero,
+.btn-primary,
+.submit-btn,
+.nav-cta {
+    box-shadow: var(--sh-1), inset 0 1px 0 rgba(255, 255, 255, .16);
+}
+
+.btn-hero:hover,
+.btn-primary:hover,
+.submit-btn:hover {
+    box-shadow:
+        0 2px 4px rgba(0, 0, 0, .4),
+        0 10px 30px rgba(59, 130, 246, .38),
+        inset 0 1px 0 rgba(255, 255, 255, .2);
+}
+
+.process-num-circle {
+    box-shadow:
+        0 2px 6px rgba(0, 0, 0, .45),
+        0 10px 30px rgba(59, 130, 246, .32),
+        inset 0 1px 0 rgba(255, 255, 255, .18);
+}
+
+.process-item:hover .process-num-circle {
+    box-shadow:
+        0 3px 8px rgba(0, 0, 0, .5),
+        0 16px 42px rgba(59, 130, 246, .45),
+        inset 0 1px 0 rgba(255, 255, 255, .22);
+}
+
+.ville-cta::after {
+    border-color: rgba(147, 196, 253, .05);
+    box-shadow:
+        0 0 0 100px rgba(59, 130, 246, .022),
+        0 0 0 200px rgba(59, 130, 246, .014);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   NAV — mise en page commune à tout le site
+   Ces règles vivaient dans le <style> inline d'index.html : elles
+   ne s'appliquaient donc qu'à cette page. Une barre de navigation
+   qui change d'une page à l'autre est le premier signal qu'un site
+   n'a pas été conçu comme un ensemble.
+   ═══════════════════════════════════════════════════════════════ */
+.nav-inner {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.75rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+@media (max-width: 900px) {
+    .nav-inner {
+        grid-template-columns: 1fr auto;
+    }
+}

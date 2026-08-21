@@ -1,0 +1,351 @@
+/* ═══════════════════════════════════════════════════════════════
+   TYPE.CSS — Sud Web Project — v2
+   Recalibrage typographique : Instrument Serif remplace Playfair.
+   À CHARGER EN DERNIER, après tous les autres CSS.
+   Ne touche à aucun texte, lien, balise ou donnée structurée.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ───────────────────────────────────────────────────────────────
+   1 · LA FAMILLE
+   Instrument Serif n'existe qu'en 400. Toutes les graisses 700/900
+   demandées ailleurs produiraient du faux gras : on les ramène à
+   400 et on compense par la taille et le tracking.
+   ─────────────────────────────────────────────────────────────── */
+:root {
+    --ff-display: 'Instrument Serif', Georgia, serif;
+    --ff-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+    --tr-xl: -0.018em;
+    --tr-lg: -0.014em;
+    --tr-md: -0.008em;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   2 · GRANDS TITRES — le geste principal : 900 → 400
+   ─────────────────────────────────────────────────────────────── */
+.hero-title,
+.ville-hero-title,
+.section-title,
+.about-title,
+.contact-title,
+.refonte-title,
+.ville-h2 {
+    font-family: var(--ff-display);
+    font-weight: 400 !important;
+    letter-spacing: var(--tr-xl);
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 5.4vw, 5.6rem);
+    line-height: 1.04;
+}
+
+.ville-hero-title {
+    font-size: clamp(2.6rem, 5.4vw, 5.8rem);
+    line-height: 1.04;
+}
+
+.section-title {
+    font-size: clamp(2.5rem, 4.8vw, 4.8rem);
+    line-height: 1.06;
+}
+
+.about-title,
+.contact-title,
+.ville-h2 {
+    font-size: clamp(2.1rem, 3.8vw, 3.5rem);
+    line-height: 1.08;
+    letter-spacing: var(--tr-lg);
+}
+
+.refonte-title {
+    font-size: clamp(1.75rem, 2.7vw, 2.5rem);
+    line-height: 1.1;
+    letter-spacing: var(--tr-lg);
+}
+
+.seo-prose h2 {
+    font-family: var(--ff-display);
+    font-weight: 400 !important;
+    font-size: clamp(1.65rem, 2.7vw, 2.25rem);
+    line-height: 1.2;
+    letter-spacing: var(--tr-md);
+}
+
+@media (max-width: 768px) {
+
+    .hero-title,
+    .ville-hero-title {
+        font-size: clamp(1.95rem, 7.6vw, 3rem);
+        line-height: 1.08;
+    }
+
+    .section-title {
+        font-size: clamp(1.95rem, 7vw, 2.7rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .ville-hero-title {
+        font-size: 2rem;
+    }
+}
+
+/* ───────────────────────────────────────────────────────────────
+   3 · L'ITALIQUE — la signature du site
+   ─────────────────────────────────────────────────────────────── */
+.hero-em,
+.why-italic,
+.portfolio-italic,
+.pricing-italic,
+.about-italic,
+.zone-italic,
+.contact-italic,
+.faq-italic,
+.hub-italic,
+.etudes-italic,
+.ville-em,
+.section-title em,
+.about-title em,
+.contact-title em,
+.ville-h2 em,
+.ville-punchline {
+    font-family: var(--ff-display);
+    font-weight: 400 !important;
+    font-style: italic;
+    letter-spacing: 0.002em;
+}
+
+.ville-punchline {
+    font-size: 1.15rem;
+    line-height: 1.65;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   4 · TITRES DE CARTES — serif conservé, corps augmenté
+   ─────────────────────────────────────────────────────────────── */
+.why-card h3,
+.pf-body h3,
+.price-head h3,
+.pricing .price-head h3,
+.maint-head h3,
+.opts-head h3,
+.cform h3,
+.about-pt h3,
+.hub-card h3,
+.hub-v3-head h3,
+.etude-card h3,
+.spe-col-title,
+.svc-card h3,
+.st-real-body h3,
+.st-metier-main h3,
+.st-service-card h3,
+.ville-pourquoi-card h3,
+.ville-pourquoi .why-card h3,
+.process-item h3,
+.ville-ville-name,
+.faq-item summary h3,
+.ville-faq-item summary h3 {
+    font-family: var(--ff-display);
+    font-weight: 400 !important;
+    letter-spacing: var(--tr-md);
+    line-height: 1.28;
+}
+
+.why-card h3 {
+    font-size: 1.62rem;
+}
+
+.price-head h3,
+.pricing .price-head h3,
+.maint-head h3,
+.opts-head h3,
+.cform h3 {
+    font-size: 1.55rem;
+}
+
+.pf-body h3,
+.about-pt h3,
+.st-real-body h3,
+.st-metier-main h3,
+.ville-pourquoi-card h3,
+.ville-pourquoi .why-card h3,
+.process-item h3,
+.ville-ville-name {
+    font-size: 1.24rem;
+}
+
+.hub-card h3,
+.hub-v3-head h3,
+.spe-col-title,
+.svc-card h3,
+.st-service-card h3,
+.etude-card h3 {
+    font-size: 1.16rem;
+}
+
+.faq-item summary h3,
+.ville-faq-item summary h3 {
+    font-size: 1.1rem;
+}
+
+/* Logo texte nav et footer */
+.nav-logo,
+.footer-logo {
+    font-family: var(--ff-display);
+    font-weight: 400 !important;
+    letter-spacing: 0.005em;
+}
+
+.nav-logo {
+    font-size: 1.34rem;
+}
+
+.footer-logo {
+    font-size: 1.4rem;
+}
+
+/* Grand chiffre décoratif des cartes "why" */
+.why-n,
+.ville-pourquoi .why-n {
+    font-family: var(--ff-display);
+    font-weight: 400 !important;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   5 · CHIFFRES ET PRIX
+   Ils étaient tantôt en serif (pages ville), tantôt en sans
+   (accueil), et demandaient du 800/900 inexistant dans vos
+   fichiers — donc du faux gras aux contours mous.
+   On les unifie : DM Sans 700, plus lisible et cohérent partout.
+   ─────────────────────────────────────────────────────────────── */
+.price-num,
+.pricing .price-num,
+.metric-n,
+.hm-metric-n,
+.ville-hero-metrics .metric-n,
+.maint-num,
+.maint-pprice,
+.opt-price,
+.score-num,
+.chiffre-num,
+.pf-price-clean strong,
+.pf-price,
+.process-num-circle {
+    font-family: var(--ff-body) !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.02em;
+}
+
+.ville-hero-metrics .metric-n {
+    font-size: 1.7rem;
+}
+
+.chiffre-num {
+    font-size: 2.4rem;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   6 · RESPIRATION
+   Les hauteurs de section ne bougent pas — seul l'air autour des
+   titres change.
+   ─────────────────────────────────────────────────────────────── */
+.section-head {
+    margin-bottom: 5.5rem;
+}
+
+.section-head--split {
+    margin-bottom: 5rem;
+    gap: 4rem;
+}
+
+.ville-metiers .section-head,
+.ville-pourquoi .section-head,
+.ville-process .section-head,
+.ville-villes-block .section-head,
+.ville-faq .section-head,
+.ville-tarifs .section-head,
+.ville-cta .section-head {
+    margin-bottom: 5rem;
+}
+
+.section-label,
+.section-label-sm {
+    margin-bottom: 1.6rem;
+}
+
+.section-title+.section-intro-seo,
+.section-title+.section-sub,
+.ville-h2+p {
+    margin-top: 2rem;
+}
+
+.hero-title {
+    margin-bottom: 2.4rem;
+}
+
+.ville-hero-title {
+    margin-bottom: 2.1rem;
+}
+
+.hero-sub {
+    margin-bottom: 1.4rem;
+}
+
+.hero-seo-phrase {
+    margin-top: 0;
+    margin-bottom: 2.6rem;
+}
+
+.ville-hero-sub {
+    margin-bottom: 2.4rem;
+}
+
+.about-title {
+    margin-bottom: 2.1rem;
+}
+
+.about-lead {
+    margin-bottom: 3rem;
+}
+
+.about-pts {
+    gap: 2.4rem;
+    margin-bottom: 3rem;
+}
+
+@media (max-width: 768px) {
+
+    .section-head,
+    .ville-metiers .section-head,
+    .ville-pourquoi .section-head,
+    .ville-process .section-head,
+    .ville-villes-block .section-head,
+    .ville-faq .section-head,
+    .ville-tarifs .section-head,
+    .ville-cta .section-head {
+        margin-bottom: 3.5rem;
+    }
+
+    .section-head--split {
+        margin-bottom: 3.25rem;
+    }
+}
+
+/* ───────────────────────────────────────────────────────────────
+   7 · CONFORT DE LECTURE
+   ─────────────────────────────────────────────────────────────── */
+.hero-sub,
+.ville-hero-sub,
+.section-sub,
+.section-intro-seo,
+.about-lead,
+.seo-prose p,
+.st-luxe-text p,
+.ville-intro-text p {
+    line-height: 1.85;
+}
+
+.seo-prose-inner {
+    max-width: 720px;
+}

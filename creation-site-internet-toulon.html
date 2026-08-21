@@ -35,7 +35,7 @@
 
     <!-- Schema.org -->
     <script
-        type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Sud Web Project — Développeur Web Toulon","description":"Création de sites internet sur mesure à Toulon. Spécialisé artisans, restaurants, agences immobilières, coiffeurs et PME de la préfecture du Var 83.","url":"https://www.sudwebproject.com/creation-site-internet-toulon.html","telephone":"+33611547324","email":"contact@sudwebproject.com","address":{"@type":"PostalAddress","addressLocality":"Toulon","addressRegion":"Provence-Alpes-Côte d'Azur","postalCode":"83000","addressCountry":"FR"},"geo":{"@type":"GeoCoordinates","latitude":"43.1258","longitude":"5.9306"},"areaServed":[{"@type":"City","name":"Toulon"},{"@type":"City","name":"Fréjus"},{"@type":"City","name":"Saint-Raphaël"},{"@type":"AdministrativeArea","name":"Var"}],"priceRange":"€€","openingHours":"Mo-Sa 08:00-19:00","aggregateRating":{"@type":"AggregateRating","ratingValue":"5","reviewCount":"3","bestRating":"5"}}</script>
+        type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Sud Web Project — Développeur Web Toulon","description":"Création de sites internet sur mesure à Toulon. Spécialisé artisans, restaurants, agences immobilières, coiffeurs et PME de la préfecture du Var 83.","url":"https://www.sudwebproject.com/creation-site-internet-toulon.html","telephone":"+33611547324","email":"contact@sudwebproject.com","address":{"@type":"PostalAddress","addressLocality":"Toulon","addressRegion":"Provence-Alpes-Côte d'Azur","postalCode":"83000","addressCountry":"FR"},"geo":{"@type":"GeoCoordinates","latitude":"43.1258","longitude":"5.9306"},"areaServed":[{"@type":"City","name":"Toulon"},{"@type":"City","name":"Fréjus"},{"@type":"City","name":"Saint-Raphaël"},{"@type":"AdministrativeArea","name":"Var"}],"priceRange":"€€","openingHours":"Mo-Sa 08:00-19:00"}</script>
     <script
         type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Combien coûte un site internet à Toulon ?","acceptedAnswer":{"@type":"Answer","text":"La création d'un site internet à Toulon commence à partir de 600€ pour un site vitrine 3 pages. Un site Premium 6 pages est à partir de 1 300€. Devis gratuit sous 24h, sans engagement."}},{"@type":"Question","name":"Quel développeur web choisir à Toulon ?","acceptedAnswer":{"@type":"Answer","text":"Sud Web Project est un développeur web freelance dans le Var, spécialisé en sites sur mesure pour artisans et PME de Toulon. Code à la main, 100/100 PageSpeed, SEO local dès le départ."}},{"@type":"Question","name":"Vous déplacez-vous à Toulon ?","acceptedAnswer":{"@type":"Answer","text":"Oui, je me déplace à Toulon et dans tout le Var. Première consultation gratuite, en présentiel ou en visio."}},{"@type":"Question","name":"Combien de temps pour créer un site internet à Toulon ?","acceptedAnswer":{"@type":"Answer","text":"Un site essentiel est livré en 4 à 5 jours ouvrés. Un site Premium en 1 à 3 semaines. Délais garantis dans le devis."}}]}</script>
     <script
@@ -48,193 +48,181 @@
         href="https://www.sudwebproject.com/creation-site-internet-toulon.html" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
-    <!-- Preload font -->
-    <link rel="preload" href="assets/fonts/playfair-display-v40-latin-900.woff2" as="font" type="font/woff2"
+    <!-- Preload LCP -->
+    <link rel="preload" as="image" media="(min-width: 769px)" href="assets/images/ville-toulon-1280.webp"
+        type="image/webp" fetchpriority="high"
+        imagesrcset="assets/images/ville-toulon-640.webp 640w, assets/images/ville-toulon-960.webp 960w, assets/images/ville-toulon-1280.webp 1280w, assets/images/ville-toulon-1535.webp 1535w"
+        imagesizes="100vw" />
+    <link rel="preload" href="assets/fonts/instrument-serif-v5-latin-regular.woff2" as="font" type="font/woff2"
         crossorigin />
 
-    <!-- CSS -->
+    <!-- CSS — l'ordre compte : ville-hero.css ferme la pile -->
     <link rel="stylesheet" href="css/global.css" />
     <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="css/ville.css" />
     <link rel="stylesheet" href="css/cookies.css" media="print" onload="this.media='all'" />
-    <link rel="stylesheet" href="css/fonts-local.css" media="print" onload="this.media='all'" />
+    <link rel="stylesheet" href="css/fonts-local.css" />
+    <link rel="stylesheet" href="css/motion.css" />
+    <link rel="stylesheet" href="css/depth.css" />
+    <link rel="stylesheet" href="css/metiers.css" />
+    <link rel="stylesheet" href="css/refonte.css" />
+    <link rel="stylesheet" href="css/type.css" />
+    <link rel="stylesheet" href="css/refine.css" />
+    <link rel="stylesheet" href="css/space.css" />
+    <link rel="stylesheet" href="css/breath.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/ville-hero.css" />
+    <link rel="stylesheet" href="css/ville-lux.css" />
 
     <style>
         html {
             scroll-padding-top: 72px;
         }
 
-        /* ── INTRO TOULON — marché ── */
-        .tln-marche {
-            padding: 8rem 2rem;
-            background: var(--ink-2);
+        /* ── PHOTOS — identique au gabarit Saint-Tropez ── */
+        .photo-placeholder {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: .5rem;
+            color: var(--mist-2);
+            font-size: .8rem;
+            text-align: center;
+            padding: 1rem;
         }
 
-        .tln-marche-grid {
+        .st-photo-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(5, 8, 15, .88), transparent);
+            padding: 1.5rem 1rem .75rem;
+            font-size: .72rem;
+            letter-spacing: .04em;
+            color: var(--mist);
+            font-weight: 500;
+        }
+
+        .st-photo-hero {
+            position: relative;
+            border-radius: var(--r);
+            overflow: hidden;
+            aspect-ratio: 21/9;
+            border: 1px solid var(--border);
+            margin: 3rem 0;
+        }
+
+        .st-photo-hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 8s ease;
+        }
+
+        .st-photo-hero:hover img {
+            transform: scale(1.03);
+        }
+
+        /* ── PLANCHE CARRÉE dans la prose ── */
+        .tln-planche {
+            position: relative;
+            border-radius: var(--r);
+            overflow: hidden;
+            aspect-ratio: 1/1;
+            border: 1px solid var(--border);
+            max-width: 560px;
+            margin: 4rem auto;
+        }
+
+        .tln-planche img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 6s ease;
+        }
+
+        .tln-planche:hover img {
+            transform: scale(1.04);
+        }
+
+        /* ── DUO RÉGLÉ — deux colonnes, pas de cartes ── */
+        .ville-duo {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-top: 3rem;
+            gap: 4rem;
+            margin-top: 6rem;
         }
 
-        .tln-marche-card {
-            background: var(--glass-2);
-            border: 1px solid var(--border);
-            border-radius: var(--r);
-            padding: 2.5rem 2rem;
+        .ville-duo-item {
             position: relative;
-            overflow: hidden;
-            transition: all var(--dur) var(--ease);
+            padding-top: 2rem;
         }
 
-        .tln-marche-card::before {
+        .ville-duo-item::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--blue), var(--blue-l));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform .5s var(--ease);
+            height: 1px;
+            background: var(--border-h, rgba(148, 163, 184, .28));
         }
 
-        .tln-marche-card:hover {
-            border-color: var(--border-h);
-            transform: translateY(-4px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, .4);
-        }
-
-        .tln-marche-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .tln-marche-icon {
-            font-size: 2.5rem;
+        .ville-duo-label {
             display: block;
-            margin-bottom: 1.25rem;
-        }
-
-        .tln-marche-tag {
-            display: inline-block;
-            font-size: .7rem;
-            font-weight: 700;
-            letter-spacing: .1em;
+            font-size: .68rem;
+            font-weight: 600;
+            letter-spacing: .18em;
             text-transform: uppercase;
             color: var(--blue-l);
-            background: rgba(59, 130, 246, .1);
-            border: 1px solid rgba(59, 130, 246, .25);
-            border-radius: 100px;
-            padding: .3rem .85rem;
+            margin-bottom: 1rem;
+        }
+
+        .ville-duo-item h3 {
             margin-bottom: .85rem;
         }
 
-        .tln-marche-card h3 {
-            font-family: var(--ff-display);
-            font-size: 1.25rem;
-            font-weight: 900;
-            color: #fff;
-            margin-bottom: .75rem;
-            line-height: 1.25;
-        }
-
-        .tln-marche-card p {
+        .ville-duo-item p {
             font-size: .9rem;
             color: var(--mist);
-            line-height: 1.75;
+            line-height: 1.85;
+            margin: 0;
         }
 
-        .tln-marche-card ul {
+        .ville-duo-item ul {
             list-style: none;
             padding: 0;
-            margin: 1rem 0 0;
+            margin: 1.5rem 0 0;
             display: flex;
             flex-direction: column;
-            gap: .5rem;
         }
 
-        .tln-marche-card ul li {
-            font-size: .875rem;
+        .ville-duo-item ul li {
+            font-size: .85rem;
             color: var(--mist);
-            display: flex;
-            align-items: center;
-            gap: .6rem;
-        }
-
-        .tln-marche-card ul li::before {
-            content: '→';
-            color: var(--blue-l);
-            font-weight: 700;
-            flex-shrink: 0;
-        }
-
-        /* ── STATS ── */
-        .tln-stats {
-            padding: 5rem 2rem;
-            background: var(--ink);
+            padding: .7rem 0;
             border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .tln-stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-        }
-
-        .tln-stat {
-            text-align: center;
-            padding: 2rem 1rem;
-            background: var(--glass-2);
-            border: 1px solid var(--border);
-            border-radius: var(--r);
-            transition: all var(--dur) var(--ease);
-        }
-
-        .tln-stat:hover {
-            border-color: var(--border-h);
-            transform: translateY(-4px);
-        }
-
-        .tln-stat-num {
-            display: block;
-            font-family: var(--ff-display);
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: var(--blue-l);
-            line-height: 1;
-            margin-bottom: .5rem;
-            letter-spacing: -.02em;
-        }
-
-        .tln-stat-label {
-            font-size: .77rem;
-            font-weight: 600;
-            color: var(--mist);
-            text-transform: uppercase;
-            letter-spacing: .09em;
-            line-height: 1.5;
+            letter-spacing: .01em;
         }
 
         /* ── SEO PROSE ── */
         .seo-prose {
             padding: 7rem 2rem;
-            background: var(--ink-2);
         }
 
         .seo-prose-inner {
-            max-width: 780px;
+            max-width: 820px;
             margin: 0 auto;
         }
 
         .seo-prose h2 {
-            font-family: var(--ff-display);
-            font-size: clamp(1.4rem, 2.5vw, 1.9rem);
-            font-weight: 700;
-            color: #E2E8F0;
             margin: 2.5rem 0 .85rem;
-            line-height: 1.25;
         }
 
         .seo-prose h2:first-child {
@@ -262,41 +250,128 @@
             border-color: var(--blue-l);
         }
 
-        /* ── RÉALISATIONS ── */
-        .tln-realisations {
+        /* ── MÉTIERS — identique au gabarit ── */
+        .st-metiers-premium {
             padding: 8rem 2rem;
-            background: var(--ink);
         }
 
-        .tln-real-grid {
+        .st-metier-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+            overflow: hidden;
+            margin-bottom: 1rem;
+            transition: border-color var(--dur) var(--ease);
+        }
+
+        .st-metier-row:hover {
+            border-color: var(--border-h);
+        }
+
+        .st-metier-main {
+            padding: 2rem 2.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .st-metier-main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, var(--blue-l), transparent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .5s var(--ease);
+        }
+
+        .st-metier-row:hover .st-metier-main::before {
+            transform: scaleX(1);
+        }
+
+        .st-metier-title {
+            font-family: var(--ff-display);
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: #E9EEF6;
+            line-height: 1.3;
+            display: block;
+        }
+
+        .st-metier-main p {
+            font-size: .875rem;
+            color: var(--mist);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .st-metier-links {
+            padding: 2rem 2.25rem;
+            border-left: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: .65rem;
+        }
+
+        .st-metier-links a {
+            font-size: .82rem;
+            color: var(--blue-l);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: .4rem;
+            transition: color var(--dur) var(--ease), gap .25s var(--ease);
+        }
+
+        .st-metier-links a::before {
+            content: '→';
+            font-size: .75rem;
+            flex-shrink: 0;
+        }
+
+        .st-metier-links a:hover {
+            color: #fff;
+            gap: .65rem;
+        }
+
+        /* ── RÉALISATIONS — identique au gabarit ── */
+        .st-realisations {
+            padding: 8rem 2rem;
+        }
+
+        .st-real-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
             margin-top: 3rem;
         }
 
-        .tln-real-card {
-            background: var(--glass-2);
+        .st-real-card {
             border: 1px solid var(--border);
             border-radius: var(--r);
             overflow: hidden;
             transition: all var(--dur) var(--ease);
         }
 
-        .tln-real-card:hover {
+        .st-real-card:hover {
             border-color: var(--border-h);
             transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, .4);
         }
 
-        .tln-real-img {
+        .st-real-img {
             position: relative;
             aspect-ratio: 16/9;
-            background: var(--glass);
             overflow: hidden;
         }
 
-        .tln-real-img img {
+        .st-real-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -304,173 +379,116 @@
             transition: transform 5s ease;
         }
 
-        .tln-real-card:hover .tln-real-img img {
+        .st-real-card:hover .st-real-img img {
             transform: scale(1.05);
         }
 
-        .tln-real-body {
+        .st-real-body {
             padding: 1.75rem;
         }
 
-        .tln-real-tag {
-            font-size: .72rem;
-            font-weight: 700;
+        .st-real-tag {
+            font-size: .68rem;
+            font-weight: 600;
             color: var(--blue-l);
             text-transform: uppercase;
-            letter-spacing: .1em;
-            margin-bottom: .5rem;
+            letter-spacing: .16em;
+            margin-bottom: .65rem;
             display: block;
         }
 
-        .tln-real-body h3 {
-            font-family: var(--ff-display);
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #fff;
+        .st-real-body h3 {
             margin-bottom: .5rem;
-            line-height: 1.3;
         }
 
-        .tln-real-body p {
+        .st-real-body p {
             font-size: .875rem;
             color: var(--mist);
-            line-height: 1.6;
+            line-height: 1.7;
             margin-bottom: 1.25rem;
         }
 
-        /* ── SERVICES COMPL ── */
-        .tln-services {
-            padding: 7rem 2rem;
-            background: var(--ink-2);
+        /* ── SERVICES COMPLÉMENTAIRES — identique au gabarit ── */
+        .st-services {
+            padding: 6rem 2rem;
             border-top: 1px solid var(--border);
         }
 
-        .tln-services-grid {
+        .st-services-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-top: 3rem;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
         }
 
-        .tln-service-card {
-            background: var(--glass-2);
+        .st-service-card {
             border: 1px solid var(--border);
             border-radius: var(--r);
-            padding: 2.25rem 2rem;
+            padding: 2rem 1.75rem;
             text-decoration: none;
             display: block;
             transition: all var(--dur) var(--ease);
         }
 
-        .tln-service-card:hover {
+        .st-service-card:hover {
             border-color: var(--border-h);
             transform: translateY(-4px);
-            box-shadow: 0 16px 40px rgba(0, 0, 0, .35);
         }
 
-        .tln-service-icon {
-            font-size: 2rem;
-            display: block;
+        .st-service-card h3 {
+            margin-bottom: .6rem;
+        }
+
+        .st-service-card p {
+            font-size: .875rem;
+            color: var(--mist);
+            line-height: 1.75;
             margin-bottom: 1rem;
         }
 
-        .tln-service-card h3 {
-            font-family: var(--ff-display);
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: .65rem;
-            line-height: 1.3;
-        }
-
-        .tln-service-card p {
-            font-size: .875rem;
-            color: var(--mist);
-            line-height: 1.65;
-        }
-
-        .tln-service-arrow {
-            display: inline-flex;
-            align-items: center;
-            gap: .4rem;
-            margin-top: 1.25rem;
-            font-size: .82rem;
-            color: var(--blue-l);
+        .st-service-card-link {
+            font-size: .8rem;
             font-weight: 600;
-        }
-
-        /* ── MAILLAGE PILLS ── */
-        .tln-maillage {
-            background: var(--ink);
-            padding: 5rem 2rem;
-            border-top: 1px solid var(--border);
-        }
-
-        .tln-maillage-inner {
-            max-width: 860px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .tln-maillage h2 {
-            font-family: var(--ff-display);
-            font-size: clamp(1.2rem, 2vw, 1.6rem);
-            font-weight: 700;
-            color: #E2E8F0;
-            margin-bottom: 1.25rem;
-        }
-
-        .tln-liens-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: .75rem;
-            justify-content: center;
-            margin-bottom: .5rem;
-        }
-
-        .tln-lien-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: .4rem;
-            padding: .55rem 1.1rem;
-            background: var(--glass-2);
-            border: 1px solid var(--border);
-            border-radius: 100px;
-            font-size: .82rem;
-            color: var(--mist);
-            text-decoration: none;
-            transition: all .25s ease;
-            font-weight: 500;
-        }
-
-        .tln-lien-pill:hover {
-            border-color: var(--blue-l);
             color: var(--blue-l);
-            background: rgba(59, 130, 246, .06);
+        }
+
+        @media (max-width: 900px) {
+            .ville-duo {
+                grid-template-columns: 1fr;
+                gap: 3.5rem;
+                margin-top: 4rem;
+            }
         }
 
         @media (max-width: 768px) {
-            .tln-marche-grid {
+
+            .st-real-grid,
+            .st-metier-row,
+            .st-services-grid {
                 grid-template-columns: 1fr;
             }
 
-            .tln-stats-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: .75rem;
+            .st-metier-links {
+                border-left: none;
+                border-top: 1px solid var(--border);
+                justify-content: flex-start;
             }
 
-            .tln-real-grid {
-                grid-template-columns: 1fr;
+            .st-photo-hero {
+                aspect-ratio: 16/10;
+                margin: 2rem 0;
             }
 
-            .tln-services-grid {
-                grid-template-columns: 1fr;
+            .tln-planche {
+                margin: 3rem auto;
             }
-        }
 
-        @media (max-width: 480px) {
-            .tln-stats-grid {
-                grid-template-columns: 1fr 1fr;
+            .seo-prose,
+            .st-metiers-premium,
+            .st-realisations,
+            .st-services {
+                padding-left: 1.35rem;
+                padding-right: 1.35rem;
             }
         }
     </style>
@@ -532,12 +550,21 @@
 
         <!-- ═══ HERO ═══ -->
         <section class="ville-hero" aria-labelledby="h1-toulon">
-            <img class="ville-hero-img" src="assets/images/toulon-port-ville.webp"
-                srcset="assets/images/toulon-port-ville-mobile.webp 768w, assets/images/toulon-port-ville.webp 1440w"
-                sizes="100vw" alt="Toulon — port de guerre et centre-ville, préfecture du Var 83" width="1440"
-                height="900" fetchpriority="high" decoding="async" onerror="this.style.display='none'" />
+            <img class="ville-hero-img" src="assets/images/ville-toulon-1280.webp" srcset="assets/images/ville-toulon-640.webp 640w,
+                        assets/images/ville-toulon-960.webp 960w,
+                        assets/images/ville-toulon-1280.webp 1280w,
+                        assets/images/ville-toulon-1535.webp 1535w" sizes="100vw"
+                alt="La rade de Toulon et les lumières de la ville à l'heure bleue, vues depuis les hauteurs — Var 83"
+                width="1535" height="863" fetchpriority="high" decoding="async" />
             <div class="ville-hero-img-overlay"></div>
             <div class="ville-hero-bg"></div>
+
+            <span class="ville-mark" aria-hidden="true">Toulon</span>
+
+            <div class="ville-coord" aria-hidden="true">
+                <span class="ville-coord-line"></span>
+                <span class="ville-coord-val">43.1258° N · 5.9306° E</span>
+            </div>
 
             <div class="container">
                 <div class="ville-hero-badge">
@@ -564,64 +591,57 @@
                                 stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </a>
-                    <a href="tel:+33611547324" class="btn-ghost-hero">📞 +33 6 11 54 73 24</a>
-                </div>
-
-                <div class="ville-hero-metrics">
-                    <div class="metric"><span class="metric-n">170 000</span><span class="metric-l">Habitants
-                            Toulon</span></div>
-                    <div class="metric-sep" aria-hidden="true"></div>
-                    <div class="metric"><span class="metric-n">600€</span><span class="metric-l">À partir de</span>
-                    </div>
-                    <div class="metric-sep" aria-hidden="true"></div>
-                    <div class="metric"><span class="metric-n">100%</span><span class="metric-l">Code sur mesure</span>
-                    </div>
-                    <div class="metric-sep" aria-hidden="true"></div>
-                    <div class="metric"><span class="metric-n">24h</span><span class="metric-l">Réponse garantie</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ville-scroll-hint" aria-hidden="true"><span>Scroll</span>
-                <div class="ville-scroll-line"></div>
-            </div>
-        </section>
-
-        <!-- ═══ STATS ═══ -->
-        <section class="tln-stats" aria-label="Toulon en chiffres">
-            <div class="container">
-                <div class="tln-stats-grid">
-                    <div class="tln-stat gsap-fade-up"><span class="tln-stat-num">170k</span><span
-                            class="tln-stat-label">Habitants permanents</span></div>
-                    <div class="tln-stat gsap-fade-up"><span class="tln-stat-num">#1</span><span
-                            class="tln-stat-label">Préfecture du Var</span></div>
-                    <div class="tln-stat gsap-fade-up"><span class="tln-stat-num">90%</span><span
-                            class="tln-stat-label">Recherches locales mobile</span></div>
-                    <div class="tln-stat gsap-fade-up"><span class="tln-stat-num">4–8 sem.</span><span
-                            class="tln-stat-label">Premiers résultats Google</span></div>
+                    <a href="tel:+33611547324" class="btn-ghost-hero">+33 6 11 54 73 24</a>
                 </div>
             </div>
         </section>
 
-        <!-- ═══ BLOC SIGNATURE — Marché Toulon ═══ -->
-        <section class="tln-marche" aria-labelledby="marche-title">
+        <!-- ═══ PHOTO PANORAMIQUE ═══ -->
+        <section class="st-band" aria-hidden="true">
+            <div class="st-photo-hero">
+                <img src="assets/images/tln-grues-1400.webp" srcset="assets/images/tln-grues-700.webp 700w,
+                            assets/images/tln-grues-1000.webp 1000w,
+                            assets/images/tln-grues-1400.webp 1400w" sizes="100vw"
+                    alt="Grues portuaires en enfilade sur le quai au petit matin — Toulon, Var 83" width="1400"
+                    height="600" loading="lazy" decoding="async" />
+                <div class="st-photo-caption">Toulon — port et rade, préfecture du Var 83</div>
+            </div>
+        </section>
+
+        <!-- ═══ LE MARCHÉ ═══ -->
+        <section class="ville-intro-section" aria-labelledby="marche-title">
             <div class="container">
-                <div class="section-head" style="text-align:center;margin-bottom:0;">
-                    <div class="section-label">Toulon — premier marché du Var</div>
-                    <h2 class="section-title" id="marche-title">
-                        <span class="split-reveal">Toulon : un marché</span>
-                        <span class="split-reveal"><em style="font-style:italic;color:var(--blue-l);">dense,
-                                concurrentiel et à fort potentiel.</em></span>
-                    </h2>
-                    <p class="section-intro-seo">Préfecture du Var, Toulon concentre une activité économique intense :
-                        BTP, services, santé, commerce, restauration, immobilier. Sur ce marché, un site internet
-                        performant n'est plus un luxe — c'est un outil de survie commerciale.</p>
+                <div class="ville-intro-grid">
+                    <div class="ville-intro-text">
+                        <div class="section-label">Toulon — premier marché du Var</div>
+                        <h2 class="ville-h2" id="marche-title">
+                            <span class="split-reveal">Toulon : un marché</span>
+                            <span class="split-reveal ville-em" style="display:inline;font-size:inherit;">dense,
+                                concurrentiel et à fort potentiel.</span>
+                        </h2>
+                        <p>Préfecture du Var, Toulon concentre une activité économique intense : BTP, services, santé,
+                            commerce, restauration, immobilier. Sur ce marché, un site internet performant n'est plus
+                            un luxe — c'est un outil de survie commerciale.</p>
+                        <a href="/#contact" class="btn-primary" style="margin-top:1.5rem;display:inline-flex;">
+                            Parlons de votre projet
+                        </a>
+                    </div>
+
+                    <div>
+                        <div class="ville-intro-img-wrap">
+                            <img src="assets/images/tln-chaine-760.webp" srcset="assets/images/tln-chaine-560.webp 560w,
+                                    assets/images/tln-chaine-760.webp 760w,
+                                    assets/images/tln-chaine-1000.webp 1000w" sizes="(max-width: 1100px) 100vw, 40vw"
+                                alt="Chaîne d'ancre en acier lovée sur un quai de la rade — Toulon, Var 83" width="1000"
+                                height="1333" loading="lazy" decoding="async" />
+                            <div class="ville-intro-img-label">Toulon, Var 83</div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="tln-marche-grid">
-                    <div class="tln-marche-card gsap-fade-up">
-                        <span class="tln-marche-icon">🏙️</span>
-                        <span class="tln-marche-tag">Marché local dense</span>
+                <div class="ville-duo">
+                    <article class="ville-duo-item gsap-fade-up">
+                        <span class="ville-duo-label">Marché local dense</span>
                         <h3>Une concurrence élevée — la visibilité Google fait la différence</h3>
                         <p>À Toulon, des dizaines d'artisans, restaurants et commerces se disputent les premières
                             positions Google. Celui qui apparaît en premier capte l'essentiel des appels. Un site
@@ -633,10 +653,9 @@
                             <li>Google Business Profile optimisé et lié</li>
                             <li>Visible sur mobile — 90% des recherches locales</li>
                         </ul>
-                    </div>
-                    <div class="tln-marche-card gsap-fade-up">
-                        <span class="tln-marche-icon">📍</span>
-                        <span class="tln-marche-tag">Tissu économique varié</span>
+                    </article>
+                    <article class="ville-duo-item gsap-fade-up">
+                        <span class="ville-duo-label">Tissu économique varié</span>
                         <h3>Artisans, PME, commerces — tous ont besoin d'un site efficace</h3>
                         <p>Toulon concentre l'un des tissus économiques les plus diversifiés du Var. Chaque
                             professionnel — qu'il soit électricien, coiffeur ou restaurateur — a les mêmes besoins :
@@ -648,13 +667,32 @@
                             <li>Galerie de biens pour agences immobilières</li>
                             <li>Prise de rendez-vous pour coiffeurs et salons</li>
                         </ul>
+                    </article>
+                </div>
+
+                <div class="ville-chiffres-grid" style="margin-top:5rem;">
+                    <div class="ville-chiffre-card gsap-fade-up">
+                        <span class="chiffre-num">170k</span>
+                        <span class="chiffre-label">Habitants permanents</span>
+                    </div>
+                    <div class="ville-chiffre-card gsap-fade-up">
+                        <span class="chiffre-num">1re</span>
+                        <span class="chiffre-label">Préfecture du Var</span>
+                    </div>
+                    <div class="ville-chiffre-card gsap-fade-up">
+                        <span class="chiffre-num">90%</span>
+                        <span class="chiffre-label">Recherches locales mobile</span>
+                    </div>
+                    <div class="ville-chiffre-card gsap-fade-up">
+                        <span class="chiffre-num">4–8 sem.</span>
+                        <span class="chiffre-label">Premiers résultats Google</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ═══ MÉTIERS — maillage ciblé Toulon ═══ -->
-        <section class="ville-metiers" aria-labelledby="metiers-title">
+        <!-- ═══ MÉTIERS ═══ -->
+        <section class="st-metiers-premium" aria-labelledby="metiers-title">
             <div class="container">
                 <div class="section-head">
                     <div class="section-label">Les secteurs que j'accompagne à Toulon</div>
@@ -668,56 +706,77 @@
                         services.</p>
                 </div>
 
-                <div class="ville-metiers-grid">
-                    <a href="creation-site-internet-agence-immobiliere.html" class="ville-metier-card gsap-fade-up">
-                        <span class="ville-metier-icon">🏡</span>
-                        <span class="ville-metier-label">Agence immobilière Toulon</span>
-                        <p class="ville-metier-desc">Listings filtrables, fiches biens, galerie premium. Visible sur
-                            "agence immobilière Toulon", "appartement à vendre Toulon", "location Var 83".</p>
-                        <span class="ville-metier-arrow">→ Page agence immo</span>
-                    </a>
-                    <a href="creation-site-internet-restaurant.html" class="ville-metier-card gsap-fade-up">
-                        <span class="ville-metier-icon">🍽️</span>
-                        <span class="ville-metier-label">Restaurant Toulon</span>
-                        <p class="ville-metier-desc">Menu en ligne, réservation directe, galerie. Visible sur
-                            "restaurant Toulon", "brasserie Toulon centre", "où manger Toulon Var 83".</p>
-                        <span class="ville-metier-arrow">→ Page restaurant</span>
-                    </a>
-                    <a href="electricien-var.html" class="ville-metier-card gsap-fade-up">
-                        <span class="ville-metier-icon">🔌</span>
-                        <span class="ville-metier-label">Électricien & artisan BTP</span>
-                        <p class="ville-metier-desc">Bouton d'urgence mobile, formulaire devis. Référencé sur
-                            "électricien Toulon", "artisan BTP Var 83", "dépannage urgence Toulon".</p>
-                        <span class="ville-metier-arrow">→ Voir la démo artisan</span>
-                    </a>
-                    <a href="creation-site-internet-serrurier.html" class="ville-metier-card gsap-fade-up">
-                        <span class="ville-metier-icon">🔐</span>
-                        <span class="ville-metier-label">Serrurier Toulon</span>
-                        <p class="ville-metier-desc">Bouton d'appel urgent visible immédiatement. Référencé sur
-                            "serrurier Toulon", "ouverture porte Var 83", "serrurier urgence Toulon".</p>
-                        <span class="ville-metier-arrow">→ Page serrurier</span>
-                    </a>
-                    <a href="creation-site-internet-coiffeur.html" class="ville-metier-card gsap-fade-up">
-                        <span class="ville-metier-icon">✂️</span>
-                        <span class="ville-metier-label">Salon de coiffure Toulon</span>
-                        <p class="ville-metier-desc">Galerie de réalisations, prise de rendez-vous. Référencé sur
-                            "coiffeur Toulon", "salon beauté Var 83", "coiffeur Toulon centre".</p>
-                        <span class="ville-metier-arrow">→ Page coiffeur</span>
-                    </a>
-                    <a href="site-internet-conciergerie-saint-tropez.html" class="ville-metier-card gsap-fade-up">
-                        <span class="ville-metier-icon">🤵</span>
-                        <span class="ville-metier-label">Conciergerie Toulon</span>
-                        <p class="ville-metier-desc">Interface soignée, formulaire de services. Référencé sur
-                            "conciergerie Toulon", "services entreprises Var 83", "conciergerie premium Toulon".</p>
-                        <span class="ville-metier-arrow">→ Page conciergerie</span>
-                    </a>
+                <div class="st-metier-row gsap-fade-up">
+                    <div class="st-metier-main">
+                        <span class="st-metier-title">Agence immobilière Toulon</span>
+                        <p>Listings filtrables, fiches biens, galerie premium. Visible sur "agence immobilière Toulon",
+                            "appartement à vendre Toulon", "location Var 83".</p>
+                    </div>
+                    <div class="st-metier-links">
+                        <a href="creation-site-internet-agence-immobiliere.html">Page agence immo</a>
+                    </div>
+                </div>
+
+                <div class="st-metier-row gsap-fade-up">
+                    <div class="st-metier-main">
+                        <span class="st-metier-title">Restaurant Toulon</span>
+                        <p>Menu en ligne, réservation directe, galerie. Visible sur "restaurant Toulon", "brasserie
+                            Toulon centre", "où manger Toulon Var 83".</p>
+                    </div>
+                    <div class="st-metier-links">
+                        <a href="creation-site-internet-restaurant.html">Page restaurant</a>
+                    </div>
+                </div>
+
+                <div class="st-metier-row gsap-fade-up">
+                    <div class="st-metier-main">
+                        <span class="st-metier-title">Électricien &amp; artisan BTP</span>
+                        <p>Bouton d'urgence mobile, formulaire devis. Référencé sur "électricien Toulon", "artisan BTP
+                            Var 83", "dépannage urgence Toulon".</p>
+                    </div>
+                    <div class="st-metier-links">
+                        <a href="electricien-var.html">Voir la démo artisan</a>
+                    </div>
+                </div>
+
+                <div class="st-metier-row gsap-fade-up">
+                    <div class="st-metier-main">
+                        <span class="st-metier-title">Serrurier Toulon</span>
+                        <p>Bouton d'appel urgent visible immédiatement. Référencé sur "serrurier Toulon", "ouverture
+                            porte Var 83", "serrurier urgence Toulon".</p>
+                    </div>
+                    <div class="st-metier-links">
+                        <a href="creation-site-internet-serrurier.html">Page serrurier</a>
+                    </div>
+                </div>
+
+                <div class="st-metier-row gsap-fade-up">
+                    <div class="st-metier-main">
+                        <span class="st-metier-title">Salon de coiffure Toulon</span>
+                        <p>Galerie de réalisations, prise de rendez-vous. Référencé sur "coiffeur Toulon", "salon beauté
+                            Var 83", "coiffeur Toulon centre".</p>
+                    </div>
+                    <div class="st-metier-links">
+                        <a href="creation-site-internet-coiffeur.html">Page coiffeur</a>
+                    </div>
+                </div>
+
+                <div class="st-metier-row gsap-fade-up">
+                    <div class="st-metier-main">
+                        <span class="st-metier-title">Conciergerie Toulon</span>
+                        <p>Interface soignée, formulaire de services. Référencé sur "conciergerie Toulon", "services
+                            entreprises Var 83", "conciergerie premium Toulon".</p>
+                    </div>
+                    <div class="st-metier-links">
+                        <a href="site-internet-conciergerie-saint-tropez.html">Page conciergerie</a>
+                    </div>
                 </div>
 
                 <div class="ville-metiers-cta-bottom">
                     <p><strong style="color:#fff;">Votre activité n'est pas listée ?</strong> J'accompagne tous les
                         professionnels de Toulon — paysagistes, photographes, architectes, cabinets médicaux,
                         prestataires événementiels, commerces… Chaque site est conçu sur mesure.</p>
-                    <a href="/#contact" class="btn-primary">Parlons de votre projet →</a>
+                    <a href="/#contact" class="btn-primary">Parlons de votre projet</a>
                 </div>
             </div>
         </section>
@@ -737,6 +796,14 @@
                         appelle le premier résultat Google — rarement le deuxième. Un site internet rapide, bien
                         structuré et optimisé pour les requêtes locales Toulon vous met en position de capturer cette
                         demande, sans dépenser en publicité payante.</p>
+
+                    <div class="tln-planche">
+                        <img src="assets/images/tln-acier-850.webp" srcset="assets/images/tln-acier-620.webp 620w,
+                                assets/images/tln-acier-850.webp 850w,
+                                assets/images/tln-acier-1100.webp 1100w" sizes="(max-width: 768px) 100vw, 560px"
+                            alt="Tôle d'acier rivetée de coque, texture industrielle — Toulon, Var 83" width="1100"
+                            height="1100" loading="lazy" decoding="async" />
+                    </div>
 
                     <h2>Le SEO local à Toulon — un marché plus compétitif que dans le Golfe</h2>
                     <p>Contrairement aux communes du Golfe de Saint-Tropez où la concurrence en ligne est encore faible,
@@ -766,8 +833,19 @@
             </div>
         </section>
 
+        <!-- ═══ RESPIRATION ═══ -->
+        <section class="breath">
+            <div class="breath-inner">
+                <span class="breath-mark" aria-hidden="true"></span>
+                <p class="breath-line">Une ville de 170 000 habitants ne pardonne pas l'à-peu-près.
+                    <em>Elle a le choix.</em>
+                </p>
+                <span class="breath-sign">Sud Web Project — Toulon</span>
+            </div>
+        </section>
+
         <!-- ═══ RÉALISATIONS ═══ -->
-        <section class="tln-realisations" aria-labelledby="real-title">
+        <section class="st-realisations" aria-labelledby="real-title">
             <div class="container">
                 <div class="section-head" style="text-align:center;margin-bottom:3rem;">
                     <div class="section-label">Réalisations — artisans, restaurants et commerces du Var</div>
@@ -781,82 +859,119 @@
                         Toulon.</p>
                 </div>
 
-                <div class="tln-real-grid">
-                    <div class="tln-real-card gsap-fade-up">
-                        <div class="tln-real-img">
+                <div class="st-real-grid">
+                    <div class="st-real-card">
+                        <div class="st-real-img">
                             <img src="assets/images/photo-electricien.webp"
                                 alt="Site internet électricien Toulon — artisan BTP Var 83" width="800" height="450"
                                 loading="lazy" decoding="async" onerror="this.style.display='none'" />
+                            <div class="photo-placeholder"></div>
                         </div>
-                        <div class="tln-real-body">
-                            <span class="tln-real-tag">Web Premium · Artisan BTP · Toulon / Var 83</span>
+                        <div class="st-real-body">
+                            <span class="st-real-tag">Web Premium · Artisan BTP · Toulon / Var 83</span>
                             <h3>Artisan BTP — Toulon &amp; Var</h3>
                             <p>6 pages, rapidité optimisée. Bouton urgence, devis en ligne. SEO "électricien Toulon",
                                 "artisan BTP Var 83". Premiers résultats Google en 4 semaines.</p>
                             <a href="https://guillaume83990.github.io/electricien-st-tropez/" target="_blank"
-                                rel="noopener noreferrer" class="ville-cas-link">Voir la démo →</a>
-                            <a href="etude-cas-electricien.html" class="ville-cas-link"
-                                style="font-size:.8rem;opacity:.8;display:block;margin-top:.6rem;">→ Étude de cas
-                                complète</a>
+                                rel="noopener noreferrer" class="ville-cas-link">Voir la démo</a>
+                            <div style="margin-top:.75rem;">
+                                <a href="etude-cas-electricien.html" class="ville-cas-link"
+                                    style="font-size:.8rem;opacity:.8;">Étude de cas complète</a>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="tln-real-card gsap-fade-up">
-                        <div class="tln-real-img">
+                    <div class="st-real-card">
+                        <div class="st-real-img">
                             <img src="assets/images/photo-restaurant-gastronomique.webp"
                                 alt="Site internet restaurant Toulon — port et centre-ville" width="800" height="450"
                                 loading="lazy" decoding="async" onerror="this.style.display='none'" />
+                            <div class="photo-placeholder"></div>
                         </div>
-                        <div class="tln-real-body">
-                            <span class="tln-real-tag">Web Ultra · Restaurant · Toulon / Var 83</span>
+                        <div class="st-real-body">
+                            <span class="st-real-tag">Web Ultra · Restaurant · Toulon / Var 83</span>
                             <h3>Restaurant — Toulon, bord de mer</h3>
                             <p>7 pages, multilingue FR/EN/IT, réservation WhatsApp, galerie immersive. Rapidité
                                 optimisée. Référencé "restaurant Toulon" et "brasserie port Var 83".</p>
                             <a href="https://guillaume83990.github.io/la-table-mediterraneenne/" target="_blank"
-                                rel="noopener noreferrer" class="ville-cas-link">Voir la démo →</a>
-                            <a href="etude-cas-restaurant.html" class="ville-cas-link"
-                                style="font-size:.8rem;opacity:.8;display:block;margin-top:.6rem;">→ Étude de cas
-                                complète</a>
+                                rel="noopener noreferrer" class="ville-cas-link">Voir la démo</a>
+                            <div style="margin-top:.75rem;">
+                                <a href="etude-cas-restaurant.html" class="ville-cas-link"
+                                    style="font-size:.8rem;opacity:.8;">Étude de cas complète</a>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="tln-real-card gsap-fade-up">
-                        <div class="tln-real-img">
+                    <div class="st-real-card">
+                        <div class="st-real-img">
                             <img src="assets/images/photo-coiffeur-cogolin.webp"
                                 alt="Site internet coiffeur Toulon — salon beauté Var 83" width="800" height="450"
                                 loading="lazy" decoding="async" onerror="this.style.display='none'" />
+                            <div class="photo-placeholder"></div>
                         </div>
-                        <div class="tln-real-body">
-                            <span class="tln-real-tag">Web Premium · Coiffeur · Toulon / Var 83</span>
+                        <div class="st-real-body">
+                            <span class="st-real-tag">Web Premium · Coiffeur · Toulon / Var 83</span>
                             <h3>Salon de coiffure — Toulon</h3>
                             <p>Galerie de réalisations, prise de rendez-vous directe. Rapidité optimisée. Référencé
                                 "coiffeur Toulon" et "salon beauté Var 83".</p>
                             <a href="https://guillaume83990.github.io/elise-et-ciseaux/" target="_blank"
-                                rel="noopener noreferrer" class="ville-cas-link">Voir la démo →</a>
-                            <a href="etude-cas-coiffeur.html" class="ville-cas-link"
-                                style="font-size:.8rem;opacity:.8;display:block;margin-top:.6rem;">→ Étude de cas
-                                complète</a>
+                                rel="noopener noreferrer" class="ville-cas-link">Voir la démo</a>
+                            <div style="margin-top:.75rem;">
+                                <a href="etude-cas-coiffeur.html" class="ville-cas-link"
+                                    style="font-size:.8rem;opacity:.8;">Étude de cas complète</a>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="tln-real-card gsap-fade-up">
-                        <div class="tln-real-img">
+                    <div class="st-real-card">
+                        <div class="st-real-img">
                             <img src="assets/images/photo-votre-projet.webp"
                                 alt="Votre futur site internet à Toulon — Sud Web Project" width="800" height="450"
                                 loading="lazy" decoding="async" onerror="this.style.display='none'" />
+                            <div class="photo-placeholder"></div>
                         </div>
-                        <div class="tln-real-body">
-                            <span class="tln-real-tag">Votre projet · Toulon · Var 83</span>
+                        <div class="st-real-body">
+                            <span class="st-real-tag">Votre projet · Toulon · Var 83</span>
                             <h3>Votre site internet à Toulon</h3>
                             <p>Artisan, restaurant, agence immo, coiffeur, serrurier, conciergerie… Devis gratuit sous
                                 24h. Maquette avant de commencer.</p>
-                            <a href="/#contact" class="ville-cas-link">Demander un devis gratuit →</a>
+                            <a href="/#contact" class="ville-cas-link">Demander un devis gratuit</a>
                         </div>
                     </div>
                 </div>
 
                 <div style="text-align:center;margin-top:3rem;">
-                    <a href="/#portfolio" class="btn-outline">Voir toutes les réalisations →</a>
+                    <a href="/#portfolio" class="btn-outline">Voir toutes les réalisations</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ SERVICES COMPLÉMENTAIRES ═══ -->
+        <section class="st-services" aria-labelledby="services-title">
+            <div class="container">
+                <div class="section-head" style="text-align:center;margin-bottom:0;">
+                    <div class="section-label">Services complémentaires — Toulon</div>
+                    <h2 class="section-title" id="services-title">
+                        <span class="split-reveal">Au-delà de la création</span>
+                        <span class="split-reveal"><em style="font-style:italic;color:var(--blue-l);">— refonte et
+                                maintenance.</em></span>
+                    </h2>
+                </div>
+                <div class="st-services-grid">
+                    <a href="refonte-site-internet.html" class="st-service-card">
+                        <h3>Refonte de site internet Toulon</h3>
+                        <p>Votre site actuel est lent, vieilli ou invisible sur Google ? Je le refonds entièrement —
+                            nouveau design, nouveau code, nouvelles performances. Score PageSpeed avant/après mesuré.
+                            Résultats visibles en quelques semaines.</p>
+                        <span class="st-service-card-link">Refonte site internet</span>
+                    </a>
+                    <a href="maintenance.html" class="st-service-card">
+                        <h3>Maintenance site internet Toulon</h3>
+                        <p>Un site non maintenu ralentit, se dégrade et finit par être pénalisé par Google. Forfaits
+                            maintenance à partir de 60€/mois : modifications, sauvegardes, mises à jour sécurité,
+                            monitoring. Sans engagement.</p>
+                        <span class="st-service-card-link">Maintenance web</span>
+                    </a>
                 </div>
             </div>
         </section>
@@ -874,37 +989,37 @@
                 </div>
                 <div class="ville-pourquoi-grid">
                     <div class="ville-pourquoi-card gsap-fade-up">
-                        <div class="ville-pourquoi-icon">🎯</div>
+                        <div class="ville-pourquoi-icon" aria-hidden="true"></div>
                         <h3>SEO local Toulon dès la mise en ligne</h3>
                         <p>H1 géolocalisé, Schema.org LocalBusiness, Google Business Profile configuré. Vous apparaissez
                             sur "votre activité + Toulon" en 4 à 8 semaines.</p>
                     </div>
                     <div class="ville-pourquoi-card gsap-fade-up">
-                        <div class="ville-pourquoi-icon">⚡</div>
+                        <div class="ville-pourquoi-icon" aria-hidden="true"></div>
                         <h3>100/100 PageSpeed — le site le plus rapide du secteur</h3>
                         <p>Zéro WordPress, code à la main. Chargement en moins d'une seconde. Sur un marché
                             concurrentiel comme Toulon, la vitesse fait la différence.</p>
                     </div>
                     <div class="ville-pourquoi-card gsap-fade-up">
-                        <div class="ville-pourquoi-icon">🔨</div>
-                        <h3>Expert artisans & PME locales</h3>
+                        <div class="ville-pourquoi-icon" aria-hidden="true"></div>
+                        <h3>Expert artisans &amp; PME locales</h3>
                         <p>Je crée régulièrement des sites pour les artisans BTP et PME du Var. Bouton d'urgence,
                             formulaire devis, galerie de réalisations — tout est pensé pour votre clientèle locale.</p>
                     </div>
                     <div class="ville-pourquoi-card gsap-fade-up">
-                        <div class="ville-pourquoi-icon">📅</div>
+                        <div class="ville-pourquoi-icon" aria-hidden="true"></div>
                         <h3>Visible 12 mois par an</h3>
                         <p>Toulon est active toute l'année. J'optimise votre site pour les requêtes locales permanentes
                             — pas seulement en saison. Votre site génère des contacts en janvier comme en juillet.</p>
                     </div>
                     <div class="ville-pourquoi-card gsap-fade-up">
-                        <div class="ville-pourquoi-icon">📍</div>
+                        <div class="ville-pourquoi-icon" aria-hidden="true"></div>
                         <h3>Je me déplace à Toulon</h3>
                         <p>Développeur web dans le Var, je me déplace à Toulon pour la première réunion. Consultation
                             gratuite en présentiel ou en visioconférence.</p>
                     </div>
                     <div class="ville-pourquoi-card gsap-fade-up">
-                        <div class="ville-pourquoi-icon">✅</div>
+                        <div class="ville-pourquoi-icon" aria-hidden="true"></div>
                         <h3>Propriétaire à 100% — aucun abonnement</h3>
                         <p>Code, contenu, domaine — tout vous appartient. Aucun enfermement dans une plateforme.
                             Maintenance optionnelle à partir de 60€/mois.</p>
@@ -913,75 +1028,14 @@
             </div>
         </section>
 
-        <!-- ═══ SERVICES COMPLÉMENTAIRES ═══ -->
-        <section class="tln-services" aria-labelledby="services-title">
-            <div class="container">
-                <div class="section-head" style="text-align:center;margin-bottom:0;">
-                    <div class="section-label">Services complémentaires — Toulon</div>
-                    <h2 class="section-title" id="services-title">
-                        <span class="split-reveal">Au-delà de la création</span>
-                        <span class="split-reveal"><em style="font-style:italic;color:var(--blue-l);">— refonte et
-                                maintenance.</em></span>
-                    </h2>
-                </div>
-                <div class="tln-services-grid">
-                    <a href="refonte-site-internet.html" class="tln-service-card gsap-fade-up">
-                        <span class="tln-service-icon">🔄</span>
-                        <h3>Refonte de site internet Toulon</h3>
-                        <p>Votre site actuel est lent, vieilli ou invisible sur Google ? Je le refonds entièrement —
-                            nouveau design, nouveau code, nouvelles performances. Score PageSpeed avant/après garanti.
-                            Résultats visibles en quelques semaines.</p>
-                        <span class="tln-service-arrow">→ Refonte site internet</span>
-                    </a>
-                    <a href="maintenance.html" class="tln-service-card gsap-fade-up">
-                        <span class="tln-service-icon">🛡️</span>
-                        <h3>Maintenance site internet Toulon</h3>
-                        <p>Un site non maintenu ralentit, se dégrade et finit par être pénalisé par Google. Forfaits
-                            maintenance à partir de 60€/mois : modifications, sauvegardes, mises à jour sécurité,
-                            monitoring. Sans engagement.</p>
-                        <span class="tln-service-arrow">→ Maintenance web</span>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══ PROCESS ═══ -->
-        <section class="ville-process" aria-labelledby="process-title">
-            <div class="container">
-                <div class="section-head">
-                    <div class="section-label">Méthode de travail</div>
-                    <h2 class="section-title" id="process-title">
-                        Votre site internet Toulon —<br>
-                        <em style="font-style:italic;color:var(--blue-l);">de la première réunion aux premiers clients
-                            Google.</em>
-                    </h2>
-                </div>
-                <div class="process-steps-grid">
-                    <div class="process-item gsap-fade-up">
-                        <div class="process-num-circle">01</div>
-                        <h3>Échange & devis sous 24h</h3>
-                        <p>On discute de votre activité à Toulon, votre clientèle, vos objectifs. Devis clair et
-                            détaillé sous 24h. Gratuit, sans engagement.</p>
-                    </div>
-                    <div class="process-item gsap-fade-up">
-                        <div class="process-num-circle">02</div>
-                        <h3>Maquette & validation</h3>
-                        <p>Direction artistique adaptée à votre activité et votre clientèle. Vous validez avant tout
-                            développement. Aucune surprise.</p>
-                    </div>
-                    <div class="process-item gsap-fade-up">
-                        <div class="process-num-circle">03</div>
-                        <h3>Développement & SEO Toulon</h3>
-                        <p>Code à la main, optimisé pour Toulon et le Var. Tests mobile, vitesse, accessibilité.
-                            Rapidité optimisée.</p>
-                    </div>
-                    <div class="process-item gsap-fade-up">
-                        <div class="process-num-circle">04</div>
-                        <h3>Mise en ligne & premiers résultats</h3>
-                        <p>Lancement, Google Search Console, Google Business Profile Toulon. Premiers contacts Google en
-                            4 à 8 semaines.</p>
-                    </div>
-                </div>
+        <!-- ═══ RESPIRATION ═══ -->
+        <section class="breath">
+            <div class="breath-inner">
+                <span class="breath-mark" aria-hidden="true"></span>
+                <p class="breath-line">Ce qui tient la mer n'est jamais le moins cher.
+                    <em>C'est le mieux construit.</em>
+                </p>
+                <span class="breath-sign">Sud Web Project — Toulon</span>
             </div>
         </section>
 
@@ -1000,7 +1054,7 @@
                 <div class="price-grid">
                     <article class="price-card gsap-fade-up">
                         <div class="price-head">
-                            <span class="price-icon" aria-hidden="true">🌐</span>
+                            <span class="price-icon" aria-hidden="true"></span>
                             <h3>Web Essentiel</h3>
                             <div class="price-val"><span class="price-from">À partir de</span><span
                                     class="price-num">600€</span></div>
@@ -1012,12 +1066,12 @@
                             <li>✓ SEO local Toulon inclus</li>
                             <li>✓ Propriété 100% à vous</li>
                         </ul>
-                        <a href="/#contact" class="btn-outline">Devis gratuit →</a>
+                        <a href="/#contact" class="btn-outline">Devis gratuit</a>
                     </article>
                     <article class="price-card price-feat gsap-fade-up">
-                        <div class="price-top-badge">⭐ Idéal artisans & PME Toulon</div>
+                        <div class="price-top-badge">Idéal artisans &amp; PME Toulon</div>
                         <div class="price-head">
-                            <span class="price-icon" aria-hidden="true">🛍️</span>
+                            <span class="price-icon" aria-hidden="true"></span>
                             <h3>Web Premium</h3>
                             <div class="price-val"><span class="price-from">À partir de</span><span class="price-num">1
                                     300€</span></div>
@@ -1026,15 +1080,15 @@
                             <li>✓ Jusqu'à 6 pages optimisées</li>
                             <li>✓ Design 100% sur-mesure</li>
                             <li>✓ Galerie professionnelle</li>
-                            <li>✓ SEO avancé Toulon & Var</li>
+                            <li>✓ SEO avancé Toulon &amp; Var</li>
                             <li>✓ Google Business optimisé</li>
                             <li>✓ Propriété 100% à vous</li>
                         </ul>
-                        <a href="/#contact" class="btn-primary">Devis gratuit →</a>
+                        <a href="/#contact" class="btn-primary">Devis gratuit</a>
                     </article>
                     <article class="price-card gsap-fade-up">
                         <div class="price-head">
-                            <span class="price-icon" aria-hidden="true">👑</span>
+                            <span class="price-icon" aria-hidden="true"></span>
                             <h3>Web Ultra</h3>
                             <div class="price-val"><span class="price-from">Tarif</span><span class="price-num"
                                     style="font-size:1.6rem;">Sur devis</span></div>
@@ -1047,39 +1101,8 @@
                             <li>✓ Réservation / e-commerce</li>
                             <li>✓ 100% responsive</li>
                         </ul>
-                        <a href="/#contact" class="btn-outline">Devis gratuit →</a>
+                        <a href="/#contact" class="btn-outline">Devis gratuit</a>
                     </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══ MAILLAGE PILLS ═══ -->
-        <section class="tln-maillage" aria-label="Maillage interne métiers et villes Toulon">
-            <div class="tln-maillage-inner">
-                <h2>Site internet à Toulon — tous les secteurs</h2>
-                <div class="tln-liens-grid">
-                    <a href="creation-site-internet-agence-immobiliere.html" class="tln-lien-pill">🏡 Site agence immo
-                        Toulon</a>
-                    <a href="creation-site-internet-restaurant.html" class="tln-lien-pill">🍽️ Site restaurant
-                        Toulon</a>
-                    <a href="electricien-var.html" class="tln-lien-pill">🔌 Site électricien Toulon</a>
-                    <a href="creation-site-internet-serrurier.html" class="tln-lien-pill">🔐 Site serrurier Toulon</a>
-                    <a href="creation-site-internet-coiffeur.html" class="tln-lien-pill">✂️ Site coiffeur Toulon</a>
-                    <a href="site-internet-conciergerie-saint-tropez.html" class="tln-lien-pill">🤵 Conciergerie Var</a>
-                    <a href="refonte-site-internet.html" class="tln-lien-pill">🔄 Refonte site Toulon</a>
-                    <a href="maintenance.html" class="tln-lien-pill">🛡️ Maintenance site Toulon</a>
-                </div>
-
-                <h2 style="margin-top:2.5rem;">Développeur web dans tout le Var</h2>
-                <div class="tln-liens-grid">
-                    <a href="creation-site-internet-var.html" class="tln-lien-pill">🗺️ Tout le Var (83)</a>
-                    <a href="creation-site-internet-frejus.html" class="tln-lien-pill">🏛️ Site internet Fréjus</a>
-                    <a href="creation-site-internet-saint-raphael.html" class="tln-lien-pill">⛵ Site internet
-                        Saint-Raphaël</a>
-                    <a href="creation-site-internet-sainte-maxime.html" class="tln-lien-pill">🌊 Site internet
-                        Sainte-Maxime</a>
-                    <a href="creation-site-internet-saint-tropez.html" class="tln-lien-pill">⚓ Site internet
-                        Saint-Tropez</a>
                 </div>
             </div>
         </section>
@@ -1099,46 +1122,46 @@
                 </div>
                 <div class="ville-villes-grid">
                     <div class="ville-ville-card active-city">
-                        <span class="ville-ville-icon">🏙️</span>
+                        <span class="ville-ville-icon" aria-hidden="true"></span>
                         <span class="ville-ville-name">Toulon</span>
                         <span class="ville-ville-sub">Vous êtes ici — création site internet Toulon, préfecture du Var
                             83.</span>
-                        <span class="ville-ville-tag">✓ Page active</span>
+                        <span class="ville-ville-tag">Page active</span>
                     </div>
                     <a href="creation-site-internet-var.html" class="ville-ville-card gsap-fade-up">
-                        <span class="ville-ville-icon">🗺️</span>
+                        <span class="ville-ville-icon" aria-hidden="true"></span>
                         <span class="ville-ville-name">Tout le Var (83)</span>
                         <span class="ville-ville-sub">Hub central — toutes les communes du Var avec une page SEO
                             dédiée.</span>
-                        <span class="ville-ville-tag">Voir toutes les villes →</span>
+                        <span class="ville-ville-tag">Voir toutes les villes</span>
                     </a>
                     <a href="creation-site-internet-frejus.html" class="ville-ville-card gsap-fade-up">
-                        <span class="ville-ville-icon">🏛️</span>
+                        <span class="ville-ville-icon" aria-hidden="true"></span>
                         <span class="ville-ville-name">Fréjus</span>
                         <span class="ville-ville-sub">54 000 habitants — fort tissu PME et artisans actifs toute
                             l'année.</span>
-                        <span class="ville-ville-tag">Page dédiée →</span>
+                        <span class="ville-ville-tag">Page dédiée</span>
                     </a>
                     <a href="creation-site-internet-saint-raphael.html" class="ville-ville-card gsap-fade-up">
-                        <span class="ville-ville-icon">⛵</span>
+                        <span class="ville-ville-icon" aria-hidden="true"></span>
                         <span class="ville-ville-name">Saint-Raphaël</span>
                         <span class="ville-ville-sub">Port actif, BTP dynamique, restaurants et commerces. Bassin 90 000
                             hab.</span>
-                        <span class="ville-ville-tag">Page dédiée →</span>
+                        <span class="ville-ville-tag">Page dédiée</span>
                     </a>
                     <a href="creation-site-internet-sainte-maxime.html" class="ville-ville-card gsap-fade-up">
-                        <span class="ville-ville-icon">🌊</span>
+                        <span class="ville-ville-icon" aria-hidden="true"></span>
                         <span class="ville-ville-name">Sainte-Maxime</span>
                         <span class="ville-ville-sub">Station premium, immobilier, restaurants, conciergeries. Active 12
                             mois.</span>
-                        <span class="ville-ville-tag">Page dédiée →</span>
+                        <span class="ville-ville-tag">Page dédiée</span>
                     </a>
                     <a href="creation-site-internet-saint-tropez.html" class="ville-ville-card gsap-fade-up">
-                        <span class="ville-ville-icon">⚓</span>
+                        <span class="ville-ville-icon" aria-hidden="true"></span>
                         <span class="ville-ville-name">Saint-Tropez</span>
                         <span class="ville-ville-sub">Siège de Sud Web Project. Restaurants, agences immo, conciergeries
                             premium.</span>
-                        <span class="ville-ville-tag">Page dédiée →</span>
+                        <span class="ville-ville-tag">Page dédiée</span>
                     </a>
                 </div>
                 <p class="ville-seo-phrase">
@@ -1166,8 +1189,8 @@
                 <div class="ville-faq-list">
                     <details class="ville-faq-item gsap-fade-up">
                         <summary>
-                            <h3>Combien coûte la création d'un site internet à Toulon ?</h3><span
-                                class="faq-toggle">+</span>
+                            <h3>Combien coûte la création d'un site internet à Toulon ?</h3>
+                            <span class="faq-toggle">+</span>
                         </summary>
                         <p>La création d'un site internet à Toulon commence à <strong>partir de 600€</strong> pour un
                             site vitrine 3 pages. Un site Premium 6 pages est à partir de <strong>1 300€</strong>. Les
@@ -1176,8 +1199,26 @@
                     </details>
                     <details class="ville-faq-item gsap-fade-up">
                         <summary>
-                            <h3>En combien de temps mon site Toulon apparaît sur Google ?</h3><span
-                                class="faq-toggle">+</span>
+                            <h3>Quel développeur web choisir à Toulon ?</h3>
+                            <span class="faq-toggle">+</span>
+                        </summary>
+                        <p>Sud Web Project est un développeur web freelance dans le Var, spécialisé en sites sur mesure
+                            pour artisans et PME de Toulon. Code à la main, 100/100 PageSpeed, SEO local dès le départ.
+                        </p>
+                    </details>
+                    <details class="ville-faq-item gsap-fade-up">
+                        <summary>
+                            <h3>Combien de temps pour créer un site internet à Toulon ?</h3>
+                            <span class="faq-toggle">+</span>
+                        </summary>
+                        <p>Un site essentiel est livré en <strong>4 à 5 jours ouvrés</strong>. Un site Premium en
+                            <strong>1 à 3 semaines</strong>. Délais garantis dans le devis.
+                        </p>
+                    </details>
+                    <details class="ville-faq-item gsap-fade-up">
+                        <summary>
+                            <h3>En combien de temps mon site Toulon apparaît sur Google ?</h3>
+                            <span class="faq-toggle">+</span>
                         </summary>
                         <p>Avec un site bien optimisé, vous pouvez apparaître en <strong>première page Google en 4 à 8
                                 semaines</strong> sur les requêtes locales à Toulon. Les requêtes longue traîne comme
@@ -1187,15 +1228,16 @@
                     </details>
                     <details class="ville-faq-item gsap-fade-up">
                         <summary>
-                            <h3>Vous déplacez-vous à Toulon ?</h3><span class="faq-toggle">+</span>
+                            <h3>Vous déplacez-vous à Toulon ?</h3>
+                            <span class="faq-toggle">+</span>
                         </summary>
                         <p>Oui. Développeur web dans le Var, je me déplace à Toulon pour la première réunion. La
                             consultation est gratuite — en présentiel à Toulon ou en visioconférence.</p>
                     </details>
                     <details class="ville-faq-item gsap-fade-up">
                         <summary>
-                            <h3>Proposez-vous la maintenance de site internet à Toulon ?</h3><span
-                                class="faq-toggle">+</span>
+                            <h3>Proposez-vous la maintenance de site internet à Toulon ?</h3>
+                            <span class="faq-toggle">+</span>
                         </summary>
                         <p>Oui. Je propose des forfaits maintenance à partir de <strong>60€/mois</strong> :
                             modifications mensuelles, sauvegardes, mises à jour sécurité, monitoring des performances.
@@ -1204,8 +1246,8 @@
                     </details>
                     <details class="ville-faq-item gsap-fade-up">
                         <summary>
-                            <h3>Intervenez-vous aussi dans les communes autour de Toulon ?</h3><span
-                                class="faq-toggle">+</span>
+                            <h3>Intervenez-vous aussi dans les communes autour de Toulon ?</h3>
+                            <span class="faq-toggle">+</span>
                         </summary>
                         <p>Oui. J'accompagne les professionnels de tout le Var : <a
                                 href="creation-site-internet-frejus.html">Fréjus</a>, <a
@@ -1215,44 +1257,6 @@
                                 href="creation-site-internet-var.html">tout le Var (83)</a>. Chaque ville a sa propre
                             page SEO dédiée.</p>
                     </details>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══ TÉMOIGNAGES ═══ -->
-        <section class="testi" aria-labelledby="testi-title">
-            <div class="container">
-                <div class="section-head">
-                    <div class="section-label">Ils m'ont fait confiance</div>
-                    <h2 class="section-title" id="testi-title"><span class="split-reveal">Ce qu'ils en disent.</span>
-                    </h2>
-                </div>
-                <div class="testi-grid">
-                    <article class="testi-card gsap-fade-up">
-                        <div class="testi-stars" aria-label="5 étoiles sur 5">★★★★★</div>
-                        <p>«&nbsp;Très satisfait du travail réalisé pour mon site internet de photographe.
-                            Professionnel, réactif et à l'écoute. Si vous cherchez un développeur web dans le Var, je
-                            recommande sans hésiter.&nbsp;»</p>
-                        <div class="testi-auth"><span class="testi-av" aria-hidden="true">📸</span>
-                            <div><strong>Servane Roy Berton</strong><span>Photographe · Avis Google ⭐</span></div>
-                        </div>
-                    </article>
-                    <article class="testi-card gsap-fade-up">
-                        <div class="testi-stars" aria-label="5 étoiles sur 5">★★★★★</div>
-                        <p>«&nbsp;Très bon accompagnement, conseils clairs et travail de qualité. Je recommande
-                            fortement pour toute création de site web dans le Var.&nbsp;»</p>
-                        <div class="testi-auth"><span class="testi-av" aria-hidden="true">💼</span>
-                            <div><strong>Clement Dolphens</strong><span>Avis Google ⭐ · Var</span></div>
-                        </div>
-                    </article>
-                    <article class="testi-card gsap-fade-up">
-                        <div class="testi-stars" aria-label="5 étoiles sur 5">★★★★★</div>
-                        <p>«&nbsp;Super expérience avec Sud Web Project. Mon site a été créé rapidement et correspond
-                            parfaitement à mes attentes. Un excellent développeur web, sérieux et compétent.&nbsp;»</p>
-                        <div class="testi-auth"><span class="testi-av" aria-hidden="true">🌟</span>
-                            <div><strong>Heloise Berton</strong><span>Avis Google ⭐ · Saint-Tropez</span></div>
-                        </div>
-                    </article>
                 </div>
             </div>
         </section>
@@ -1271,13 +1275,13 @@
                     contacts toute l'année à Toulon. Devis gratuit sous 24h, maquette avant de commencer.</p>
                 <div class="ville-cta-actions">
                     <a href="/#contact" class="btn-hero">
-                        Obtenir mon devis gratuit →
+                        Obtenir mon devis gratuit
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
                             <path d="M3.75 9h10.5M9.75 4.5L14.25 9l-4.5 4.5" stroke="currentColor" stroke-width="1.5"
                                 stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </a>
-                    <a href="tel:+33611547324" class="btn-ghost-hero">📞 +33 6 11 54 73 24</a>
+                    <a href="tel:+33611547324" class="btn-ghost-hero">+33 6 11 54 73 24</a>
                 </div>
                 <p class="ville-seo-text">Devis 100% gratuit · Sans engagement · Réponse sous 24h · Déplacement à Toulon
                     · SEO local Toulon Var 83</p>
@@ -1313,7 +1317,7 @@
                 <div class="footer-col">
                     <h3>Villes du Var</h3>
                     <ul>
-                        <li><a href="creation-site-internet-toulon.html" class="footer-active">Toulon ✓</a></li>
+                        <li><a href="creation-site-internet-toulon.html" class="footer-active">Toulon</a></li>
                         <li><a href="creation-site-internet-frejus.html">Fréjus</a></li>
                         <li><a href="creation-site-internet-saint-raphael.html">Saint-Raphaël</a></li>
                         <li><a href="creation-site-internet-sainte-maxime.html">Sainte-Maxime</a></li>
@@ -1372,10 +1376,14 @@
                     <a href="mentions-legales.html#confidentialite">Confidentialité</a>
                     <span aria-hidden="true">·</span>
                     <a href="mentions-legales.html#cgv">CGV</a>
+                    <span aria-hidden="true">·</span>
                     <a href="cookies.html">Cookies</a>
                 </div>
             </div>
         </div>
+
+        <span class="footer-mark" aria-hidden="true">Sud<em>Web</em> Project</span>
+
         <div class="footer-seo">
             <p>Création site internet Toulon · Développeur web Toulon · Site artisan BTP Toulon · Restaurant Toulon web
                 · Agence immobilière Toulon · Coiffeur Toulon site ·
@@ -1394,10 +1402,29 @@
         </button>
     </footer>
 
+    <!-- ═══ LIBRAIRIES ═══ -->
+    <script src="js/vendor/gsap.min.js" defer></script>
+    <script src="js/vendor/ScrollTrigger.min.js" defer></script>
+    <script src="js/vendor/lenis.min.js" defer></script>
+
+    <!-- motion.js pose les valeurs GSAP par défaut : avant tout le reste -->
+    <script src="js/motion.js" defer></script>
+
+    <!-- ═══ SCRIPTS DU SITE ═══ -->
     <script src="js/global.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+    <script src="js/lux.js" defer></script>
+    <script src="js/metiers.js" defer></script>
+    <script src="js/refonte.js" defer></script>
+    <script src="js/footer.js" defer></script>
     <script src="js/ville-animations.js" defer></script>
+    <!-- ville-hero.js reprend la main sur le hero : après ville-animations.js -->
+    <script src="js/ville-hero.js" defer></script>
+    <!-- ville-lux.js : la grammaire de l'accueil sur tous les autres blocs -->
+    <script src="js/ville-lux.js" defer></script>
+    <script src="js/breath.js" defer></script>
+    <!-- titles.js reprend la main sur les titres : toujours en dernier -->
+    <script src="js/titles.js" defer></script>
+
     <script>
         window.addEventListener('load', function () {
             var ric = window.requestIdleCallback || function (cb) { setTimeout(cb, 200); };
@@ -1407,12 +1434,15 @@
         });
     </script>
 
-    <div class="cookie-banner" role="dialog" aria-label="Cookies"
-        style="display:none;opacity:0;transform:translateX(-50%) translateY(20px);">
-        <p>Ce site utilise des cookies analytiques anonymisés. <a href="cookies.html">En savoir plus</a></p>
-        <div>
-            <button id="cookie-refuse">Refuser</button>
-            <button id="cookie-accept">Accepter</button>
+    <div class="cookie-banner" role="dialog" aria-label="Consentement cookies" aria-live="polite">
+        <div class="cookie-inner">
+            <p>Ce site utilise des cookies analytiques anonymisés pour mesurer l'audience.
+                <a href="cookies.html">En savoir plus</a>
+            </p>
+            <div class="cookie-btns">
+                <button id="cookie-refuse" class="cookie-btn cookie-btn-refuse">Refuser</button>
+                <button id="cookie-accept" class="cookie-btn cookie-btn-accept">Accepter</button>
+            </div>
         </div>
     </div>
 

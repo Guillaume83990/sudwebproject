@@ -536,64 +536,6 @@
         }
     });
 
-    /* ══════════════════════════════════════════════
-       13 · PARTICULES CANVAS — optimisées mobile
-    ══════════════════════════════════════════════ */
-    var canvas = $('#particles-bg');
-    if (canvas && !PRM) {
-        var ctx = canvas.getContext('2d');
-        var CW, CH;
-
-        function resizePt() { CW = canvas.width = window.innerWidth; CH = canvas.height = window.innerHeight; }
-        resizePt();
-        window.addEventListener('resize', resizePt, { passive: true });
-
-        var COUNT = isMob ? 16 : 42;
-
-        function Pt() { this.init(); }
-        Pt.prototype.init = function () {
-            this.x = Math.random() * CW;
-            this.y = Math.random() * CH;
-            this.r = Math.random() * 1.5 + 0.3;
-            this.vx = (Math.random() - 0.5) * 0.28;
-            this.vy = (Math.random() - 0.5) * 0.28;
-            this.o = Math.random() * 0.3 + 0.06;
-        };
-        Pt.prototype.update = function () {
-            this.x += this.vx; this.y += this.vy;
-            if (this.x < 0 || this.x > CW) this.vx *= -1;
-            if (this.y < 0 || this.y > CH) this.vy *= -1;
-        };
-        Pt.prototype.draw = function () {
-            ctx.fillStyle = 'rgba(96,165,250,' + this.o + ')';
-            ctx.beginPath(); ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2); ctx.fill();
-        };
-
-        var pts = [];
-        for (var k = 0; k < COUNT; k++) pts.push(new Pt());
-
-        function drawLines() {
-            for (var a = 0; a < pts.length - 1; a++) {
-                for (var b = a + 1; b < pts.length; b++) {
-                    var dx = pts[a].x - pts[b].x, dy = pts[a].y - pts[b].y;
-                    var d = Math.sqrt(dx * dx + dy * dy);
-                    if (d < 105) {
-                        ctx.strokeStyle = 'rgba(59,130,246,' + ((105 - d) / 105 * 0.08) + ')';
-                        ctx.lineWidth = 0.5;
-                        ctx.beginPath(); ctx.moveTo(pts[a].x, pts[a].y); ctx.lineTo(pts[b].x, pts[b].y); ctx.stroke();
-                    }
-                }
-            }
-        }
-
-        function animPt() {
-            ctx.clearRect(0, 0, CW, CH);
-            pts.forEach(function (p) { p.update(); p.draw(); });
-            if (!isMob) drawLines();
-            raf(animPt);
-        }
-        animPt();
-    }
 
     /* ══════════════════════════════════════════════
        14 · MORPH BUTTON — dd.nyc style

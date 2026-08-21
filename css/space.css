@@ -1,0 +1,469 @@
+/* ═══════════════════════════════════════════════════════════════
+   SPACE.CSS — Sud Web Project
+   L'espace et l'échelle. C'est le levier de gamme le plus fort.
+     · rythme vertical généreux et cohérent
+     · largeurs de lecture maîtrisées
+     · variation d'échelle des images : grandes, petites,
+       et débordements pleine largeur
+   À CHARGER EN DERNIER, après refine.css.
+   Ne touche à aucun texte, lien, balise ou donnée structurée.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ───────────────────────────────────────────────────────────────
+   1 · LE RYTHME VERTICAL
+   Une échelle unique au lieu de valeurs au cas par cas.
+   ─────────────────────────────────────────────────────────────── */
+:root {
+    --sp-section: 13rem;
+    /* respiration principale */
+    --sp-section-sm: 9rem;
+    /* sections secondaires */
+    --gutter: 2.5rem;
+}
+
+.why,
+.portfolio,
+.pricing,
+.testi,
+.about,
+.faq,
+.contact,
+.hub-metiers,
+.etudes-cas,
+.solutions-spe,
+.seo-prose,
+.st-luxe-section,
+.st-realisations,
+.st-metiers-premium,
+.ville-intro-section,
+.ville-metiers,
+.ville-pourquoi,
+.ville-process,
+.ville-tarifs,
+.ville-villes-block,
+.ville-faq {
+    padding-top: var(--sp-section);
+    padding-bottom: var(--sp-section);
+}
+
+.zone,
+.services-compl,
+.st-services,
+.refonte-block,
+.ville-preuve,
+.ville-conversion {
+    padding-top: var(--sp-section-sm);
+    padding-bottom: var(--sp-section-sm);
+}
+
+.ville-cta {
+    padding-top: 14rem;
+    padding-bottom: 14rem;
+}
+
+.container,
+.footer-inner,
+.nav-inner {
+    padding-inline: var(--gutter);
+}
+
+/* ───────────────────────────────────────────────────────────────
+   2 · LES HEROS RESPIRENT
+   ─────────────────────────────────────────────────────────────── */
+.hero {
+    padding-top: 12rem;
+    padding-bottom: 9rem;
+}
+
+.ville-hero {
+    padding-top: 14rem;
+    padding-bottom: 11rem;
+    min-height: 96vh;
+}
+
+.hero-inner {
+    gap: 6.5rem;
+}
+
+.ville-hero-metrics {
+    padding-top: 3.5rem;
+    gap: 3.5rem;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   3 · LES GRILLES S'AÈRENT
+   Le vide entre deux cartes fait autant que la carte elle-même.
+   ─────────────────────────────────────────────────────────────── */
+.why-grid,
+.pf-grid,
+.testi-grid,
+.etudes-grid,
+.hub-grid-v3,
+.zone-grid,
+.services-compl-grid,
+.st-real-grid,
+.st-services-grid,
+.ville-pourquoi-grid,
+.ville-villes-grid,
+.ville-chiffres-grid,
+.faq-grid,
+.ville-faq-list {
+    gap: 2.5rem;
+}
+
+.price-grid {
+    gap: 2rem;
+    margin-bottom: 5rem;
+}
+
+.about-grid,
+.contact-grid,
+.ville-intro-grid,
+.st-luxe-grid {
+    gap: 7rem;
+}
+
+.process-steps-grid {
+    gap: 3.5rem;
+}
+
+/* Le rythme interne des cartes suit */
+.why-card {
+    padding: 3.5rem 3rem;
+}
+
+.price-card,
+.pricing .price-card {
+    padding: 3rem 2.5rem;
+}
+
+.testi-card,
+.ville-pourquoi-card,
+.ville-ville-card,
+.hub-v3-card,
+.svc-card,
+.st-service-card,
+.etude-card {
+    padding: 2.75rem 2.25rem;
+}
+
+.pf-body {
+    padding: 2.25rem 2.25rem 2rem;
+}
+
+.st-real-body {
+    padding: 2.25rem;
+}
+
+.maint-block,
+.opts-block,
+.contact-form-wrap {
+    padding: 3.25rem 3rem;
+}
+
+.maint-block {
+    margin-bottom: 3rem;
+}
+
+.opts-block {
+    margin-bottom: 3rem;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   4 · LES LARGEURS DE LECTURE
+   Un texte long ne se lit pas sur toute la largeur d'un écran.
+   ─────────────────────────────────────────────────────────────── */
+.section-intro-seo {
+    max-width: 680px;
+}
+
+.section-sub {
+    max-width: 440px;
+}
+
+.hero-sub,
+.ville-hero-sub {
+    max-width: 540px;
+}
+
+.ville-hero-sub {
+    margin-inline: auto;
+}
+
+.about-lead {
+    max-width: 580px;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   5 · L'ÉCHELLE DES IMAGES
+   C'est la variation qui fait la composition : de très grandes
+   images qui débordent, et de plus petites qui respirent à côté.
+   ─────────────────────────────────────────────────────────────── */
+
+/* — Les panoramiques sortent du cadre, pleine largeur d'écran — */
+.st-photo-hero {
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    aspect-ratio: 21/8;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* — Le visuel du hero gagne en présence — */
+.hero-img-wrap {
+    aspect-ratio: 4/5;
+}
+
+.hero-img-wrap picture img,
+.hero-img-wrap img {
+    height: 100%;
+}
+
+/* — La photo "à propos" devient un grand format vertical — */
+.about-grid {
+    grid-template-columns: 460px 1fr;
+}
+
+.about-img-wrap {
+    aspect-ratio: 3/4;
+}
+
+.about-img-wrap picture img,
+.about-img-wrap img {
+    height: 100%;
+    object-fit: cover;
+}
+
+/* — Portfolio : alternance grandes et petites vignettes — */
+.pf-img {
+    height: 210px;
+}
+
+.pf-grid>.pf-card:nth-child(3n+1) .pf-img {
+    height: 330px;
+}
+
+/* — Réalisations ville : une carte sur deux plus haute — */
+.st-real-img {
+    aspect-ratio: 16/10;
+}
+
+.st-real-card:nth-child(odd) .st-real-img {
+    aspect-ratio: 4/3;
+}
+
+/* — Le trio de photos ville : décalé, plus une composition
+     qu'un alignement — */
+.st-photo-grid {
+    gap: 1.75rem;
+}
+
+.st-luxe-grid .st-photo-grid {
+    grid-template-columns: 1fr;
+}
+
+.st-luxe-grid .st-photo-item:nth-child(1) {
+    aspect-ratio: 16/10;
+}
+
+.st-luxe-grid .st-photo-item:nth-child(2) {
+    aspect-ratio: 1/1;
+    width: 78%;
+    margin-left: auto;
+}
+
+.st-luxe-grid .st-photo-item:nth-child(3) {
+    aspect-ratio: 4/3;
+    width: 88%;
+}
+
+/* — Le duo de la prose SEO déborde légèrement de la colonne — */
+.st-photo-duo {
+    gap: 1.75rem;
+    margin: 4.5rem 0;
+    width: 118%;
+    margin-left: -9%;
+}
+
+/* — L'image d'intro ville s'agrandit — */
+.ville-intro-img-wrap {
+    aspect-ratio: 3/4;
+    margin-bottom: 2.5rem;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   6 · RESPONSIVE
+   L'espace généreux sur grand écran devient étouffant sur mobile :
+   l'échelle se resserre franchement.
+   ─────────────────────────────────────────────────────────────── */
+@media (max-width: 1100px) {
+    :root {
+        --sp-section: 9rem;
+        --sp-section-sm: 7rem;
+        --gutter: 2rem;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-img-wrap {
+        aspect-ratio: 4/3;
+        max-width: 520px;
+    }
+
+    .hero-img-wrap {
+        aspect-ratio: 3/2;
+    }
+
+    .about-grid,
+    .contact-grid,
+    .ville-intro-grid,
+    .st-luxe-grid {
+        gap: 4.5rem;
+    }
+
+    .hero-inner {
+        gap: 4rem;
+    }
+
+    .ville-cta {
+        padding-top: 10rem;
+        padding-bottom: 10rem;
+    }
+
+    .st-luxe-grid .st-photo-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .st-luxe-grid .st-photo-item:nth-child(1),
+    .st-luxe-grid .st-photo-item:nth-child(2),
+    .st-luxe-grid .st-photo-item:nth-child(3) {
+        aspect-ratio: 4/3;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .st-photo-duo {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --sp-section: 6rem;
+        --sp-section-sm: 5rem;
+        --gutter: 1.5rem;
+    }
+
+    .hero {
+        padding-top: 8rem;
+        padding-bottom: 5rem;
+    }
+
+    .ville-hero {
+        padding-top: 8.5rem;
+        padding-bottom: 6rem;
+        min-height: auto;
+    }
+
+    .ville-cta {
+        padding-top: 7rem;
+        padding-bottom: 7rem;
+    }
+
+    .why-grid,
+    .pf-grid,
+    .testi-grid,
+    .etudes-grid,
+    .hub-grid-v3,
+    .zone-grid,
+    .services-compl-grid,
+    .st-real-grid,
+    .st-services-grid,
+    .ville-pourquoi-grid,
+    .ville-villes-grid,
+    .faq-grid,
+    .ville-faq-list {
+        gap: 1.5rem;
+    }
+
+    .about-grid,
+    .contact-grid,
+    .ville-intro-grid,
+    .st-luxe-grid {
+        gap: 3.25rem;
+    }
+
+    .process-steps-grid {
+        gap: 2.5rem;
+    }
+
+    .why-card {
+        padding: 2.25rem 1.75rem;
+    }
+
+    .price-card,
+    .pricing .price-card {
+        padding: 2.25rem 1.75rem;
+    }
+
+    .testi-card,
+    .ville-pourquoi-card,
+    .ville-ville-card,
+    .hub-v3-card,
+    .svc-card,
+    .st-service-card,
+    .etude-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .maint-block,
+    .opts-block,
+    .contact-form-wrap {
+        padding: 2rem 1.5rem;
+    }
+
+    .pf-body,
+    .st-real-body {
+        padding: 1.75rem 1.5rem;
+    }
+
+    /* Les images : grandes sur mobile aussi, mais sans excès */
+    .st-photo-hero {
+        aspect-ratio: 3/2;
+    }
+
+    .hero-img-wrap {
+        aspect-ratio: 4/3;
+    }
+
+    .about-img-wrap,
+    .ville-intro-img-wrap {
+        aspect-ratio: 4/3;
+    }
+
+    .pf-img,
+    .pf-grid>.pf-card:nth-child(3n+1) .pf-img {
+        height: 240px;
+    }
+
+    .st-real-img,
+    .st-real-card:nth-child(odd) .st-real-img {
+        aspect-ratio: 16/10;
+    }
+
+    .st-photo-grid {
+        gap: 1.25rem;
+    }
+
+    .st-photo-duo {
+        margin: 3rem 0;
+    }
+}

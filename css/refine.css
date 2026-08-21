@@ -1,0 +1,299 @@
+/* ═══════════════════════════════════════════════════════════════
+   REFINE.CSS — Sud Web Project — v2
+   Deux objectifs :
+     · une palette strictement bleue (plus de rouge, vert,
+       violet ni jaune criard)
+     · plus aucun emoji — remplacés par un marqueur hexagonal
+       repris de votre logo
+   À CHARGER après depth.css et type.css, avant space.css.
+   Ne touche à aucun texte, lien, balise ou donnée structurée.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ───────────────────────────────────────────────────────────────
+   1 · RÈGLE GÉNÉRIQUE
+   Attrape TOUT conteneur dont la classe se termine par "-icon"
+   — y compris sur les pages métier que je n'ai pas sous les yeux
+   (.benefice-icon, .tarif-icon, .faq-elec-icon, etc.).
+   Les <svg> restent intacts : ils ne portent pas ces classes.
+   ─────────────────────────────────────────────────────────────── */
+[class$="-icon"],
+[class*="-icon "],
+.why-icon,
+.hub-icon,
+.zone-icon,
+.testi-av {
+    font-size: 0 !important;
+    line-height: 0 !important;
+    filter: none !important;
+    position: relative;
+}
+
+/* Un <svg> à l'intérieur doit rester visible et dimensionné */
+[class$="-icon"] svg,
+[class*="-icon "] svg {
+    font-size: 1rem;
+    line-height: 1;
+}
+
+/* Le marqueur hexagonal — la forme de votre logo */
+[class$="-icon"]:not(:has(svg))::before,
+[class*="-icon "]:not(:has(svg))::before,
+.why-icon::before,
+.hub-icon::before,
+.zone-icon::before {
+    content: '';
+    display: block;
+    width: 13px;
+    height: 15px;
+    background: var(--blue-l);
+    opacity: .85;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+/* Repli pour les navigateurs sans :has() — la liste explicite */
+.why-icon::before,
+.etude-icon::before,
+.hub-icon::before,
+.hub-v3-icon::before,
+.price-icon::before,
+.opt-icon::before,
+.apt-icon::before,
+.svc-card-icon::before,
+.spe-col-icon::before,
+.zone-icon::before,
+.st-metier-icon::before,
+.st-service-card-icon::before,
+.ville-pourquoi-icon::before,
+.ville-ville-icon::before,
+.ville-metier-icon::before,
+.vmr-icon::before,
+.cmethod-icon::before {
+    content: '';
+    display: block;
+    width: 13px;
+    height: 15px;
+    background: var(--blue-l);
+    opacity: .85;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+/* Marqueurs centrés dans les cartes centrées */
+.why-icon,
+.etude-icon,
+.hub-icon,
+.price-icon,
+.zone-icon,
+.ville-ville-icon,
+.ville-metier-icon,
+.svc-card-icon,
+.st-service-card-icon,
+.ville-pourquoi-icon,
+.st-metier-icon {
+    display: block;
+    width: 100%;
+    margin-bottom: 1.35rem !important;
+}
+
+.why-icon::before,
+.etude-icon::before,
+.hub-icon::before,
+.price-icon::before,
+.zone-icon::before,
+.ville-ville-icon::before {
+    margin-inline: auto;
+}
+
+/* Marqueurs alignés à gauche d'un texte */
+.hub-v3-icon,
+.opt-icon,
+.apt-icon,
+.spe-col-icon,
+.vmr-icon {
+    display: inline-block;
+    width: auto !important;
+    margin-bottom: 0 !important;
+    margin-top: .45rem;
+}
+
+/* Le pictogramme de contact garde sa pastille */
+.cmethod-icon {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 40px !important;
+    margin-bottom: 0 !important;
+    background: rgba(59, 130, 246, .09);
+    border: 1px solid var(--border);
+}
+
+/* Le voilier décoratif de la carte "à venir" */
+.pf-ph {
+    display: none !important;
+}
+
+.pf-empty {
+    background:
+        linear-gradient(135deg, rgba(147, 196, 253, .04), transparent 60%),
+        var(--ink-3);
+    position: relative;
+}
+
+.pf-empty::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 34px;
+    height: 39px;
+    border: 1px solid rgba(147, 196, 253, .22);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    background: rgba(147, 196, 253, .05);
+}
+
+/* L'avatar emoji des témoignages : supprimé.
+   Le nom et la fonction portent mieux la caution qu'une pastille. */
+.testi-av {
+    display: none !important;
+}
+
+.testi-auth {
+    gap: 0;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   2 · LE ROUGE ET LE VERT DISPARAISSENT
+   Là où ils portaient un sens, on le conserve par le contraste
+   plutôt que par la couleur.
+   ─────────────────────────────────────────────────────────────── */
+.score-bad {
+    color: #56637A !important;
+}
+
+.score-good {
+    color: var(--blue-l) !important;
+}
+
+.score-arrow {
+    color: rgba(147, 196, 253, .45);
+}
+
+.pricing-note {
+    background: rgba(59, 130, 246, .04) !important;
+    border-left: 2px solid var(--border-h) !important;
+}
+
+.pricing-note strong {
+    color: #fff !important;
+}
+
+.label-dot {
+    background: var(--blue-l) !important;
+}
+
+.zone-var {
+    background: rgba(59, 130, 246, .05) !important;
+    border-color: var(--border) !important;
+}
+
+.zone-var::before {
+    background: var(--blue-l) !important;
+}
+
+.zone-var:hover {
+    border-color: var(--border-h) !important;
+    box-shadow: var(--sh-2), var(--lit-h) !important;
+}
+
+.zone-tag-green {
+    background: rgba(59, 130, 246, .12) !important;
+    color: var(--blue-l) !important;
+}
+
+/* Filet de sécurité : tout vert ou rouge résiduel sur les pages
+   que je n'ai pas vues bascule vers l'accent bleu */
+[class*="-green"],
+[class*="-success"],
+[class*="-danger"],
+[class*="-alert"] {
+    color: var(--blue-l) !important;
+    border-color: var(--border-h) !important;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   3 · LES BADGES DE GAMME
+   Trois couleurs pour dire une hiérarchie que le texte dit déjà.
+   Un seul accent désormais, décliné en intensité.
+   ─────────────────────────────────────────────────────────────── */
+.pf-badge {
+    background: rgba(5, 8, 15, .82) !important;
+    border: 1px solid var(--border-h);
+    color: var(--blue-l) !important;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    font-size: .68rem;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+.pf-ultra {
+    border-color: rgba(147, 196, 253, .5);
+    color: #fff !important;
+}
+
+.price-top-badge {
+    background: var(--blue) !important;
+    box-shadow: var(--sh-1);
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    font-size: .68rem;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   4 · LES ÉTOILES D'AVIS
+   Seule touche chaude conservée, dans un champagne éteint plutôt
+   qu'un jaune saturé. La supprimer nuirait à la lecture des avis.
+   ─────────────────────────────────────────────────────────────── */
+.testi-stars,
+.testi .testi-stars {
+    color: #C8A96B !important;
+    font-size: .95rem;
+    letter-spacing: .16em;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   5 · LES COCHES DES LISTES
+   Le ✓ reste — signe typographique, pas emoji. On le désature.
+   ─────────────────────────────────────────────────────────────── */
+.price-feats li,
+.maint-feats li {
+    color: #94A3B8;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   6 · DÉGRADÉS RÉSIDUELS
+   Un aplat se lit comme une décision, un dégradé comme un effet.
+   ─────────────────────────────────────────────────────────────── */
+.process-num-circle,
+.lang-slider,
+.pf-link,
+.submit-btn,
+.morph-btn {
+    background: var(--blue) !important;
+}
+
+.price-feat,
+.pricing .price-feat {
+    background-image: none !important;
+}
+
+.ville-conversion {
+    background: transparent !important;
+}
+
+.ville-conv-punch {
+    background: rgba(147, 196, 253, .06) !important;
+    border-left-color: var(--border-h) !important;
+}

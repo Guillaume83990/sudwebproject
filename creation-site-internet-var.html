@@ -34,7 +34,7 @@
 
     <!-- Schema.org -->
     <script
-        type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Sud Web Project — Développeur Web Var 83","description":"Création site internet sur mesure pour artisans, PME, restaurants et agences immobilières du Var 83. Code à la main, SEO local, Performances optimisées.","url":"https://www.sudwebproject.com/creation-site-internet-var.html","telephone":"+33611547324","email":"contact@sudwebproject.com","address":{"@type":"PostalAddress","addressLocality":"Saint-Tropez","addressRegion":"Provence-Alpes-Côte d'Azur","postalCode":"83990","addressCountry":"FR"},"geo":{"@type":"GeoCoordinates","latitude":"43.2677","longitude":"6.6407"},"areaServed":{"@type":"AdministrativeArea","name":"Var"},"priceRange":"€€","openingHours":"Mo-Sa 08:00-19:00","aggregateRating":{"@type":"AggregateRating","ratingValue":"5","reviewCount":"3","bestRating":"5"}}</script>
+        type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Sud Web Project — Développeur Web Var 83","description":"Création site internet sur mesure pour artisans, PME, restaurants et agences immobilières du Var 83. Code à la main, SEO local, Performances optimisées.","url":"https://www.sudwebproject.com/creation-site-internet-var.html","telephone":"+33611547324","email":"contact@sudwebproject.com","address":{"@type":"PostalAddress","addressLocality":"Saint-Tropez","addressRegion":"Provence-Alpes-Côte d'Azur","postalCode":"83990","addressCountry":"FR"},"geo":{"@type":"GeoCoordinates","latitude":"43.2677","longitude":"6.6407"},"areaServed":{"@type":"AdministrativeArea","name":"Var"},"priceRange":"€€","openingHours":"Mo-Sa 08:00-19:00"}</script>
     <script
         type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Combien coûte un site internet dans le Var ?","acceptedAnswer":{"@type":"Answer","text":"La création d'un site internet dans le Var commence à partir de 600€ pour un site vitrine 3 pages. Un site Premium 6 pages est à partir de 1 300€. Devis gratuit sous 24h, sans engagement."}},{"@type":"Question","name":"Quel développeur web choisir dans le Var 83 ?","acceptedAnswer":{"@type":"Answer","text":"Sud Web Project est un développeur web freelance basé à Saint-Tropez, spécialisé en création de sites internet sur mesure pour artisans et PME du Var. Code à la main, SEO local, Performances optimisées."}},{"@type":"Question","name":"Intervenez-vous dans tout le Var ?","acceptedAnswer":{"@type":"Answer","text":"Oui, j'interviens dans tout le Var 83 : Saint-Tropez, Cogolin, Grimaud, Ramatuelle, Gassin, Cavalaire, Sainte-Maxime, Fréjus, Saint-Raphaël, Toulon, Hyères, Draguignan. Déplacement possible ou remote."}},{"@type":"Question","name":"Créez-vous des sites pour les restaurants et agences immobilières du Var ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Je crée des sites internet pour les restaurants, agences immobilières, conciergeries, brokers yacht et tous les secteurs du Var. Chaque site est conçu sur mesure pour votre activité et votre ville."}}]}</script>
     <script
@@ -46,294 +46,153 @@
     <link rel="alternate" hreflang="x-default" href="https://www.sudwebproject.com/creation-site-internet-var.html" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
-    <!-- Preload font -->
-    <link rel="preload" href="assets/fonts/playfair-display-v40-latin-900.woff2" as="font" type="font/woff2"
+    <!-- Preload LCP -->
+    <link rel="preload" as="image" media="(min-width: 769px)" href="assets/images/ville-var-1280.webp" type="image/webp"
+        fetchpriority="high"
+        imagesrcset="assets/images/ville-var-640.webp 640w, assets/images/ville-var-960.webp 960w, assets/images/ville-var-1280.webp 1280w, assets/images/ville-var-1535.webp 1535w"
+        imagesizes="100vw" />
+    <link rel="preload" href="assets/fonts/instrument-serif-v5-latin-regular.woff2" as="font" type="font/woff2"
         crossorigin />
 
-    <!-- CSS -->
+    <!-- CSS — l'ordre compte : ville-hero.css ferme la pile -->
     <link rel="stylesheet" href="css/global.css" />
     <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="css/ville.css" />
     <link rel="stylesheet" href="css/cookies.css" media="print" onload="this.media='all'" />
-    <link rel="stylesheet" href="css/fonts-local.css" media="print" onload="this.media='all'" />
+    <link rel="stylesheet" href="css/fonts-local.css" />
+    <link rel="stylesheet" href="css/motion.css" />
+    <link rel="stylesheet" href="css/depth.css" />
+    <link rel="stylesheet" href="css/metiers.css" />
+    <link rel="stylesheet" href="css/refonte.css" />
+    <link rel="stylesheet" href="css/type.css" />
+    <link rel="stylesheet" href="css/refine.css" />
+    <link rel="stylesheet" href="css/space.css" />
+    <link rel="stylesheet" href="css/breath.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/ville-hero.css" />
+    <link rel="stylesheet" href="css/ville-lux.css" />
 
     <style>
         html {
             scroll-padding-top: 72px;
         }
 
-        /* ── STATS VAR ── */
-        .var-stats {
-            padding: 4rem 2rem;
-            background: var(--ink);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
+        /* ── H1 long : colonne élargie, corps réduit ── */
+        .ville-hero-title {
+            font-size: clamp(1.65rem, 2.8vw, 2.55rem);
+            line-height: 1.16;
+            max-width: min(44rem, 66vw);
         }
 
-        .var-stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
+        .ville-hero-sub {
+            max-width: min(38rem, 56vw);
         }
 
-        .var-stat {
-            text-align: center;
-            padding: 1.75rem 1rem;
-            background: var(--glass-2);
-            border: 1px solid var(--border);
-            border-radius: var(--r);
-            transition: all var(--dur) var(--ease);
+        @media (max-width: 900px) {
+            .ville-hero-title {
+                font-size: clamp(1.5rem, 5vw, 2rem);
+                max-width: 100%;
+            }
+
+            .ville-hero-sub {
+                max-width: 100%;
+            }
         }
 
-        .var-stat:hover {
-            border-color: var(--border-h);
-            transform: translateY(-4px);
+        @media (max-height: 800px) and (min-width: 901px) {
+            .ville-hero-title {
+                font-size: clamp(1.45rem, 2.2vw, 2.05rem);
+            }
+
+            .ville-hero-sub {
+                font-size: .9rem;
+                line-height: 1.7;
+            }
         }
 
-        .var-stat-num {
-            display: block;
-            font-family: var(--ff-display);
-            font-size: 2.25rem;
-            font-weight: 900;
-            color: var(--blue-l);
-            line-height: 1;
-            margin-bottom: .5rem;
-            letter-spacing: -.02em;
-        }
-
-        .var-stat-label {
-            font-size: .77rem;
-            font-weight: 600;
-            color: var(--mist);
-            text-transform: uppercase;
-            letter-spacing: .09em;
-            line-height: 1.5;
-        }
-
-        /* ── GRILLE VILLES COMPLÈTE ── */
-        .var-villes {
-            padding: 8rem 2rem;
-            background: var(--ink-2);
-        }
-
-        .var-villes-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.25rem;
-            margin-top: 3rem;
-        }
-
-        .var-ville-card {
-            background: var(--glass-2);
-            border: 1px solid var(--border);
-            border-radius: var(--r);
-            padding: 1.75rem 1.5rem;
-            text-decoration: none;
+        /* ── PHOTOS — identique au gabarit Saint-Tropez ── */
+        .photo-placeholder {
+            position: absolute;
+            inset: 0;
             display: flex;
             flex-direction: column;
+            align-items: center;
+            justify-content: center;
             gap: .5rem;
-            transition: all var(--dur) var(--ease);
-            position: relative;
-            overflow: hidden;
+            color: var(--mist-2);
+            font-size: .8rem;
+            text-align: center;
+            padding: 1rem;
         }
 
-        .var-ville-card::before {
-            content: '';
+        .st-photo-caption {
             position: absolute;
-            top: 0;
+            bottom: 0;
             left: 0;
             right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--blue), var(--blue-l));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform .4s var(--ease);
-        }
-
-        .var-ville-card:hover {
-            border-color: var(--border-h);
-            transform: translateY(-4px);
-            box-shadow: 0 16px 40px rgba(0, 0, 0, .35);
-        }
-
-        .var-ville-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .var-ville-icon {
-            font-size: 1.75rem;
-        }
-
-        .var-ville-name {
-            font-family: var(--ff-display);
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #fff;
-            line-height: 1.2;
-        }
-
-        .var-ville-desc {
-            font-size: .82rem;
-            color: var(--mist);
-            line-height: 1.6;
-        }
-
-        .var-ville-tag {
+            background: linear-gradient(to top, rgba(5, 8, 15, .88), transparent);
+            padding: 1.5rem 1rem .75rem;
             font-size: .72rem;
-            font-weight: 700;
-            color: var(--blue-l);
-            text-transform: uppercase;
-            letter-spacing: .08em;
-            margin-top: auto;
-            padding-top: .75rem;
-        }
-
-        /* ── TABLEAU CROISÉ VILLES × MÉTIERS ── */
-        .var-croise {
-            padding: 8rem 2rem;
-            background: var(--ink);
-        }
-
-        .var-croise-intro {
-            max-width: 680px;
-        }
-
-        .var-croise-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 3rem;
-            font-size: .85rem;
-        }
-
-        .var-croise-table th {
-            background: var(--glass-2);
-            border: 1px solid var(--border);
-            padding: .85rem 1rem;
-            font-family: var(--ff-display);
-            font-weight: 700;
-            color: var(--blue-l);
-            text-align: left;
-            font-size: .8rem;
             letter-spacing: .04em;
-            white-space: nowrap;
-        }
-
-        .var-croise-table th:first-child {
-            color: #fff;
-        }
-
-        .var-croise-table td {
-            border: 1px solid var(--border);
-            padding: .75rem 1rem;
             color: var(--mist);
-            vertical-align: middle;
-        }
-
-        .var-croise-table tr:hover td {
-            background: rgba(59, 130, 246, .04);
-        }
-
-        .var-croise-table td:first-child {
-            font-weight: 600;
-            color: #E2E8F0;
-            white-space: nowrap;
-        }
-
-        .var-croise-link {
-            display: inline-flex;
-            align-items: center;
-            gap: .35rem;
-            color: var(--blue-l);
-            text-decoration: none;
-            font-size: .8rem;
-            font-weight: 600;
-            padding: .3rem .7rem;
-            background: rgba(59, 130, 246, .08);
-            border: 1px solid rgba(59, 130, 246, .2);
-            border-radius: 100px;
-            transition: all .2s ease;
-            white-space: nowrap;
-        }
-
-        .var-croise-link:hover {
-            background: rgba(59, 130, 246, .18);
-            border-color: var(--blue-l);
-        }
-
-        .var-croise-link.soon {
-            color: var(--mist-2);
-            background: var(--glass-2);
-            border-color: var(--border);
-            cursor: default;
-            opacity: .6;
-        }
-
-        /* ── PILLS MAILLAGE ── */
-        .var-maillage {
-            padding: 6rem 2rem;
-            background: var(--ink-2);
-            border-top: 1px solid var(--border);
-        }
-
-        .var-maillage-inner {
-            max-width: 960px;
-            margin: 0 auto;
-        }
-
-        .var-maillage h2 {
-            font-family: var(--ff-display);
-            font-size: clamp(1.2rem, 2vw, 1.6rem);
-            font-weight: 700;
-            color: #E2E8F0;
-            margin-bottom: 1.25rem;
-        }
-
-        .var-liens-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: .75rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .var-lien-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: .4rem;
-            padding: .55rem 1.1rem;
-            background: var(--glass-2);
-            border: 1px solid var(--border);
-            border-radius: 100px;
-            font-size: .82rem;
-            color: var(--mist);
-            text-decoration: none;
-            transition: all .25s ease;
             font-weight: 500;
         }
 
-        .var-lien-pill:hover {
-            border-color: var(--blue-l);
-            color: var(--blue-l);
-            background: rgba(59, 130, 246, .06);
+        .st-photo-hero {
+            position: relative;
+            border-radius: var(--r);
+            overflow: hidden;
+            aspect-ratio: 21/9;
+            border: 1px solid var(--border);
+            margin: 3rem 0;
+        }
+
+        .st-photo-hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 8s ease;
+        }
+
+        .st-photo-hero:hover img {
+            transform: scale(1.03);
+        }
+
+        .var-planche {
+            position: relative;
+            border-radius: var(--r);
+            overflow: hidden;
+            aspect-ratio: 1/1;
+            border: 1px solid var(--border);
+            max-width: 560px;
+            margin: 4rem auto;
+        }
+
+        .var-planche img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 6s ease;
+        }
+
+        .var-planche:hover img {
+            transform: scale(1.04);
         }
 
         /* ── SEO PROSE ── */
         .var-prose {
             padding: 7rem 2rem;
-            background: var(--ink);
         }
 
         .var-prose-inner {
-            max-width: 780px;
+            max-width: 820px;
             margin: 0 auto;
         }
 
         .var-prose h2 {
-            font-family: var(--ff-display);
-            font-size: clamp(1.4rem, 2.5vw, 1.9rem);
-            font-weight: 700;
-            color: #E2E8F0;
             margin: 2.5rem 0 .85rem;
-            line-height: 1.25;
         }
 
         .var-prose h2:first-child {
@@ -361,10 +220,170 @@
             border-color: var(--blue-l);
         }
 
+        /* ── MÉTIERS — identique au gabarit ── */
+        .st-metiers-premium {
+            padding: 8rem 2rem;
+        }
+
+        .st-metier-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+            overflow: hidden;
+            margin-bottom: 1rem;
+            transition: border-color var(--dur) var(--ease);
+        }
+
+        .st-metier-row:hover {
+            border-color: var(--border-h);
+        }
+
+        .st-metier-main {
+            padding: 2rem 2.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .st-metier-main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, var(--blue-l), transparent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .5s var(--ease);
+        }
+
+        .st-metier-row:hover .st-metier-main::before {
+            transform: scaleX(1);
+        }
+
+        .st-metier-title {
+            font-family: var(--ff-display);
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: #E9EEF6;
+            line-height: 1.3;
+            display: block;
+        }
+
+        .st-metier-main p {
+            font-size: .875rem;
+            color: var(--mist);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .st-metier-links {
+            padding: 2rem 2.25rem;
+            border-left: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: .65rem;
+        }
+
+        .st-metier-links a {
+            font-size: .82rem;
+            color: var(--blue-l);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: .4rem;
+            transition: color var(--dur) var(--ease), gap .25s var(--ease);
+        }
+
+        .st-metier-links a::before {
+            content: '→';
+            font-size: .75rem;
+            flex-shrink: 0;
+        }
+
+        .st-metier-links a:hover {
+            color: #fff;
+            gap: .65rem;
+        }
+
+        /* ── L'INDEX DES VILLES — le cœur du hub ── */
+        .var-villes {
+            padding: 8rem 2rem;
+        }
+
+        .var-villes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            margin-top: 3rem;
+        }
+
+        .var-ville-card {
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+            padding: 1.75rem 1.5rem;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+            transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .var-ville-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, var(--blue-l), transparent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .5s var(--ease);
+        }
+
+        .var-ville-card:hover {
+            border-color: var(--border-h);
+            transform: translateY(-4px);
+        }
+
+        .var-ville-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .var-ville-name {
+            font-family: var(--ff-display);
+            font-size: 1.1rem;
+            color: #E9EEF6;
+            line-height: 1.25;
+        }
+
+        .var-ville-desc {
+            font-size: .82rem;
+            color: var(--mist);
+            line-height: 1.65;
+        }
+
+        .var-ville-tag {
+            font-size: .68rem;
+            font-weight: 600;
+            color: var(--blue-l);
+            text-transform: uppercase;
+            letter-spacing: .16em;
+            margin-top: auto;
+            padding-top: 1rem;
+        }
+
         /* ── SERVICES TRANSVERSAUX ── */
         .var-services {
             padding: 7rem 2rem;
-            background: var(--ink-2);
             border-top: 1px solid var(--border);
         }
 
@@ -376,33 +395,21 @@
         }
 
         .var-service-card {
-            background: var(--glass-2);
             border: 1px solid var(--border);
             border-radius: var(--r);
             padding: 2.25rem 1.75rem;
             text-decoration: none;
-            transition: all var(--dur) var(--ease);
+            display: block;
+            transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
         }
 
         .var-service-card:hover {
             border-color: var(--border-h);
-            transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, .4);
-        }
-
-        .var-service-icon {
-            font-size: 2.25rem;
-            display: block;
-            margin-bottom: 1.25rem;
+            transform: translateY(-4px);
         }
 
         .var-service-card h3 {
-            font-family: var(--ff-display);
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #fff;
             margin-bottom: .65rem;
-            line-height: 1.3;
         }
 
         .var-service-card p {
@@ -413,51 +420,90 @@
         }
 
         .var-service-link {
-            font-size: .82rem;
-            font-weight: 700;
+            font-size: .8rem;
+            font-weight: 600;
             color: var(--blue-l);
         }
 
-        @media (max-width: 1024px) {
-            .var-villes-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        /* ── MAILLAGE — l'index complet, raison d'être du hub ── */
+        .var-maillage {
+            padding: 7rem 2rem;
+            border-top: 1px solid var(--border);
+        }
 
+        .var-maillage-inner {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .var-maillage h2 {
+            font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .var-liens-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .6rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .var-lien-pill {
+            display: inline-flex;
+            align-items: center;
+            padding: .6rem 1.15rem;
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: .8rem;
+            color: var(--mist);
+            text-decoration: none;
+            letter-spacing: .01em;
+            transition: border-color var(--dur) var(--ease), color var(--dur) var(--ease);
+        }
+
+        .var-lien-pill:hover {
+            border-color: var(--border-h);
+            color: #fff;
+        }
+
+        @media (max-width: 1024px) {
+
+            .var-villes-grid,
             .var-services-grid {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media (max-width: 768px) {
-            .var-stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
 
-            .var-villes-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
+            .st-metier-row,
+            .var-villes-grid,
             .var-services-grid {
                 grid-template-columns: 1fr;
             }
 
-            .var-croise-table {
-                font-size: .75rem;
+            .st-metier-links {
+                border-left: none;
+                border-top: 1px solid var(--border);
+                justify-content: flex-start;
             }
 
-            .var-croise-table th,
-            .var-croise-table td {
-                padding: .6rem .65rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .var-stats-grid {
-                grid-template-columns: 1fr;
+            .st-photo-hero {
+                aspect-ratio: 16/10;
+                margin: 2rem 0;
             }
 
-            .var-villes-grid {
-                grid-template-columns: 1fr;
+            .var-planche {
+                margin: 3rem auto;
+            }
+
+            .var-prose,
+            .st-metiers-premium,
+            .var-villes,
+            .var-services,
+            .var-maillage {
+                padding-left: 1.35rem;
+                padding-right: 1.35rem;
             }
         }
     </style>
@@ -519,7 +565,22 @@
 
         <!-- ═══ HERO ═══ -->
         <section class="ville-hero" aria-labelledby="h1-var">
+            <img class="ville-hero-img" src="assets/images/ville-var-1280.webp" srcset="assets/images/ville-var-640.webp 640w,
+                        assets/images/ville-var-960.webp 960w,
+                        assets/images/ville-var-1280.webp 1280w,
+                        assets/images/ville-var-1535.webp 1535w" sizes="100vw"
+                alt="Route déserte traversant les collines du Var à l'heure bleue — Var 83" width="1535" height="863"
+                fetchpriority="high" decoding="async" />
+            <div class="ville-hero-img-overlay"></div>
             <div class="ville-hero-bg"></div>
+
+            <span class="ville-mark" aria-hidden="true">Var</span>
+
+            <div class="ville-coord" aria-hidden="true">
+                <span class="ville-coord-line"></span>
+                <span class="ville-coord-val">43.2677° N · 6.6407° E</span>
+            </div>
+
             <div class="container">
                 <div class="ville-hero-badge">
                     <span class="badge-dot"></span>
@@ -545,50 +606,20 @@
                                 stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </a>
-                    <a href="tel:+33611547324" class="btn-ghost-hero">📞 +33 6 11 54 73 24</a>
+                    <a href="tel:+33611547324" class="btn-ghost-hero">+33 6 11 54 73 24</a>
                 </div>
-
-                <div class="ville-hero-metrics">
-                    <div class="metric"><span class="metric-n">1M+</span><span class="metric-l">Habitants dans le
-                            Var</span></div>
-                    <div class="metric-sep" aria-hidden="true"></div>
-                    <div class="metric"><span class="metric-n">600€</span><span class="metric-l">À partir de</span>
-                    </div>
-                    <div class="metric-sep" aria-hidden="true"></div>
-                    <div class="metric"><span class="metric-n">90+</span><span class="metric-l">rapidité
-                            optimisée</span></div>
-                    <div class="metric-sep" aria-hidden="true"></div>
-                    <div class="metric"><span class="metric-n">24h</span><span class="metric-l">Réponse garantie</span>
-                    </div>
-                </div>
-            </div>
-            <div class="ville-scroll-hint" aria-hidden="true">
-                <span>Scroll</span>
-                <div class="ville-scroll-line"></div>
             </div>
         </section>
 
-        <!-- ═══ STATS ═══ -->
-        <section class="var-stats" aria-label="Le Var en chiffres">
-            <div class="container">
-                <div class="var-stats-grid">
-                    <div class="var-stat gsap-fade-up">
-                        <span class="var-stat-num">1 060 000</span>
-                        <span class="var-stat-label">Habitants permanents</span>
-                    </div>
-                    <div class="var-stat gsap-fade-up">
-                        <span class="var-stat-num">10M+</span>
-                        <span class="var-stat-label">Touristes par an</span>
-                    </div>
-                    <div class="var-stat gsap-fade-up">
-                        <span class="var-stat-num">70 000+</span>
-                        <span class="var-stat-label">Entreprises dans le Var</span>
-                    </div>
-                    <div class="var-stat gsap-fade-up">
-                        <span class="var-stat-num">90%</span>
-                        <span class="var-stat-label">Recherches locales sur mobile</span>
-                    </div>
-                </div>
+        <!-- ═══ PHOTO PANORAMIQUE ═══ -->
+        <section class="st-band" aria-hidden="true">
+            <div class="st-photo-hero">
+                <img src="assets/images/var-massif-1400.webp" srcset="assets/images/var-massif-700.webp 700w,
+                            assets/images/var-massif-1000.webp 1000w,
+                            assets/images/var-massif-1400.webp 1400w" sizes="100vw"
+                    alt="Collines boisées du massif varois en plans successifs au petit matin — Var 83" width="1400"
+                    height="600" loading="lazy" decoding="async" />
+                <div class="st-photo-caption">Le Var — de Toulon au Golfe de Saint-Tropez</div>
             </div>
         </section>
 
@@ -599,8 +630,9 @@
                     <div class="ville-intro-text">
                         <div class="section-label">Le Var — un marché immense</div>
                         <h2 class="ville-h2" id="intro-title">
-                            1 million d'habitants, des milliers d'entreprises —<br>
-                            <span class="ville-em" style="font-size:inherit;">et la majorité absente de Google.</span>
+                            <span class="split-reveal">1 million d'habitants, des milliers d'entreprises —</span>
+                            <span class="split-reveal ville-em" style="display:inline;font-size:inherit;">et la
+                                majorité absente de Google.</span>
                         </h2>
                         <p>Le Var est l'un des départements les plus dynamiques de France. Un million d'habitants
                             permanents, 10 millions de touristes par an, une économie portée par le tourisme,
@@ -610,40 +642,53 @@
                             un site vieilli qui ne convertit pas. C'est votre opportunité : être le premier restaurant,
                             la première agence immobilière, le premier artisan de votre secteur à avoir un site rapide
                             et bien référencé.</p>
-                        <p>Développeur web freelance basé à <a href="creation-site-internet-saint-tropez.html"
-                                style="color:var(--blue-l);text-decoration:none;border-bottom:1px solid rgba(96,165,250,.25);">Saint-Tropez</a>,
-                            je crée des <strong>sites internet sur mesure pour les professionnels du Var</strong> — sans
-                            template, sans WordPress, 100% code à la main.</p>
+                        <p>Développeur web freelance basé à <a
+                                href="creation-site-internet-saint-tropez.html">Saint-Tropez</a>, je crée des
+                            <strong>sites internet sur mesure pour les professionnels du Var</strong> — sans template,
+                            sans WordPress, 100% code à la main.
+                        </p>
                         <blockquote class="ville-punchline">
                             Dans le Var, votre concurrent est déjà sur Google. Êtes-vous visible ?
                         </blockquote>
                         <a href="/#contact" class="btn-primary" style="margin-top:1.5rem;display:inline-flex;">Obtenir
-                            mon devis gratuit →</a>
+                            mon devis gratuit</a>
                     </div>
-                    <div class="ville-chiffres-grid">
-                        <div class="ville-chiffre-card gsap-fade-up">
-                            <span class="chiffre-num">4–5j</span>
-                            <span class="chiffre-label">Délai site essentiel</span>
+
+                    <div>
+                        <div class="ville-intro-img-wrap">
+                            <img src="assets/images/var-liege-760.webp" srcset="assets/images/var-liege-560.webp 560w,
+                                    assets/images/var-liege-760.webp 760w,
+                                    assets/images/var-liege-1000.webp 1000w" sizes="(max-width: 1100px) 100vw, 40vw"
+                                alt="Tronc de chêne-liège écorcé dans le massif des Maures — Var 83" width="1000"
+                                height="1333" loading="lazy" decoding="async" />
+                            <div class="ville-intro-img-label">Var 83</div>
                         </div>
-                        <div class="ville-chiffre-card gsap-fade-up">
-                            <span class="chiffre-num">90+</span>
-                            <span class="chiffre-label">Score rapidité optimisée</span>
-                        </div>
-                        <div class="ville-chiffre-card gsap-fade-up">
-                            <span class="chiffre-num">4–8 sem.</span>
-                            <span class="chiffre-label">Premiers résultats Google</span>
-                        </div>
-                        <div class="ville-chiffre-card gsap-fade-up">
-                            <span class="chiffre-num">0€</span>
-                            <span class="chiffre-label">Devis gratuit sans engagement</span>
-                        </div>
+                    </div>
+                </div>
+
+                <div class="ville-chiffres-grid" style="margin-top:5rem;">
+                    <div class="ville-chiffre-card gsap-fade-up">
+                        <span class="chiffre-num">1 060 000</span>
+                        <span class="chiffre-label">Habitants permanents</span>
+                    </div>
+                    <div class="ville-chiffre-card gsap-fade-up">
+                        <span class="chiffre-num">10M+</span>
+                        <span class="chiffre-label">Touristes par an</span>
+                    </div>
+                    <div class="ville-chiffre-card gsap-fade-up">
+                        <span class="chiffre-num">70 000+</span>
+                        <span class="chiffre-label">Entreprises dans le Var</span>
+                    </div>
+                    <div class="ville-chiffre-card gsap-fade-up">
+                        <span class="chiffre-num">90%</span>
+                        <span class="chiffre-label">Recherches locales sur mobile</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ═══ MÉTIERS DU VAR ═══ -->
-        <section class="ville-metiers" aria-labelledby="metiers-title">
+        <!-- ═══ MÉTIERS ═══ -->
+        <section class="st-metiers-premium" aria-labelledby="metiers-title">
             <div class="container">
                 <div class="section-head">
                     <div class="section-label">Solutions par secteur d'activité</div>
@@ -655,49 +700,66 @@
                     <p class="section-intro-seo">Chaque secteur a ses spécificités — je crée des sites adaptés à votre
                         activité, votre clientèle locale et vos objectifs dans le Var 83.</p>
                 </div>
-                <div class="ville-metiers-grid">
-                    <a href="electricien-var.html" class="ville-metier-card gsap-fade-up">
-                        <span class="ville-metier-icon">🔌</span>
-                        <span class="ville-metier-label">Électricien & artisan BTP</span>
-                        <p class="ville-metier-desc">Bouton d'urgence mobile, formulaire devis. Référencé sur
-                            "électricien + votre ville Var 83".</p>
-                        <span class="ville-metier-arrow">→ Page électricien Var</span>
-                    </a>
-                    <a href="creation-site-internet-serrurier.html" class="ville-metier-card gsap-fade-up">
-                        <span class="ville-metier-icon">🔐</span>
-                        <span class="ville-metier-label">Serrurier dépannage</span>
-                        <p class="ville-metier-desc">Premier résultat sur "serrurier + ville". Bouton appel urgent 24h
-                            visible immédiatement.</p>
-                        <span class="ville-metier-arrow">→ Page serrurier Var</span>
-                    </a>
-                    <a href="creation-site-internet-restaurant.html" class="ville-metier-card gsap-fade-up">
-                        <span class="ville-metier-icon">🍽️</span>
-                        <span class="ville-metier-label">Restaurant & bar</span>
-                        <p class="ville-metier-desc">Menu en ligne, réservation WhatsApp, galerie. Visible sur
-                            "restaurant + ville Var".</p>
-                        <span class="ville-metier-arrow">→ Page restaurant Var</span>
-                    </a>
-                    <a href="creation-site-internet-coiffeur.html" class="ville-metier-card gsap-fade-up">
-                        <span class="ville-metier-icon">✂️</span>
-                        <span class="ville-metier-label">Coiffeur & beauté</span>
-                        <p class="ville-metier-desc">Galerie réalisations, prise de rendez-vous. SEO "coiffeur + ville
-                            Var 83".</p>
-                        <span class="ville-metier-arrow">→ Page coiffeur Var</span>
-                    </a>
-                    <a href="creation-site-internet-agence-immobiliere.html" class="ville-metier-card gsap-fade-up">
-                        <span class="ville-metier-icon">🏡</span>
-                        <span class="ville-metier-label">Agence immobilière</span>
-                        <p class="ville-metier-desc">Listings filtrables, fiches biens, galerie premium. SEO "agence
-                            immo + ville Var".</p>
-                        <span class="ville-metier-arrow">→ Page agence immo Var</span>
-                    </a>
-                    <a href="creation-site-internet-location-yacht.html" class="ville-metier-card gsap-fade-up">
-                        <span class="ville-metier-icon">🛥️</span>
-                        <span class="ville-metier-label">Location yacht & nautisme</span>
-                        <p class="ville-metier-desc">Catalogue flotte, réservation en ligne. SEO "location bateau +
-                            ville Var 83".</p>
-                        <span class="ville-metier-arrow">→ Page yacht Var</span>
-                    </a>
+
+                <div class="st-metier-row gsap-fade-up">
+                    <div class="st-metier-main">
+                        <span class="st-metier-title">Électricien &amp; artisan BTP</span>
+                        <p>Bouton d'urgence mobile, formulaire devis. Référencé sur "électricien + votre ville Var 83".
+                        </p>
+                    </div>
+                    <div class="st-metier-links">
+                        <a href="electricien-var.html">Page électricien Var</a>
+                    </div>
+                </div>
+
+                <div class="st-metier-row gsap-fade-up">
+                    <div class="st-metier-main">
+                        <span class="st-metier-title">Serrurier dépannage</span>
+                        <p>Premier résultat sur "serrurier + ville". Bouton appel urgent 24h visible immédiatement.</p>
+                    </div>
+                    <div class="st-metier-links">
+                        <a href="creation-site-internet-serrurier.html">Page serrurier Var</a>
+                    </div>
+                </div>
+
+                <div class="st-metier-row gsap-fade-up">
+                    <div class="st-metier-main">
+                        <span class="st-metier-title">Restaurant &amp; bar</span>
+                        <p>Menu en ligne, réservation WhatsApp, galerie. Visible sur "restaurant + ville Var".</p>
+                    </div>
+                    <div class="st-metier-links">
+                        <a href="creation-site-internet-restaurant.html">Page restaurant Var</a>
+                    </div>
+                </div>
+
+                <div class="st-metier-row gsap-fade-up">
+                    <div class="st-metier-main">
+                        <span class="st-metier-title">Coiffeur &amp; beauté</span>
+                        <p>Galerie réalisations, prise de rendez-vous. SEO "coiffeur + ville Var 83".</p>
+                    </div>
+                    <div class="st-metier-links">
+                        <a href="creation-site-internet-coiffeur.html">Page coiffeur Var</a>
+                    </div>
+                </div>
+
+                <div class="st-metier-row gsap-fade-up">
+                    <div class="st-metier-main">
+                        <span class="st-metier-title">Agence immobilière</span>
+                        <p>Listings filtrables, fiches biens, galerie premium. SEO "agence immo + ville Var".</p>
+                    </div>
+                    <div class="st-metier-links">
+                        <a href="creation-site-internet-agence-immobiliere.html">Page agence immo Var</a>
+                    </div>
+                </div>
+
+                <div class="st-metier-row gsap-fade-up">
+                    <div class="st-metier-main">
+                        <span class="st-metier-title">Location yacht &amp; nautisme</span>
+                        <p>Catalogue flotte, réservation en ligne. SEO "location bateau + ville Var 83".</p>
+                    </div>
+                    <div class="st-metier-links">
+                        <a href="creation-site-internet-location-yacht.html">Page yacht Var</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -718,77 +780,66 @@
 
                 <div class="var-villes-grid">
                     <a href="creation-site-internet-saint-tropez.html" class="var-ville-card gsap-fade-up">
-                        <span class="var-ville-icon">⚓</span>
                         <span class="var-ville-name">Saint-Tropez</span>
                         <span class="var-ville-desc">Siège de Sud Web Project. Luxe, restauration gastronomique, agences
                             de prestige, conciergeries, brokers yacht.</span>
-                        <span class="var-ville-tag">Page dédiée →</span>
+                        <span class="var-ville-tag">Page dédiée</span>
                     </a>
                     <a href="creation-site-internet-cogolin.html" class="var-ville-card gsap-fade-up">
-                        <span class="var-ville-icon">🏭</span>
                         <span class="var-ville-name">Cogolin</span>
                         <span class="var-ville-desc">Capitale artisanale du Golfe. Artisans, PME, commerces locaux et
                             électriciens.</span>
-                        <span class="var-ville-tag">Page dédiée →</span>
+                        <span class="var-ville-tag">Page dédiée</span>
                     </a>
                     <a href="creation-site-internet-grimaud.html" class="var-ville-card gsap-fade-up">
-                        <span class="var-ville-icon">🏰</span>
-                        <span class="var-ville-name">Grimaud & Port Grimaud</span>
+                        <span class="var-ville-name">Grimaud &amp; Port Grimaud</span>
                         <span class="var-ville-desc">Village médiéval et cité lacustre internationale. Agences immo,
                             restaurants, villas.</span>
-                        <span class="var-ville-tag">Page dédiée →</span>
+                        <span class="var-ville-tag">Page dédiée</span>
                     </a>
                     <a href="creation-site-internet-ramatuelle.html" class="var-ville-card gsap-fade-up">
-                        <span class="var-ville-icon">🌿</span>
-                        <span class="var-ville-name">Ramatuelle & Pampelonne</span>
+                        <span class="var-ville-name">Ramatuelle &amp; Pampelonne</span>
                         <span class="var-ville-desc">Plage de Pampelonne, vignobles AOC, restaurants de plage, hôtels de
                             luxe.</span>
-                        <span class="var-ville-tag">Page dédiée →</span>
+                        <span class="var-ville-tag">Page dédiée</span>
                     </a>
                     <a href="creation-site-internet-gassin.html" class="var-ville-card gsap-fade-up">
-                        <span class="var-ville-icon">🏔️</span>
                         <span class="var-ville-name">Gassin</span>
                         <span class="var-ville-desc">Plus Beau Village de France. Vue 360° sur le Golfe. Artisans,
                             hébergements.</span>
-                        <span class="var-ville-tag">Page dédiée →</span>
+                        <span class="var-ville-tag">Page dédiée</span>
                     </a>
                     <a href="creation-site-internet-cavalaire.html" class="var-ville-card gsap-fade-up">
-                        <span class="var-ville-icon">🏖️</span>
                         <span class="var-ville-name">Cavalaire-sur-Mer</span>
                         <span class="var-ville-desc">Station balnéaire dynamique, port actif, PME touristiques et
                             commerces locaux.</span>
-                        <span class="var-ville-tag">Page dédiée →</span>
+                        <span class="var-ville-tag">Page dédiée</span>
                     </a>
                     <a href="creation-site-internet-sainte-maxime.html" class="var-ville-card gsap-fade-up">
-                        <span class="var-ville-icon">🌊</span>
                         <span class="var-ville-name">Sainte-Maxime</span>
                         <span class="var-ville-desc">Station premium face à Saint-Tropez, active 12 mois. Restaurants,
                             agences immo, commerces.</span>
-                        <span class="var-ville-tag">Page dédiée →</span>
+                        <span class="var-ville-tag">Page dédiée</span>
                     </a>
                     <a href="creation-site-internet-frejus.html" class="var-ville-card gsap-fade-up">
-                        <span class="var-ville-icon">🏛️</span>
                         <span class="var-ville-name">Fréjus</span>
                         <span class="var-ville-desc">54 000 habitants permanents, fort tissu PME et artisans BTP actifs
                             toute l'année.</span>
-                        <span class="var-ville-tag">Page dédiée →</span>
+                        <span class="var-ville-tag">Page dédiée</span>
                     </a>
                     <a href="creation-site-internet-saint-raphael.html" class="var-ville-card gsap-fade-up">
-                        <span class="var-ville-icon">⛵</span>
                         <span class="var-ville-name">Saint-Raphaël</span>
                         <span class="var-ville-desc">35 000 habitants, port actif, BTP dynamique. Bassin de 90 000 avec
                             Fréjus.</span>
-                        <span class="var-ville-tag">Page dédiée →</span>
+                        <span class="var-ville-tag">Page dédiée</span>
                     </a>
                     <a href="creation-site-internet-toulon.html" class="var-ville-card gsap-fade-up">
-                        <span class="var-ville-icon">🏙️</span>
                         <span class="var-ville-name">Toulon</span>
                         <span class="var-ville-desc">Préfecture du Var, 170 000 habitants. Marché numéro 1 du
                             département.</span>
-                        <span class="var-ville-tag">Page dédiée →</span>
+                        <span class="var-ville-tag">Page dédiée</span>
                     </a>
                     <div class="var-ville-card" style="cursor:default;border-style:dashed;opacity:.7;">
-                        <span class="var-ville-icon">🗺️</span>
                         <span class="var-ville-name">Hyères · Draguignan · Brignoles</span>
                         <span class="var-ville-desc">Et toutes les communes du Var — je me déplace ou travaille en
                             remote partout en France.</span>
@@ -816,6 +867,14 @@
                         résultat — pas forcément le meilleur, mais le <strong>plus visible</strong>. C'est votre
                         opportunité.
                     </p>
+
+                    <div class="var-planche">
+                        <img src="assets/images/var-ligne-850.webp" srcset="assets/images/var-ligne-620.webp 620w,
+                                assets/images/var-ligne-850.webp 850w,
+                                assets/images/var-ligne-1100.webp 1100w" sizes="(max-width: 768px) 100vw, 560px"
+                            alt="Ligne blanche usée sur l'asphalte d'une route varoise — Var 83" width="1100"
+                            height="1100" loading="lazy" decoding="async" />
+                    </div>
 
                     <h2>Le Var luxe — agences immobilières, conciergeries et brokers yacht</h2>
                     <p>
@@ -861,6 +920,17 @@
             </div>
         </section>
 
+        <!-- ═══ RESPIRATION ═══ -->
+        <section class="breath">
+            <div class="breath-inner">
+                <span class="breath-mark" aria-hidden="true"></span>
+                <p class="breath-line">D'une commune à l'autre, le marché n'est jamais le même.
+                    <em>Le site non plus.</em>
+                </p>
+                <span class="breath-sign">Sud Web Project — Var 83</span>
+            </div>
+        </section>
+
         <!-- ═══ SERVICES TRANSVERSAUX ═══ -->
         <section class="var-services" aria-labelledby="services-title">
             <div class="container">
@@ -872,91 +942,106 @@
                                 web dans le Var.</em></span>
                     </h2>
                 </div>
+
+                <div class="ville-chiffres-grid" style="margin-top:3rem;">
+                    <div class="ville-chiffre-card gsap-fade-up">
+                        <span class="chiffre-num">4–5j</span>
+                        <span class="chiffre-label">Délai site essentiel</span>
+                    </div>
+                    <div class="ville-chiffre-card gsap-fade-up">
+                        <span class="chiffre-num">90+</span>
+                        <span class="chiffre-label">Score PageSpeed</span>
+                    </div>
+                    <div class="ville-chiffre-card gsap-fade-up">
+                        <span class="chiffre-num">4–8 sem.</span>
+                        <span class="chiffre-label">Premiers résultats Google</span>
+                    </div>
+                    <div class="ville-chiffre-card gsap-fade-up">
+                        <span class="chiffre-num">0€</span>
+                        <span class="chiffre-label">Devis gratuit sans engagement</span>
+                    </div>
+                </div>
+
                 <div class="var-services-grid">
                     <a href="/#tarifs" class="var-service-card gsap-fade-up">
-                        <span class="var-service-icon">🛠️</span>
                         <h3>Création site internet Var</h3>
-                        <p>Site vitrine sur mesure, 100% code à la main. 3 à 7 pages, SEO local Var, Performances
+                        <p>Site vitrine sur mesure, 100% code à la main. 3 à 7 pages, SEO local Var, performances
                             optimisées. À partir de 600€.</p>
-                        <span class="var-service-link">Voir les tarifs →</span>
+                        <span class="var-service-link">Voir les tarifs</span>
                     </a>
                     <a href="refonte-site-internet.html" class="var-service-card gsap-fade-up">
-                        <span class="var-service-icon">🔄</span>
                         <h3>Refonte site internet Var</h3>
                         <p>Votre site est lent, vieilli ou mal référencé ? Refonte complète — nouveau code, nouveau
-                            design, nouvelles performances. Score rapidité optimisée 90+.</p>
-                        <span class="var-service-link">Découvrir la refonte →</span>
+                            design, nouvelles performances. Score PageSpeed visé 90+.</p>
+                        <span class="var-service-link">Découvrir la refonte</span>
                     </a>
                     <a href="maintenance.html" class="var-service-card gsap-fade-up">
-                        <span class="var-service-icon">🛡️</span>
                         <h3>Maintenance site internet Var</h3>
                         <p>Votre site reste rapide, sécurisé et à jour. Forfaits mensuels à partir de 60€ —
                             modifications, sauvegardes, mises à jour sécurité.</p>
-                        <span class="var-service-link">Voir les forfaits maintenance →</span>
+                        <span class="var-service-link">Voir les forfaits maintenance</span>
                     </a>
                 </div>
             </div>
         </section>
 
-        <!-- ═══ MAILLAGE PILLS COMPLET ═══ -->
+        <!-- ═══ MAILLAGE COMPLET ═══ -->
         <section class="var-maillage" aria-label="Maillage complet — toutes les pages du Var">
             <div class="var-maillage-inner">
 
-                <h2>Toutes les villes — Golfe de Saint-Tropez & Var</h2>
+                <h2>Toutes les villes — Golfe de Saint-Tropez &amp; Var</h2>
                 <div class="var-liens-grid">
-                    <a href="creation-site-internet-saint-tropez.html" class="var-lien-pill">⚓ Saint-Tropez</a>
-                    <a href="creation-site-internet-cogolin.html" class="var-lien-pill">🏭 Cogolin</a>
-                    <a href="creation-site-internet-grimaud.html" class="var-lien-pill">🏰 Grimaud & Port Grimaud</a>
-                    <a href="creation-site-internet-ramatuelle.html" class="var-lien-pill">🌿 Ramatuelle &
+                    <a href="creation-site-internet-saint-tropez.html" class="var-lien-pill">Saint-Tropez</a>
+                    <a href="creation-site-internet-cogolin.html" class="var-lien-pill">Cogolin</a>
+                    <a href="creation-site-internet-grimaud.html" class="var-lien-pill">Grimaud &amp; Port Grimaud</a>
+                    <a href="creation-site-internet-ramatuelle.html" class="var-lien-pill">Ramatuelle &amp;
                         Pampelonne</a>
-                    <a href="creation-site-internet-gassin.html" class="var-lien-pill">🏔️ Gassin</a>
-                    <a href="creation-site-internet-cavalaire.html" class="var-lien-pill">🏖️ Cavalaire-sur-Mer</a>
-                    <a href="creation-site-internet-sainte-maxime.html" class="var-lien-pill">🌊 Sainte-Maxime</a>
-                    <a href="creation-site-internet-frejus.html" class="var-lien-pill">🏛️ Fréjus</a>
-                    <a href="creation-site-internet-saint-raphael.html" class="var-lien-pill">⛵ Saint-Raphaël</a>
-                    <a href="creation-site-internet-toulon.html" class="var-lien-pill">🏙️ Toulon</a>
+                    <a href="creation-site-internet-gassin.html" class="var-lien-pill">Gassin</a>
+                    <a href="creation-site-internet-cavalaire.html" class="var-lien-pill">Cavalaire-sur-Mer</a>
+                    <a href="creation-site-internet-sainte-maxime.html" class="var-lien-pill">Sainte-Maxime</a>
+                    <a href="creation-site-internet-frejus.html" class="var-lien-pill">Fréjus</a>
+                    <a href="creation-site-internet-saint-raphael.html" class="var-lien-pill">Saint-Raphaël</a>
+                    <a href="creation-site-internet-toulon.html" class="var-lien-pill">Toulon</a>
                 </div>
 
                 <h2>Secteurs d'activité — création site internet Var</h2>
                 <div class="var-liens-grid">
-                    <a href="electricien-var.html" class="var-lien-pill">🔌 Électricien Var</a>
-                    <a href="creation-site-internet-serrurier.html" class="var-lien-pill">🔐 Serrurier Var</a>
-                    <a href="creation-site-internet-restaurant.html" class="var-lien-pill">🍽️ Restaurant Var</a>
-                    <a href="creation-site-internet-coiffeur.html" class="var-lien-pill">✂️ Coiffeur Var</a>
-                    <a href="creation-site-internet-agence-immobiliere.html" class="var-lien-pill">🏡 Agence immo
-                        Var</a>
-                    <a href="creation-site-internet-location-yacht.html" class="var-lien-pill">🛥️ Location yacht
-                        Var</a>
+                    <a href="electricien-var.html" class="var-lien-pill">Électricien Var</a>
+                    <a href="creation-site-internet-serrurier.html" class="var-lien-pill">Serrurier Var</a>
+                    <a href="creation-site-internet-restaurant.html" class="var-lien-pill">Restaurant Var</a>
+                    <a href="creation-site-internet-coiffeur.html" class="var-lien-pill">Coiffeur Var</a>
+                    <a href="creation-site-internet-agence-immobiliere.html" class="var-lien-pill">Agence immo Var</a>
+                    <a href="creation-site-internet-location-yacht.html" class="var-lien-pill">Location yacht Var</a>
                 </div>
 
                 <h2>Pages villes × métiers — SEO longue traîne</h2>
                 <div class="var-liens-grid">
-                    <a href="site-internet-agence-immobiliere-saint-tropez.html" class="var-lien-pill">🏡 Agence immo
+                    <a href="site-internet-agence-immobiliere-saint-tropez.html" class="var-lien-pill">Agence immo
                         Saint-Tropez</a>
-                    <a href="site-internet-agence-immobiliere-sainte-maxime.html" class="var-lien-pill">🏡 Agence immo
+                    <a href="site-internet-agence-immobiliere-sainte-maxime.html" class="var-lien-pill">Agence immo
                         Sainte-Maxime</a>
-                    <a href="site-internet-agence-immobiliere-grimaud.html" class="var-lien-pill">🏡 Agence immo
+                    <a href="site-internet-agence-immobiliere-grimaud.html" class="var-lien-pill">Agence immo
                         Grimaud</a>
-                    <a href="site-internet-restaurant-saint-tropez.html" class="var-lien-pill">🍽️ Restaurant
+                    <a href="site-internet-restaurant-saint-tropez.html" class="var-lien-pill">Restaurant
                         Saint-Tropez</a>
-                    <a href="site-internet-restaurant-sainte-maxime.html" class="var-lien-pill">🍽️ Restaurant
+                    <a href="site-internet-restaurant-sainte-maxime.html" class="var-lien-pill">Restaurant
                         Sainte-Maxime</a>
-                    <a href="site-internet-broker-yacht-saint-tropez.html" class="var-lien-pill">🛥️ Broker Yacht
+                    <a href="site-internet-broker-yacht-saint-tropez.html" class="var-lien-pill">Broker Yacht
                         Saint-Tropez</a>
-                    <a href="site-internet-conciergerie-saint-tropez.html" class="var-lien-pill">🏨 Conciergerie
+                    <a href="site-internet-conciergerie-saint-tropez.html" class="var-lien-pill">Conciergerie
                         Saint-Tropez</a>
-                    <a href="creation-site-internet-electricien-cogolin.html" class="var-lien-pill">🔌 Électricien
+                    <a href="creation-site-internet-electricien-cogolin.html" class="var-lien-pill">Électricien
                         Cogolin</a>
                 </div>
 
-                <h2>Services & réalisations</h2>
+                <h2>Services &amp; réalisations</h2>
                 <div class="var-liens-grid">
-                    <a href="refonte-site-internet.html" class="var-lien-pill">🔄 Refonte site internet Var</a>
-                    <a href="maintenance.html" class="var-lien-pill">🛡️ Maintenance site internet Var</a>
-                    <a href="/#portfolio" class="var-lien-pill">🖼️ Portfolio réalisations</a>
-                    <a href="etude-cas-electricien.html" class="var-lien-pill">📊 Étude de cas électricien</a>
-                    <a href="etude-cas-coiffeur.html" class="var-lien-pill">📊 Étude de cas coiffeur</a>
-                    <a href="etude-cas-restaurant.html" class="var-lien-pill">📊 Étude de cas restaurant</a>
+                    <a href="refonte-site-internet.html" class="var-lien-pill">Refonte site internet Var</a>
+                    <a href="maintenance.html" class="var-lien-pill">Maintenance site internet Var</a>
+                    <a href="/#portfolio" class="var-lien-pill">Portfolio réalisations</a>
+                    <a href="etude-cas-electricien.html" class="var-lien-pill">Étude de cas électricien</a>
+                    <a href="etude-cas-coiffeur.html" class="var-lien-pill">Étude de cas coiffeur</a>
+                    <a href="etude-cas-restaurant.html" class="var-lien-pill">Étude de cas restaurant</a>
                 </div>
             </div>
         </section>
@@ -974,40 +1059,40 @@
                 </div>
                 <div class="ville-pourquoi-grid">
                     <div class="ville-pourquoi-card gsap-fade-up">
-                        <div class="ville-pourquoi-icon">📍</div>
+                        <div class="ville-pourquoi-icon" aria-hidden="true"></div>
                         <h3>Ancré dans le Var — je connais votre marché</h3>
                         <p>Basé à Saint-Tropez, je connais la saisonnalité du Golfe, les spécificités économiques de
                             chaque ville et le comportement des clients locaux. Je me déplace chez vous pour les grands
                             projets.</p>
                     </div>
                     <div class="ville-pourquoi-card gsap-fade-up">
-                        <div class="ville-pourquoi-icon">⚡</div>
+                        <div class="ville-pourquoi-icon" aria-hidden="true"></div>
                         <h3>Performances optimisées — zéro WordPress</h3>
                         <p>Zéro template, code 100% à la main. Vos concurrents ont des sites WordPress lents. Le vôtre
                             chargera en moins d'une seconde. Google récompense la vitesse.</p>
                     </div>
                     <div class="ville-pourquoi-card gsap-fade-up">
-                        <div class="ville-pourquoi-icon">🎯</div>
+                        <div class="ville-pourquoi-icon" aria-hidden="true"></div>
                         <h3>SEO local Var — dès la mise en ligne</h3>
                         <p>H1 géolocalisé, Schema.org LocalBusiness, Google Business Profile configuré. Vous apparaissez
                             sur les requêtes locales de votre ville et votre secteur en 4 à 8 semaines.</p>
                     </div>
                     <div class="ville-pourquoi-card gsap-fade-up">
-                        <div class="ville-pourquoi-icon">🤝</div>
+                        <div class="ville-pourquoi-icon" aria-hidden="true"></div>
                         <h3>Un seul interlocuteur — réponse sous 24h</h3>
                         <p>Pas d'agence, pas de commercial, pas de sous-traitant. Vous parlez directement avec moi.
                             Devis clair sous 24h, suivi personnalisé de A à Z.</p>
                     </div>
                     <div class="ville-pourquoi-card gsap-fade-up">
-                        <div class="ville-pourquoi-icon">🔄</div>
-                        <h3>Refonte & maintenance disponibles</h3>
+                        <div class="ville-pourquoi-icon" aria-hidden="true"></div>
+                        <h3>Refonte &amp; maintenance disponibles</h3>
                         <p>Votre site existe déjà ? Je le <a href="refonte-site-internet.html"
                                 style="color:var(--blue-l);">refonds entièrement</a>. Je propose aussi la <a
                                 href="maintenance.html" style="color:var(--blue-l);">maintenance mensuelle</a> à partir
                             de 60€/mois.</p>
                     </div>
                     <div class="ville-pourquoi-card gsap-fade-up">
-                        <div class="ville-pourquoi-icon">✅</div>
+                        <div class="ville-pourquoi-icon" aria-hidden="true"></div>
                         <h3>Propriétaire à 100% — aucun abonnement</h3>
                         <p>Code, contenu, domaine — tout vous appartient. Aucun enfermement dans une plateforme, aucun
                             abonnement mensuel obligatoire.</p>
@@ -1016,42 +1101,14 @@
             </div>
         </section>
 
-        <!-- ═══ PROCESS ═══ -->
-        <section class="ville-process" aria-labelledby="process-title">
-            <div class="container">
-                <div class="section-head">
-                    <div class="section-label">Méthode de travail</div>
-                    <h2 class="section-title" id="process-title">
-                        De votre projet à votre premier client Google —<br>
-                        <em style="font-style:italic;color:var(--blue-l);">comment ça marche.</em>
-                    </h2>
-                </div>
-                <div class="process-steps-grid">
-                    <div class="process-item gsap-fade-up">
-                        <div class="process-num-circle">01</div>
-                        <h3>Échange & devis sous 24h</h3>
-                        <p>On discute de votre activité dans le Var, votre zone, votre clientèle. Devis clair et
-                            détaillé sous 24h. Gratuit, sans engagement.</p>
-                    </div>
-                    <div class="process-item gsap-fade-up">
-                        <div class="process-num-circle">02</div>
-                        <h3>Maquette & validation</h3>
-                        <p>Direction artistique adaptée à votre secteur et votre clientèle varoise. Vous validez avant
-                            tout développement. Aucune surprise.</p>
-                    </div>
-                    <div class="process-item gsap-fade-up">
-                        <div class="process-num-circle">03</div>
-                        <h3>Développement & SEO local Var</h3>
-                        <p>Code à la main, optimisé pour votre ville dans le Var. Tests mobile, vitesse, accessibilité.
-                            rapidité optimisée.</p>
-                    </div>
-                    <div class="process-item gsap-fade-up">
-                        <div class="process-num-circle">04</div>
-                        <h3>Mise en ligne & premiers résultats</h3>
-                        <p>Lancement, Google Search Console, Google Business Profile. Premiers contacts Google en 4 à 8
-                            semaines. Maintenance optionnelle.</p>
-                    </div>
-                </div>
+        <!-- ═══ RESPIRATION ═══ -->
+        <section class="breath">
+            <div class="breath-inner">
+                <span class="breath-mark" aria-hidden="true"></span>
+                <p class="breath-line">Un million d'habitants.
+                    <em>Et une seule personne qui décroche.</em>
+                </p>
+                <span class="breath-sign">Sud Web Project — Var 83</span>
             </div>
         </section>
 
@@ -1073,7 +1130,7 @@
                 <div class="price-grid">
                     <article class="price-card gsap-fade-up">
                         <div class="price-head">
-                            <span class="price-icon" aria-hidden="true">🌐</span>
+                            <span class="price-icon" aria-hidden="true"></span>
                             <h3>Web Essentiel</h3>
                             <div class="price-val"><span class="price-from">À partir de</span><span
                                     class="price-num">600€</span></div>
@@ -1085,12 +1142,12 @@
                             <li>✓ SEO local Var intégré</li>
                             <li>✓ Propriété 100% à vous</li>
                         </ul>
-                        <a href="/#contact" class="btn-outline">Devis gratuit →</a>
+                        <a href="/#contact" class="btn-outline">Devis gratuit</a>
                     </article>
                     <article class="price-card price-feat gsap-fade-up">
-                        <div class="price-top-badge">⭐ Le plus populaire dans le Var</div>
+                        <div class="price-top-badge">Le plus populaire dans le Var</div>
                         <div class="price-head">
-                            <span class="price-icon" aria-hidden="true">🛍️</span>
+                            <span class="price-icon" aria-hidden="true"></span>
                             <h3>Web Premium</h3>
                             <div class="price-val"><span class="price-from">À partir de</span><span class="price-num">1
                                     300€</span></div>
@@ -1103,11 +1160,11 @@
                             <li>✓ Google Business Profile optimisé</li>
                             <li>✓ Propriété 100% à vous</li>
                         </ul>
-                        <a href="/#contact" class="btn-primary">Devis gratuit →</a>
+                        <a href="/#contact" class="btn-primary">Devis gratuit</a>
                     </article>
                     <article class="price-card gsap-fade-up">
                         <div class="price-head">
-                            <span class="price-icon" aria-hidden="true">👑</span>
+                            <span class="price-icon" aria-hidden="true"></span>
                             <h3>Web Ultra</h3>
                             <div class="price-val"><span class="price-from">Tarif</span><span class="price-num"
                                     style="font-size:1.6rem;">Sur devis</span></div>
@@ -1118,51 +1175,9 @@
                             <li>✓ Galerie immersive</li>
                             <li>✓ SEO avancé multipage</li>
                             <li>✓ Réservation / e-commerce</li>
-                            <li>✓ Idéal luxe & prestige Var</li>
+                            <li>✓ Idéal luxe &amp; prestige Var</li>
                         </ul>
-                        <a href="/#contact" class="btn-outline">Devis gratuit →</a>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══ TÉMOIGNAGES ═══ -->
-        <section class="testi" aria-labelledby="testi-title">
-            <div class="container">
-                <div class="section-head">
-                    <div class="section-label">Ils m'ont fait confiance</div>
-                    <h2 class="section-title" id="testi-title">
-                        <span class="split-reveal">Ce qu'ils en disent.</span>
-                    </h2>
-                </div>
-                <div class="testi-grid">
-                    <article class="testi-card gsap-fade-up">
-                        <div class="testi-stars" aria-label="5 étoiles sur 5">★★★★★</div>
-                        <p>«&nbsp;Très satisfait du travail réalisé pour mon site internet de photographe.
-                            Professionnel, réactif et à l'écoute. Si vous cherchez un développeur web dans le Var, je
-                            recommande sans hésiter.&nbsp;»</p>
-                        <div class="testi-auth">
-                            <span class="testi-av" aria-hidden="true">📸</span>
-                            <div><strong>Servane Roy Berton</strong><span>Photographe · Avis Google ⭐</span></div>
-                        </div>
-                    </article>
-                    <article class="testi-card gsap-fade-up">
-                        <div class="testi-stars" aria-label="5 étoiles sur 5">★★★★★</div>
-                        <p>«&nbsp;Très bon accompagnement, conseils clairs et travail de qualité. Je recommande
-                            fortement pour toute création de site web dans le Var.&nbsp;»</p>
-                        <div class="testi-auth">
-                            <span class="testi-av" aria-hidden="true">💼</span>
-                            <div><strong>Clement Dolphens</strong><span>Avis Google ⭐ · Var</span></div>
-                        </div>
-                    </article>
-                    <article class="testi-card gsap-fade-up">
-                        <div class="testi-stars" aria-label="5 étoiles sur 5">★★★★★</div>
-                        <p>«&nbsp;Super expérience avec Sud Web Project. Mon site a été créé rapidement et correspond
-                            parfaitement à mes attentes. Un excellent développeur web, sérieux et compétent.&nbsp;»</p>
-                        <div class="testi-auth">
-                            <span class="testi-av" aria-hidden="true">🌟</span>
-                            <div><strong>Heloise Berton</strong><span>Avis Google ⭐ · Saint-Tropez</span></div>
-                        </div>
+                        <a href="/#contact" class="btn-outline">Devis gratuit</a>
                     </article>
                 </div>
             </div>
@@ -1194,9 +1209,9 @@
                             <span class="faq-toggle">+</span>
                         </summary>
                         <p>Un développeur web local qui code à la main — pas une agence généraliste qui utilise
-                            WordPress. Le code sur mesure garantit des performances maximales (Performances optimisées),
-                            un SEO local optimisé pour votre ville du Var, et un résultat unique. Basé à Saint-Tropez,
-                            je connais le marché varois et me déplace chez vous.</p>
+                            WordPress. Le code sur mesure garantit des performances maximales, un SEO local optimisé
+                            pour votre ville du Var, et un résultat unique. Basé à Saint-Tropez, je connais le marché
+                            varois et me déplace chez vous.</p>
                     </details>
                     <details class="ville-faq-item gsap-fade-up">
                         <summary>
@@ -1252,13 +1267,13 @@
                     yacht. Devis gratuit sous 24h, maquette avant de commencer.</p>
                 <div class="ville-cta-actions">
                     <a href="/#contact" class="btn-hero">
-                        Obtenir mon devis gratuit →
+                        Obtenir mon devis gratuit
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
                             <path d="M3.75 9h10.5M9.75 4.5L14.25 9l-4.5 4.5" stroke="currentColor" stroke-width="1.5"
                                 stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </a>
-                    <a href="tel:+33611547324" class="btn-ghost-hero">📞 +33 6 11 54 73 24</a>
+                    <a href="tel:+33611547324" class="btn-ghost-hero">+33 6 11 54 73 24</a>
                 </div>
                 <p class="ville-seo-text">Développeur web Var 83 · Création site internet Var · Agence web Var · Site
                     internet restaurant Var · Agence immobilière Var web · Refonte site internet Var · Maintenance site
@@ -1297,7 +1312,7 @@
                     <ul>
                         <li><a href="creation-site-internet-saint-tropez.html">Saint-Tropez</a></li>
                         <li><a href="creation-site-internet-cogolin.html">Cogolin</a></li>
-                        <li><a href="creation-site-internet-grimaud.html">Grimaud & Port Grimaud</a></li>
+                        <li><a href="creation-site-internet-grimaud.html">Grimaud &amp; Port Grimaud</a></li>
                         <li><a href="creation-site-internet-ramatuelle.html">Ramatuelle</a></li>
                         <li><a href="creation-site-internet-gassin.html">Gassin</a></li>
                         <li><a href="creation-site-internet-cavalaire.html">Cavalaire</a></li>
@@ -1308,7 +1323,7 @@
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h3>Pages métiers & villes×métiers</h3>
+                    <h3>Pages métiers &amp; villes×métiers</h3>
                     <ul>
                         <li><a href="electricien-var.html">Électricien Var</a></li>
                         <li><a href="creation-site-internet-restaurant.html">Restaurant Var</a></li>
@@ -1362,10 +1377,14 @@
                     <a href="mentions-legales.html#confidentialite">Confidentialité</a>
                     <span aria-hidden="true">·</span>
                     <a href="mentions-legales.html#cgv">CGV</a>
+                    <span aria-hidden="true">·</span>
                     <a href="cookies.html">Cookies</a>
                 </div>
             </div>
         </div>
+
+        <span class="footer-mark" aria-hidden="true">Sud<em>Web</em> Project</span>
+
         <div class="footer-seo">
             <p>Développeur web Var 83 · Création site internet Var · Site internet restaurant Var · Agence immobilière
                 Var web · Broker yacht Saint-Tropez · Conciergerie Saint-Tropez web ·
@@ -1387,10 +1406,29 @@
         </button>
     </footer>
 
+    <!-- ═══ LIBRAIRIES ═══ -->
+    <script src="js/vendor/gsap.min.js" defer></script>
+    <script src="js/vendor/ScrollTrigger.min.js" defer></script>
+    <script src="js/vendor/lenis.min.js" defer></script>
+
+    <!-- motion.js pose les valeurs GSAP par défaut : avant tout le reste -->
+    <script src="js/motion.js" defer></script>
+
+    <!-- ═══ SCRIPTS DU SITE ═══ -->
     <script src="js/global.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+    <script src="js/lux.js" defer></script>
+    <script src="js/metiers.js" defer></script>
+    <script src="js/refonte.js" defer></script>
+    <script src="js/footer.js" defer></script>
     <script src="js/ville-animations.js" defer></script>
+    <!-- ville-hero.js reprend la main sur le hero : après ville-animations.js -->
+    <script src="js/ville-hero.js" defer></script>
+    <!-- ville-lux.js : la grammaire de l'accueil sur tous les autres blocs -->
+    <script src="js/ville-lux.js" defer></script>
+    <script src="js/breath.js" defer></script>
+    <!-- titles.js reprend la main sur les titres : toujours en dernier -->
+    <script src="js/titles.js" defer></script>
+
     <script>
         window.addEventListener('load', function () {
             var ric = window.requestIdleCallback || function (cb) { setTimeout(cb, 200); };
@@ -1400,12 +1438,15 @@
         });
     </script>
 
-    <div class="cookie-banner" role="dialog" aria-label="Cookies"
-        style="display:none;opacity:0;transform:translateX(-50%) translateY(20px);">
-        <p>Ce site utilise des cookies analytiques anonymisés. <a href="cookies.html">En savoir plus</a></p>
-        <div>
-            <button id="cookie-refuse">Refuser</button>
-            <button id="cookie-accept">Accepter</button>
+    <div class="cookie-banner" role="dialog" aria-label="Consentement cookies" aria-live="polite">
+        <div class="cookie-inner">
+            <p>Ce site utilise des cookies analytiques anonymisés pour mesurer l'audience.
+                <a href="cookies.html">En savoir plus</a>
+            </p>
+            <div class="cookie-btns">
+                <button id="cookie-refuse" class="cookie-btn cookie-btn-refuse">Refuser</button>
+                <button id="cookie-accept" class="cookie-btn cookie-btn-accept">Accepter</button>
+            </div>
         </div>
     </div>
 

@@ -48,85 +48,38 @@
         href="https://www.sudwebproject.com/creation-site-internet-cogolin.html" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
-    <!-- Preload font -->
-    <link rel="preload" href="assets/fonts/playfair-display-v40-latin-900.woff2" as="font" type="font/woff2"
+    <!-- Preload LCP -->
+    <link rel="preload" as="image" media="(min-width: 769px)" href="assets/images/ville-cogolin-1280.webp"
+        type="image/webp" fetchpriority="high"
+        imagesrcset="assets/images/ville-cogolin-640.webp 640w, assets/images/ville-cogolin-960.webp 960w, assets/images/ville-cogolin-1280.webp 1280w, assets/images/ville-cogolin-1535.webp 1535w"
+        imagesizes="100vw" />
+    <link rel="preload" href="assets/fonts/instrument-serif-v5-latin-regular.woff2" as="font" type="font/woff2"
         crossorigin />
 
-    <!-- CSS -->
+    <!-- CSS — l'ordre compte : ville-hero.css ferme la pile -->
     <link rel="stylesheet" href="css/global.css" />
     <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="css/ville.css" />
     <link rel="stylesheet" href="css/cookies.css" media="print" onload="this.media='all'" />
-    <link rel="stylesheet" href="css/fonts-local.css" media="print" onload="this.media='all'" />
+    <link rel="stylesheet" href="css/fonts-local.css" />
+    <link rel="stylesheet" href="css/motion.css" />
+    <link rel="stylesheet" href="css/depth.css" />
+    <link rel="stylesheet" href="css/metiers.css" />
+    <link rel="stylesheet" href="css/refonte.css" />
+    <link rel="stylesheet" href="css/type.css" />
+    <link rel="stylesheet" href="css/refine.css" />
+    <link rel="stylesheet" href="css/space.css" />
+    <link rel="stylesheet" href="css/breath.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/ville-hero.css" />
+    <link rel="stylesheet" href="css/ville-lux.css" />
 
     <style>
         html {
             scroll-padding-top: 72px;
         }
 
-        /* ── PHOTOS ── */
-        .cog-photo-hero {
-            position: relative;
-            border-radius: var(--r);
-            overflow: hidden;
-            aspect-ratio: 16/7;
-            background: var(--glass-2);
-            border: 1px solid var(--border);
-            margin: 3rem 0;
-        }
-
-        .cog-photo-hero img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 8s ease;
-        }
-
-        .cog-photo-hero:hover img {
-            transform: scale(1.03);
-        }
-
-        .cog-photo-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(8, 12, 20, .85), transparent);
-            padding: 1.5rem 1rem .75rem;
-            font-size: .75rem;
-            color: var(--mist);
-            font-weight: 500;
-        }
-
-        .cog-photo-duo {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin: 3rem 0;
-        }
-
-        .cog-photo-item {
-            position: relative;
-            border-radius: var(--r);
-            overflow: hidden;
-            aspect-ratio: 4/3;
-            background: var(--glass-2);
-            border: 1px solid var(--border);
-        }
-
-        .cog-photo-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 5s ease;
-        }
-
-        .cog-photo-item:hover img {
-            transform: scale(1.05);
-        }
-
+        /* ── PHOTOS — identique au gabarit Saint-Tropez ── */
         .photo-placeholder {
             position: absolute;
             inset: 0;
@@ -141,10 +94,66 @@
             padding: 1rem;
         }
 
+        .st-photo-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(5, 8, 15, .88), transparent);
+            padding: 1.5rem 1rem .75rem;
+            font-size: .72rem;
+            letter-spacing: .04em;
+            color: var(--mist);
+            font-weight: 500;
+        }
+
+        .st-photo-hero {
+            position: relative;
+            border-radius: var(--r);
+            overflow: hidden;
+            aspect-ratio: 21/9;
+            border: 1px solid var(--border);
+            margin: 3rem 0;
+        }
+
+        .st-photo-hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 8s ease;
+        }
+
+        .st-photo-hero:hover img {
+            transform: scale(1.03);
+        }
+
+        /* ── PLANCHE CARRÉE dans la prose ── */
+        .cog-planche {
+            position: relative;
+            border-radius: var(--r);
+            overflow: hidden;
+            aspect-ratio: 1/1;
+            border: 1px solid var(--border);
+            max-width: 560px;
+            margin: 4rem auto;
+        }
+
+        .cog-planche img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 6s ease;
+        }
+
+        .cog-planche:hover img {
+            transform: scale(1.04);
+        }
+
         /* ── SEO PROSE ── */
         .seo-prose {
             padding: 7rem 2rem;
-            background: var(--ink);
         }
 
         .seo-prose-inner {
@@ -153,12 +162,7 @@
         }
 
         .seo-prose h2 {
-            font-family: var(--ff-display);
-            font-size: clamp(1.5rem, 2.5vw, 2rem);
-            font-weight: 700;
-            color: #E2E8F0;
             margin: 2.5rem 0 .85rem;
-            line-height: 1.25;
         }
 
         .seo-prose h2:first-child {
@@ -186,30 +190,27 @@
             border-color: var(--blue-l);
         }
 
-        /* ── MÉTIERS — hub lignes ── */
-        .cog-metiers {
+        /* ── MÉTIERS — identique au gabarit ── */
+        .st-metiers-premium {
             padding: 8rem 2rem;
-            background: var(--ink-2);
         }
 
-        .cog-metier-row {
+        .st-metier-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
             border: 1px solid var(--border);
             border-radius: var(--r);
             overflow: hidden;
             margin-bottom: 1rem;
-            transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+            transition: border-color var(--dur) var(--ease);
         }
 
-        .cog-metier-row:hover {
+        .st-metier-row:hover {
             border-color: var(--border-h);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, .3);
         }
 
-        .cog-metier-main {
+        .st-metier-main {
             padding: 2rem 2.25rem;
-            background: var(--glass-2);
             display: flex;
             flex-direction: column;
             gap: .5rem;
@@ -217,57 +218,46 @@
             overflow: hidden;
         }
 
-        .cog-metier-main::before {
+        .st-metier-main::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--blue), transparent);
+            height: 1px;
+            background: linear-gradient(90deg, var(--blue-l), transparent);
             transform: scaleX(0);
             transform-origin: left;
             transition: transform .5s var(--ease);
         }
 
-        .cog-metier-row:hover .cog-metier-main::before {
+        .st-metier-row:hover .st-metier-main::before {
             transform: scaleX(1);
         }
 
-        .cog-metier-icon {
-            font-size: 1.75rem;
-            display: block;
-            margin-bottom: .25rem;
-            filter: drop-shadow(0 0 10px rgba(59, 130, 246, .4));
-        }
-
-        .cog-metier-main h3 {
-            font-family: var(--ff-display);
-            font-size: 1.15rem;
-            font-weight: 700;
+        .st-metier-main h3 {
             margin: 0;
         }
 
-        .cog-metier-main h3 a {
-            color: #fff;
+        .st-metier-main h3 a {
+            color: #E9EEF6;
             text-decoration: none;
             transition: color var(--dur) var(--ease);
         }
 
-        .cog-metier-main h3 a:hover {
+        .st-metier-main h3 a:hover {
             color: var(--blue-l);
         }
 
-        .cog-metier-main p {
+        .st-metier-main p {
             font-size: .875rem;
             color: var(--mist);
-            line-height: 1.65;
+            line-height: 1.7;
             margin: 0;
         }
 
-        .cog-metier-links {
+        .st-metier-links {
             padding: 2rem 2.25rem;
-            background: var(--glass);
             border-left: 1px solid var(--border);
             display: flex;
             flex-direction: column;
@@ -275,7 +265,7 @@
             gap: .65rem;
         }
 
-        .cog-metier-links a {
+        .st-metier-links a {
             font-size: .82rem;
             color: var(--blue-l);
             text-decoration: none;
@@ -285,33 +275,31 @@
             transition: color var(--dur) var(--ease), gap .25s var(--ease);
         }
 
-        .cog-metier-links a::before {
+        .st-metier-links a::before {
             content: '→';
             font-size: .75rem;
             flex-shrink: 0;
         }
 
-        .cog-metier-links a:hover {
+        .st-metier-links a:hover {
             color: #fff;
             gap: .65rem;
         }
 
-        /* ── SERVICES COMPLÉMENTAIRES ── */
-        .cog-services {
+        /* ── SERVICES COMPLÉMENTAIRES — identique au gabarit ── */
+        .st-services {
             padding: 6rem 2rem;
-            background: var(--ink);
             border-top: 1px solid var(--border);
         }
 
-        .cog-services-grid {
+        .st-services-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 1.5rem;
             margin-top: 2.5rem;
         }
 
-        .cog-service-card {
-            background: var(--glass-2);
+        .st-service-card {
             border: 1px solid var(--border);
             border-radius: var(--r);
             padding: 2rem 1.75rem;
@@ -320,74 +308,59 @@
             transition: all var(--dur) var(--ease);
         }
 
-        .cog-service-card:hover {
+        .st-service-card:hover {
             border-color: var(--border-h);
             transform: translateY(-4px);
-            box-shadow: 0 16px 40px rgba(0, 0, 0, .35);
         }
 
-        .cog-service-card-icon {
-            font-size: 2rem;
-            display: block;
-            margin-bottom: 1rem;
-        }
-
-        .cog-service-card h3 {
-            font-family: var(--ff-display);
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: #fff;
+        .st-service-card h3 {
             margin-bottom: .6rem;
         }
 
-        .cog-service-card p {
+        .st-service-card p {
             font-size: .875rem;
             color: var(--mist);
-            line-height: 1.7;
+            line-height: 1.75;
             margin-bottom: 1rem;
         }
 
-        .cog-service-card-link {
-            font-size: .82rem;
-            font-weight: 700;
+        .st-service-card-link {
+            font-size: .8rem;
+            font-weight: 600;
             color: var(--blue-l);
         }
 
-        /* ── STATS COGOLIN ── */
-        .cog-intro-section {
+        /* ── RÉALISATIONS — identique au gabarit ── */
+        .st-realisations {
             padding: 8rem 2rem;
-            background: var(--ink);
         }
 
-        /* ── RÉALISATIONS ── */
-        .cog-real-grid {
+        .st-real-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
+            margin-top: 3rem;
         }
 
-        .cog-real-card {
-            background: var(--glass-2);
+        .st-real-card {
             border: 1px solid var(--border);
             border-radius: var(--r);
             overflow: hidden;
             transition: all var(--dur) var(--ease);
         }
 
-        .cog-real-card:hover {
+        .st-real-card:hover {
             border-color: var(--border-h);
             transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, .4);
         }
 
-        .cog-real-img {
+        .st-real-img {
             position: relative;
             aspect-ratio: 16/9;
-            background: var(--glass);
             overflow: hidden;
         }
 
-        .cog-real-img img {
+        .st-real-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -395,73 +368,64 @@
             transition: transform 5s ease;
         }
 
-        .cog-real-card:hover .cog-real-img img {
+        .st-real-card:hover .st-real-img img {
             transform: scale(1.05);
         }
 
-        .cog-real-img .photo-placeholder {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: .5rem;
-            color: var(--mist-2);
-            font-size: .8rem;
-        }
-
-        .cog-real-body {
+        .st-real-body {
             padding: 1.75rem;
         }
 
-        .cog-real-tag {
-            font-size: .72rem;
-            font-weight: 700;
+        .st-real-tag {
+            font-size: .68rem;
+            font-weight: 600;
             color: var(--blue-l);
             text-transform: uppercase;
-            letter-spacing: .1em;
-            margin-bottom: .5rem;
+            letter-spacing: .16em;
+            margin-bottom: .65rem;
             display: block;
         }
 
-        .cog-real-body h3 {
-            font-family: var(--ff-display);
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #fff;
+        .st-real-body h3 {
             margin-bottom: .5rem;
-            line-height: 1.3;
         }
 
-        .cog-real-body p {
+        .st-real-body p {
             font-size: .875rem;
             color: var(--mist);
-            line-height: 1.6;
+            line-height: 1.7;
             margin-bottom: 1.25rem;
         }
 
         @media (max-width: 768px) {
-            .cog-photo-duo {
+
+            .st-real-grid,
+            .st-metier-row,
+            .st-services-grid {
                 grid-template-columns: 1fr;
             }
 
-            .cog-metier-row {
-                grid-template-columns: 1fr;
-            }
-
-            .cog-metier-links {
+            .st-metier-links {
                 border-left: none;
                 border-top: 1px solid var(--border);
                 justify-content: flex-start;
             }
 
-            .cog-services-grid {
-                grid-template-columns: 1fr;
+            .st-photo-hero {
+                aspect-ratio: 16/10;
+                margin: 2rem 0;
             }
 
-            .cog-real-grid {
-                grid-template-columns: 1fr;
+            .cog-planche {
+                margin: 3rem auto;
+            }
+
+            .seo-prose,
+            .st-metiers-premium,
+            .st-realisations,
+            .st-services {
+                padding-left: 1.35rem;
+                padding-right: 1.35rem;
             }
         }
     </style>
@@ -525,12 +489,21 @@
 
         <!-- ═══ HERO ═══ -->
         <section class="ville-hero" aria-labelledby="h1-cogolin">
-            <img class="ville-hero-img" src="assets/images/cogolin-golfe-saint-tropez.webp"
-                srcset="assets/images/cogolin-golfe-saint-tropez-mobile.webp 768w, assets/images/cogolin-golfe-saint-tropez.webp 1440w"
-                sizes="100vw" alt="Village de Cogolin — capitale artisanale du Golfe de Saint-Tropez, Var 83"
-                width="1440" height="960" fetchpriority="high" decoding="async" />
+            <img class="ville-hero-img" src="assets/images/ville-cogolin-1280.webp" srcset="assets/images/ville-cogolin-640.webp 640w,
+                        assets/images/ville-cogolin-960.webp 960w,
+                        assets/images/ville-cogolin-1280.webp 1280w,
+                        assets/images/ville-cogolin-1535.webp 1535w" sizes="100vw"
+                alt="Village de Cogolin au crépuscule, vu depuis la plaine de roseaux — Golfe de Saint-Tropez, Var 83"
+                width="1535" height="863" fetchpriority="high" decoding="async" />
             <div class="ville-hero-img-overlay"></div>
             <div class="ville-hero-bg"></div>
+
+            <span class="ville-mark" aria-hidden="true">Cogolin</span>
+
+            <div class="ville-coord" aria-hidden="true">
+                <span class="ville-coord-line"></span>
+                <span class="ville-coord-val">43.2506° N · 6.5328° E</span>
+            </div>
 
             <div class="container">
                 <div class="ville-hero-badge">
@@ -557,45 +530,25 @@
                                 stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </a>
-                    <a href="tel:+33611547324" class="btn-ghost-hero">📞 +33 6 11 54 73 24</a>
+                    <a href="tel:+33611547324" class="btn-ghost-hero">+33 6 11 54 73 24</a>
                 </div>
-
-                <div class="ville-hero-metrics">
-                    <div class="metric"><span class="metric-n">11 000</span><span class="metric-l">Habitants</span>
-                    </div>
-                    <div class="metric-sep" aria-hidden="true"></div>
-                    <div class="metric"><span class="metric-n">600€</span><span class="metric-l">À partir de</span>
-                    </div>
-                    <div class="metric-sep" aria-hidden="true"></div>
-                    <div class="metric"><span class="metric-n">100%</span><span class="metric-l">Code sur mesure</span>
-                    </div>
-                    <div class="metric-sep" aria-hidden="true"></div>
-                    <div class="metric"><span class="metric-n">24h</span><span class="metric-l">Réponse garantie</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ville-scroll-hint" aria-hidden="true">
-                <span>Scroll</span>
-                <div class="ville-scroll-line"></div>
             </div>
         </section>
 
         <!-- ═══ PHOTO PANORAMIQUE ═══ -->
-        <section style="padding:0 2rem;background:var(--ink-2);">
-            <div class="container">
-                <div class="cog-photo-hero">
-                    <img src="assets/images/cogolin-village-panoramique.webp"
-                        srcset="assets/images/cogolin-village-panoramique-mobile.webp 768w, assets/images/cogolin-village-panoramique.webp 1280w"
-                        sizes="100vw" alt="Vue panoramique de Cogolin — village et Golfe de Saint-Tropez, Var 83"
-                        width="1280" height="640" loading="lazy" decoding="async" />
-                    <div class="cog-photo-caption">Cogolin — capitale artisanale du Golfe de Saint-Tropez, Var 83</div>
-                </div>
+        <section class="st-band" aria-hidden="true">
+            <div class="st-photo-hero">
+                <img src="assets/images/cog-etabli-1400.webp" srcset="assets/images/cog-etabli-700.webp 700w,
+                            assets/images/cog-etabli-1000.webp 1000w,
+                            assets/images/cog-etabli-1400.webp 1400w" sizes="100vw"
+                    alt="Établi d'artisan et outils à main alignés au petit matin — Cogolin, Var 83" width="1400"
+                    height="600" loading="lazy" decoding="async" />
+                <div class="st-photo-caption">Cogolin — capitale artisanale du Golfe de Saint-Tropez, Var 83</div>
             </div>
         </section>
 
         <!-- ═══ INTRO ═══ -->
-        <section class="cog-intro-section" aria-labelledby="intro-title">
+        <section class="ville-intro-section" aria-labelledby="intro-title">
             <div class="container">
                 <div class="ville-intro-grid">
                     <div class="ville-intro-text">
@@ -623,16 +576,18 @@
                             concurrents prendre vos appels.
                         </blockquote>
                         <a href="/#contact" class="btn-primary" style="margin-top:1.5rem;display:inline-flex;">
-                            Discutons de votre projet →
+                            Discutons de votre projet
                         </a>
                     </div>
 
                     <div>
                         <div class="ville-intro-img-wrap">
-                            <img src="assets/images/cogolin-village.webp"
-                                alt="Village de Cogolin — ruelles et artisanat, Golfe de Saint-Tropez" width="600"
-                                height="450" loading="lazy" decoding="async" />
-                            <div class="ville-intro-img-label">📍 Cogolin, Var 83</div>
+                            <img src="assets/images/cog-fils-760.webp" srcset="assets/images/cog-fils-560.webp 560w,
+                                    assets/images/cog-fils-760.webp 760w,
+                                    assets/images/cog-fils-1000.webp 1000w" sizes="(max-width: 1100px) 100vw, 40vw"
+                                alt="Fils de chaîne tendus sur un métier à tisser — artisanat de Cogolin, Var 83"
+                                width="1000" height="1333" loading="lazy" decoding="async" />
+                            <div class="ville-intro-img-label">Cogolin, Var 83</div>
                         </div>
                         <div class="ville-chiffres-grid" style="margin-top:1.5rem;">
                             <div class="ville-chiffre-card gsap-fade-up">
@@ -657,8 +612,8 @@
             </div>
         </section>
 
-        <!-- ═══ MÉTIERS — hub avec maillage ciblé Cogolin ═══ -->
-        <section class="cog-metiers" aria-labelledby="metiers-title">
+        <!-- ═══ MÉTIERS ═══ -->
+        <section class="st-metiers-premium" aria-labelledby="metiers-title">
             <div class="container">
                 <div class="section-head">
                     <div class="section-label">Solutions par secteur — Cogolin</div>
@@ -672,75 +627,65 @@
                     </p>
                 </div>
 
-                <!-- Électricien — prioritaire à Cogolin -->
-                <div class="cog-metier-row gsap-fade-up">
-                    <div class="cog-metier-main">
-                        <span class="cog-metier-icon">🔌</span>
+                <div class="st-metier-row gsap-fade-up">
+                    <div class="st-metier-main">
                         <h3><a href="electricien-var.html">Électricien</a></h3>
                         <p>Bouton d'appel direct mobile, formulaire de devis, galerie chantiers. Référencé sur
                             "électricien Cogolin", "dépannage électrique Golfe Saint-Tropez". Idéal pour capter les
                             urgences et les chantiers locaux.</p>
                     </div>
-                    <div class="cog-metier-links">
+                    <div class="st-metier-links">
                         <a href="electricien-var.html">Page électricien Var</a>
                         <a href="creation-site-internet-electricien-cogolin.html">Électricien Cogolin</a>
                         <a href="etude-cas-electricien.html">Étude de cas électricien</a>
                     </div>
                 </div>
 
-                <!-- Coiffeur -->
-                <div class="cog-metier-row gsap-fade-up">
-                    <div class="cog-metier-main">
-                        <span class="cog-metier-icon">✂️</span>
+                <div class="st-metier-row gsap-fade-up">
+                    <div class="st-metier-main">
                         <h3><a href="creation-site-internet-coiffeur.html">Coiffeur &amp; Salons de beauté</a></h3>
                         <p>Galerie de réalisations, prise de rendez-vous en ligne, présentation des prestations. Visible
                             sur "coiffeur Cogolin", "salon de coiffure Golfe Saint-Tropez". Attire une clientèle locale
                             et touristique.</p>
                     </div>
-                    <div class="cog-metier-links">
+                    <div class="st-metier-links">
                         <a href="creation-site-internet-coiffeur.html">Page coiffeur Var</a>
                         <a href="etude-cas-coiffeur.html">Étude de cas coiffeur</a>
                     </div>
                 </div>
 
-                <!-- Restaurant -->
-                <div class="cog-metier-row gsap-fade-up">
-                    <div class="cog-metier-main">
-                        <span class="cog-metier-icon">🍽️</span>
+                <div class="st-metier-row gsap-fade-up">
+                    <div class="st-metier-main">
                         <h3><a href="creation-site-internet-restaurant.html">Restaurant</a></h3>
                         <p>Menu en ligne, photos des plats, module de réservation. Référencé sur "restaurant Cogolin",
                             "où manger Golfe Saint-Tropez". Booste les réservations locales et touristiques.</p>
                     </div>
-                    <div class="cog-metier-links">
+                    <div class="st-metier-links">
                         <a href="creation-site-internet-restaurant.html">Page restaurant Var</a>
                         <a href="etude-cas-restaurant.html">Étude de cas restaurant</a>
                     </div>
                 </div>
 
-                <!-- Serrurier -->
-                <div class="cog-metier-row gsap-fade-up">
-                    <div class="cog-metier-main">
-                        <span class="cog-metier-icon">🔐</span>
+                <div class="st-metier-row gsap-fade-up">
+                    <div class="st-metier-main">
                         <h3><a href="creation-site-internet-serrurier.html">Serrurier &amp; Artisans du bâtiment</a>
                         </h3>
                         <p>Site rapide, mobile-first, avec bouton d'appel d'urgence visible. Référencé sur "serrurier
                             Cogolin", "artisan bâtiment Golfe Saint-Tropez". Génère des appels immédiats.</p>
                     </div>
-                    <div class="cog-metier-links">
+                    <div class="st-metier-links">
                         <a href="creation-site-internet-serrurier.html">Page serrurier Var</a>
                     </div>
                 </div>
 
-                <!-- Agence immo & Conciergerie — présent mais secondaire -->
-                <div class="cog-metier-row gsap-fade-up" style="opacity:.85;">
-                    <div class="cog-metier-main">
-                        <span class="cog-metier-icon">🏡</span>
+                <div class="st-metier-row gsap-fade-up">
+                    <div class="st-metier-main">
                         <h3><a href="creation-site-internet-agence-immobiliere.html">Agence immobilière &amp;
                                 Conciergerie</a></h3>
                         <p>Je crée également des sites pour les agences immobilières et conciergeries du Golfe de
                             Saint-Tropez. Sites multilingues, galerie premium, formulaire de leads qualifiés.</p>
                     </div>
-                    <div class="cog-metier-links">
+                    <div class="st-metier-links">
                         <a href="creation-site-internet-agence-immobiliere.html">Page agence immobilière</a>
                         <a href="site-internet-conciergerie-saint-tropez.html">Conciergerie Saint-Tropez</a>
                     </div>
@@ -750,7 +695,7 @@
                     <p><strong style="color:#fff;">Votre activité n'est pas listée ?</strong> J'accompagne tous les
                         professionnels de Cogolin et du Golfe : plombiers, menuisiers, paysagistes, photographes,
                         prestataires de services… Chaque site est conçu sur mesure.</p>
-                    <a href="/#contact" class="btn-primary">Parlons de votre projet →</a>
+                    <a href="/#contact" class="btn-primary">Parlons de votre projet</a>
                 </div>
             </div>
         </section>
@@ -773,21 +718,12 @@
                         visible dès le premier écran sur mobile, un formulaire de devis simple, une galerie de
                         réalisations et un SEO local optimisé pour les requêtes qui comptent dans votre secteur.</p>
 
-                    <div class="cog-photo-duo">
-                        <div class="cog-photo-item">
-                            <img src="assets/images/cogolin-marcher-artisans.webp"
-                                alt="Marché et artisanat à Cogolin — Golfe de Saint-Tropez" width="600" height="400"
-                                loading="lazy" decoding="async" onerror="this.style.display='none'" />
-                            <div class="photo-placeholder"></div>
-                            <div class="cog-photo-caption">Artisanat — Cogolin, Var 83</div>
-                        </div>
-                        <div class="cog-photo-item">
-                            <img src="assets/images/ruelles-cogolin.webp"
-                                alt="Rues de Cogolin — village provençal du Golfe de Saint-Tropez" width="600"
-                                height="400" loading="lazy" decoding="async" onerror="this.style.display='none'" />
-                            <div class="photo-placeholder"></div>
-                            <div class="cog-photo-caption">Village de Cogolin</div>
-                        </div>
+                    <div class="cog-planche">
+                        <img src="assets/images/cog-outils-850.webp" srcset="assets/images/cog-outils-620.webp 620w,
+                                assets/images/cog-outils-850.webp 850w,
+                                assets/images/cog-outils-1100.webp 1100w" sizes="(max-width: 768px) 100vw, 560px"
+                            alt="Outils à main d'artisan posés sur un établi sombre — Cogolin, Var 83" width="1100"
+                            height="1100" loading="lazy" decoding="async" />
                     </div>
 
                     <h2>Coiffeurs et commerces de Cogolin : attirer plus de clients locaux</h2>
@@ -818,9 +754,19 @@
             </div>
         </section>
 
+        <!-- ═══ RESPIRATION ═══ -->
+        <section class="breath">
+            <div class="breath-inner">
+                <span class="breath-mark" aria-hidden="true"></span>
+                <p class="breath-line">Ici, personne n'achète sur la promesse.
+                    <em>On regarde le travail.</em>
+                </p>
+                <span class="breath-sign">Sud Web Project — Cogolin</span>
+            </div>
+        </section>
+
         <!-- ═══ RÉALISATIONS ═══ -->
-        <section class="st-realisations" style="padding:8rem 2rem;background:var(--ink-2);"
-            aria-labelledby="real-title">
+        <section class="st-realisations" aria-labelledby="real-title">
             <div class="container">
                 <div class="section-head" style="text-align:center;margin-bottom:3rem;">
                     <div class="section-label">Réalisations</div>
@@ -830,86 +776,91 @@
                                 professionnels du Golfe.</em></span>
                     </h2>
                 </div>
-                <div class="cog-real-grid">
-                    <div class="cog-real-card gsap-fade-up">
-                        <div class="cog-real-img">
+                <div class="st-real-grid">
+                    <div class="st-real-card">
+                        <div class="st-real-img">
                             <img src="assets/images/photo-serrurier.webp"
                                 alt="Site internet serrurier Cogolin — réalisation Sud Web Project" width="800"
                                 height="450" loading="lazy" decoding="async" onerror="this.style.display='none'" />
                             <div class="photo-placeholder"></div>
                         </div>
-                        <div class="cog-real-body">
-                            <span class="cog-real-tag">Web Essentiel · Serrurier</span>
+                        <div class="st-real-body">
+                            <span class="st-real-tag">Web Essentiel · Serrurier</span>
                             <h3>Serrurier — Cogolin</h3>
                             <p>Site pensé pour générer des appels en urgence, avec une visibilité optimisée sur
                                 "serrurier Cogolin". 100/100 PageSpeed mobile.</p>
                             <a href="https://guillaume83990.github.io/serrurier-cogolin/" target="_blank"
-                                rel="noopener noreferrer" class="ville-cas-link">Voir la démo →</a>
+                                rel="noopener noreferrer" class="ville-cas-link">Voir la démo</a>
                         </div>
                     </div>
 
-                    <div class="cog-real-card gsap-fade-up">
-                        <div class="cog-real-img">
+                    <div class="st-real-card">
+                        <div class="st-real-img">
                             <img src="assets/images/photo-electricien-cogolin.webp"
                                 alt="Site internet électricien Cogolin — réalisation Sud Web Project" width="800"
                                 height="450" loading="lazy" decoding="async" onerror="this.style.display='none'" />
                             <div class="photo-placeholder"></div>
                         </div>
-                        <div class="cog-real-body">
-                            <span class="cog-real-tag">Web Premium · Électricien</span>
+                        <div class="st-real-body">
+                            <span class="st-real-tag">Web Premium · Électricien</span>
                             <h3>Électricien — Golfe de Saint-Tropez</h3>
                             <p>Site 6 pages, 100/100 PageSpeed. Générer des appels et des demandes de devis. Référencé
                                 "électricien Cogolin" et communes voisines.</p>
                             <a href="https://guillaume83990.github.io/electricien-st-tropez/" target="_blank"
-                                rel="noopener noreferrer" class="ville-cas-link">Voir la démo →</a>
-                            <a href="etude-cas-electricien.html" class="ville-cas-link"
-                                style="font-size:.8rem;opacity:.8;display:block;margin-top:.6rem;">→ Étude de cas
-                                complète</a>
+                                rel="noopener noreferrer" class="ville-cas-link">Voir la démo</a>
+                            <div style="margin-top:.75rem;">
+                                <a href="etude-cas-electricien.html" class="ville-cas-link"
+                                    style="font-size:.8rem;opacity:.8;">Étude de cas complète</a>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="cog-real-card gsap-fade-up">
-                        <div class="cog-real-img">
+                    <div class="st-real-card">
+                        <div class="st-real-img">
                             <img src="assets/images/photo-coiffeur-cogolin.webp"
                                 alt="Site internet salon coiffure Cogolin — Élise &amp; Ciseaux" width="800"
                                 height="450" loading="lazy" decoding="async" onerror="this.style.display='none'" />
                             <div class="photo-placeholder"></div>
                         </div>
-                        <div class="cog-real-body">
-                            <span class="cog-real-tag">Web Premium · Coiffure</span>
+                        <div class="st-real-body">
+                            <span class="st-real-tag">Web Premium · Coiffure</span>
                             <h3>Salon de coiffure — Cogolin</h3>
                             <p>Site moderne avec galerie de réalisations et prise de rendez-vous en ligne. Image soignée
                                 pour attirer une clientèle locale.</p>
                             <a href="https://guillaume83990.github.io/elise-et-ciseaux/" target="_blank"
-                                rel="noopener noreferrer" class="ville-cas-link">Voir la démo →</a>
-                            <a href="etude-cas-coiffeur.html" class="ville-cas-link"
-                                style="font-size:.8rem;opacity:.8;display:block;margin-top:.6rem;">→ Étude de cas
-                                complète</a>
+                                rel="noopener noreferrer" class="ville-cas-link">Voir la démo</a>
+                            <div style="margin-top:.75rem;">
+                                <a href="etude-cas-coiffeur.html" class="ville-cas-link"
+                                    style="font-size:.8rem;opacity:.8;">Étude de cas complète</a>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="cog-real-card gsap-fade-up">
-                        <div class="cog-real-img">
-                            <div class="photo-placeholder"><span style="font-size:2.5rem;">💼</span></div>
+                    <div class="st-real-card">
+                        <div class="st-real-img">
+                            <img src="assets/images/photo-votre-projet.webp"
+                                alt="Votre futur site internet à Cogolin — Sud Web Project" width="800" height="450"
+                                loading="lazy" decoding="async" onerror="this.style.display='none'" />
+                            <div class="photo-placeholder"></div>
                         </div>
-                        <div class="cog-real-body">
-                            <span class="cog-real-tag">Votre projet</span>
+                        <div class="st-real-body">
+                            <span class="st-real-tag">Votre projet</span>
                             <h3>Votre site internet Cogolin</h3>
                             <p>Artisan, commerçant, restaurant, PME locale… Discutons de votre projet. Devis gratuit
                                 sous 24h.</p>
-                            <a href="/#contact" class="ville-cas-link">Demander un devis →</a>
+                            <a href="/#contact" class="ville-cas-link">Demander un devis</a>
                         </div>
                     </div>
                 </div>
 
                 <div style="text-align:center;margin-top:3rem;">
-                    <a href="/#portfolio" class="btn-outline">Voir toutes les réalisations →</a>
+                    <a href="/#portfolio" class="btn-outline">Voir toutes les réalisations</a>
                 </div>
             </div>
         </section>
 
         <!-- ═══ SERVICES COMPLÉMENTAIRES ═══ -->
-        <section class="cog-services" aria-labelledby="services-title">
+        <section class="st-services" aria-labelledby="services-title">
             <div class="container">
                 <div class="section-head" style="text-align:center;margin-bottom:0;">
                     <div class="section-label">Services complémentaires</div>
@@ -919,20 +870,19 @@
                                 performant sur la durée.</em></span>
                     </h2>
                 </div>
-                <div class="cog-services-grid">
-                    <a href="refonte-site-internet.html" class="cog-service-card">
-                        <span class="cog-service-card-icon">🔄</span>
+                <div class="st-services-grid">
+                    <a href="refonte-site-internet.html" class="st-service-card">
                         <h3>Refonte de site internet</h3>
                         <p>Vous avez déjà un site mais il est lent, mal référencé ou vieilli ? Je le refonds entièrement
-                            — nouveau code, nouveau design, 100/100 PageSpeed garanti. Avant/après mesurable.</p>
-                        <span class="cog-service-card-link">Découvrir l'offre de refonte →</span>
+                            — nouveau code, nouveau design, conçu pour viser 100/100 PageSpeed. Avant/après mesurable.
+                        </p>
+                        <span class="st-service-card-link">Découvrir l'offre de refonte</span>
                     </a>
-                    <a href="maintenance.html" class="cog-service-card">
-                        <span class="cog-service-card-icon">🛡️</span>
+                    <a href="maintenance.html" class="st-service-card">
                         <h3>Maintenance de site internet</h3>
                         <p>Votre site reste rapide, sécurisé et à jour. Forfaits à partir de 60€/mois — modifications
                             mensuelles, sauvegardes automatiques, mises à jour sécurité, support.</p>
-                        <span class="cog-service-card-link">Voir les forfaits maintenance →</span>
+                        <span class="st-service-card-link">Voir les forfaits maintenance</span>
                     </a>
                 </div>
             </div>
@@ -951,38 +901,38 @@
                 </div>
                 <div class="ville-pourquoi-grid">
                     <div class="ville-pourquoi-card gsap-fade-up">
-                        <div class="ville-pourquoi-icon">📍</div>
+                        <div class="ville-pourquoi-icon" aria-hidden="true"></div>
                         <h3>Basé à Saint-Tropez</h3>
                         <p>Je suis à quelques minutes de Cogolin. Je me déplace chez vous pour les réunions. Je connais
                             le marché local, les artisans, la saisonnalité du Golfe.</p>
                     </div>
                     <div class="ville-pourquoi-card gsap-fade-up">
-                        <div class="ville-pourquoi-icon">📱</div>
+                        <div class="ville-pourquoi-icon" aria-hidden="true"></div>
                         <h3>Mobile-first dès la conception</h3>
                         <p>Vos clients cherchent un électricien ou un coiffeur depuis leur téléphone. Chaque site est
                             conçu pour une expérience parfaite sur mobile — bouton d'appel visible, chargement
                             instantané.</p>
                     </div>
                     <div class="ville-pourquoi-card gsap-fade-up">
-                        <div class="ville-pourquoi-icon">⚡</div>
+                        <div class="ville-pourquoi-icon" aria-hidden="true"></div>
                         <h3>100/100 PageSpeed</h3>
                         <p>Zéro WordPress, 100% code à la main. Un site qui charge en moins d'une seconde sur 4G. Google
                             récompense la vitesse — et vos clients aussi.</p>
                     </div>
                     <div class="ville-pourquoi-card gsap-fade-up">
-                        <div class="ville-pourquoi-icon">🎯</div>
+                        <div class="ville-pourquoi-icon" aria-hidden="true"></div>
                         <h3>SEO local Cogolin inclus</h3>
                         <p>H1 géolocalisé, Schema.org, Google Business Profile optimisé. Vous apparaissez sur "votre
                             métier + Cogolin" dans les 4 à 8 semaines suivant la mise en ligne.</p>
                     </div>
                     <div class="ville-pourquoi-card gsap-fade-up">
-                        <div class="ville-pourquoi-icon">✅</div>
+                        <div class="ville-pourquoi-icon" aria-hidden="true"></div>
                         <h3>Propriétaire à 100%</h3>
                         <p>Votre site vous appartient — code, contenu, domaine. Aucun abonnement obligatoire, aucune
                             plateforme fermée. Vous gardez le contrôle total.</p>
                     </div>
                     <div class="ville-pourquoi-card gsap-fade-up">
-                        <div class="ville-pourquoi-icon">💬</div>
+                        <div class="ville-pourquoi-icon" aria-hidden="true"></div>
                         <h3>Réponse sous 24h</h3>
                         <p>Vous parlez directement avec moi — pas un commercial, pas une agence qui sous-traite. Devis
                             clair le jour même, réponse garantie sous 24h.</p>
@@ -991,41 +941,14 @@
             </div>
         </section>
 
-        <!-- ═══ PROCESS ═══ -->
-        <section class="ville-process" aria-labelledby="process-title">
-            <div class="container">
-                <div class="section-head">
-                    <div class="section-label">Comment ça se passe ?</div>
-                    <h2 class="section-title" id="process-title">
-                        Votre site internet Cogolin <em style="font-style:italic;color:var(--blue-l);">en 4 étapes.</em>
-                    </h2>
-                </div>
-                <div class="process-steps-grid">
-                    <div class="process-item gsap-fade-up">
-                        <div class="process-num-circle">01</div>
-                        <h3>Devis gratuit sous 24h</h3>
-                        <p>On discute de votre activité, vos clients cibles, vos objectifs. Je vous envoie un devis
-                            clair sous 24h. Sans engagement.</p>
-                    </div>
-                    <div class="process-item gsap-fade-up">
-                        <div class="process-num-circle">02</div>
-                        <h3>Maquette sur mesure</h3>
-                        <p>Je vous propose une direction visuelle adaptée à votre image. Vous validez avant que je
-                            commence. Aucune surprise.</p>
-                    </div>
-                    <div class="process-item gsap-fade-up">
-                        <div class="process-num-circle">03</div>
-                        <h3>Développement &amp; SEO</h3>
-                        <p>Code à la main, optimisé Cogolin. Tests mobile, vitesse, formulaire de contact. Vous suivez
-                            l'avancement.</p>
-                    </div>
-                    <div class="process-item gsap-fade-up">
-                        <div class="process-num-circle">04</div>
-                        <h3>Mise en ligne &amp; suivi</h3>
-                        <p>Lancement, Google Search Console, Google Business Profile. Je reste disponible — on est
-                            voisins.</p>
-                    </div>
-                </div>
+        <!-- ═══ RESPIRATION ═══ -->
+        <section class="breath">
+            <div class="breath-inner">
+                <span class="breath-mark" aria-hidden="true"></span>
+                <p class="breath-line">Un bon outil coûte plus cher.
+                    <em>Il dure plus longtemps.</em>
+                </p>
+                <span class="breath-sign">Sud Web Project — Cogolin</span>
             </div>
         </section>
 
@@ -1044,7 +967,7 @@
                 <div class="price-grid">
                     <article class="price-card gsap-fade-up">
                         <div class="price-head">
-                            <span class="price-icon" aria-hidden="true">🌐</span>
+                            <span class="price-icon" aria-hidden="true"></span>
                             <h3>Web Essentiel</h3>
                             <div class="price-val"><span class="price-from">À partir de</span><span
                                     class="price-num">600€</span></div>
@@ -1056,12 +979,12 @@
                             <li>✓ SEO local Cogolin inclus</li>
                             <li>✓ Propriété 100% à vous</li>
                         </ul>
-                        <a href="/#contact" class="btn-outline">Devis gratuit →</a>
+                        <a href="/#contact" class="btn-outline">Devis gratuit</a>
                     </article>
                     <article class="price-card price-feat gsap-fade-up">
-                        <div class="price-top-badge">⭐ Populaire artisans</div>
+                        <div class="price-top-badge">Populaire artisans</div>
                         <div class="price-head">
-                            <span class="price-icon" aria-hidden="true">🛍️</span>
+                            <span class="price-icon" aria-hidden="true"></span>
                             <h3>Web Premium</h3>
                             <div class="price-val"><span class="price-from">À partir de</span><span class="price-num">1
                                     300€</span></div>
@@ -1074,11 +997,11 @@
                             <li>✓ Google Business optimisé</li>
                             <li>✓ Propriété 100% à vous</li>
                         </ul>
-                        <a href="/#contact" class="btn-primary">Devis gratuit →</a>
+                        <a href="/#contact" class="btn-primary">Devis gratuit</a>
                     </article>
                     <article class="price-card gsap-fade-up">
                         <div class="price-head">
-                            <span class="price-icon" aria-hidden="true">🏢</span>
+                            <span class="price-icon" aria-hidden="true"></span>
                             <h3>Web Ultra</h3>
                             <div class="price-val"><span class="price-from">Tarif</span><span class="price-num"
                                     style="font-size:1.6rem;">Sur devis</span></div>
@@ -1091,13 +1014,13 @@
                             <li>✓ Prise de RDV en ligne</li>
                             <li>✓ 100% responsive</li>
                         </ul>
-                        <a href="/#contact" class="btn-outline">Devis gratuit →</a>
+                        <a href="/#contact" class="btn-outline">Devis gratuit</a>
                     </article>
                 </div>
             </div>
         </section>
 
-        <!-- ═══ MAILLAGE VILLES — Golfe uniquement ═══ -->
+        <!-- ═══ VILLES MAILLAGE ═══ -->
         <section class="ville-villes-block" aria-labelledby="villes-title">
             <div class="container">
                 <div class="section-head">
@@ -1111,45 +1034,45 @@
                 </div>
                 <div class="ville-villes-grid">
                     <div class="ville-ville-card active-city">
-                        <span class="ville-ville-icon">🏭</span>
+                        <span class="ville-ville-icon" aria-hidden="true"></span>
                         <span class="ville-ville-name">Cogolin</span>
                         <span class="ville-ville-sub">Capitale artisanale du Golfe. Vous y êtes.</span>
-                        <span class="ville-ville-tag">✓ Page active</span>
+                        <span class="ville-ville-tag">Page active</span>
                     </div>
                     <a href="creation-site-internet-saint-tropez.html" class="ville-ville-card gsap-fade-up">
-                        <span class="ville-ville-icon">⚓</span>
+                        <span class="ville-ville-icon" aria-hidden="true"></span>
                         <span class="ville-ville-name">Saint-Tropez</span>
                         <span class="ville-ville-sub">Siège de Sud Web Project. Agences immo, restaurants,
                             conciergeries, brokers yacht.</span>
-                        <span class="ville-ville-tag">Page dédiée →</span>
+                        <span class="ville-ville-tag">Page dédiée</span>
                     </a>
                     <a href="creation-site-internet-grimaud.html" class="ville-ville-card gsap-fade-up">
-                        <span class="ville-ville-icon">🏰</span>
+                        <span class="ville-ville-icon" aria-hidden="true"></span>
                         <span class="ville-ville-name">Grimaud</span>
                         <span class="ville-ville-sub">Port Grimaud, château médiéval. Clientèle internationale,
                             prestataires premium.</span>
-                        <span class="ville-ville-tag">Page dédiée →</span>
+                        <span class="ville-ville-tag">Page dédiée</span>
                     </a>
                     <a href="creation-site-internet-sainte-maxime.html" class="ville-ville-card gsap-fade-up">
-                        <span class="ville-ville-icon">🌊</span>
+                        <span class="ville-ville-icon" aria-hidden="true"></span>
                         <span class="ville-ville-name">Sainte-Maxime</span>
                         <span class="ville-ville-sub">Station premium, 12 mois d'activité. Restaurants, commerces,
                             immobilier.</span>
-                        <span class="ville-ville-tag">Page dédiée →</span>
+                        <span class="ville-ville-tag">Page dédiée</span>
                     </a>
                     <a href="creation-site-internet-ramatuelle.html" class="ville-ville-card gsap-fade-up">
-                        <span class="ville-ville-icon">🌿</span>
+                        <span class="ville-ville-icon" aria-hidden="true"></span>
                         <span class="ville-ville-name">Ramatuelle</span>
                         <span class="ville-ville-sub">Village perché, plage de Pampelonne, vignobles AOC, restaurants
                             étoilés.</span>
-                        <span class="ville-ville-tag">Page dédiée →</span>
+                        <span class="ville-ville-tag">Page dédiée</span>
                     </a>
                     <a href="creation-site-internet-cavalaire.html" class="ville-ville-card gsap-fade-up">
-                        <span class="ville-ville-icon">🏖️</span>
+                        <span class="ville-ville-icon" aria-hidden="true"></span>
                         <span class="ville-ville-name">Cavalaire-sur-Mer</span>
                         <span class="ville-ville-sub">Station balnéaire dynamique, PME touristiques, commerces et
                             artisans locaux.</span>
-                        <span class="ville-ville-tag">Page dédiée →</span>
+                        <span class="ville-ville-tag">Page dédiée</span>
                     </a>
                 </div>
                 <p class="ville-seo-phrase">
@@ -1245,13 +1168,13 @@
                     24h.</p>
                 <div class="ville-cta-actions">
                     <a href="/#contact" class="btn-hero">
-                        Demander mon devis gratuit →
+                        Demander mon devis gratuit
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
                             <path d="M3.75 9h10.5M9.75 4.5L14.25 9l-4.5 4.5" stroke="currentColor" stroke-width="1.5"
                                 stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </a>
-                    <a href="tel:+33611547324" class="btn-ghost-hero">📞 +33 6 11 54 73 24</a>
+                    <a href="tel:+33611547324" class="btn-ghost-hero">+33 6 11 54 73 24</a>
                 </div>
                 <p class="ville-seo-text">Devis 100% gratuit · Sans engagement · Réponse sous 24h · Développeur web
                     Cogolin, Var 83</p>
@@ -1287,7 +1210,7 @@
                 <div class="footer-col">
                     <h3>Golfe de Saint-Tropez</h3>
                     <ul>
-                        <li><a href="creation-site-internet-cogolin.html" class="footer-active">Cogolin ✓</a></li>
+                        <li><a href="creation-site-internet-cogolin.html" class="footer-active">Cogolin</a></li>
                         <li><a href="creation-site-internet-saint-tropez.html">Saint-Tropez</a></li>
                         <li><a href="creation-site-internet-grimaud.html">Grimaud</a></li>
                         <li><a href="creation-site-internet-sainte-maxime.html">Sainte-Maxime</a></li>
@@ -1331,10 +1254,14 @@
                     <a href="mentions-legales.html#confidentialite">Confidentialité</a>
                     <span aria-hidden="true">·</span>
                     <a href="mentions-legales.html#cgv">CGV</a>
+                    <span aria-hidden="true">·</span>
                     <a href="cookies.html">Cookies</a>
                 </div>
             </div>
         </div>
+
+        <span class="footer-mark" aria-hidden="true">Sud<em>Web</em> Project</span>
+
         <div class="footer-seo">
             <p>Création site internet Cogolin · Développeur web Cogolin · Site internet artisan Cogolin ·
                 <a href="electricien-var.html">Électricien Var</a> ·
@@ -1358,10 +1285,29 @@
         </button>
     </footer>
 
+    <!-- ═══ LIBRAIRIES ═══ -->
+    <script src="js/vendor/gsap.min.js" defer></script>
+    <script src="js/vendor/ScrollTrigger.min.js" defer></script>
+    <script src="js/vendor/lenis.min.js" defer></script>
+
+    <!-- motion.js pose les valeurs GSAP par défaut : avant tout le reste -->
+    <script src="js/motion.js" defer></script>
+
+    <!-- ═══ SCRIPTS DU SITE ═══ -->
     <script src="js/global.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+    <script src="js/lux.js" defer></script>
+    <script src="js/metiers.js" defer></script>
+    <script src="js/refonte.js" defer></script>
+    <script src="js/footer.js" defer></script>
     <script src="js/ville-animations.js" defer></script>
+    <!-- ville-hero.js reprend la main sur le hero : après ville-animations.js -->
+    <script src="js/ville-hero.js" defer></script>
+    <!-- ville-lux.js : la grammaire de l'accueil sur tous les autres blocs -->
+    <script src="js/ville-lux.js" defer></script>
+    <script src="js/breath.js" defer></script>
+    <!-- titles.js reprend la main sur les titres : toujours en dernier -->
+    <script src="js/titles.js" defer></script>
+
     <script>
         window.addEventListener('load', function () {
             var ric = window.requestIdleCallback || function (cb) { setTimeout(cb, 200); };
@@ -1371,12 +1317,15 @@
         });
     </script>
 
-    <div class="cookie-banner" role="dialog" aria-label="Cookies"
-        style="display:none;opacity:0;transform:translateX(-50%) translateY(20px);">
-        <p>Ce site utilise des cookies analytiques anonymisés. <a href="cookies.html">En savoir plus</a></p>
-        <div>
-            <button id="cookie-refuse">Refuser</button>
-            <button id="cookie-accept">Accepter</button>
+    <div class="cookie-banner" role="dialog" aria-label="Consentement cookies" aria-live="polite">
+        <div class="cookie-inner">
+            <p>Ce site utilise des cookies analytiques anonymisés pour mesurer l'audience.
+                <a href="cookies.html">En savoir plus</a>
+            </p>
+            <div class="cookie-btns">
+                <button id="cookie-refuse" class="cookie-btn cookie-btn-refuse">Refuser</button>
+                <button id="cookie-accept" class="cookie-btn cookie-btn-accept">Accepter</button>
+            </div>
         </div>
     </div>
 

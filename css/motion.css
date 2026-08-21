@@ -1,0 +1,162 @@
+/* ═══════════════════════════════════════════════════════════════
+   MOTION.CSS — Sud Web Project — v2
+   La grammaire de mouvement du site.
+
+   Le luxe ne vient pas du nombre d'effets, il vient du fait qu'ils
+   obéissent tous à la même règle. Une seule courbe, trois durées,
+   une seule façon d'entrer.
+
+   CORRECTIF v2
+   index.css contient « .section-title span { display: block } ».
+   Cette règle visait les lignes de titre, mais elle attrapait
+   aussi les <span> de chaque lettre créés par titles.js : chaque
+   caractère devenait un bloc, donc une ligne — les titres de
+   section s'affichaient à la verticale. Les mots et les lettres
+   forcent désormais leur affichage.
+
+   À CHARGER EN PREMIER de mes fichiers, juste après fonts-local.css.
+   Aucun texte, lien ou balise n'est modifié.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ───────────────────────────────────────────────────────────────
+   1 · LA GRAMMAIRE
+   ─────────────────────────────────────────────────────────────── */
+:root {
+    /* Une seule courbe. Elle part vite et s'installe :
+       c'est la signature du mouvement haut de gamme. */
+    --ease: cubic-bezier(.22, 1, .36, 1);
+    --ease-soft: cubic-bezier(.4, 0, .2, 1);
+
+    /* Trois durées, jamais d'autres */
+    --dur-1: .5s;
+    /* micro-interactions : survols, couleurs */
+    --dur-2: .9s;
+    /* entrées : texte, cartes, colonnes */
+    --dur-3: 1.4s;
+    /* masques et images */
+    --dur: var(--dur-2);
+    /* compatibilité avec l'existant */
+}
+
+/* ───────────────────────────────────────────────────────────────
+   2 · LE SCROLL FLUIDE
+   Lenis prend la main sur le défilement : il faut donc désactiver
+   celui du navigateur, sinon les deux se disputent la page.
+   ─────────────────────────────────────────────────────────────── */
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+
+html.lenis {
+    scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   3 · LA RÉVÉLATION DES TITRES
+   Chaque mot devient une fenêtre, chaque lettre glisse dedans.
+
+   Les !important sont ici indispensables : plusieurs feuilles du
+   site imposent « display: block » aux <span> descendants des
+   titres, ce qui empilerait les lettres à la verticale.
+   ═══════════════════════════════════════════════════════════════ */
+.swp-word,
+.section-title .swp-word,
+.hero-title .swp-word,
+.about-title .swp-word,
+.contact-title .swp-word,
+.ville-h2 .swp-word,
+.ville-hero-title .swp-word,
+.refonte-title .swp-word {
+    display: inline-block !important;
+    overflow: hidden !important;
+    vertical-align: bottom !important;
+    padding-bottom: .09em !important;
+    margin-bottom: -.09em !important;
+    width: auto !important;
+    white-space: nowrap;
+}
+
+.swp-char,
+.section-title .swp-char,
+.hero-title .swp-char,
+.about-title .swp-char,
+.contact-title .swp-char,
+.ville-h2 .swp-char,
+.ville-hero-title .swp-char,
+.refonte-title .swp-char {
+    display: inline-block !important;
+    width: auto !important;
+    white-space: pre;
+    will-change: transform;
+}
+
+/* Le conteneur de ligne, lui, reste un bloc — c'est voulu :
+   c'est ce qui fait retomber la seconde ligne du titre en dessous. */
+.section-title>.split-reveal,
+.hero-title>.split-reveal,
+.about-title>.split-reveal,
+.contact-title>.split-reveal,
+.ville-h2>.split-reveal {
+    display: block;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   4 · HARMONISATION DE L'EXISTANT
+   Les blocs déjà posés avaient chacun leur courbe. Ils passent
+   tous sur la grammaire commune.
+   ─────────────────────────────────────────────────────────────── */
+.split-reveal .rv-inner {
+    transition: transform var(--dur-3) var(--ease), opacity var(--dur-2) var(--ease);
+}
+
+[data-scroll] {
+    transition: opacity var(--dur-2) var(--ease), transform var(--dur-2) var(--ease);
+}
+
+.why-card,
+.pf-card,
+.price-card,
+.testi-card,
+.hub-v3-card,
+.etude-card,
+.svc-card,
+.st-real-card,
+.ville-pourquoi-card,
+.ville-ville-card,
+.zone-card,
+.mx-row,
+.cmethod {
+    transition-timing-function: var(--ease);
+}
+
+a,
+button,
+.mx-links a,
+.nav-links a,
+.footer-col a {
+    transition-timing-function: var(--ease);
+}
+
+/* ───────────────────────────────────────────────────────────────
+   5 · MOUVEMENT RÉDUIT
+   ─────────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+
+    .swp-char,
+    .swp-word {
+        transform: none !important;
+    }
+}

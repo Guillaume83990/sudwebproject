@@ -1,0 +1,441 @@
+/* ═══════════════════════════════════════════════════════════════
+   HERO.CSS — Sud Web Project — v4
+   Scène pleine page, tenue en un seul écran, texte lisible.
+
+   NOUVEAUTÉ v4 — LE MOBILE EST UNE AUTRE COMPOSITION
+   En v3 le mobile n'était qu'un desktop compressé : contenu centré,
+   image noyée sous le voile, boutons hors écran. Désormais :
+     · l'image reste VISIBLE dans le tiers haut (ciel, clocher)
+     · le contenu s'ancre EN BAS, sur un dégradé dense
+     · tout tient dans 100svh, boutons et métriques compris
+
+   À CHARGER EN DERNIER, après space.css. Uniquement sur index.html.
+   Aucun texte, lien ou balise n'est modifié.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ───────────────────────────────────────────────────────────────
+   1 · LA SCÈNE
+   Empilement : 0 image · 1 WebGL · 2 voile de lecture · 3 contenu
+   ─────────────────────────────────────────────────────────────── */
+.hero {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    padding-top: clamp(6rem, 13vh, 9rem);
+    padding-bottom: clamp(3.5rem, 9vh, 7rem);
+    padding-inline: var(--gutter, 2.5rem);
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* Le voile de lecture, AU-DESSUS du shader */
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background:
+        linear-gradient(100deg,
+            rgba(5, 8, 15, .93) 0%,
+            rgba(5, 8, 15, .86) 30%,
+            rgba(5, 8, 15, .5) 56%,
+            rgba(5, 8, 15, .16) 82%,
+            rgba(5, 8, 15, .34) 100%),
+        linear-gradient(to bottom,
+            rgba(5, 8, 15, .55) 0%,
+            transparent 22%,
+            transparent 62%,
+            rgba(5, 8, 15, .8) 100%);
+}
+
+/* ───────────────────────────────────────────────────────────────
+   2 · L'IMAGE DEVIENT LE FOND
+   ─────────────────────────────────────────────────────────────── */
+.hero-inner {
+    position: static !important;
+    z-index: auto !important;
+    display: block !important;
+    grid-template-columns: none !important;
+    max-width: var(--max);
+    margin-inline: auto;
+    width: 100%;
+}
+
+.hero-visual {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 0;
+    transform: none !important;
+    animation: none !important;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    height: auto;
+}
+
+.hero-img-wrap {
+    position: absolute;
+    inset: 0;
+    aspect-ratio: auto !important;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: hidden;
+}
+
+.hero-img-wrap picture,
+.hero-img-wrap picture img,
+.hero-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 60% 58%;
+    display: block;
+}
+
+.img-overlay {
+    background: linear-gradient(100deg,
+            rgba(5, 8, 15, .55) 0%,
+            rgba(5, 8, 15, .3) 45%,
+            rgba(5, 8, 15, .05) 100%);
+}
+
+.img-label {
+    left: auto;
+    right: 2.5rem;
+    bottom: 2.5rem;
+    background: rgba(5, 8, 15, .72);
+    border-color: var(--border-h);
+}
+
+.hero-side-text {
+    display: none !important;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   3 · LA COUCHE D'EFFET
+   ─────────────────────────────────────────────────────────────── */
+#particles-bg {
+    display: none !important;
+}
+
+#hero-fx {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: block;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    opacity: 0;
+    transition: opacity 2.6s ease 0.4s;
+}
+
+#hero-fx.is-ready {
+    opacity: .58;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   4 · LE CONTENU — DESKTOP
+   ─────────────────────────────────────────────────────────────── */
+.hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 900px;
+}
+
+.hero-scroll-hint {
+    z-index: 4;
+    bottom: 1.5rem;
+}
+
+.hero-eyebrow {
+    margin-bottom: clamp(.9rem, 1.8vh, 1.5rem);
+    text-shadow: 0 1px 10px rgba(5, 8, 15, .9);
+}
+
+.hero-title {
+    font-size: min(clamp(1.85rem, 2.9vw, 3.15rem), 5.4vh) !important;
+    line-height: 1.1 !important;
+    margin-bottom: clamp(1rem, 2.2vh, 1.75rem);
+    max-width: 26ch;
+    text-wrap: balance;
+    text-shadow: 0 2px 24px rgba(5, 8, 15, .75);
+}
+
+.hero-sub {
+    font-size: min(1.02rem, 2vh);
+    line-height: 1.7;
+    max-width: 540px;
+    margin-bottom: clamp(.6rem, 1.2vh, 1rem);
+    color: #E4EAF2 !important;
+    text-shadow: 0 1px 12px rgba(5, 8, 15, .9);
+}
+
+.hero-sub strong {
+    color: #fff;
+}
+
+.hero-seo-phrase {
+    font-size: min(.84rem, 1.7vh);
+    line-height: 1.6;
+    max-width: 520px;
+    margin-bottom: clamp(1.25rem, 2.8vh, 2.25rem);
+    color: #A9B6C8 !important;
+    opacity: 1;
+    text-shadow: 0 1px 10px rgba(5, 8, 15, .9);
+}
+
+.hero-actions {
+    margin-bottom: clamp(1.5rem, 3.2vh, 2.75rem);
+}
+
+.hero-metrics {
+    gap: clamp(1.5rem, 3vw, 2.75rem);
+    padding-top: clamp(1.1rem, 2.4vh, 2rem);
+    border-top: 1px solid rgba(147, 196, 253, .18);
+    max-width: 640px;
+}
+
+.metric-l {
+    text-shadow: 0 1px 8px rgba(5, 8, 15, .9);
+}
+
+/* ───────────────────────────────────────────────────────────────
+   5 · ÉCRANS BAS (portables 13-14", 1366×768…)
+   ─────────────────────────────────────────────────────────────── */
+@media (max-height: 860px) and (min-width: 1025px) {
+    .hero-sub {
+        max-width: 480px;
+    }
+
+    .hero-seo-phrase {
+        display: none;
+    }
+}
+
+@media (max-height: 720px) and (min-width: 1025px) {
+    .hero-title {
+        max-width: 34ch;
+    }
+
+    .hero-sub {
+        max-width: 560px;
+    }
+}
+
+/* ───────────────────────────────────────────────────────────────
+   6 · GRANDS ÉCRANS
+   ─────────────────────────────────────────────────────────────── */
+@media (min-width: 1600px) and (min-height: 900px) {
+    .hero-title {
+        font-size: min(3.6rem, 6vh) !important;
+        max-width: 24ch;
+    }
+
+    .hero-content {
+        max-width: 980px;
+    }
+}
+
+/* ───────────────────────────────────────────────────────────────
+   7 · TABLETTE
+   ─────────────────────────────────────────────────────────────── */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .hero-img-wrap img {
+        object-position: 56% 55%;
+    }
+
+    .hero::before {
+        background:
+            linear-gradient(100deg,
+                rgba(5, 8, 15, .94) 0%,
+                rgba(5, 8, 15, .88) 45%,
+                rgba(5, 8, 15, .58) 100%),
+            linear-gradient(to bottom,
+                rgba(5, 8, 15, .6) 0%,
+                rgba(5, 8, 15, .3) 30%,
+                rgba(5, 8, 15, .85) 100%);
+    }
+
+    .hero-title {
+        max-width: 24ch;
+    }
+
+    .img-label {
+        right: 1.5rem;
+        bottom: 1.5rem;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   8 · MOBILE — UNE COMPOSITION À PART
+   L'image vit dans le tiers haut, le contenu s'ancre en bas.
+   Le visiteur voit d'abord Saint-Tropez, puis lit.
+   ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+    .hero {
+        min-height: 100svh;
+        align-items: flex-end;
+        /* le contenu s'ancre en bas */
+        padding-top: 5rem;
+        padding-bottom: 2.5rem;
+        padding-inline: 1.5rem;
+    }
+
+    /* Cadrage vertical : on remonte sur le clocher et les façades,
+       la partie la plus lisible de la photo en petit format */
+    .hero-img-wrap img {
+        object-position: 52% 30%;
+    }
+
+    /* Le voile laisse le haut respirer, puis se ferme franchement
+       sous la zone de lecture */
+    .hero::before {
+        background: linear-gradient(to bottom,
+                rgba(5, 8, 15, .58) 0%,
+                rgba(5, 8, 15, .3) 16%,
+                rgba(5, 8, 15, .42) 30%,
+                rgba(5, 8, 15, .84) 44%,
+                rgba(5, 8, 15, .95) 58%,
+                rgba(5, 8, 15, .97) 100%);
+    }
+
+    .img-overlay {
+        background: none;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    /* L'accroche : deux lignes serrées, plus discrète */
+    .hero-eyebrow {
+        font-size: .65rem;
+        letter-spacing: .12em;
+        line-height: 1.5;
+        margin-bottom: .85rem;
+        gap: .45rem;
+    }
+
+    .hero-title {
+        font-size: min(clamp(1.6rem, 6.6vw, 2.15rem), 5vh) !important;
+        line-height: 1.16 !important;
+        max-width: none;
+        margin-bottom: .95rem;
+        text-shadow: 0 2px 18px rgba(5, 8, 15, .95);
+    }
+
+    .hero-sub {
+        font-size: .92rem;
+        line-height: 1.62;
+        margin-bottom: 1.4rem;
+        max-width: none;
+    }
+
+    .hero-seo-phrase {
+        display: none;
+    }
+
+    /* Boutons côte à côte : deux boutons pleine largeur empilés
+       mangeaient 130 px pour rien */
+    .hero-actions {
+        display: flex;
+        flex-direction: row !important;
+        gap: .7rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-actions .btn-hero {
+        flex: 1 1 auto;
+        width: auto !important;
+        justify-content: center;
+        padding: .95rem 1.1rem;
+        font-size: .92rem;
+    }
+
+    .hero-actions .btn-ghost-hero {
+        flex: 0 0 auto;
+        width: auto !important;
+        padding: .95rem 1.1rem;
+        font-size: .88rem;
+        white-space: nowrap;
+    }
+
+    .hero-metrics {
+        gap: 0;
+        justify-content: space-between;
+        padding-top: 1.1rem;
+        max-width: none;
+    }
+
+    .hero-metrics .metric {
+        flex: 1;
+    }
+
+    .metric-n {
+        font-size: 1.3rem;
+    }
+
+    .metric-l {
+        font-size: .6rem;
+        letter-spacing: .06em;
+    }
+
+    .metric-sep {
+        height: 26px;
+    }
+
+    .img-label,
+    .hero-scroll-hint {
+        display: none;
+    }
+
+    #hero-fx.is-ready {
+        opacity: .42;
+    }
+}
+
+/* Très petits écrans — iPhone SE, Galaxy S8… */
+@media (max-width: 400px) {
+    .hero {
+        padding-inline: 1.25rem;
+    }
+
+    .hero-title {
+        font-size: min(1.55rem, 4.6vh) !important;
+    }
+
+    .hero-sub {
+        font-size: .88rem;
+        line-height: 1.58;
+        margin-bottom: 1.2rem;
+    }
+
+    .hero-actions .btn-hero,
+    .hero-actions .btn-ghost-hero {
+        padding: .85rem .8rem;
+        font-size: .84rem;
+    }
+
+    .metric-n {
+        font-size: 1.15rem;
+    }
+
+    .metric-l {
+        font-size: .55rem;
+    }
+}
+
+/* Écrans mobiles très courts (paysage, vieux modèles) :
+   on laisse le hero dépasser plutôt que de tout écraser */
+@media (max-width: 768px) and (max-height: 640px) {
+    .hero {
+        min-height: auto;
+        padding-top: 6rem;
+        padding-bottom: 3rem;
+    }
+}

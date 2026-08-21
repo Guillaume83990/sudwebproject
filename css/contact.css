@@ -1,0 +1,365 @@
+/* ═══════════════════════════════════════════════════════════════
+   CONTACT.CSS — Sud Web Project
+   Le formulaire cesse d'être une boîte pour devenir une lettre.
+
+   Le diagnostic : six champs encadrés dans un panneau gris, deux
+   menus déroulants, un titre à l'intérieur du cadre. C'est un
+   formulaire administratif — exactement ce qu'on ne veut pas au
+   moment où le visiteur décide de vous écrire.
+
+   Le parti : plus de cadre, plus de boîtes. Chaque champ est une
+   ligne soulignée d'un filet qui s'allume à la saisie, comme sur
+   un papier à en-tête. À gauche, les coordonnées passent en fiche
+   réglée — la grammaire déjà posée dans « à propos ».
+
+   À CHARGER après zone.css, avant type.css.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════════════════════════════════
+   1 · LA COMPOSITION
+   ═══════════════════════════════════════════════════════════════ */
+.contact-grid {
+    display: grid;
+    grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr) !important;
+    gap: 0 7rem !important;
+    align-items: start;
+}
+
+.contact-left {
+    position: sticky;
+    top: 8rem;
+}
+
+.contact-left .section-label {
+    margin-bottom: 1.6rem;
+}
+
+.contact-title {
+    margin-bottom: 2rem !important;
+}
+
+.contact-left>p {
+    font-family: var(--ff-body);
+    font-size: .95rem;
+    line-height: 1.9;
+    color: #8B98AB;
+    max-width: 38ch;
+    margin-bottom: 3.5rem;
+}
+
+.contact-left>p strong {
+    color: #D7DFEA;
+    font-weight: 600;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   2 · LA FICHE DE COORDONNÉES
+   ─────────────────────────────────────────────────────────────── */
+.cmethods {
+    display: block !important;
+    gap: 0 !important;
+    border-top: 1px solid var(--border);
+}
+
+.cmethod {
+    position: relative;
+    display: grid !important;
+    grid-template-columns: minmax(0, .7fr) minmax(0, 1.3fr);
+    align-items: baseline;
+    gap: 0 1.5rem !important;
+    padding: 1.35rem 0 !important;
+    border: none !important;
+    border-bottom: 1px solid var(--border) !important;
+    border-radius: 0 !important;
+    background: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+.cmethod:hover {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Le filet qui se remplit — seulement sur ce qui est cliquable */
+a.cmethod::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    height: 1px;
+    width: 0;
+    background: linear-gradient(90deg, var(--blue-l), rgba(147, 196, 253, .1));
+    transition: width .7s var(--ease);
+}
+
+a.cmethod:hover::after {
+    width: 100%;
+}
+
+.cmethod-icon {
+    display: none !important;
+}
+
+.cmethod>div {
+    display: contents;
+}
+
+.cmethod strong {
+    font-family: var(--ff-body);
+    font-size: .7rem;
+    font-weight: 600;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #6E7C90;
+    transition: color .4s ease;
+}
+
+a.cmethod:hover strong {
+    color: var(--blue-l);
+}
+
+.cmethod span {
+    font-family: var(--ff-body);
+    font-size: .92rem;
+    line-height: 1.6;
+    color: #A9B6C8;
+    transition: color .4s ease;
+}
+
+a.cmethod:hover span {
+    color: #fff;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   3 · LA LETTRE
+   ═══════════════════════════════════════════════════════════════ */
+.contact-form-wrap {
+    background: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    backdrop-filter: none !important;
+}
+
+.cform {
+    display: block;
+}
+
+/* Le titre du formulaire devient un en-tête de lettre */
+.cform h3 {
+    font-family: var(--ff-body) !important;
+    font-size: .7rem !important;
+    font-weight: 600 !important;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: #6E7C90 !important;
+    margin: 0 0 3rem !important;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.cform h3 span {
+    color: #B7C6DA !important;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 2.5rem;
+}
+
+/* ── Le champ ── */
+.fg {
+    position: relative;
+    margin-bottom: 2.6rem;
+}
+
+.fg label {
+    display: block;
+    font-family: var(--ff-body);
+    font-size: .64rem;
+    font-weight: 600;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #5C697D;
+    margin-bottom: .85rem;
+    transition: color .4s var(--ease);
+}
+
+.fg:focus-within label {
+    color: var(--blue-l);
+}
+
+.fg input,
+.fg select,
+.fg textarea {
+    width: 100%;
+    background: none !important;
+    border: none !important;
+    border-bottom: 1px solid rgba(147, 196, 253, .16) !important;
+    border-radius: 0 !important;
+    padding: 0 0 .85rem !important;
+    font-family: var(--ff-body);
+    font-size: .98rem;
+    line-height: 1.6;
+    color: #E9EEF6 !important;
+    outline: none;
+    box-shadow: none !important;
+    transition: border-color .4s var(--ease);
+}
+
+.fg textarea {
+    resize: vertical;
+    min-height: 5.5rem;
+}
+
+.fg input::placeholder,
+.fg textarea::placeholder {
+    color: #3D4757;
+    font-size: .92rem;
+}
+
+/* Le filet qui se trace à la saisie : c'est le seul retour visuel,
+   et c'est suffisant. Un halo ou un fond coloré feraient formulaire. */
+.fg::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    width: 0;
+    background: var(--blue-l);
+    transition: width .55s var(--ease);
+    pointer-events: none;
+}
+
+.fg:focus-within::after {
+    width: 100%;
+}
+
+/* Les menus déroulants : on retire l'apparence système */
+.fg select {
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    padding-right: 1.5rem !important;
+}
+
+.fg:has(select)::before {
+    content: '';
+    position: absolute;
+    right: 2px;
+    bottom: 1.1rem;
+    width: 7px;
+    height: 7px;
+    border-right: 1px solid #6E7C90;
+    border-bottom: 1px solid #6E7C90;
+    transform: rotate(45deg);
+    pointer-events: none;
+    transition: border-color .4s ease;
+}
+
+.fg:has(select):focus-within::before {
+    border-color: var(--blue-l);
+}
+
+.fg select option,
+.fg select optgroup {
+    background: #0C1421;
+    color: #D7DFEA;
+}
+
+/* ── Le bouton ── */
+.submit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: .7rem;
+    margin-top: 1.5rem;
+    padding: 1.05rem 2.2rem;
+    background: var(--blue) !important;
+    border: none;
+    border-radius: 2px;
+    font-family: var(--ff-body);
+    font-size: .84rem;
+    font-weight: 600;
+    letter-spacing: .04em;
+    color: #fff;
+    cursor: pointer;
+    transition: background .35s var(--ease), transform .35s var(--ease);
+}
+
+.submit-btn:hover {
+    background: var(--blue-l) !important;
+    transform: translateY(-2px);
+}
+
+.submit-btn svg {
+    transition: transform .35s var(--ease);
+}
+
+.submit-btn:hover svg {
+    transform: translateX(4px);
+}
+
+.form-note {
+    margin-top: 1.6rem;
+    font-family: var(--ff-body);
+    font-size: .72rem;
+    letter-spacing: .04em;
+    color: #4E5A6C;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   4 · RESPONSIVE
+   ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 1100px) {
+    .contact-grid {
+        grid-template-columns: 1fr !important;
+        gap: 4rem !important;
+    }
+
+    .contact-left {
+        position: static;
+    }
+
+    .contact-left>p {
+        max-width: 52ch;
+        margin-bottom: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .fg {
+        margin-bottom: 2.1rem;
+    }
+
+    .cform h3 {
+        margin-bottom: 2.25rem !important;
+    }
+
+    .cmethod {
+        grid-template-columns: 1fr;
+        gap: .3rem 0 !important;
+        padding: 1.1rem 0 !important;
+    }
+
+    .cmethod strong {
+        font-size: .64rem;
+    }
+
+    .cmethod span {
+        font-size: .88rem;
+    }
+
+    .submit-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

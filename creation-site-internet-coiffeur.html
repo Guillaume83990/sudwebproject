@@ -34,9 +34,9 @@
 
     <!-- Schema.org -->
     <script
-        type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Sud Web Project — Création Site Internet Coiffeur Var","description":"Création de sites internet pour coiffeurs et salons dans le Var 83. Rapide, SEO local, bouton réservation intégré.","url":"https://www.sudwebproject.com/creation-site-internet-coiffeur.html","telephone":"+33611547324","email":"contact@sudwebproject.com","priceRange":"€€","openingHours":"Mo-Sa 08:00-19:00","address":{"@type":"PostalAddress","addressLocality":"Saint-Tropez","addressRegion":"Provence-Alpes-Côte d'Azur","postalCode":"83990","addressCountry":"FR"},"geo":{"@type":"GeoCoordinates","latitude":"43.2677","longitude":"6.6407"},"areaServed":{"@type":"AdministrativeArea","name":"Var"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"5","reviewCount":"3","bestRating":"5"}}</script>
+        type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Sud Web Project — Création Site Internet Coiffeur Var","description":"Création de sites internet pour coiffeurs et salons dans le Var 83. Rapide, SEO local, bouton réservation intégré.","url":"https://www.sudwebproject.com/creation-site-internet-coiffeur.html","telephone":"+33611547324","email":"contact@sudwebproject.com","priceRange":"€€","openingHours":"Mo-Sa 08:00-19:00","address":{"@type":"PostalAddress","addressLocality":"Saint-Tropez","addressRegion":"Provence-Alpes-Côte d'Azur","postalCode":"83990","addressCountry":"FR"},"geo":{"@type":"GeoCoordinates","latitude":"43.2677","longitude":"6.6407"},"areaServed":{"@type":"AdministrativeArea","name":"Var"}}</script>
     <script
-        type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Combien coûte un site internet pour coiffeur dans le Var ?","acceptedAnswer":{"@type":"Answer","text":"À partir de 600€ pour un site Essentiel 3 pages avec galerie, bouton réservation et SEO local Var. Site Premium à partir de 1 300€. Devis gratuit sous 24h."}},{"@type":"Question","name":"Un site internet aide-t-il un coiffeur à avoir plus de rendez-vous ?","acceptedAnswer":{"@type":"Answer","text":"Oui. La majorité des clients cherchent un coiffeur sur Google avant de réserver. Sans site visible et rapide, vous êtes absent de cette recherche — et c'est votre concurrent qui prend l'appel."}},{"@type":"Question","name":"Mon site sera-t-il visible sur coiffeur plus ma ville dans le Var ?","acceptedAnswer":{"@type":"Answer","text":"Oui. H1 géolocalisé, Schema.org LocalBusiness, Google Business Profile optimisé. Vous apparaissez avant les annuaires en 4 à 8 semaines."}},{"@type":"Question","name":"Quel délai pour créer un site de coiffeur dans le Var ?","acceptedAnswer":{"@type":"Answer","text":"Site Essentiel livré en 4 à 5 jours ouvrés. Site Premium en 1 à 3 semaines. Délai garanti dans le devis."}}]}</script>
+        type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Combien coûte un site internet pour coiffeur dans le Var ?","acceptedAnswer":{"@type":"Answer","text":"Le tarif ne dépend pas simplement du nombre de pages. Chaque projet est différent : le prix dépend du niveau de personnalisation, des objectifs, des fonctionnalités et de l'accompagnement souhaité. Mes projets commencent à 850€ avec l'offre Essentiel. L'offre Premium commence à 1 500€. Les projets sur mesure font l'objet d'un devis avec l'offre Ultra. Devis gratuit sous 24h."}},{"@type":"Question","name":"Un site internet aide-t-il vraiment à avoir plus de rendez-vous ?","acceptedAnswer":{"@type":"Answer","text":"Oui. La majorité des clients cherchent un coiffeur sur Google avant de réserver. Sans site visible et rapide, vous êtes absent de cette recherche — et c'est votre concurrent qui prend l'appel."}},{"@type":"Question","name":"Mon site sera-t-il visible sur \"coiffeur + ma ville\" dans le Var ?","acceptedAnswer":{"@type":"Answer","text":"Oui. H1 géolocalisé, Schema.org LocalBusiness, Google Business Profile optimisé. Vous apparaissez avant les annuaires en 4 à 8 semaines."}},{"@type":"Question","name":"Quel délai pour créer un site de coiffeur dans le Var ?","acceptedAnswer":{"@type":"Answer","text":"Site Essentiel livré en 4 à 5 jours ouvrés. Site Premium en 1 à 3 semaines. Délai garanti dans le devis."}}]}</script>
     <script
         type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.sudwebproject.com"},{"@type":"ListItem","position":2,"name":"Création site internet Var","item":"https://www.sudwebproject.com/creation-site-internet-var.html"},{"@type":"ListItem","position":3,"name":"Création site internet coiffeur Var","item":"https://www.sudwebproject.com/creation-site-internet-coiffeur.html"}]}</script>
 
@@ -48,213 +48,182 @@
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
     <!-- Preload font -->
-    <link rel="preload" href="assets/fonts/playfair-display-v40-latin-900.woff2" as="font" type="font/woff2"
+    <link rel="preload" href="assets/fonts/instrument-serif-v5-latin-regular.woff2" as="font" type="font/woff2"
         crossorigin />
 
-    <!-- CSS -->
+    <!-- Preload LCP -->
+    <link rel="preload" as="image" media="(min-width: 769px)" href="assets/images/metier-coiffeur-1280.webp"
+        type="image/webp" fetchpriority="high"
+        imagesrcset="assets/images/metier-coiffeur-640.webp 640w, assets/images/metier-coiffeur-960.webp 960w, assets/images/metier-coiffeur-1280.webp 1280w, assets/images/metier-coiffeur-1535.webp 1535w"
+        imagesizes="100vw" />
+    <link rel="preload" href="assets/fonts/instrument-serif-v5-latin-regular.woff2" as="font" type="font/woff2"
+        crossorigin />
+
+    <!-- CSS — l'ordre compte : ville-hero.css ferme la pile -->
     <link rel="stylesheet" href="css/global.css" />
     <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="css/ville.css" />
     <link rel="stylesheet" href="css/cookies.css" media="print" onload="this.media='all'" />
-    <link rel="stylesheet" href="css/fonts-local.css" media="print" onload="this.media='all'" />
+    <link rel="stylesheet" href="css/fonts-local.css" />
+    <link rel="stylesheet" href="css/motion.css" />
+    <link rel="stylesheet" href="css/depth.css" />
+    <link rel="stylesheet" href="css/metiers.css" />
+    <link rel="stylesheet" href="css/refonte.css" />
+    <link rel="stylesheet" href="css/why.css" />
+    <link rel="stylesheet" href="css/type.css" />
+    <link rel="stylesheet" href="css/refine.css" />
+    <link rel="stylesheet" href="css/space.css" />
+    <link rel="stylesheet" href="css/breath.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/ville-hero.css" />
+    <link rel="stylesheet" href="css/ville-lux.css" />
 
     <style>
         html {
             scroll-padding-top: 72px;
         }
 
-        /* ── PROBLÈME ── */
-        .coif-pb {
-            padding: 8rem 2rem;
-            background: var(--ink-2);
-        }
-
-        .coif-pb-inner {
-            max-width: 780px;
-            margin: 0 auto;
-        }
-
-        .coif-quote {
-            font-family: var(--ff-display);
-            font-size: clamp(1.5rem, 2.5vw, 2.1rem);
-            font-weight: 700;
-            color: #E2E8F0;
-            line-height: 1.3;
-            margin-bottom: 1.25rem;
-        }
-
-        .coif-quote em {
-            color: var(--blue-l);
-            font-style: italic;
-        }
-
-        .coif-sub {
+        /* ── PHOTOS — grammaire du gabarit Saint-Tropez ── */
+        .st-photo-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(5, 8, 15, .88), transparent);
+            padding: 1.5rem 1rem .75rem;
+            font-size: .72rem;
+            letter-spacing: .04em;
             color: var(--mist);
-            font-size: .975rem;
-            line-height: 1.85;
-            margin-top: 1rem;
+            font-weight: 500;
         }
 
-        .coif-sub strong {
-            color: #fff;
+        .st-photo-hero {
+            position: relative;
+            border-radius: var(--r);
+            overflow: hidden;
+            aspect-ratio: 21/9;
+            border: 1px solid var(--border);
+            margin: 3rem 0;
         }
 
-        /* ── BÉNÉFICES ── */
+        .st-photo-hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 8s ease;
+        }
+
+        .st-photo-hero:hover img {
+            transform: scale(1.03);
+        }
+
+        /* ── LES TROIS BÉNÉFICES — colonnes réglées ── */
         .coif-ben {
             padding: 8rem 2rem;
-            background: var(--ink);
         }
 
         .coif-ben-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-top: 3rem;
+            gap: 3rem 2.5rem;
+            margin-top: 4rem;
         }
 
         .coif-ben-card {
-            background: var(--glass-2);
-            border: 1px solid var(--border);
-            border-radius: var(--r);
-            padding: 2.5rem 2rem;
             position: relative;
-            overflow: hidden;
-            transition: all var(--dur) var(--ease);
+            padding-top: 1.75rem;
         }
 
-        .coif-ben-card::after {
+        .coif-ben-card::before {
             content: '';
             position: absolute;
-            bottom: 0;
+            top: 0;
             left: 0;
             right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--blue), var(--blue-l));
-            opacity: 0;
-            transition: opacity var(--dur) var(--ease);
-        }
-
-        .coif-ben-card:hover {
-            border-color: var(--border-h);
-            transform: translateY(-4px);
-        }
-
-        .coif-ben-card:hover::after {
-            opacity: 1;
-        }
-
-        .coif-ben-icon {
-            font-size: 2.25rem;
-            display: block;
-            margin-bottom: 1.25rem;
-            filter: drop-shadow(0 0 12px rgba(59, 130, 246, .4));
+            height: 1px;
+            background: var(--border-h, rgba(148, 163, 184, .28));
         }
 
         .coif-ben-card h3 {
-            font-family: var(--ff-display);
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: .4rem;
-            line-height: 1.3;
+            margin-bottom: .35rem;
         }
 
         .coif-ben-card h4 {
-            font-size: .82rem;
+            font-size: .78rem;
             font-weight: 600;
+            letter-spacing: .04em;
             color: var(--blue-l);
-            margin-bottom: .75rem;
-            line-height: 1.4;
+            margin-bottom: .9rem;
+            line-height: 1.5;
         }
 
         .coif-ben-card p {
             font-size: .875rem;
             color: var(--mist);
-            line-height: 1.7;
+            line-height: 1.8;
+            margin: 0;
         }
 
         .coif-ben-card strong {
             color: #fff;
         }
 
-        /* ── TENSION ÉMOTIONNELLE ── */
+        /* ── RÉALITÉ TERRAIN — trois lignes réglées ── */
         .coif-tension {
-            padding: 8rem 2rem;
-            background: var(--ink-2);
+            padding: 7rem 2rem;
         }
 
         .coif-tension-inner {
-            max-width: 780px;
+            max-width: 860px;
             margin: 0 auto;
         }
 
         .coif-tension-lines {
-            display: flex;
-            flex-direction: column;
-            gap: 1.25rem;
-            margin-top: 2.5rem;
+            margin-top: 3rem;
+            border-top: 1px solid var(--border);
         }
 
         .coif-tension-line {
-            display: flex;
-            align-items: center;
+            display: grid;
+            grid-template-columns: 3.5rem 1fr;
             gap: 1rem;
-            font-family: var(--ff-display);
-            font-size: clamp(1.1rem, 2vw, 1.35rem);
-            font-weight: 700;
+            align-items: baseline;
+            padding: 1.4rem 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 1rem;
             color: var(--mist);
-            line-height: 1.3;
+            line-height: 1.7;
         }
 
-        .coif-tension-line.bad {
-            color: #ef4444;
+        .coif-tension-num {
+            font-size: .7rem;
+            font-weight: 600;
+            letter-spacing: .14em;
+            color: var(--blue-l);
         }
 
-        .coif-tension-line.good {
-            color: #22c55e;
+        .coif-tension-line.is-key {
+            color: #E9EEF6;
         }
 
-        .coif-tension-line span {
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-
-        /* ── PREUVE / DÉMO ── */
+        /* ── DÉMO ── */
         .coif-demo {
-            padding: 7rem 2rem;
-            background: var(--ink);
+            padding: 8rem 2rem;
             border-top: 1px solid var(--border);
         }
 
         .coif-demo-inner {
-            max-width: 820px;
+            max-width: 780px;
             margin: 0 auto;
-            background: var(--glass-2);
-            border: 1px solid var(--border);
-            border-radius: var(--r);
-            padding: 3rem 2.5rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .coif-demo-inner::before {
-            content: '"';
-            position: absolute;
-            top: -1rem;
-            left: 1.5rem;
-            font-family: var(--ff-display);
-            font-size: 8rem;
-            font-weight: 900;
-            color: rgba(59, 130, 246, .08);
-            line-height: 1;
-            pointer-events: none;
+            text-align: center;
         }
 
         .coif-demo-inner p {
-            color: var(--mist);
             font-size: .975rem;
+            color: var(--mist);
             line-height: 1.85;
-            margin-bottom: 1rem;
+            margin-bottom: 1.25rem;
         }
 
         .coif-demo-inner strong {
@@ -262,349 +231,70 @@
         }
 
         .coif-demo-stats {
-            display: flex;
-            gap: 2.5rem;
-            margin: 1.5rem 0 2rem;
-            flex-wrap: wrap;
-        }
-
-        .coif-demo-stat {
-            text-align: center;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin: 3rem 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 2rem 0;
         }
 
         .coif-demo-stat-n {
             display: block;
             font-family: var(--ff-display);
-            font-size: 2.25rem;
-            font-weight: 900;
-            color: #22c55e;
+            font-size: 2.1rem;
+            color: var(--blue-l);
             line-height: 1;
+            letter-spacing: -.02em;
         }
 
         .coif-demo-stat-l {
-            font-size: .72rem;
+            display: block;
+            font-size: .68rem;
             font-weight: 600;
             color: var(--mist);
             text-transform: uppercase;
-            letter-spacing: .1em;
+            letter-spacing: .14em;
+            margin-top: .6rem;
         }
 
         .coif-demo-actions {
             display: flex;
             gap: 1rem;
+            justify-content: center;
             flex-wrap: wrap;
-        }
-
-        /* ── VILLES ── */
-        .coif-villes {
-            padding: 7rem 2rem;
-            background: var(--ink-2);
-            border-top: 1px solid var(--border);
-        }
-
-        .coif-villes-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
             margin-top: 2.5rem;
         }
 
-        .coif-ville-card {
-            background: var(--glass-2);
-            border: 1px solid var(--border);
-            border-radius: var(--r);
-            padding: 1.5rem 1.25rem;
-            text-decoration: none;
-            display: flex;
-            flex-direction: column;
-            gap: .4rem;
-            transition: all var(--dur) var(--ease);
+        /* ── MANIFESTE — statement + miroir ── */
+        .coif-statement {
+            padding: 8rem 2rem;
         }
 
-        .coif-ville-card:hover {
-            border-color: var(--blue-l);
-            transform: translateY(-3px);
-        }
-
-        .coif-ville-icon {
-            font-size: 1.5rem;
-        }
-
-        .coif-ville-name {
-            font-family: var(--ff-display);
-            font-size: .95rem;
-            font-weight: 700;
-            color: #fff;
-        }
-
-        .coif-ville-sub {
-            font-size: .78rem;
-            color: var(--mist);
-            line-height: 1.5;
-        }
-
-        .coif-ville-arrow {
-            font-size: .75rem;
-            color: var(--blue-l);
-            font-weight: 700;
-            margin-top: auto;
-            padding-top: .5rem;
-        }
-
-        /* ── SERVICES COMPL ── */
-        .coif-services {
-            padding: 6rem 2rem;
-            background: var(--ink);
-            border-top: 1px solid var(--border);
-        }
-
-        .coif-services-grid {
+        .coif-statement-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .coif-service-card {
-            background: var(--glass-2);
-            border: 1px solid var(--border);
-            border-radius: var(--r);
-            padding: 2rem 1.75rem;
-            text-decoration: none;
-            display: flex;
-            flex-direction: column;
-            gap: .6rem;
-            transition: all var(--dur) var(--ease);
-        }
-
-        .coif-service-card:hover {
-            border-color: var(--border-h);
-            transform: translateY(-3px);
-        }
-
-        .coif-service-icon {
-            font-size: 1.75rem;
-        }
-
-        .coif-service-card h3 {
-            font-family: var(--ff-display);
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: #fff;
-            margin: 0;
-        }
-
-        .coif-service-card p {
-            font-size: .83rem;
-            color: var(--mist);
-            line-height: 1.6;
-            margin: 0;
-        }
-
-        .coif-service-arrow {
-            color: var(--blue-l);
-            font-size: .82rem;
-            font-weight: 700;
-            margin-top: auto;
-            padding-top: .5rem;
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 1024px) {
-            .coif-villes-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .coif-ben-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .coif-villes-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .coif-services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .coif-demo-inner {
-                padding: 2rem 1.5rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .coif-villes-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 900px) {
-            .footer-grid {
-                grid-template-columns: 1fr 1fr !important;
-                gap: 2rem;
-            }
-        }
-
-        @media (max-width: 540px) {
-            .footer-grid {
-                grid-template-columns: 1fr !important;
-                gap: 1.5rem;
-            }
-        }
-
-        /* ── PHOTO PLACEHOLDERS ── */
-        .coif-photo-band {
-            background: var(--ink-2);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-            overflow: hidden;
-        }
-
-        .coif-photo-track {
-            display: flex;
-            gap: 2px;
-            height: 320px;
-        }
-
-        .coif-photo-slot {
-            flex: 1;
-            background: var(--glass-2);
-            border: 1px dashed rgba(59, 130, 246, .2);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
+            gap: 5rem;
             align-items: center;
-            justify-content: center;
-            gap: .5rem;
-            transition: all .4s ease;
-        }
-
-        .coif-photo-slot:hover {
-            border-color: rgba(59, 130, 246, .5);
-            background: var(--glass);
-        }
-
-        .coif-photo-slot img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform .8s ease;
-        }
-
-        .coif-photo-slot:hover img {
-            transform: scale(1.04);
-        }
-
-        .coif-photo-placeholder-icon {
-            font-size: 2rem;
-            color: rgba(59, 130, 246, .3);
-        }
-
-        .coif-photo-placeholder-label {
-            font-size: .7rem;
-            font-weight: 600;
-            color: rgba(59, 130, 246, .4);
-            text-transform: uppercase;
-            letter-spacing: .1em;
-            text-align: center;
-            padding: 0 1rem;
-        }
-
-        .coif-photo-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 2rem 1rem .65rem;
-            background: linear-gradient(to top, rgba(8, 12, 20, .7), transparent);
-            font-size: .7rem;
-            color: rgba(255, 255, 255, .6);
-            font-weight: 500;
-            letter-spacing: .06em;
-            text-transform: uppercase;
-        }
-
-        /* Photo immersive pleine largeur */
-        .coif-photo-full {
-            position: relative;
-            height: 460px;
-            overflow: hidden;
-            background: var(--glass-2);
-            border: 1px dashed rgba(59, 130, 246, .2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            gap: .75rem;
-        }
-
-        .coif-photo-full img {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .coif-photo-full-placeholder {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: .75rem;
-        }
-
-        .coif-photo-full-placeholder .ph-icon {
-            font-size: 3rem;
-            color: rgba(59, 130, 246, .3);
-        }
-
-        .coif-photo-full-placeholder .ph-label {
-            font-size: .82rem;
-            color: rgba(59, 130, 246, .4);
-            text-transform: uppercase;
-            letter-spacing: .1em;
-            font-weight: 600;
-        }
-
-        .coif-photo-full-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to bottom, rgba(8, 12, 20, .2) 0%, rgba(8, 12, 20, .1) 40%, rgba(8, 12, 20, .65) 100%);
-        }
-
-        .coif-photo-full-text {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 4rem 2rem 2.5rem;
-            text-align: center;
         }
 
         .coif-photo-full-eyebrow {
-            font-size: .72rem;
-            font-weight: 700;
-            letter-spacing: .15em;
+            font-size: .68rem;
+            font-weight: 600;
+            letter-spacing: .18em;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, .55);
-            display: block;
-            margin-bottom: .75rem;
+            color: var(--blue-l);
+            margin-bottom: 1.5rem;
         }
 
         .coif-photo-full-statement {
             font-family: var(--ff-display);
-            font-size: clamp(1.75rem, 3.5vw, 2.75rem);
-            font-weight: 900;
-            color: #fff;
-            line-height: 1.15;
-            text-shadow: 0 2px 20px rgba(0, 0, 0, .5);
-            max-width: 700px;
-            margin: 0 auto;
+            font-size: clamp(1.9rem, 3.6vw, 3.1rem);
+            font-weight: 400;
+            line-height: 1.12;
+            color: #E9EEF6;
+            margin: 0;
         }
 
         .coif-photo-full-statement em {
@@ -612,67 +302,92 @@
             color: var(--blue-l);
         }
 
-        /* Duo photos côte à côte */
-        .coif-photo-duo {
+        /* ── SERVICES COMPLÉMENTAIRES ── */
+        .coif-services {
+            padding: 6rem 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .coif-services-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin: 3rem 0;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
         }
 
-        .coif-photo-duo-item {
-            position: relative;
+        .coif-service-card {
+            border: 1px solid var(--border);
             border-radius: var(--r);
-            overflow: hidden;
-            aspect-ratio: 4/3;
-            background: var(--glass-2);
-            border: 1px dashed rgba(59, 130, 246, .2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            gap: .5rem;
-        }
-
-        .coif-photo-duo-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            padding: 2rem 1.75rem;
+            text-decoration: none;
             display: block;
-            transition: transform 5s ease;
+            transition: all var(--dur) var(--ease);
         }
 
-        .coif-photo-duo-item:hover img {
-            transform: scale(1.05);
+        .coif-service-card:hover {
+            border-color: var(--border-h);
+            transform: translateY(-4px);
+        }
+
+        .coif-service-card h3 {
+            margin-bottom: .6rem;
+        }
+
+        .coif-service-card p {
+            font-size: .875rem;
+            color: var(--mist);
+            line-height: 1.75;
+            margin-bottom: 1rem;
+        }
+
+        .coif-service-arrow {
+            font-size: .8rem;
+            font-weight: 600;
+            color: var(--blue-l);
+        }
+
+        @media (max-width: 1024px) {
+            .coif-ben-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .coif-statement-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
         }
 
         @media (max-width: 768px) {
-            .coif-photo-track {
-                height: 220px;
-            }
 
-            .coif-photo-full {
-                height: 320px;
-            }
-
-            .coif-photo-duo {
+            .coif-services-grid {
                 grid-template-columns: 1fr;
             }
 
-            .coif-photo-placeholder-label {
-                font-size: .62rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .coif-photo-track {
-                flex-direction: column;
-                height: auto;
+            .coif-demo-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem 1rem;
             }
 
-            .coif-photo-slot {
-                height: 160px;
-                flex: none;
+            .coif-tension-line {
+                grid-template-columns: 1fr;
+                gap: .3rem;
+            }
+
+            .st-photo-hero {
+                aspect-ratio: 16/10;
+                margin: 2rem 0;
+            }
+
+            .coif-ben,
+            .coif-tension,
+            .coif-demo,
+            .coif-statement,
+            .coif-services {
+                padding-left: 1.35rem;
+                padding-right: 1.35rem;
             }
         }
     </style>
@@ -708,11 +423,11 @@
             <ul class="nav-links" id="nav-menu">
                 <li><a href="/#services">Services</a></li>
                 <li><a href="/#portfolio">Réalisations</a></li>
-                <li><a href="#tarifs">Tarifs</a></li>
+                <li><a href="/#tarifs">Tarifs</a></li>
                 <li><a href="/#apropos">À propos</a></li>
                 <li><a href="/#contact">Contact</a></li>
             </ul>
-            <a href="/#contact" class="nav-cta">Mon site qui remplit mon agenda →</a>
+            <a href="/#contact" class="nav-cta">Devis gratuit</a>
             <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false"
                 aria-controls="nav-menu"><span></span><span></span><span></span></button>
         </div>
@@ -726,7 +441,7 @@
             <span class="bc-sep">›</span>
             <a href="creation-site-internet-var.html">Var (83)</a>
             <span class="bc-sep">›</span>
-            <span aria-current="page">Site internet coiffeur Var</span>
+            <span aria-current="page">Site internet coiffeur</span>
         </div>
     </nav>
 
@@ -734,7 +449,22 @@
 
         <!-- ═══ HERO ═══ -->
         <section class="ville-hero" aria-labelledby="h1-coif">
+            <img class="ville-hero-img" src="assets/images/metier-coiffeur-1280.webp" srcset="assets/images/metier-coiffeur-640.webp 640w,
+                        assets/images/metier-coiffeur-960.webp 960w,
+                        assets/images/metier-coiffeur-1280.webp 1280w,
+                        assets/images/metier-coiffeur-1535.webp 1535w" sizes="100vw"
+                alt="Salon de coiffure désert au crépuscule, postes de coiffage alignés — Var 83" width="1535"
+                height="863" fetchpriority="high" decoding="async" />
+            <div class="ville-hero-img-overlay"></div>
             <div class="ville-hero-bg"></div>
+
+            <span class="ville-mark" aria-hidden="true">Coiffure</span>
+
+            <div class="ville-coord" aria-hidden="true">
+                <span class="ville-coord-line"></span>
+                <span class="ville-coord-val">43.2677° N · 6.6407° E</span>
+            </div>
+
             <div class="container">
                 <div class="ville-hero-badge">
                     <span class="badge-dot"></span>
@@ -754,93 +484,64 @@
 
                 <div class="ville-hero-actions">
                     <a href="/#contact" class="btn-hero">
-                        Recevoir mon devis gratuit →
+                        Recevoir mon devis gratuit
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
                             <path d="M3.75 9h10.5M9.75 4.5L14.25 9l-4.5 4.5" stroke="currentColor" stroke-width="1.5"
                                 stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </a>
-                    <a href="tel:+33611547324" class="btn-ghost-hero">📞 +33 6 11 54 73 24</a>
+                    <a href="tel:+33611547324" class="btn-ghost-hero">+33 6 11 54 73 24</a>
                 </div>
-
-                <div class="ville-hero-metrics">
-                    <div class="metric"><span class="metric-n">600€</span><span class="metric-l">À partir de</span>
-                    </div>
-                    <div class="metric-sep" aria-hidden="true"></div>
-                    <div class="metric"><span class="metric-n">4–5j</span><span class="metric-l">Site Essentiel</span>
-                    </div>
-                    <div class="metric-sep" aria-hidden="true"></div>
-                    <div class="metric"><span class="metric-n">100%</span><span class="metric-l">Code sur mesure</span>
-                    </div>
-                    <div class="metric-sep" aria-hidden="true"></div>
-                    <div class="metric"><span class="metric-n">24h</span><span class="metric-l">Réponse garantie</span>
-                    </div>
-                </div>
-            </div>
-            <div class="ville-scroll-hint" aria-hidden="true"><span>Scroll</span>
-                <div class="ville-scroll-line"></div>
             </div>
         </section>
 
-        <!-- ═══ BANDE PHOTOS ═══ -->
-        <section class="coif-photo-band" aria-label="Réalisations salon de coiffure Var">
-            <div class="coif-photo-track">
-                <div class="coif-photo-slot gsap-fade-up">
-                    <img src="assets/images/coupe-femme-coiffure.webp" alt="Coupe femme salon Var 83" width="400"
-                        height="320" loading="lazy" decoding="async" />
-                    <div class="coif-photo-caption">Réalisation — Var 83</div>
-                </div>
-                <div class="coif-photo-slot gsap-fade-up">
-                    <img src="assets/images/balayage-coloration-coiffeur.webp" alt="Balayage coloration salon Var"
-                        width="400" height="320" loading="lazy" decoding="async" />
-                    <div class="coif-photo-caption">Coloration — Var 83</div>
-                </div>
-                <div class="coif-photo-slot gsap-fade-up">
-                    <img src="assets/images/interieur-salon-coiffure.webp" alt="Intérieur salon de coiffure Var 83"
-                        width="400" height="320" loading="lazy" decoding="async" />
-                    <div class="coif-photo-caption">Salon — Var 83</div>
-                </div>
-                <div class="coif-photo-slot gsap-fade-up">
-                    <img src="assets/images/chignon-mariage-coiffeur.webp" alt="Coiffure mariage chignon Var 83"
-                        width="400" height="320" loading="lazy" decoding="async" />
-                    <div class="coif-photo-caption">Mariage — Var 83</div>
-                </div>
+        <!-- ═══ PHOTO PANORAMIQUE ═══ -->
+        <section class="st-band" aria-hidden="true">
+            <div class="st-photo-hero">
+                <img src="assets/images/coif-miroirs-1400.webp" srcset="assets/images/coif-miroirs-700.webp 700w,
+                            assets/images/coif-miroirs-1000.webp 1000w,
+                            assets/images/coif-miroirs-1400.webp 1400w" sizes="100vw"
+                    alt="Rangée de miroirs de salon se reflétant à l'infini — coiffure, Var 83" width="1400"
+                    height="600" loading="lazy" decoding="async" />
+                <div class="st-photo-caption">Salon de coiffure — Var 83</div>
             </div>
         </section>
 
         <!-- ═══ LE PROBLÈME ═══ -->
-        <section class="coif-pb" aria-labelledby="pb-title">
+        <section class="ville-intro-section" aria-labelledby="pb-title">
             <div class="container">
-                <div class="coif-pb-inner">
-                    <div class="section-label">Le problème</div>
-                    <p class="coif-quote" id="pb-title">
-                        Un client cherche un coiffeur le samedi matin. <em>Il réserve chez le premier qu'il trouve sur
-                            Google — pas forcément le meilleur.</em>
-                    </p>
-                    <p class="coif-sub">
-                        <strong>80% des clients cherchent un coiffeur en ligne avant de réserver</strong> — souvent
-                        depuis leur téléphone. Sans site visible sur "coiffeur + votre ville", vous êtes absent de cette
-                        décision. Ce sont vos concurrents qui prennent ces rendez-vous à votre place, chaque jour.
-                    </p>
-                    <p class="coif-sub">
-                        Un site de salon de coiffure n'est pas une carte de visite numérique — c'est un <strong>outil
-                            commercial qui travaille 24h/24</strong>. Il doit charger en moins d'une seconde, afficher
-                        votre galerie de réalisations, et convertir chaque visiteur en rendez-vous.
-                    </p>
-                </div>
-            </div>
-        </section>
+                <div class="ville-intro-grid">
+                    <div class="ville-intro-text">
+                        <div class="section-label">Le problème</div>
+                        <p class="ville-h2" id="pb-title" style="margin-bottom:1.75rem;">
+                            Un client cherche un coiffeur le samedi matin.
+                            <em style="font-style:italic;color:var(--blue-l);">Il réserve chez le premier qu'il trouve
+                                sur Google — pas forcément le meilleur.</em>
+                        </p>
+                        <p><strong>80% des clients cherchent un coiffeur en ligne avant de réserver</strong> — souvent
+                            depuis leur téléphone. Sans site visible sur "coiffeur + votre ville", vous êtes absent de
+                            cette décision. Ce sont vos concurrents qui prennent ces rendez-vous à votre place, chaque
+                            jour.</p>
+                        <p>Un site de salon de coiffure n'est pas une carte de visite numérique — c'est un <strong>outil
+                                commercial qui travaille 24h/24</strong>. Il doit charger en moins d'une seconde,
+                            afficher votre galerie de réalisations, et convertir chaque visiteur en rendez-vous.</p>
+                        <a href="/#contact" class="btn-primary" style="margin-top:1.5rem;display:inline-flex;">
+                            Recevoir mon devis gratuit
+                        </a>
+                    </div>
 
-        <!-- ═══ PHOTO IMMERSIVE ═══ -->
-        <section class="coif-photo-full" aria-label="Salon de coiffure Var 83">
-            <img src="assets/images/coiffeur-ambiance.webp"
-                srcset="assets/images/coiffeur-ambiance-mobile.webp 768w, assets/images/coiffeur-ambiance.webp 1440w"
-                sizes="100vw" alt="Ambiance salon de coiffure Var 83" width="1440" height="460" loading="lazy"
-                decoding="async" />
-            <div class="coif-photo-full-overlay"></div>
-            <div class="coif-photo-full-text gsap-fade-up">
-                <span class="coif-photo-full-eyebrow">Salon de coiffure · Var 83</span>
-                <h2 class="coif-photo-full-statement">Votre talent mérite<br><em>d'être vu.</em></h2>
+                    <div>
+                        <div class="ville-intro-img-wrap">
+                            <img src="assets/images/coif-fauteuil-760.webp" srcset="assets/images/coif-fauteuil-560.webp 560w,
+                                    assets/images/coif-fauteuil-760.webp 760w,
+                                    assets/images/coif-fauteuil-1000.webp 1000w"
+                                sizes="(max-width: 1100px) 100vw, 40vw"
+                                alt="Fauteuil de coiffage vide en cuir et métal brossé — salon, Var 83" width="1000"
+                                height="1333" loading="lazy" decoding="async" />
+                            <div class="ville-intro-img-label">Coiffure · Var 83</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -859,7 +560,6 @@
                 </div>
                 <div class="coif-ben-grid">
                     <article class="coif-ben-card gsap-fade-up">
-                        <span class="coif-ben-icon">📅</span>
                         <h3>Réservation directe</h3>
                         <h4>Bouton "Réserver" visible dès le premier écran</h4>
                         <p>Un clic depuis le mobile vers votre agenda Planity, Treatwell ou votre numéro WhatsApp.
@@ -868,7 +568,6 @@
                         </p>
                     </article>
                     <article class="coif-ben-card gsap-fade-up">
-                        <span class="coif-ben-icon">📍</span>
                         <h3>SEO local</h3>
                         <h4>Positionnement sur "coiffeur + votre ville"</h4>
                         <p>H1 géolocalisé, Schema.org LocalBusiness, Google Business Profile optimisé. Vous apparaissez
@@ -876,7 +575,6 @@
                             8 semaines.</p>
                     </article>
                     <article class="coif-ben-card gsap-fade-up">
-                        <span class="coif-ben-icon">✨</span>
                         <h3>Galerie premium</h3>
                         <h4>Réalisations, colorations &amp; avis clients</h4>
                         <p>Photos haute qualité de vos coupes, balayages et colorations. <strong>Le client voit votre
@@ -884,6 +582,17 @@
                             rassurent les nouveaux clients.</p>
                     </article>
                 </div>
+            </div>
+        </section>
+
+        <!-- ═══ RESPIRATION ═══ -->
+        <section class="breath">
+            <div class="breath-inner">
+                <span class="breath-mark" aria-hidden="true"></span>
+                <p class="breath-line">Un client ne juge pas votre coupe.
+                    <em>Il juge la photo de votre coupe.</em>
+                </p>
+                <span class="breath-sign">Sud Web Project — Coiffure Var 83</span>
             </div>
         </section>
 
@@ -898,10 +607,18 @@
                                 vaut le déplacement.</em></span>
                     </h2>
                     <div class="coif-tension-lines">
-                        <div class="coif-tension-line"><span>👁️</span>Il juge votre salon sur votre site avant même
-                            d'entrer.</div>
-                        <div class="coif-tension-line bad"><span>✗</span>Un site amateur = un salon qui fait peur.</div>
-                        <div class="coif-tension-line good"><span>✓</span>Un site professionnel = un agenda plein.</div>
+                        <div class="coif-tension-line gsap-fade-up">
+                            <span class="coif-tension-num">01</span>
+                            <span>Il juge votre salon sur votre site avant même d'entrer.</span>
+                        </div>
+                        <div class="coif-tension-line gsap-fade-up">
+                            <span class="coif-tension-num">02</span>
+                            <span>Un site amateur = un salon qui fait peur.</span>
+                        </div>
+                        <div class="coif-tension-line is-key gsap-fade-up">
+                            <span class="coif-tension-num">03</span>
+                            <span>Un site professionnel = un agenda plein.</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -911,69 +628,108 @@
         <section class="coif-demo" aria-labelledby="demo-title">
             <div class="container">
                 <div class="section-head" style="text-align:center;margin-bottom:3rem;">
-                    <div class="section-label">Preuve concrète — Élise &amp; Ciseaux, Cogolin</div>
+                    <div class="section-label">
+                        Concept démonstrateur — Salon de coiffure fictif · Cogolin
+                    </div>
+
                     <h2 class="section-title" id="demo-title">
-                        <span class="split-reveal">Voyez ce qu'un site coiffeur</span>
-                        <span class="split-reveal"><em style="font-style:italic;color:var(--blue-l);">peut atteindre
-                                concrètement.</em></span>
+                        <span class="split-reveal">
+                            Voyez ce qu'un site coiffeur
+                        </span>
+                        <span class="split-reveal">
+                            <em style="font-style:italic;color:var(--blue-l);">
+                                peut atteindre concrètement.
+                            </em>
+                        </span>
                     </h2>
                 </div>
+
                 <div class="coif-demo-inner gsap-fade-up">
-                    <p><strong>Élise &amp; Ciseaux</strong> — salon de coiffure à Cogolin, Var 83. Desktop 100/100, SEO
-                        100/100, Bonnes pratiques 100/100. Galerie de réalisations optimisée WebP, bouton réservation
-                        visible dès le premier écran, avis clients intégrés. <strong>Le site coiffeur qui se place dans
-                            le top 1% des salons en France.</strong></p>
-                    <p>Positionné sur "coiffeur Cogolin", "salon coiffure Var" et "coiffeur femme Golfe de Saint-Tropez"
-                        — sans publicité payante.</p>
+
+                    <p>
+                        <strong>Élise &amp; Ciseaux</strong> est un
+                        <strong>concept de site créé par SudWebProject</strong>
+                        pour illustrer ce qu'une présence digitale haut de gamme
+                        peut apporter à un salon de coiffure à Cogolin, dans le Var.
+                        Il s'agit d'un projet fictif conçu comme démonstrateur :
+                        <strong>le salon et le site ne sont pas une entreprise réelle.</strong>
+                    </p>
+
+                    <p>
+                        Le concept a été pensé autour d'une galerie de réalisations
+                        optimisée WebP, d'un bouton de réservation visible dès le
+                        premier écran, d'une intégration des avis clients et d'une
+                        architecture pensée pour le référencement local.
+                    </p>
+
+                    <p>
+                        Les performances présentées ci-dessous correspondent aux
+                        résultats obtenus sur ce concept lors de son évaluation.
+                    </p>
+
                     <div class="coif-demo-stats">
                         <div class="coif-demo-stat">
                             <span class="coif-demo-stat-n">100</span>
                             <span class="coif-demo-stat-l">SEO</span>
                         </div>
+
                         <div class="coif-demo-stat">
                             <span class="coif-demo-stat-n">100</span>
                             <span class="coif-demo-stat-l">Desktop</span>
                         </div>
+
                         <div class="coif-demo-stat">
                             <span class="coif-demo-stat-n">89</span>
                             <span class="coif-demo-stat-l">Mobile</span>
                         </div>
+
                         <div class="coif-demo-stat">
                             <span class="coif-demo-stat-n">96</span>
                             <span class="coif-demo-stat-l">Accessibilité</span>
-                        </div>
-                    </div>
-                    <!-- Duo photos réalisations -->
-                    <div class="coif-photo-duo">
-                        <div class="coif-photo-duo-item">
-                            <img src="assets/images/realisation-coiffure-elise.webp"
-                                alt="Réalisation coiffure Élise et Ciseaux Cogolin" width="600" height="450"
-                                loading="lazy" decoding="async" />
-                        </div>
-                        <div class="coif-photo-duo-item">
-                            <img src="assets/images/coloration-elise.webp"
-                                alt="Coloration salon Élise et Ciseaux Var 83" width="600" height="450" loading="lazy"
-                                decoding="async" />
                         </div>
                     </div>
 
                     <div class="coif-demo-actions">
                         <a href="https://guillaume83990.github.io/elise-et-ciseaux/" target="_blank"
                             rel="noopener noreferrer" class="btn-hero">
-                            Voir le site Élise &amp; Ciseaux →
+                            Voir le concept Élise &amp; Ciseaux
+
                             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
                                 <path d="M3.75 9h10.5M9.75 4.5L14.25 9l-4.5 4.5" stroke="currentColor"
                                     stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </a>
-                        <a href="etude-cas-coiffeur.html" class="btn-ghost-hero">→ Étude de cas complète</a>
+
+                        <a href="etude-cas-coiffeur.html" class="btn-ghost-hero">
+                            Étude de cas du concept
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ MANIFESTE ═══ -->
+        <section class="coif-statement" aria-label="Salon de coiffure Var 83">
+            <div class="container">
+                <div class="coif-statement-grid">
+                    <div class="gsap-fade-up">
+                        <p class="coif-photo-full-eyebrow">Salon de coiffure · Var 83</p>
+                        <h2 class="coif-photo-full-statement">Votre talent mérite<br><em>d'être vu.</em></h2>
+                    </div>
+                    <div class="st-photo-square">
+                        <img src="assets/images/coif-lumiere-850.webp" srcset="assets/images/coif-lumiere-620.webp 620w,
+                                assets/images/coif-lumiere-850.webp 850w,
+                                assets/images/coif-lumiere-1100.webp 1100w" sizes="(max-width: 900px) 100vw, 45vw"
+                            alt="Miroir rond rétroéclairé dans la pénombre d'un salon — coiffure, Var 83" width="1100"
+                            height="1100" loading="lazy" decoding="async" />
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- ═══ POURQUOI ═══ -->
-        <section class="ville-pourquoi" style="background:var(--ink-2);" aria-labelledby="pourquoi-title">
+        <section class="ville-pourquoi" aria-labelledby="pourquoi-title">
             <div class="container">
                 <div class="section-head">
                     <div class="section-label">Pourquoi choisir Sud Web Project ?</div>
@@ -985,42 +741,53 @@
                 </div>
                 <div class="ville-pourquoi-grid">
                     <div class="ville-pourquoi-card gsap-fade-up">
-                        <div class="ville-pourquoi-icon">⚡</div>
+                        <div class="ville-pourquoi-icon" aria-hidden="true"></div>
                         <h3>Performances optimisées — mobile d'abord</h3>
                         <p>Zéro WordPress, code à la main. 89/100 mobile, 100/100 desktop. Vos clients cherchent depuis
                             leur téléphone — votre site doit charger instantanément.</p>
                     </div>
                     <div class="ville-pourquoi-card gsap-fade-up">
-                        <div class="ville-pourquoi-icon">🎯</div>
+                        <div class="ville-pourquoi-icon" aria-hidden="true"></div>
                         <h3>SEO local dès la mise en ligne</h3>
                         <p>H1 géolocalisé, Schema.org LocalBusiness, Google Business Profile configuré. Visible sur
                             "coiffeur + votre ville" en 4 à 8 semaines.</p>
                     </div>
                     <div class="ville-pourquoi-card gsap-fade-up">
-                        <div class="ville-pourquoi-icon">📅</div>
+                        <div class="ville-pourquoi-icon" aria-hidden="true"></div>
                         <h3>Bouton réservation intégré</h3>
                         <p>Planity, Treatwell, WhatsApp ou formulaire — le bouton de réservation est visible dès le
                             premier écran sur mobile. Zéro friction.</p>
                     </div>
                     <div class="ville-pourquoi-card gsap-fade-up">
-                        <div class="ville-pourquoi-icon">📍</div>
+                        <div class="ville-pourquoi-icon" aria-hidden="true"></div>
                         <h3>Basé dans le Var — je connais votre marché</h3>
                         <p>Développeur freelance à Saint-Tropez, je me déplace pour la première réunion. Je connais la
                             saisonnalité du Golfe et les spécificités du Var.</p>
                     </div>
                     <div class="ville-pourquoi-card gsap-fade-up">
-                        <div class="ville-pourquoi-icon">✅</div>
+                        <div class="ville-pourquoi-icon" aria-hidden="true"></div>
                         <h3>Propriétaire à 100% — aucun abonnement</h3>
                         <p>Code, contenu, domaine — tout vous appartient. Pas de plateforme propriétaire. Maintenance
                             optionnelle à partir de 60€/mois.</p>
                     </div>
                     <div class="ville-pourquoi-card gsap-fade-up">
-                        <div class="ville-pourquoi-icon">🤝</div>
+                        <div class="ville-pourquoi-icon" aria-hidden="true"></div>
                         <h3>Livraison rapide — 4 jours pour l'Essentiel</h3>
                         <p>Site Essentiel en 4 à 5 jours ouvrés. Site Premium en 1 à 3 semaines. Délai garanti dans le
                             devis. Aucune surprise.</p>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- ═══ RESPIRATION ═══ -->
+        <section class="breath">
+            <div class="breath-inner">
+                <span class="breath-mark" aria-hidden="true"></span>
+                <p class="breath-line">Un fauteuil vide ne se rattrape pas.
+                    <em>La journée est passée.</em>
+                </p>
+                <span class="breath-sign">Sud Web Project — Coiffure Var 83</span>
             </div>
         </section>
 
@@ -1039,55 +806,55 @@
                 <div class="price-grid">
                     <article class="price-card gsap-fade-up">
                         <div class="price-head">
-                            <span class="price-icon" aria-hidden="true">🌐</span>
+                            <span class="price-icon" aria-hidden="true"></span>
                             <h3>Web Essentiel</h3>
                             <div class="price-val"><span class="price-from">À partir de</span><span
-                                    class="price-num">600€</span></div>
+                                    class="price-num">850€</span></div>
                         </div>
                         <ul class="price-feats">
-                            <li>✓ 3 pages professionnelles</li>
+                            <li>✓ Site vitrine sur mesure</li>
                             <li>✓ Bouton réservation direct</li>
                             <li>✓ Galerie réalisations intégrée</li>
                             <li>✓ 100% responsive mobile</li>
                             <li>✓ SEO local Var inclus</li>
                             <li>✓ Propriété 100% à vous</li>
                         </ul>
-                        <a href="/#contact" class="btn-outline">Devis gratuit →</a>
+                        <a href="/#contact" class="btn-outline">Devis gratuit</a>
                     </article>
                     <article class="price-card price-feat gsap-fade-up">
-                        <div class="price-top-badge">⭐ Recommandé</div>
+                        <div class="price-top-badge">Recommandé</div>
                         <div class="price-head">
-                            <span class="price-icon" aria-hidden="true">🛍️</span>
+                            <span class="price-icon" aria-hidden="true"></span>
                             <h3>Web Premium</h3>
                             <div class="price-val"><span class="price-from">À partir de</span><span class="price-num">1
-                                    300€</span></div>
+                                    500€</span></div>
                         </div>
                         <ul class="price-feats">
-                            <li>✓ Jusqu'à 6 pages optimisées</li>
+                            <li>✓ Design entièrement personnalisé</li>
                             <li>✓ Galerie avant/après &amp; colorations</li>
                             <li>✓ Page tarifs &amp; prestations</li>
                             <li>✓ SEO optimisé page par page</li>
                             <li>✓ Google Business optimisé</li>
                             <li>✓ Propriété 100% à vous</li>
                         </ul>
-                        <a href="/#contact" class="btn-primary">Devis gratuit →</a>
+                        <a href="/#contact" class="btn-primary">Devis gratuit</a>
                     </article>
                     <article class="price-card gsap-fade-up">
                         <div class="price-head">
-                            <span class="price-icon" aria-hidden="true">🏢</span>
+                            <span class="price-icon" aria-hidden="true"></span>
                             <h3>Web Ultra</h3>
                             <div class="price-val"><span class="price-from">Tarif</span><span class="price-num"
                                     style="font-size:1.6rem;">Sur devis</span></div>
                         </div>
                         <ul class="price-feats">
-                            <li>✓ 7 pages et plus</li>
+                            <li>✓ Expérience digitale sur mesure</li>
                             <li>✓ Pages par zone géographique</li>
                             <li>✓ Boutique produits capillaires</li>
                             <li>✓ SEO avancé multipage</li>
                             <li>✓ Traduction multilingue</li>
                             <li>✓ 100% responsive</li>
                         </ul>
-                        <a href="/#contact" class="btn-outline">Devis gratuit →</a>
+                        <a href="/#contact" class="btn-outline">Devis gratuit</a>
                     </article>
                 </div>
                 <p style="text-align:center;font-size:.82rem;color:var(--mist);margin-top:1.5rem;opacity:.75;">
@@ -1097,7 +864,7 @@
         </section>
 
         <!-- ═══ VILLES ═══ -->
-        <section class="coif-villes" aria-labelledby="villes-title">
+        <section class="ville-villes-block" aria-labelledby="villes-title">
             <div class="container">
                 <div class="section-head">
                     <div class="section-label">Zone d'intervention — Var 83</div>
@@ -1109,30 +876,43 @@
                     <p class="section-intro-seo">J'accompagne les coiffeurs dans tout le Var. Chaque ville a sa page
                         dédiée avec un SEO local spécifique.</p>
                 </div>
-                <div class="coif-villes-grid">
-                    <a href="creation-site-internet-cogolin.html" class="coif-ville-card gsap-fade-up">
-                        <span class="coif-ville-icon">🏭</span>
-                        <span class="coif-ville-name">Cogolin</span>
-                        <span class="coif-ville-sub">Capitale artisanale du Golfe — Élise &amp; Ciseaux y est né</span>
-                        <span class="coif-ville-arrow">→ Page Cogolin</span>
+                <div class="ville-villes-grid">
+                    <a href="creation-site-internet-cogolin.html" class="ville-ville-card gsap-fade-up">
+                        <span class="ville-ville-icon" aria-hidden="true"></span>
+                        <span class="ville-ville-name">Cogolin</span>
+                        <span class="ville-ville-sub">Capitale artisanale du Golfe — Élise &amp; Ciseaux y est
+                            né</span>
+                        <span class="ville-ville-tag">Page dédiée</span>
                     </a>
-                    <a href="creation-site-internet-frejus.html" class="coif-ville-card gsap-fade-up">
-                        <span class="coif-ville-icon">🏛️</span>
-                        <span class="coif-ville-name">Fréjus</span>
-                        <span class="coif-ville-sub">54 000 habitants — forte demande locale toute l'année</span>
-                        <span class="coif-ville-arrow">→ Page Fréjus</span>
+                    <a href="creation-site-internet-frejus.html" class="ville-ville-card gsap-fade-up">
+                        <span class="ville-ville-icon" aria-hidden="true"></span>
+                        <span class="ville-ville-name">Fréjus</span>
+                        <span class="ville-ville-sub">54 000 habitants — forte demande locale toute l'année</span>
+                        <span class="ville-ville-tag">Page dédiée</span>
                     </a>
-                    <a href="creation-site-internet-saint-raphael.html" class="coif-ville-card gsap-fade-up">
-                        <span class="coif-ville-icon">⛵</span>
-                        <span class="coif-ville-name">Saint-Raphaël</span>
-                        <span class="coif-ville-sub">35 000 habitants — tissu commercial et résidentiel actif</span>
-                        <span class="coif-ville-arrow">→ Page Saint-Raphaël</span>
+                    <a href="creation-site-internet-saint-raphael.html" class="ville-ville-card gsap-fade-up">
+                        <span class="ville-ville-icon" aria-hidden="true"></span>
+                        <span class="ville-ville-name">Saint-Raphaël</span>
+                        <span class="ville-ville-sub">35 000 habitants — tissu commercial et résidentiel actif</span>
+                        <span class="ville-ville-tag">Page dédiée</span>
                     </a>
-                    <a href="creation-site-internet-var.html" class="coif-ville-card gsap-fade-up">
-                        <span class="coif-ville-icon">🗺️</span>
-                        <span class="coif-ville-name">Tout le Var</span>
-                        <span class="coif-ville-sub">Toulon, Sainte-Maxime, Grimaud, Cavalaire…</span>
-                        <span class="coif-ville-arrow">→ Toutes les villes</span>
+                    <a href="creation-site-internet-sainte-maxime.html" class="ville-ville-card gsap-fade-up">
+                        <span class="ville-ville-icon" aria-hidden="true"></span>
+                        <span class="ville-ville-name">Sainte-Maxime</span>
+                        <span class="ville-ville-sub">Station premium — clientèle locale et saisonnière</span>
+                        <span class="ville-ville-tag">Page dédiée</span>
+                    </a>
+                    <a href="creation-site-internet-saint-tropez.html" class="ville-ville-card gsap-fade-up">
+                        <span class="ville-ville-icon" aria-hidden="true"></span>
+                        <span class="ville-ville-name">Saint-Tropez</span>
+                        <span class="ville-ville-sub">Salons de prestige, clientèle internationale</span>
+                        <span class="ville-ville-tag">Page dédiée</span>
+                    </a>
+                    <a href="creation-site-internet-var.html" class="ville-ville-card gsap-fade-up">
+                        <span class="ville-ville-icon" aria-hidden="true"></span>
+                        <span class="ville-ville-name">Tout le Var</span>
+                        <span class="ville-ville-sub">Toulon, Grimaud, Gassin, Ramatuelle, Cavalaire…</span>
+                        <span class="ville-ville-tag">Toutes les villes</span>
                     </a>
                 </div>
             </div>
@@ -1151,25 +931,23 @@
                 </div>
                 <div class="coif-services-grid">
                     <a href="refonte-site-internet.html" class="coif-service-card gsap-fade-up">
-                        <span class="coif-service-icon">🔄</span>
                         <h3>Refonte de site coiffeur</h3>
                         <p>Votre site de salon existe mais est lent ou vieilli ? Je le refonds entièrement — nouveau
                             design, nouvelles performances, SEO remis à plat.</p>
-                        <span class="coif-service-arrow">→ Voir la refonte</span>
+                        <span class="coif-service-arrow">Voir la refonte</span>
                     </a>
                     <a href="maintenance.html" class="coif-service-card gsap-fade-up">
-                        <span class="coif-service-icon">🛡️</span>
                         <h3>Maintenance site coiffeur</h3>
                         <p>Modifications, sauvegardes, sécurité. Votre site reste rapide et à jour. À partir de
                             60€/mois, sans engagement.</p>
-                        <span class="coif-service-arrow">→ Voir la maintenance</span>
+                        <span class="coif-service-arrow">Voir la maintenance</span>
                     </a>
                 </div>
             </div>
         </section>
 
         <!-- ═══ FAQ ═══ -->
-        <section class="ville-faq" style="background:var(--ink-2);" aria-labelledby="faq-title">
+        <section class="ville-faq" aria-labelledby="faq-title">
             <div class="container">
                 <div class="section-head">
                     <div class="section-label">Questions fréquentes</div>
@@ -1181,18 +959,22 @@
                 <div class="ville-faq-list">
                     <details class="ville-faq-item gsap-fade-up">
                         <summary>
-                            <h3>Combien coûte un site internet pour coiffeur dans le Var ?</h3><span
-                                class="faq-toggle">+</span>
+                            <h3>Combien coûte un site internet pour coiffeur dans le Var ?</h3>
+                            <span class="faq-toggle">+</span>
                         </summary>
-                        <p>À partir de <strong>600€</strong> pour un site Essentiel 3 pages avec galerie, bouton
-                            réservation et SEO local. Site Premium à partir de <strong>1 300€</strong> avec galerie
-                            étendue, page tarifs et Google Business optimisé. Devis gratuit sous 24h, sans engagement.
+                        <p>Le tarif ne dépend pas simplement du nombre de pages. Chaque projet est différent : le prix
+                            dépend du niveau de personnalisation, des objectifs, des fonctionnalités et de
+                            l'accompagnement souhaité. Mes projets commencent à <strong>850€</strong> avec l'offre
+                            Essentiel — galerie, bouton réservation et SEO local inclus. L'offre Premium commence à
+                            <strong>1 500€</strong>, avec galerie étendue, page tarifs et Google Business optimisé. Les
+                            projets nécessitant une expérience entièrement personnalisée font l'objet d'un devis sur
+                            mesure avec l'offre Ultra. Devis gratuit sous 24h, sans engagement.
                         </p>
                     </details>
                     <details class="ville-faq-item gsap-fade-up">
                         <summary>
-                            <h3>Un site internet aide-t-il vraiment à avoir plus de rendez-vous ?</h3><span
-                                class="faq-toggle">+</span>
+                            <h3>Un site internet aide-t-il vraiment à avoir plus de rendez-vous ?</h3>
+                            <span class="faq-toggle">+</span>
                         </summary>
                         <p>Oui. La majorité des clients cherchent un coiffeur sur Google avant de réserver — souvent
                             depuis leur mobile. Sans site visible et rapide, vous êtes absent de cette décision. Avec un
@@ -1200,8 +982,8 @@
                     </details>
                     <details class="ville-faq-item gsap-fade-up">
                         <summary>
-                            <h3>Mon site sera-t-il visible sur "coiffeur + ma ville" dans le Var ?</h3><span
-                                class="faq-toggle">+</span>
+                            <h3>Mon site sera-t-il visible sur "coiffeur + ma ville" dans le Var ?</h3>
+                            <span class="faq-toggle">+</span>
                         </summary>
                         <p>Oui. H1 géolocalisé, Schema.org LocalBusiness, Google Business Profile configuré et lié. Vous
                             apparaissez avant les annuaires sur les requêtes locales. Résultats visibles en 4 à 8
@@ -1209,16 +991,16 @@
                     </details>
                     <details class="ville-faq-item gsap-fade-up">
                         <summary>
-                            <h3>Quel délai pour créer un site de coiffeur dans le Var ?</h3><span
-                                class="faq-toggle">+</span>
+                            <h3>Quel délai pour créer un site de coiffeur dans le Var ?</h3>
+                            <span class="faq-toggle">+</span>
                         </summary>
-                        <p>Site Essentiel livré en <strong>4 à 5 jours ouvrés</strong>. Site Premium en <strong>1 à 3
-                                semaines</strong>. Délai garanti dans le devis.</p>
+                        <p>Site Essentiel livré en 4 à 5 jours ouvrés. Site Premium en 1 à 3 semaines. Délai garanti
+                            dans le devis.</p>
                     </details>
                     <details class="ville-faq-item gsap-fade-up">
                         <summary>
-                            <h3>Puis-je intégrer ma prise de rendez-vous Planity ou Treatwell ?</h3><span
-                                class="faq-toggle">+</span>
+                            <h3>Puis-je intégrer ma prise de rendez-vous Planity ou Treatwell ?</h3>
+                            <span class="faq-toggle">+</span>
                         </summary>
                         <p>Oui. J'intègre le bouton de redirection vers votre agenda Planity, Treatwell, Booksy ou votre
                             numéro WhatsApp directement sur le site — visible dès le premier écran sur mobile, sans
@@ -1243,13 +1025,13 @@
                     génèrent des rendez-vous toute l'année. Devis gratuit sous 24h.</p>
                 <div class="ville-cta-actions">
                     <a href="/#contact" class="btn-hero">
-                        Recevoir mon devis gratuit →
+                        Recevoir mon devis gratuit
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
                             <path d="M3.75 9h10.5M9.75 4.5L14.25 9l-4.5 4.5" stroke="currentColor" stroke-width="1.5"
                                 stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </a>
-                    <a href="tel:+33611547324" class="btn-ghost-hero">📞 +33 6 11 54 73 24</a>
+                    <a href="tel:+33611547324" class="btn-ghost-hero">+33 6 11 54 73 24</a>
                 </div>
                 <p class="ville-seo-text">Création site internet coiffeur Var · Site salon coiffure Var 83 · Coiffeur
                     Cogolin site · Coiffeur Fréjus web · Coiffeur Saint-Raphaël</p>
@@ -1258,7 +1040,7 @@
 
     </main>
 
-    <!-- ═══ FOOTER — Variante R ═══ -->
+    <!-- ═══ FOOTER ═══ -->
     <footer class="footer" id="main-footer" role="contentinfo">
         <div class="footer-inner">
             <div class="footer-grid">
@@ -1288,6 +1070,8 @@
                         <li><a href="creation-site-internet-cogolin.html">Cogolin</a></li>
                         <li><a href="creation-site-internet-frejus.html">Fréjus</a></li>
                         <li><a href="creation-site-internet-saint-raphael.html">Saint-Raphaël</a></li>
+                        <li><a href="creation-site-internet-sainte-maxime.html">Sainte-Maxime</a></li>
+                        <li><a href="creation-site-internet-saint-tropez.html">Saint-Tropez</a></li>
                         <li><a href="creation-site-internet-var.html">Tout le Var (83)</a></li>
                     </ul>
                 </div>
@@ -1340,15 +1124,20 @@
                     <a href="mentions-legales.html#confidentialite">Confidentialité</a>
                     <span aria-hidden="true">·</span>
                     <a href="mentions-legales.html#cgv">CGV</a>
+                    <span aria-hidden="true">·</span>
                     <a href="cookies.html">Cookies</a>
                 </div>
             </div>
         </div>
+
+        <span class="footer-mark" aria-hidden="true">Sud<em>Web</em> Project</span>
+
         <div class="footer-seo">
             <p>Création site internet coiffeur Var · Site salon coiffure Var 83 · Coiffeur Cogolin site ·
                 <a href="creation-site-internet-cogolin.html">Cogolin</a> ·
                 <a href="creation-site-internet-frejus.html">Fréjus</a> ·
                 <a href="creation-site-internet-saint-raphael.html">Saint-Raphaël</a> ·
+                <a href="creation-site-internet-sainte-maxime.html">Sainte-Maxime</a> ·
                 <a href="etude-cas-coiffeur.html">Étude de cas coiffeur</a> ·
                 <a href="creation-site-internet-var.html">Var (83)</a>
             </p>
@@ -1361,10 +1150,29 @@
         </button>
     </footer>
 
+    <!-- ═══ LIBRAIRIES ═══ -->
+    <script src="js/vendor/gsap.min.js" defer></script>
+    <script src="js/vendor/ScrollTrigger.min.js" defer></script>
+    <script src="js/vendor/lenis.min.js" defer></script>
+
+    <!-- motion.js pose les valeurs GSAP par défaut : avant tout le reste -->
+    <script src="js/motion.js" defer></script>
+
+    <!-- ═══ SCRIPTS DU SITE ═══ -->
     <script src="js/global.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+    <script src="js/lux.js" defer></script>
+    <script src="js/metiers.js" defer></script>
+    <script src="js/refonte.js" defer></script>
+    <script src="js/footer.js" defer></script>
     <script src="js/ville-animations.js" defer></script>
+    <!-- ville-hero.js reprend la main sur le hero : après ville-animations.js -->
+    <script src="js/ville-hero.js" defer></script>
+    <!-- ville-lux.js : la grammaire de l'accueil sur tous les autres blocs -->
+    <script src="js/ville-lux.js" defer></script>
+    <script src="js/breath.js" defer></script>
+    <!-- titles.js reprend la main sur les titres : toujours en dernier -->
+    <script src="js/titles.js" defer></script>
+
     <script>
         window.addEventListener('load', function () {
             var ric = window.requestIdleCallback || function (cb) { setTimeout(cb, 200); };
@@ -1374,12 +1182,15 @@
         });
     </script>
 
-    <div class="cookie-banner" role="dialog" aria-label="Cookies"
-        style="display:none;opacity:0;transform:translateX(-50%) translateY(20px);">
-        <p>Ce site utilise des cookies analytiques anonymisés. <a href="cookies.html">En savoir plus</a></p>
-        <div>
-            <button id="cookie-refuse">Refuser</button>
-            <button id="cookie-accept">Accepter</button>
+    <div class="cookie-banner" role="dialog" aria-label="Consentement cookies" aria-live="polite">
+        <div class="cookie-inner">
+            <p>Ce site utilise des cookies analytiques anonymisés pour mesurer l'audience.
+                <a href="cookies.html">En savoir plus</a>
+            </p>
+            <div class="cookie-btns">
+                <button id="cookie-refuse" class="cookie-btn cookie-btn-refuse">Refuser</button>
+                <button id="cookie-accept" class="cookie-btn cookie-btn-accept">Accepter</button>
+            </div>
         </div>
     </div>
 

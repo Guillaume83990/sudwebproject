@@ -1,0 +1,366 @@
+/* ═══════════════════════════════════════════════════════════════
+   ABOUT.CSS — Sud Web Project
+   La section « à propos » cesse d'argumenter pour énoncer.
+
+   Le diagnostic : photo à gauche, texte à droite, trois promesses
+   avec icônes, bouton. C'est le patron le plus répandu du web. Et
+   ces trois promesses répètent la section « Ce qui change tout »
+   qui se trouve plus haut sur la même page.
+
+   Le parti : une déclaration à la première personne, puis une
+   FICHE D'ATELIER — libellé à gauche, fait à droite, filets entre
+   les deux. Le registre du cartel, déjà posé dans le portfolio.
+   Un atelier produit des faits, pas des arguments.
+
+   Les trois <h3> sont conservés à l'identique : ils deviennent les
+   libellés de la fiche. Aucune structure de titres n'est touchée.
+
+   À CHARGER après trust.css, avant type.css.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ───────────────────────────────────────────────────────────────
+   1 · LA COMPOSITION
+   Le portrait est collant : il accompagne toute la lecture, comme
+   un regard posé sur le texte.
+   ─────────────────────────────────────────────────────────────── */
+.about-grid {
+    display: grid;
+    grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr) !important;
+    gap: 0 6.5rem !important;
+    align-items: start;
+}
+
+.about-img-side {
+    position: sticky;
+    top: 7rem;
+}
+
+.about-img-wrap {
+    position: relative;
+    aspect-ratio: 3 / 4 !important;
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: var(--sh-3);
+}
+
+.about-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(.88) brightness(.92);
+    transition: filter 1.2s var(--ease);
+}
+
+.about-img-side:hover .about-img-wrap img {
+    filter: saturate(1) brightness(1);
+}
+
+/* Une lumière rasante, jamais un assombrissement */
+.about-img-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(135deg, rgba(147, 196, 253, .1), transparent 45%),
+        linear-gradient(to top, rgba(5, 8, 15, .5), transparent 42%);
+}
+
+/* Le cartel du portrait — plus une pastille décorative */
+.about-deco {
+    position: absolute !important;
+    left: 1.5rem;
+    right: 1.5rem;
+    bottom: 1.4rem;
+    z-index: 2;
+    display: flex !important;
+    flex-direction: column;
+    gap: .25rem;
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    font-family: var(--ff-body);
+    transform: none !important;
+    writing-mode: horizontal-tb !important;
+}
+
+.about-deco span {
+    font-size: .62rem;
+    font-weight: 600;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: #C3CDDB;
+    background: none;
+    padding: 0;
+}
+
+.about-deco span:first-child {
+    color: var(--blue-l);
+}
+
+/* ───────────────────────────────────────────────────────────────
+   2 · LA DÉCLARATION
+   Elle arrive avant tout le reste : c'est une voix, pas une fiche
+   de présentation.
+   ─────────────────────────────────────────────────────────────── */
+.about-text {
+    padding-top: .5rem;
+}
+
+.about-text .section-label {
+    margin-bottom: 1.6rem;
+}
+
+.about-statement {
+    font-family: var(--ff-display);
+    font-weight: 400;
+    font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+    line-height: 1.34;
+    letter-spacing: -.012em;
+    color: #fff;
+    margin: 0 0 2.25rem;
+    max-width: 24ch;
+    text-wrap: balance;
+}
+
+.about-statement em {
+    font-style: italic;
+    color: var(--blue-l);
+}
+
+.about-title {
+    margin-bottom: 1.9rem !important;
+}
+
+.about-lead {
+    font-size: .97rem !important;
+    line-height: 1.92 !important;
+    color: #94A3B8 !important;
+    max-width: 54ch;
+    margin-bottom: 4rem !important;
+}
+
+.about-lead strong {
+    color: #D7DFEA;
+    font-weight: 600;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   3 · LA FICHE D'ATELIER
+   Trois lignes réglées. Aucune icône, aucune carte.
+   ─────────────────────────────────────────────────────────────── */
+.about-pts {
+    display: block !important;
+    gap: 0 !important;
+    margin-bottom: 3.5rem !important;
+    border-top: 1px solid var(--border);
+}
+
+.about-pt {
+    position: relative;
+    display: grid !important;
+    grid-template-columns: minmax(0, .78fr) minmax(0, 1.22fr);
+    align-items: baseline;
+    gap: 0 2.5rem !important;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border);
+    background: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+/* Le filet qui se remplit au survol */
+.about-pt::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    height: 1px;
+    width: 0;
+    background: linear-gradient(90deg, var(--blue-l), rgba(147, 196, 253, .1));
+    transition: width .8s var(--ease);
+    pointer-events: none;
+}
+
+.about-pt:hover::after {
+    width: 100%;
+}
+
+/* Le pictogramme n'a plus de rôle : le libellé porte tout */
+.about-pt .apt-icon {
+    display: none !important;
+}
+
+.about-pt>div {
+    display: contents;
+}
+
+/* Le libellé — c'est le <h3> d'origine, intact */
+.about-pt h3 {
+    font-family: var(--ff-body) !important;
+    font-size: .74rem !important;
+    font-weight: 600 !important;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: #6E7C90 !important;
+    line-height: 1.6 !important;
+    margin: 0 !important;
+    transition: color .4s ease;
+}
+
+.about-pt:hover h3 {
+    color: var(--blue-l) !important;
+}
+
+.about-pt p {
+    font-family: var(--ff-body);
+    font-size: .92rem !important;
+    line-height: 1.75 !important;
+    color: #A9B6C8 !important;
+    margin: 0 !important;
+    transition: color .4s ease;
+}
+
+.about-pt:hover p {
+    color: #D7DFEA !important;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   4 · LA SIGNATURE
+   Elle remplace le bouton plein : à cet endroit, on vient de lire
+   une voix. Un bouton de conversion la contredirait.
+   ─────────────────────────────────────────────────────────────── */
+.about-sign {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: .6rem 1.5rem;
+    margin-bottom: 2.5rem;
+    font-family: var(--ff-body);
+    font-size: .72rem;
+    font-weight: 600;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #4E5A6C;
+}
+
+.about-sign b {
+    font-family: var(--ff-display);
+    font-weight: 400;
+    font-size: 1.35rem;
+    letter-spacing: 0;
+    text-transform: none;
+    color: #E9EEF6;
+}
+
+.about-text .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: .55rem;
+    background: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 0 3px !important;
+    border-bottom: 1px solid rgba(147, 196, 253, .3) !important;
+    font-family: var(--ff-body);
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: .04em;
+    color: #B7C6DA !important;
+    transition: color .35s var(--ease), border-color .35s var(--ease);
+}
+
+.about-text .btn-primary:hover {
+    color: #fff !important;
+    border-bottom-color: var(--blue-l) !important;
+    transform: none !important;
+}
+
+.about-text .btn-primary svg {
+    transition: transform .35s var(--ease);
+}
+
+.about-text .btn-primary:hover svg {
+    transform: translateX(5px);
+}
+
+/* ───────────────────────────────────────────────────────────────
+   5 · RESPONSIVE
+   ─────────────────────────────────────────────────────────────── */
+@media (max-width: 1100px) {
+    .about-grid {
+        grid-template-columns: 1fr !important;
+        gap: 3.5rem !important;
+    }
+
+    .about-img-side {
+        position: static;
+        max-width: 460px;
+    }
+
+    .about-img-wrap {
+        aspect-ratio: 4 / 3 !important;
+    }
+
+    .about-statement {
+        max-width: 30ch;
+    }
+
+    .about-text {
+        padding-top: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-img-side {
+        max-width: none;
+    }
+
+    .about-statement {
+        font-size: clamp(1.25rem, 5.4vw, 1.65rem);
+        line-height: 1.38;
+        max-width: none;
+        margin-bottom: 1.75rem;
+    }
+
+    .about-lead {
+        font-size: .92rem !important;
+        line-height: 1.85 !important;
+        margin-bottom: 2.75rem !important;
+    }
+
+    .about-pt {
+        grid-template-columns: 1fr;
+        gap: .5rem 0 !important;
+        padding: 1.25rem 0;
+    }
+
+    .about-pt h3 {
+        font-size: .68rem !important;
+    }
+
+    .about-pt p {
+        font-size: .88rem !important;
+    }
+
+    .about-pts {
+        margin-bottom: 2.5rem !important;
+    }
+
+    .about-sign {
+        gap: .5rem 1rem;
+        font-size: .66rem;
+    }
+
+    .about-sign b {
+        font-size: 1.2rem;
+    }
+
+    .about-deco {
+        left: 1.1rem;
+        right: 1.1rem;
+        bottom: 1rem;
+    }
+}

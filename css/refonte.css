@@ -1,0 +1,265 @@
+/* ═══════════════════════════════════════════════════════════════
+   REFONTE.CSS — Sud Web Project — v2
+   Le bloc refonte devient une composition typographique.
+
+   POURQUOI v2
+   Les deux jauges circulaires appartenaient à l'esthétique du
+   tableau de bord technique : « je sais mesurer », pas « je fais
+   du beau ». Elles ne dialoguaient ni avec l'Instrument Serif ni
+   avec les filets du reste du site.
+
+   Le nouveau parti : UN chiffre, immense. Et UNE ligne, qui
+   traverse la section deux fois — péniblement, puis d'un trait.
+   C'est la ligne qui démontre, pas les chiffres.
+
+   À CHARGER après metiers.css, avant why.css.
+   Aucun texte, lien ou balise n'est modifié.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ───────────────────────────────────────────────────────────────
+   1 · LA SECTION
+   ─────────────────────────────────────────────────────────────── */
+.refonte-block {
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: transparent !important;
+}
+
+/* Une lueur qui monte à mesure que la démonstration s'achève */
+.refonte-block::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse 55% 70% at 78% 50%, rgba(59, 130, 246, .1), transparent 70%);
+    opacity: 0;
+    transition: opacity 1.6s var(--ease);
+}
+
+.refonte-block.is-fast::before {
+    opacity: 1;
+}
+
+.refonte-inner {
+    display: grid;
+    grid-template-columns: 1fr .9fr;
+    gap: 6rem;
+    align-items: center;
+    max-width: var(--max);
+    margin: 0 auto;
+}
+
+.refonte-content .section-label {
+    margin-bottom: 1.6rem;
+}
+
+.refonte-title {
+    max-width: 17ch;
+}
+
+.refonte-content p {
+    color: #9DAABC;
+    font-size: 1.02rem;
+    line-height: 1.85;
+    max-width: 46ch;
+    margin-bottom: 2.5rem;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   2 · LA COMPOSITION CHIFFRÉE
+   Le panneau disparaît : plus de carte, plus de bordure. Juste de
+   la typographie posée dans le vide.
+   ─────────────────────────────────────────────────────────────── */
+.refonte-visual {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.refonte-score {
+    display: block !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    text-align: right;
+    position: relative;
+}
+
+.refonte-score::before {
+    display: none;
+}
+
+/* ── Le score précédent : petit, gris, et barré ── */
+.rf-before {
+    display: inline-flex;
+    align-items: baseline;
+    gap: .7rem;
+    position: relative;
+    margin-bottom: .6rem;
+}
+
+.rf-before-lbl {
+    font-family: var(--ff-body);
+    font-size: .66rem;
+    font-weight: 600;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: #4E5A6C;
+}
+
+.rf-before-num {
+    font-family: var(--ff-display);
+    font-weight: 400;
+    font-size: 2.6rem;
+    line-height: 1;
+    color: #4E5A6C;
+    font-variant-numeric: tabular-nums;
+}
+
+/* Le trait qui raye — il se trace, il n'apparaît pas */
+.rf-strike {
+    position: absolute;
+    left: -.2rem;
+    right: -.2rem;
+    top: 62%;
+    height: 1px;
+    background: #6E7C90;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .55s var(--ease);
+}
+
+.refonte-score.is-struck .rf-strike {
+    transform: scaleX(1);
+}
+
+/* ── Le chiffre d'après : immense ── */
+.rf-after {
+    display: block;
+    font-family: var(--ff-display);
+    font-weight: 400;
+    font-size: clamp(6rem, 13vw, 13rem);
+    line-height: .84;
+    letter-spacing: -.045em;
+    color: #fff;
+    font-variant-numeric: tabular-nums;
+    margin: 0;
+}
+
+.rf-after-sub {
+    display: block;
+    margin-top: 1.4rem;
+    font-family: var(--ff-body);
+    font-size: .66rem;
+    font-weight: 600;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: #6E7C90;
+}
+
+.rf-after-sub em {
+    font-style: normal;
+    color: var(--blue-l);
+}
+
+/* L'ancien libellé, conservé et intégré */
+.score-sub {
+    display: block;
+    margin-top: .5rem !important;
+    font-family: var(--ff-body);
+    font-size: .66rem !important;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: #4E5A6C !important;
+    text-align: right;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   3 · LE FILET QUI TRAVERSE
+   Il court deux fois : d'abord péniblement, puis d'un trait.
+   C'est le seul élément qui démontre — tout le reste énonce.
+   ─────────────────────────────────────────────────────────────── */
+.rf-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: rgba(147, 196, 253, .07);
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.rf-line-run {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 0;
+    background: #56637A;
+}
+
+.rf-line-run--fast {
+    background: linear-gradient(90deg, var(--blue), var(--blue-l));
+    box-shadow: 0 0 14px rgba(96, 165, 250, .7);
+    height: 2px;
+    top: -1px;
+}
+
+/* Repli des éléments de la version précédente */
+.rf-gauges,
+.rf-race,
+.score-arrow,
+.rf-sep {
+    display: none !important;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   4 · RESPONSIVE
+   ─────────────────────────────────────────────────────────────── */
+@media (max-width: 1100px) {
+    .refonte-inner {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+    }
+
+    .refonte-title {
+        max-width: 22ch;
+    }
+
+    .refonte-visual {
+        justify-content: flex-start;
+    }
+
+    .refonte-score {
+        text-align: left;
+    }
+
+    .score-sub {
+        text-align: left;
+    }
+
+    .rf-after {
+        font-size: clamp(5rem, 22vw, 9rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .rf-before-num {
+        font-size: 2rem;
+    }
+
+    .rf-after {
+        font-size: clamp(4.5rem, 26vw, 7rem);
+    }
+
+    .rf-after-sub {
+        margin-top: 1rem;
+        letter-spacing: .16em;
+    }
+
+    .refonte-content p {
+        font-size: .96rem;
+    }
+}

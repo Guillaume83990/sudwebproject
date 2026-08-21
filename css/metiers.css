@@ -1,0 +1,348 @@
+/* ═══════════════════════════════════════════════════════════════
+   METIERS.CSS — Sud Web Project — v3
+   Index éditorial : chaque métier occupe une ligne pleine largeur
+   avec son visuel à droite, révélé au scroll.
+
+   POURQUOI v3
+   · v1 : panneau collant — neutralisé par overflow-x:hidden
+   · v2 : vignette suivant le curseur — elle se posait sur les
+     liens et empêchait de cliquer
+   · v3 : un visuel par ligne, à sa place. Rien ne se superpose,
+     rien ne dépend de la mise en page, et ça marche au doigt.
+
+   Tous les liens, titres et textes restent identiques.
+   À CHARGER après space.css, avant hero.css.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ───────────────────────────────────────────────────────────────
+   1 · L'INDEX
+   ─────────────────────────────────────────────────────────────── */
+.mx {
+    display: block;
+    margin-top: 1rem;
+}
+
+.mx-list {
+    border-top: 1px solid var(--border);
+}
+
+/* ───────────────────────────────────────────────────────────────
+   2 · LA LIGNE — numéro · texte · visuel
+   ─────────────────────────────────────────────────────────────── */
+.mx-row {
+    position: relative;
+    display: grid;
+    grid-template-columns: 3.25rem minmax(0, 1fr) minmax(0, .78fr);
+    align-items: center;
+    gap: 0 4rem;
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+/* Le filet qui se remplit au survol */
+.mx-row::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    height: 1px;
+    width: 0;
+    background: linear-gradient(90deg, var(--blue-l), rgba(147, 196, 253, .15));
+    transition: width .8s var(--ease);
+}
+
+.mx-row.is-active::after {
+    width: 100%;
+}
+
+.mx-num {
+    align-self: start;
+    font-family: var(--ff-body);
+    font-size: .72rem;
+    font-weight: 600;
+    letter-spacing: .14em;
+    color: #5C697D;
+    padding-top: .5rem;
+    transition: color .4s ease;
+    font-variant-numeric: tabular-nums;
+}
+
+.mx-row.is-active .mx-num {
+    color: var(--blue-l);
+}
+
+/* ── Le texte ── */
+.mx-head h3 {
+    font-family: var(--ff-display);
+    font-weight: 400;
+    font-size: clamp(1.7rem, 2.5vw, 2.6rem);
+    line-height: 1.08;
+    letter-spacing: -.014em;
+    margin: 0;
+    transition: transform .55s var(--ease);
+}
+
+.mx-row.is-active .mx-head h3 {
+    transform: translateX(10px);
+}
+
+.mx-head h3 a {
+    color: #E9EEF6;
+    text-decoration: none;
+    transition: color .35s ease;
+}
+
+.mx-row.is-active .mx-head h3 a {
+    color: #fff;
+}
+
+.mx-head h3 a:hover {
+    color: var(--blue-l);
+}
+
+.mx-desc {
+    font-size: .95rem;
+    line-height: 1.8;
+    color: #94A3B8;
+    max-width: 46ch;
+    margin: .85rem 0 0;
+    transition: color .4s ease;
+}
+
+.mx-row.is-active .mx-desc {
+    color: #B3C0D1;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   3 · LES LIENS
+   Une ligne de texte discrète séparée par de fins filets.
+   ─────────────────────────────────────────────────────────────── */
+.mx-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .5rem 1rem;
+    margin-top: 1.4rem;
+    font-size: .8rem;
+}
+
+.mx-links a {
+    position: relative;
+    color: #6E7C90;
+    text-decoration: none;
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+    transition: color .28s ease, border-color .28s ease;
+}
+
+.mx-links a:hover {
+    color: var(--blue-l);
+    border-bottom-color: rgba(147, 196, 253, .5);
+}
+
+.mx-links a+a::before {
+    content: '';
+    position: absolute;
+    left: -.55rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 11px;
+    background: rgba(147, 196, 253, .18);
+}
+
+.mx-link-lead {
+    color: #B7C6DA !important;
+    font-weight: 600;
+}
+
+.mx-link-lead:hover {
+    color: #fff !important;
+}
+
+.mx-soon {
+    font-size: .66rem;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: #5C697D;
+    border: 1px solid rgba(147, 196, 253, .14);
+    border-radius: 100px;
+    padding: .22rem .7rem;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   4 · LE VISUEL
+   Masque fermé par défaut : il s'ouvre quand la ligne entre dans
+   l'écran. Sans JavaScript, il reste simplement ouvert.
+   ─────────────────────────────────────────────────────────────── */
+.mx-media {
+    position: relative;
+    aspect-ratio: 2 / 1;
+    border-radius: var(--r-sm);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--ink-3);
+    box-shadow: var(--sh-2), var(--lit);
+}
+
+.mx-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 0%;
+    display: block;
+    filter: saturate(.72) brightness(.78);
+    transition: filter .7s var(--ease);
+}
+
+.mx-row.is-active .mx-media img {
+    filter: saturate(1) brightness(1);
+}
+
+.mx-row.is-active .mx-media img {
+    filter: saturate(1) brightness(1);
+    transform: scale(1);
+}
+
+.mx-media::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(120deg, rgba(59, 130, 246, .14), transparent 55%),
+        linear-gradient(to top, rgba(5, 8, 15, .45), transparent 55%);
+    opacity: 1;
+    transition: opacity .6s ease;
+}
+
+.mx-row.is-active .mx-media::after {
+    opacity: .55;
+}
+
+/* Métier sans visuel : un cadre habité par le contour hexagonal */
+.mx-media--empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+        linear-gradient(135deg, rgba(147, 196, 253, .05), transparent 60%),
+        var(--ink-3);
+}
+
+.mx-media--empty::before {
+    content: '';
+    width: 44px;
+    height: 51px;
+    border: 1px solid rgba(147, 196, 253, .24);
+    background: rgba(147, 196, 253, .05);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.mx-media--empty::after {
+    background: none;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   5 · REPLI — les éléments des versions précédentes
+   ─────────────────────────────────────────────────────────────── */
+.mx-preview,
+#mx-float {
+    display: none !important;
+}
+
+.mx-row {
+    opacity: 1;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   6 · TABLETTE ET MOBILE
+   Le visuel passe sous le texte, pleine largeur. On ne le perd pas.
+   ─────────────────────────────────────────────────────────────── */
+@media (max-width: 1100px) {
+    .mx-row {
+        grid-template-columns: 3rem 1fr;
+        gap: 0 1.5rem;
+        padding: 2.4rem 0;
+        align-items: start;
+    }
+
+    .mx-head {
+        grid-column: 2;
+    }
+
+    .mx-media {
+        grid-column: 2;
+        margin-top: 1.6rem;
+        aspect-ratio: 16 / 9;
+        max-width: 560px;
+    }
+
+    .mx-head h3 {
+        font-size: clamp(1.55rem, 3.4vw, 2.1rem);
+    }
+
+    .mx-desc {
+        max-width: 60ch;
+    }
+
+    /* Au doigt il n'y a pas de survol : le visuel reste net */
+    .mx-media img {
+        filter: saturate(.9) brightness(.92);
+        transform: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .mx-row {
+        grid-template-columns: 2.4rem 1fr;
+        gap: 0 .9rem;
+        padding: 2rem 0;
+    }
+
+    .mx-num {
+        font-size: .66rem;
+        padding-top: .35rem;
+    }
+
+    .mx-head h3 {
+        font-size: 1.42rem;
+    }
+
+    .mx-desc {
+        font-size: .88rem;
+        line-height: 1.7;
+        margin-top: .7rem;
+    }
+
+    .mx-links {
+        gap: .45rem .85rem;
+        margin-top: 1.05rem;
+        font-size: .76rem;
+    }
+
+    .mx-media {
+        margin-top: 1.3rem;
+        aspect-ratio: 3 / 2;
+    }
+
+    .mx-row.is-active .mx-head h3 {
+        transform: none;
+    }
+}
+
+@media (max-width: 420px) {
+    .mx-row {
+        grid-template-columns: 1fr;
+    }
+
+    .mx-num {
+        padding-top: 0;
+        margin-bottom: .45rem;
+    }
+
+    .mx-head,
+    .mx-media {
+        grid-column: 1;
+    }
+}

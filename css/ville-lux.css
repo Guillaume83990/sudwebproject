@@ -1,0 +1,1541 @@
+/* ═══════════════════════════════════════════════════════════════
+   VILLE-LUX.CSS — Sud Web Project
+   La grammaire de l'accueil appliquée aux pages ville.
+
+   PRINCIPE : aucun texte, aucun lien, aucun titre n'est supprimé.
+   Chaque bloc garde son HTML — seule sa mise en scène change.
+   Les cartes deviennent des lignes réglées, les grilles des
+   index, les pictogrammes disparaissent au profit de la
+   typographie. Exactement ce qu'on a fait sur index.html.
+
+   À CHARGER après ville-hero.css, en dernier.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════════════════════════════════
+   1 · LES PHOTOS D'AMBIANCE
+   Elles étaient encadrées et arrondies comme des vignettes. Elles
+   passent pleine largeur, bord à bord : une image de territoire
+   doit occuper le territoire.
+   ═══════════════════════════════════════════════════════════════ */
+.st-photo-hero {
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+    border-radius: 0 !important;
+    border: none !important;
+    aspect-ratio: 21/8 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.st-photo-hero img {
+    filter: saturate(.8) brightness(.82);
+    transition: filter 1.2s var(--ease);
+}
+
+.st-photo-hero:hover img {
+    filter: saturate(.95) brightness(.95);
+    transform: none;
+}
+
+.st-photo-caption {
+    background: linear-gradient(to top, rgba(5, 8, 15, .9), transparent) !important;
+    padding: 3rem 2.5rem 1.4rem !important;
+    font-family: var(--ff-body);
+    font-size: .66rem !important;
+    font-weight: 600;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #93C4FD !important;
+}
+
+.st-photo-item {
+    border-radius: 2px !important;
+    border-color: var(--border) !important;
+}
+
+.st-photo-item img {
+    filter: saturate(.78) brightness(.84);
+    transition: filter .9s var(--ease);
+}
+
+.st-photo-item:hover img {
+    filter: saturate(1) brightness(1);
+    transform: none;
+}
+
+.st-photo-item .st-photo-caption {
+    padding: 2.2rem 1.1rem 1rem !important;
+    font-size: .6rem !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   2 · L'INTRO ET LES CHIFFRES
+   Les quatre cartes deviennent une fiche réglée. Le chiffre porte,
+   la boîte disparaît.
+   ═══════════════════════════════════════════════════════════════ */
+.ville-intro-grid {
+    gap: 6.5rem !important;
+    align-items: start !important;
+}
+
+.ville-intro-text p {
+    color: #94A3B8;
+    line-height: 1.92 !important;
+    max-width: 54ch;
+}
+
+.ville-intro-text p strong {
+    color: #D7DFEA;
+}
+
+/* La punchline : plus un encadré coloré, une déclaration */
+.ville-punchline {
+    margin-top: 2.75rem !important;
+    padding: 0 0 0 2rem !important;
+    border-left: 1px solid rgba(147, 196, 253, .35) !important;
+    background: none !important;
+    border-radius: 0 !important;
+    font-family: var(--ff-display);
+    font-style: italic;
+    font-size: clamp(1.15rem, 1.7vw, 1.45rem) !important;
+    line-height: 1.6 !important;
+    color: #E9EEF6 !important;
+    max-width: 42ch;
+}
+
+/* Le bouton était collé à la punchline */
+.ville-intro-text .btn-primary {
+    margin-top: 3rem !important;
+}
+
+.ville-intro-img-wrap {
+    border-radius: 2px !important;
+    aspect-ratio: 3/4 !important;
+    box-shadow: var(--sh-3) !important;
+    margin-bottom: 3rem !important;
+}
+
+.ville-intro-img-wrap img {
+    filter: saturate(.82) brightness(.86);
+    transition: filter 1.1s var(--ease);
+}
+
+.ville-intro-img-wrap:hover img {
+    filter: saturate(1) brightness(1);
+    transform: none;
+}
+
+.ville-intro-img-label {
+    background: none !important;
+    backdrop-filter: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    left: 1.5rem !important;
+    bottom: 1.3rem !important;
+    font-family: var(--ff-body);
+    font-size: .62rem !important;
+    font-weight: 600;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: #C3CDDB !important;
+}
+
+/* ── La fiche de chiffres ── */
+.ville-chiffres-grid {
+    display: block !important;
+    gap: 0 !important;
+    border-top: 1px solid var(--border);
+    margin-top: 0 !important;
+}
+
+.ville-chiffre-card {
+    position: relative;
+    display: grid !important;
+    grid-template-columns: minmax(0, .55fr) minmax(0, 1fr);
+    align-items: baseline;
+    gap: 0 1.5rem;
+    padding: 1.5rem 0 !important;
+    background: none !important;
+    border: none !important;
+    border-bottom: 1px solid var(--border) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    transform: none !important;
+    text-align: left !important;
+    overflow: visible;
+}
+
+.ville-chiffre-card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Le filet d'accent d'origine était une barre pleine largeur */
+.ville-chiffre-card::before {
+    display: none !important;
+}
+
+.chiffre-num {
+    font-family: var(--ff-display) !important;
+    font-weight: 400 !important;
+    font-size: clamp(1.9rem, 2.8vw, 2.6rem) !important;
+    line-height: 1 !important;
+    color: #fff !important;
+    margin-bottom: 0 !important;
+    letter-spacing: -.03em;
+    font-variant-numeric: tabular-nums;
+}
+
+.chiffre-label {
+    font-family: var(--ff-body);
+    font-size: .72rem !important;
+    font-weight: 600 !important;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: #6E7C90 !important;
+    line-height: 1.6 !important;
+    transition: color .4s ease;
+}
+
+.ville-chiffre-card:hover .chiffre-label {
+    color: var(--blue-l) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   3 · LES MÉTIERS
+   Les rangées encadrées deviennent un index éditorial, comme sur
+   l'accueil.
+   ═══════════════════════════════════════════════════════════════ */
+.st-metiers-premium .section-head {
+    margin-bottom: 4.5rem;
+}
+
+.st-metier-row {
+    position: relative;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, .8fr) !important;
+    gap: 0 4.5rem !important;
+    border: none !important;
+    border-bottom: 1px solid var(--border) !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
+    margin-bottom: 0 !important;
+    padding: 2.9rem 0;
+    opacity: 1 !important;
+}
+
+.st-metiers-premium .st-metier-row:first-of-type {
+    border-top: 1px solid var(--border);
+}
+
+.st-metier-row:hover {
+    border-color: var(--border) !important;
+    box-shadow: none !important;
+}
+
+/* Le filet qui se remplit sous la ligne */
+.st-metier-row::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    height: 1px;
+    width: 0;
+    background: linear-gradient(90deg, var(--blue-l), rgba(147, 196, 253, .1));
+    transition: width .8s var(--ease);
+    pointer-events: none;
+}
+
+.st-metier-row:hover::after {
+    width: 100%;
+}
+
+.st-metier-main {
+    padding: 0 !important;
+    background: none !important;
+}
+
+.st-metier-main::before {
+    display: none !important;
+}
+
+.st-metier-main h3 {
+    font-family: var(--ff-display) !important;
+    font-weight: 400 !important;
+    font-size: clamp(1.5rem, 2.2vw, 2.15rem) !important;
+    line-height: 1.12 !important;
+    letter-spacing: -.012em;
+    margin: 0 0 .85rem !important;
+    transition: transform .55s var(--ease);
+}
+
+.st-metier-row:hover .st-metier-main h3 {
+    transform: translateX(10px);
+}
+
+.st-metier-main h3 a {
+    color: #E9EEF6 !important;
+}
+
+.st-metier-row:hover .st-metier-main h3 a {
+    color: #fff !important;
+}
+
+.st-metier-main p {
+    font-size: .9rem !important;
+    line-height: 1.8 !important;
+    color: #8B98AB !important;
+    max-width: 52ch;
+    transition: color .4s ease, transform .55s var(--ease);
+}
+
+.st-metier-row:hover .st-metier-main p {
+    color: #A9B6C8 !important;
+    transform: translateX(10px);
+}
+
+/* Les liens : une ligne de texte séparée par des filets */
+.st-metier-links {
+    padding: 0 !important;
+    background: none !important;
+    border-left: none !important;
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    align-content: center;
+    gap: .5rem 1rem !important;
+}
+
+.st-metier-links a {
+    position: relative;
+    font-size: .79rem !important;
+    color: #6E7C90 !important;
+    display: inline !important;
+    gap: 0 !important;
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+    transition: color .3s var(--ease), border-color .3s var(--ease);
+}
+
+.st-metier-links a::before {
+    content: '' !important;
+    position: absolute;
+    left: -.55rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 11px;
+    background: rgba(147, 196, 253, .18);
+    font-size: 0 !important;
+}
+
+.st-metier-links a:first-child::before {
+    display: none;
+}
+
+.st-metier-links a:hover {
+    color: var(--blue-l) !important;
+    border-bottom-color: rgba(147, 196, 253, .5);
+    gap: 0 !important;
+}
+
+.ville-metiers-cta-bottom {
+    margin-top: 4.5rem !important;
+    padding-top: 3rem !important;
+}
+
+.ville-metiers-cta-bottom p {
+    color: #8B98AB !important;
+    max-width: 56ch !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   4 · LA PROSE SEO
+   Colonne de lecture resserrée et titres en Instrument Serif.
+   ═══════════════════════════════════════════════════════════════ */
+.seo-prose-inner {
+    max-width: 720px !important;
+}
+
+.seo-prose h2 {
+    font-family: var(--ff-display) !important;
+    font-weight: 400 !important;
+    font-size: clamp(1.6rem, 2.5vw, 2.15rem) !important;
+    line-height: 1.2 !important;
+    letter-spacing: -.01em;
+    color: #E9EEF6 !important;
+    margin: 4rem 0 1.4rem !important;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--border);
+}
+
+.seo-prose h2:first-child {
+    margin-top: 0 !important;
+    padding-top: 0;
+    border-top: none;
+}
+
+.seo-prose p {
+    font-size: .95rem !important;
+    line-height: 1.95 !important;
+    color: #8B98AB !important;
+    margin-bottom: 1.35rem;
+}
+
+.seo-prose strong {
+    color: #D7DFEA !important;
+}
+
+.st-photo-duo {
+    width: 116%;
+    margin-left: -8%;
+    margin-top: 4rem !important;
+    margin-bottom: 4rem !important;
+    gap: 1.5rem !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   5 · LES RÉALISATIONS
+   Les quatre cartes deviennent une galerie en deux colonnes, sans
+   boîtes — même registre que le portfolio de l'accueil.
+   ═══════════════════════════════════════════════════════════════ */
+.st-real-grid {
+    gap: 4.5rem 3.5rem !important;
+    margin-top: 4rem !important;
+}
+
+.st-real-card {
+    border: none !important;
+    border-radius: 0 !important;
+    background: none !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+    transform: none !important;
+}
+
+.st-real-card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.st-real-img {
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: var(--sh-2);
+    aspect-ratio: 16/10 !important;
+}
+
+.st-real-img img {
+    filter: saturate(.8) brightness(.84);
+    transition: filter 1s var(--ease);
+}
+
+.st-real-card:hover .st-real-img img {
+    filter: saturate(1) brightness(1);
+    transform: none !important;
+}
+
+.st-real-body {
+    padding: 1.75rem 0 0 !important;
+}
+
+.st-real-tag {
+    color: #5C697D !important;
+    font-size: .64rem !important;
+    letter-spacing: .2em;
+    margin-bottom: .85rem !important;
+}
+
+.st-real-body h3 {
+    font-family: var(--ff-display) !important;
+    font-weight: 400 !important;
+    font-size: clamp(1.3rem, 1.9vw, 1.75rem) !important;
+    line-height: 1.14 !important;
+    letter-spacing: -.012em;
+    color: #E9EEF6 !important;
+    margin-bottom: .75rem !important;
+}
+
+.st-real-card:hover .st-real-body h3 {
+    color: #fff !important;
+}
+
+.st-real-body p {
+    font-size: .87rem !important;
+    line-height: 1.8 !important;
+    color: #8B98AB !important;
+    max-width: 44ch;
+}
+
+.ville-cas-link {
+    font-size: .79rem !important;
+    font-weight: 600;
+    color: #B7C6DA !important;
+    border-bottom: 1px solid rgba(147, 196, 253, .28) !important;
+}
+
+.ville-cas-link:hover {
+    color: #fff !important;
+    border-bottom-color: var(--blue-l) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   6 · POURQUOI ME CHOISIR
+   Six cartes → six colonnes réglées, sans boîtes. Même geste que
+   « Ce qui change tout » sur l'accueil.
+   ═══════════════════════════════════════════════════════════════ */
+.ville-pourquoi-grid {
+    gap: 0 !important;
+    border-top: 1px solid var(--border);
+    counter-reset: vp-i;
+}
+
+.ville-pourquoi-card {
+    position: relative;
+    background: none !important;
+    border: none !important;
+    border-bottom: 1px solid var(--border) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 2.4rem 2.5rem !important;
+    transform: none !important;
+    display: block !important;
+    overflow: visible;
+}
+
+.ville-pourquoi-card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    border-color: var(--border) !important;
+}
+
+.ville-pourquoi-card::after {
+    display: none !important;
+}
+
+/* Le filet vertical entre colonnes */
+.ville-pourquoi-card::before {
+    content: counter(vp-i, decimal-leading-zero);
+    counter-increment: vp-i;
+    display: block;
+    font-family: var(--ff-body);
+    font-size: .64rem;
+    font-weight: 600;
+    letter-spacing: .18em;
+    color: #4E5A6C;
+    margin-bottom: 1.25rem;
+    font-variant-numeric: tabular-nums;
+    transition: color .4s ease;
+}
+
+.ville-pourquoi-card:hover::before {
+    color: var(--blue-l);
+}
+
+.ville-pourquoi-icon {
+    display: none !important;
+}
+
+.ville-pourquoi-card h3 {
+    font-family: var(--ff-display) !important;
+    font-weight: 400 !important;
+    font-size: 1.32rem !important;
+    line-height: 1.22 !important;
+    letter-spacing: -.008em;
+    color: #E9EEF6 !important;
+    margin-bottom: .9rem !important;
+    max-width: 18ch;
+    transition: color .4s ease;
+}
+
+.ville-pourquoi-card:hover h3 {
+    color: #fff !important;
+}
+
+.ville-pourquoi-card p {
+    font-size: .88rem !important;
+    line-height: 1.85 !important;
+    color: #8B98AB !important;
+    transition: color .4s ease;
+}
+
+.ville-pourquoi-card:hover p {
+    color: #A9B6C8 !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   7 · LE PROCESS
+   Les pastilles bleues deviennent des numéros. La ligne de liaison
+   se trace au scroll.
+   ═══════════════════════════════════════════════════════════════ */
+.process-steps-grid {
+    gap: 3.5rem !important;
+    border-top: 1px solid var(--border);
+    padding-top: 3.5rem;
+}
+
+.process-steps-grid::before {
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    background: linear-gradient(90deg, var(--blue-l), rgba(147, 196, 253, .1)) !important;
+    opacity: 1 !important;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 1.4s var(--ease);
+}
+
+.process-steps-grid.is-drawn::before {
+    transform: scaleX(1);
+}
+
+.process-item {
+    align-items: flex-start !important;
+    text-align: left !important;
+    gap: 1.1rem !important;
+}
+
+.process-num-circle {
+    width: auto !important;
+    height: auto !important;
+    border-radius: 0 !important;
+    background: none !important;
+    box-shadow: none !important;
+    font-family: var(--ff-body) !important;
+    font-size: .66rem !important;
+    font-weight: 600 !important;
+    letter-spacing: .18em;
+    color: #4E5A6C !important;
+    justify-content: flex-start !important;
+    transition: color .4s ease;
+}
+
+.process-item:hover .process-num-circle {
+    transform: none !important;
+    box-shadow: none !important;
+    color: var(--blue-l) !important;
+}
+
+.process-item h3 {
+    font-family: var(--ff-display) !important;
+    font-weight: 400 !important;
+    font-size: 1.32rem !important;
+    line-height: 1.2 !important;
+    color: #E9EEF6 !important;
+    text-align: left !important;
+    max-width: 16ch;
+}
+
+.process-item p {
+    font-size: .87rem !important;
+    line-height: 1.85 !important;
+    color: #8B98AB !important;
+    text-align: left !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   8 · LES TARIFS
+   Les trois cartes deviennent l'échelle de gamme de l'accueil,
+   sans aucune modification du markup.
+   ═══════════════════════════════════════════════════════════════ */
+.ville-tarifs .price-grid {
+    display: block !important;
+    gap: 0 !important;
+    border-top: 1px solid var(--border);
+    counter-reset: vt-i;
+    margin-bottom: 0 !important;
+}
+
+.ville-tarifs .price-card {
+    position: relative;
+    display: grid !important;
+    grid-template-columns: 3.5rem minmax(0, 1fr) minmax(0, 16rem);
+    align-items: start;
+    gap: 0 3.5rem !important;
+    padding: 3rem 0 !important;
+    background: none !important;
+    background-image: none !important;
+    border: none !important;
+    border-bottom: 1px solid var(--border) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+.ville-tarifs .price-card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    border-color: var(--border) !important;
+}
+
+.ville-tarifs .price-card:nth-child(2) {
+    padding: 3.8rem 0 !important;
+}
+
+.ville-tarifs .price-card:nth-child(3) {
+    padding: 4.6rem 0 !important;
+}
+
+.ville-tarifs .price-card::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    height: 1px;
+    width: 0;
+    background: linear-gradient(90deg, var(--blue-l), rgba(147, 196, 253, .1));
+    transition: width .8s var(--ease);
+}
+
+.ville-tarifs .price-card:hover::after {
+    width: 100%;
+}
+
+/* Le numéro de palier */
+.ville-tarifs .price-card::before {
+    content: counter(vt-i, decimal-leading-zero);
+    counter-increment: vt-i;
+    grid-column: 1;
+    grid-row: 1;
+    align-self: start;
+    font-family: var(--ff-body);
+    font-size: .66rem;
+    font-weight: 600;
+    letter-spacing: .18em;
+    color: #4E5A6C;
+    padding-top: .5rem;
+    font-variant-numeric: tabular-nums;
+    background: none;
+    width: auto;
+    height: auto;
+    position: static;
+    transform: none;
+    transition: color .4s ease;
+}
+
+.ville-tarifs .price-card:hover::before {
+    color: var(--blue-l);
+}
+
+.ville-tarifs .price-top-badge {
+    display: none !important;
+}
+
+.ville-tarifs .price-head {
+    grid-column: 3;
+    grid-row: 1;
+    display: block !important;
+    text-align: right;
+}
+
+.ville-tarifs .price-icon {
+    display: none !important;
+}
+
+.ville-tarifs .price-head h3 {
+    font-family: var(--ff-display) !important;
+    font-weight: 400 !important;
+    font-size: 1.3rem !important;
+    color: #B7C6DA !important;
+    margin-bottom: .8rem !important;
+}
+
+.ville-tarifs .price-val {
+    display: block !important;
+}
+
+.ville-tarifs .price-from {
+    display: block;
+    font-family: var(--ff-body);
+    font-size: .62rem !important;
+    font-weight: 600;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: #4E5A6C !important;
+    margin-bottom: .5rem;
+}
+
+.ville-tarifs .price-num {
+    display: block;
+    font-family: var(--ff-display) !important;
+    font-weight: 400 !important;
+    font-size: clamp(2.4rem, 3.6vw, 3.4rem) !important;
+    line-height: .95 !important;
+    letter-spacing: -.035em;
+    color: #fff !important;
+    font-variant-numeric: tabular-nums;
+}
+
+.ville-tarifs .price-feats {
+    grid-column: 2;
+    grid-row: 1;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .55rem 1.15rem !important;
+    padding-top: 3rem;
+}
+
+.ville-tarifs .price-feats li {
+    position: relative;
+    font-size: .85rem !important;
+    line-height: 1.5 !important;
+    color: #94A3B8 !important;
+    padding: 0 !important;
+}
+
+.ville-tarifs .price-feats li+li::before {
+    content: '';
+    position: absolute;
+    left: -.62rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 11px;
+    background: rgba(147, 196, 253, .2);
+}
+
+.ville-tarifs .price-card>a {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: start;
+    margin-top: 1.6rem;
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    background: none !important;
+    border: none !important;
+    border-bottom: 1px solid rgba(147, 196, 253, .28) !important;
+    border-radius: 0 !important;
+    padding: 0 0 2px !important;
+    font-family: var(--ff-body);
+    font-size: .78rem;
+    font-weight: 600;
+    letter-spacing: .04em;
+    color: #B7C6DA !important;
+    box-shadow: none !important;
+    transition: color .35s var(--ease), border-color .35s var(--ease);
+}
+
+.ville-tarifs .price-card>a:hover {
+    color: #fff !important;
+    border-bottom-color: var(--blue-l) !important;
+    transform: none !important;
+}
+
+/* Le titre du palier, en grand, devant le prix */
+.ville-tarifs .price-card>a::after {
+    content: '→';
+    font-size: .9em;
+    transition: transform .35s var(--ease);
+}
+
+.ville-tarifs .price-card>a:hover::after {
+    transform: translateX(4px);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   9 · LE MAILLAGE VILLES
+   Six cartes → sommaire en deux colonnes, comme la zone
+   d'intervention de l'accueil.
+   ═══════════════════════════════════════════════════════════════ */
+.ville-villes-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0 5rem !important;
+    border-top: 1px solid var(--border);
+    margin-bottom: 0 !important;
+    counter-reset: vv-i;
+}
+
+.ville-ville-card {
+    position: relative;
+    display: grid !important;
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+    align-items: start;
+    gap: 0 1.25rem !important;
+    padding: 2rem 0 !important;
+    background: none !important;
+    border: none !important;
+    border-bottom: 1px solid var(--border) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    transform: none !important;
+    overflow: visible !important;
+}
+
+.ville-ville-card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    border-color: var(--border) !important;
+}
+
+.ville-ville-card::before {
+    content: counter(vv-i, decimal-leading-zero) !important;
+    counter-increment: vv-i;
+    position: static !important;
+    grid-column: 1;
+    grid-row: 1;
+    width: auto !important;
+    height: auto !important;
+    background: none !important;
+    transform: none !important;
+    font-family: var(--ff-body);
+    font-size: .64rem;
+    font-weight: 600;
+    letter-spacing: .18em;
+    color: #4E5A6C;
+    padding-top: .5rem;
+    font-variant-numeric: tabular-nums;
+    transition: color .4s ease;
+}
+
+.ville-ville-card:hover::before {
+    color: var(--blue-l);
+}
+
+.ville-ville-icon {
+    display: none !important;
+}
+
+.ville-ville-name {
+    position: relative;
+    grid-column: 2;
+    display: inline-flex;
+    align-items: baseline;
+    gap: .65rem;
+    font-family: var(--ff-display) !important;
+    font-weight: 400 !important;
+    font-size: clamp(1.35rem, 2vw, 1.85rem) !important;
+    line-height: 1.14 !important;
+    letter-spacing: -.012em;
+    color: #D7DFEA !important;
+    margin-bottom: .5rem;
+    transition: color .4s ease;
+}
+
+.ville-ville-card:hover .ville-ville-name {
+    color: #fff !important;
+}
+
+/* La flèche, visible en permanence : c'est elle qui dit qu'on clique */
+a.ville-ville-card .ville-ville-name::after {
+    content: '→';
+    font-family: var(--ff-body);
+    font-size: .5em;
+    color: #5C697D;
+    transition: transform .45s var(--ease), color .4s ease;
+}
+
+a.ville-ville-card:hover .ville-ville-name::after {
+    color: var(--blue-l);
+    transform: translateX(6px);
+}
+
+.ville-ville-sub {
+    grid-column: 2;
+    font-family: var(--ff-body);
+    font-size: .84rem !important;
+    line-height: 1.7 !important;
+    color: #7C8A9E !important;
+    max-width: 40ch;
+    transition: color .4s ease;
+}
+
+.ville-ville-card:hover .ville-ville-sub {
+    color: #A9B6C8 !important;
+}
+
+/* Le libellé devient superflu : la flèche le dit. Masqué à l'œil,
+   conservé pour Google et les lecteurs d'écran. */
+.ville-ville-tag {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0 !important;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+.ville-ville-card.active-city {
+    background: none !important;
+    border-color: var(--border) !important;
+    opacity: .55;
+}
+
+.ville-seo-phrase {
+    margin-top: 3.5rem !important;
+    font-size: .78rem !important;
+    color: #4E5A6C !important;
+    line-height: 1.95 !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   10 · LA FAQ
+   Boîtes et « + » dans un rond remplacés par des lignes réglées et
+   deux traits qui deviennent un.
+   ═══════════════════════════════════════════════════════════════ */
+.ville-faq-list {
+    max-width: 900px !important;
+    gap: 0 !important;
+    border-top: 1px solid var(--border);
+}
+
+.ville-faq-item {
+    position: relative;
+    background: none !important;
+    border: none !important;
+    border-bottom: 1px solid var(--border) !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
+}
+
+.ville-faq-item::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    height: 1px;
+    width: 0;
+    background: linear-gradient(90deg, var(--blue-l), rgba(147, 196, 253, .1));
+    transition: width .8s var(--ease);
+    pointer-events: none;
+}
+
+.ville-faq-item[open]::after {
+    width: 100%;
+}
+
+.ville-faq-item summary {
+    padding: 1.9rem 0 !important;
+    align-items: flex-start !important;
+    gap: 2rem !important;
+}
+
+.ville-faq-item summary h3 {
+    font-family: var(--ff-display) !important;
+    font-weight: 400 !important;
+    font-size: clamp(1.1rem, 1.5vw, 1.4rem) !important;
+    line-height: 1.34 !important;
+    color: #D7DFEA !important;
+    transition: color .4s ease;
+}
+
+.ville-faq-item[open] summary h3,
+.ville-faq-item summary:hover h3 {
+    color: #fff !important;
+}
+
+/* Deux traits qui deviennent un */
+.faq-toggle {
+    position: relative;
+    width: 14px !important;
+    height: 14px !important;
+    margin-top: .5rem;
+    border-radius: 0 !important;
+    background: none !important;
+    border: none !important;
+    font-size: 0 !important;
+    flex-shrink: 0;
+}
+
+.faq-toggle::before,
+.faq-toggle::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 14px;
+    height: 1px;
+    background: #6E7C90;
+    transition: transform .5s var(--ease), background .4s ease;
+}
+
+.faq-toggle::after {
+    transform: rotate(90deg);
+}
+
+.ville-faq-item[open] .faq-toggle {
+    background: none !important;
+    border: none !important;
+    transform: none !important;
+}
+
+.ville-faq-item[open] .faq-toggle::before,
+.ville-faq-item[open] .faq-toggle::after {
+    background: var(--blue-l);
+}
+
+.ville-faq-item[open] .faq-toggle::after {
+    transform: rotate(0deg);
+}
+
+.ville-faq-item p {
+    padding: 0 4rem 2.1rem 0 !important;
+    border-top: none !important;
+    font-size: .92rem !important;
+    line-height: 1.92 !important;
+    color: #94A3B8 !important;
+    max-width: 62ch;
+    overflow: hidden;
+}
+
+.ville-faq-item p strong {
+    color: #D7DFEA !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   11 · LE CTA FINAL
+   Le halo circulaire et les dégradés cèdent la place au calme.
+   ═══════════════════════════════════════════════════════════════ */
+.ville-cta {
+    background: transparent !important;
+    border-top: 1px solid var(--border);
+}
+
+.ville-cta::before {
+    background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(59, 130, 246, .07), transparent 70%) !important;
+}
+
+.ville-cta::after {
+    display: none !important;
+}
+
+.ville-cta-sub {
+    color: #8B98AB !important;
+    font-size: 1rem !important;
+    line-height: 1.9 !important;
+}
+
+.ville-seo-text {
+    color: #4E5A6C !important;
+    font-size: .7rem !important;
+    letter-spacing: .1em;
+    margin-top: 2.5rem !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   12 · RESPONSIVE
+   ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 1100px) {
+
+    .ville-intro-grid,
+    .st-luxe-grid {
+        gap: 3.5rem !important;
+    }
+
+    .ville-intro-img-wrap {
+        aspect-ratio: 4/3 !important;
+        max-width: 520px;
+    }
+
+    .st-metier-row {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem 0 !important;
+        padding: 2.3rem 0;
+    }
+
+    .ville-villes-grid {
+        grid-template-columns: 1fr !important;
+        gap: 0 !important;
+    }
+
+    .st-photo-duo {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .ville-tarifs .price-card {
+        grid-template-columns: 2.75rem minmax(0, 1fr);
+        gap: 0 1.25rem !important;
+    }
+
+    .ville-tarifs .price-head {
+        grid-column: 2;
+        grid-row: 1;
+        text-align: left;
+    }
+
+    .ville-tarifs .price-feats {
+        grid-column: 2;
+        grid-row: 2;
+        padding-top: 1.5rem;
+    }
+
+    .ville-tarifs .price-card>a {
+        grid-row: 3;
+    }
+
+    .ville-pourquoi-card {
+        padding: 2rem 0 !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .st-photo-hero {
+        aspect-ratio: 3/2 !important;
+    }
+
+    .st-photo-caption {
+        padding: 2rem 1.25rem 1rem !important;
+    }
+
+    .ville-punchline {
+        font-size: 1.05rem !important;
+        padding-left: 1.25rem !important;
+        margin-top: 2rem !important;
+    }
+
+    .ville-chiffre-card {
+        grid-template-columns: 1fr;
+        gap: .35rem 0;
+        padding: 1.2rem 0 !important;
+    }
+
+    .chiffre-num {
+        font-size: 1.75rem !important;
+    }
+
+    .st-metier-main h3 {
+        font-size: 1.35rem !important;
+    }
+
+    .st-real-grid {
+        gap: 3rem 0 !important;
+    }
+
+    .st-real-body h3 {
+        font-size: 1.22rem !important;
+    }
+
+    .ville-pourquoi-card h3,
+    .process-item h3 {
+        font-size: 1.18rem !important;
+        max-width: none;
+    }
+
+    .ville-ville-name {
+        font-size: 1.2rem !important;
+    }
+
+    .ville-faq-item summary {
+        gap: 1rem !important;
+        padding: 1.5rem 0 !important;
+    }
+
+    .ville-faq-item summary h3 {
+        font-size: 1rem !important;
+    }
+
+    .ville-faq-item p {
+        padding-right: 0 !important;
+        padding-bottom: 1.7rem !important;
+        font-size: .87rem !important;
+    }
+
+    .ville-tarifs .price-num {
+        font-size: 2.2rem !important;
+    }
+
+    .process-steps-grid {
+        padding-top: 2.5rem;
+    }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   13 · LES TROIS IMAGES DE SAINT-TROPEZ
+   Trois formats jamais répétés : une bande panoramique, un
+   portrait, un carré décalé. C'est la variation d'échelle qui
+   distingue une galerie d'une grille — huit vignettes identiques
+   font un diaporama d'office de tourisme.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* La bande panoramique : pleine largeur, sans marge */
+.st-band {
+    padding: 0 !important;
+    margin: 0;
+}
+
+.st-band .st-photo-hero {
+    aspect-ratio: 21/9 !important;
+}
+
+/* Le carré, décalé et plus petit que sa colonne : c'est ce
+   décentrage qui fait la composition */
+.st-photo-square {
+    position: relative;
+    aspect-ratio: 1/1;
+    width: 88%;
+    margin-left: auto;
+    border-radius: 2px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: var(--sh-2);
+}
+
+.st-photo-square img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: saturate(.85) brightness(.9);
+    transition: filter 1s var(--ease);
+}
+
+.st-photo-square:hover img {
+    filter: saturate(1) brightness(1);
+}
+
+.st-photo-square .st-photo-caption {
+    padding: 2.4rem 1.4rem 1.1rem !important;
+}
+
+@media (max-width: 900px) {
+    .st-photo-square {
+        width: 100%;
+        margin-left: 0;
+        aspect-ratio: 4/3;
+    }
+}
+
+@media (max-width: 768px) {
+    .st-band .st-photo-hero {
+        aspect-ratio: 4/3 !important;
+    }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   14 · LES FILETS TRACÉS
+   Ils étaient animés par un transform sur le conteneur lui-même.
+   Or un transform sur un ancêtre fausse le calcul de position de
+   tout ce qu'il contient : les déclencheurs des compteurs ne
+   partaient jamais. Le tracé passe donc sur un pseudo-élément,
+   qui n'affecte aucun enfant.
+   ═══════════════════════════════════════════════════════════════ */
+.ville-chiffres-grid,
+.ville-pourquoi-grid,
+.ville-villes-grid,
+.ville-faq-list,
+.ville-tarifs .price-grid,
+.process-steps-grid {
+    position: relative;
+    border-top-color: transparent !important;
+}
+
+.ville-chiffres-grid::before,
+.ville-pourquoi-grid::before,
+.ville-villes-grid::before,
+.ville-faq-list::before,
+.ville-tarifs .price-grid::before,
+.process-steps-grid::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--border);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 1.1s var(--ease);
+    pointer-events: none;
+}
+
+.ville-chiffres-grid.is-ruled::before,
+.ville-pourquoi-grid.is-ruled::before,
+.ville-villes-grid.is-ruled::before,
+.ville-faq-list.is-ruled::before,
+.ville-tarifs .price-grid.is-ruled::before,
+.process-steps-grid.is-ruled::after {
+    transform: scaleX(1);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   15 · CORRECTIFS MOBILE
+   ═══════════════════════════════════════════════════════════════ */
+
+/* depth.css pose un fond de carte sur .st-metier-row : il restait
+   visible et redonnait l'aspect boîte qu'on venait de retirer. */
+.st-metier-row,
+.st-metier-main,
+.st-metier-links {
+    background: none !important;
+    background-color: transparent !important;
+}
+
+/* ── Les boutons, centrés sur tous les écrans ──
+   Un bouton aligné à gauche dans une colonne étroite paraît
+   toujours mal posé. */
+@media (max-width: 900px) {
+
+    .ville-intro-text,
+    .st-luxe-text,
+    .ville-metiers-cta-bottom,
+    .ville-cta .container,
+    .st-realisations .container>div:last-child {
+        text-align: center;
+    }
+
+    .ville-intro-text .btn-primary,
+    .st-luxe-text .btn-primary,
+    .st-luxe-text .btn-outline,
+    .ville-metiers-cta-bottom .btn-primary,
+    .st-realisations .btn-outline,
+    .ville-cta-actions .btn-hero,
+    .ville-cta-actions .btn-ghost-hero,
+    .zone-seo .btn-outline-sm,
+    .ville-tarifs .price-card>a {
+        display: inline-flex !important;
+        justify-content: center !important;
+        margin-inline: auto !important;
+        justify-self: center !important;
+    }
+
+    /* Les paires de boutons s'empilent et se centrent */
+    .st-luxe-text>div[style*="display:flex"] {
+        justify-content: center !important;
+    }
+
+    .st-realisations .btn-outline {
+        margin: .6rem .4rem !important;
+    }
+
+    .ville-cta-actions {
+        flex-direction: column;
+        align-items: center;
+        gap: .8rem;
+    }
+
+    .ville-cta-actions .btn-hero,
+    .ville-cta-actions .btn-ghost-hero {
+        width: 100%;
+        max-width: 320px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* ── Les métiers : la ligne de liens s'aère ── */
+    .st-metier-row {
+        padding: 2rem 0 !important;
+        gap: 1.1rem 0 !important;
+    }
+
+    .st-metier-main p {
+        max-width: none;
+    }
+
+    .st-metier-links {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: .7rem !important;
+        padding-top: 1.1rem !important;
+        border-top: 1px solid var(--border) !important;
+    }
+
+    /* Les filets de séparation n'ont plus de sens en colonne */
+    .st-metier-links a::before {
+        display: none !important;
+    }
+
+    .st-metier-links a {
+        font-size: .82rem !important;
+        color: #8B98AB !important;
+    }
+
+    /* ── Les réalisations ── */
+    .st-real-body {
+        padding-top: 1.4rem !important;
+    }
+
+    /* ── L'intro ── */
+    .ville-intro-text .btn-primary {
+        margin-top: 2.25rem !important;
+    }
+
+    .ville-punchline {
+        text-align: left;
+    }
+
+    /* ── Les tarifs : le prix repasse au-dessus des prestations ── */
+    .ville-tarifs .price-card {
+        grid-template-columns: 1fr !important;
+        gap: 0 !important;
+        padding: 2.4rem 0 !important;
+        text-align: center;
+    }
+
+    .ville-tarifs .price-card:nth-child(2),
+    .ville-tarifs .price-card:nth-child(3) {
+        padding: 2.4rem 0 !important;
+    }
+
+    .ville-tarifs .price-card::before {
+        grid-column: 1;
+        text-align: center;
+        padding-top: 0;
+        margin-bottom: 1rem;
+    }
+
+    .ville-tarifs .price-head {
+        grid-column: 1;
+        grid-row: 2;
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .ville-tarifs .price-feats {
+        grid-column: 1;
+        grid-row: 3;
+        justify-content: center;
+        padding-top: 0;
+    }
+
+    .ville-tarifs .price-card>a {
+        grid-column: 1;
+        grid-row: 4;
+        justify-self: center;
+        margin-top: 1.5rem;
+    }
+
+    /* ── Le maillage villes ── */
+    .ville-ville-card {
+        grid-template-columns: 2rem minmax(0, 1fr);
+        gap: 0 .85rem !important;
+        padding: 1.6rem 0 !important;
+    }
+
+    .ville-ville-sub {
+        max-width: none;
+    }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   16 · LA RÉVÉLATION DES CHIFFRES
+   Le chiffre monte derrière son propre filet. Il faut donc que sa
+   ligne soit une fenêtre — sinon on le verrait glisser depuis le
+   bas de la page.
+   ═══════════════════════════════════════════════════════════════ */
+.ville-chiffre-card {
+    overflow: hidden !important;
+}
+
+.chiffre-num {
+    display: block;
+    will-change: transform;
+}
+
+.chiffre-label {
+    display: block;
+    will-change: transform;
+}

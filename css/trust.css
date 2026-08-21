@@ -1,0 +1,422 @@
+/* ═══════════════════════════════════════════════════════════════
+   TRUST.CSS — Sud Web Project
+   Questions fréquentes et paroles clients.
+
+   Deux partis pris :
+
+   · LA FAQ garde son accordéon — c'est le bon dispositif — mais
+     perd ses boîtes et ses « + ». Le titre reste fixe à gauche
+     pendant qu'on parcourt les questions à droite : c'est le seul
+     endroit du site où l'on utilise ce dispositif, ce qui casse
+     la monotonie des rangées.
+
+   · LES TÉMOIGNAGES passent de trois cartes à une parole à la
+     fois. Répéter cinq étoiles trois fois ne rend pas un avis
+     trois fois plus crédible — ça fait widget. Une seule mention
+     de la note, en tête, et les citations en grand.
+
+   À CHARGER après extras.css, avant type.css.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════════════════════════════════
+   1 · LA FAQ
+   ═══════════════════════════════════════════════════════════════ */
+.faq .section-head {
+    display: none;
+}
+
+.qa {
+    display: grid;
+    grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+    gap: 0 7rem;
+    align-items: start;
+}
+
+/* La colonne fixe : elle accompagne la lecture des questions */
+.qa-aside {
+    position: sticky;
+    top: 8rem;
+}
+
+.qa-aside .section-label {
+    margin-bottom: 1.6rem;
+}
+
+.qa-aside .section-title {
+    margin-bottom: 2.25rem;
+}
+
+.qa-note {
+    font-family: var(--ff-body);
+    font-size: .88rem;
+    line-height: 1.85;
+    color: #8B98AB;
+    max-width: 30ch;
+    margin: 0 0 2rem;
+}
+
+.qa-link {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    font-family: var(--ff-body);
+    font-size: .78rem;
+    font-weight: 600;
+    letter-spacing: .04em;
+    color: #B7C6DA;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(147, 196, 253, .28);
+    padding-bottom: 2px;
+    transition: color .35s var(--ease), border-color .35s var(--ease);
+}
+
+.qa-link:hover {
+    color: #fff;
+    border-bottom-color: var(--blue-l);
+}
+
+/* ── La liste ── */
+.qa-list {
+    border-top: 1px solid var(--border);
+}
+
+.faq-item {
+    position: relative;
+    background: none !important;
+    border: none !important;
+    border-bottom: 1px solid var(--border) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    overflow: visible;
+}
+
+/* Le filet qui se remplit sous la question ouverte */
+.faq-item::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    height: 1px;
+    width: 0;
+    background: linear-gradient(90deg, var(--blue-l), rgba(147, 196, 253, .1));
+    transition: width .8s var(--ease);
+    pointer-events: none;
+}
+
+.faq-item[open]::after {
+    width: 100%;
+}
+
+.faq-item summary {
+    display: grid !important;
+    grid-template-columns: 2.5rem 1fr 1.5rem;
+    align-items: start;
+    gap: 0 1rem;
+    padding: 1.9rem 0 !important;
+    cursor: pointer;
+    list-style: none;
+    background: none;
+}
+
+.faq-item summary::-webkit-details-marker,
+.faq-item summary::marker {
+    display: none;
+    content: '';
+}
+
+.faq-item summary::after {
+    display: none !important;
+}
+
+.qa-num {
+    font-family: var(--ff-body);
+    font-size: .64rem;
+    font-weight: 600;
+    letter-spacing: .18em;
+    color: #4E5A6C;
+    padding-top: .55rem;
+    font-variant-numeric: tabular-nums;
+    transition: color .4s ease;
+}
+
+.faq-item[open] .qa-num {
+    color: var(--blue-l);
+}
+
+.faq-item summary h3 {
+    font-family: var(--ff-display) !important;
+    font-weight: 400 !important;
+    font-size: clamp(1.12rem, 1.5vw, 1.42rem) !important;
+    line-height: 1.34 !important;
+    letter-spacing: -.006em;
+    color: #D7DFEA !important;
+    margin: 0 !important;
+    transition: color .4s ease, transform .5s var(--ease);
+}
+
+.faq-item summary:hover h3 {
+    color: #fff !important;
+}
+
+.faq-item[open] summary h3 {
+    color: #fff !important;
+}
+
+/* Le signe : deux traits qui deviennent un. Pas un « + » dans un
+   rond — le trait est la grammaire du site. */
+.qa-sign {
+    position: relative;
+    width: 14px;
+    height: 14px;
+    margin-top: .72rem;
+    justify-self: end;
+    flex-shrink: 0;
+}
+
+.qa-sign::before,
+.qa-sign::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 14px;
+    height: 1px;
+    background: #6E7C90;
+    transition: transform .5s var(--ease), background .4s ease;
+}
+
+.qa-sign::after {
+    transform: rotate(90deg);
+}
+
+.faq-item[open] .qa-sign::before,
+.faq-item[open] .qa-sign::after {
+    background: var(--blue-l);
+}
+
+.faq-item[open] .qa-sign::after {
+    transform: rotate(0deg);
+}
+
+/* ── La réponse ── */
+.faq-item p {
+    grid-column: 2;
+    margin: 0 0 0 3.5rem !important;
+    padding: 0 3.5rem 2.1rem 0 !important;
+    border: none !important;
+    font-family: var(--ff-body);
+    font-size: .93rem !important;
+    line-height: 1.9 !important;
+    color: #94A3B8 !important;
+    max-width: 56ch;
+    overflow: hidden;
+}
+
+.faq-item p strong {
+    color: #D7DFEA;
+    font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   2 · LES PAROLES
+   ═══════════════════════════════════════════════════════════════ */
+.testi .testi-grid {
+    display: block !important;
+    gap: 0 !important;
+}
+
+/* La note, une seule fois, en tête */
+.voice-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: center;
+    gap: .5rem 1.5rem;
+    margin-bottom: 5.5rem;
+    font-family: var(--ff-body);
+    font-size: .72rem;
+    font-weight: 600;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #6E7C90;
+}
+
+.voice-score {
+    color: #C8A96B;
+    letter-spacing: .22em;
+    font-size: .8rem;
+}
+
+.voice-score b {
+    font-family: var(--ff-display);
+    font-weight: 400;
+    font-size: 1.5rem;
+    letter-spacing: 0;
+    color: #fff;
+    margin-right: .5rem;
+    vertical-align: -.12em;
+}
+
+/* ── La citation ── */
+.testi-card {
+    position: relative;
+    display: block !important;
+    background: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 4.5rem 0 !important;
+    max-width: 62ch;
+    margin: 0 auto !important;
+    text-align: center;
+    /* Les paroles voisines s'estompent : on n'en lit qu'une */
+    opacity: .16;
+    transition: opacity .8s var(--ease);
+}
+
+.testi-card.is-focus {
+    opacity: 1;
+}
+
+.testi-card+.testi-card {
+    border-top: 1px solid var(--border) !important;
+}
+
+.testi-card::before,
+.testi-card::after {
+    content: none !important;
+}
+
+.testi-card p {
+    font-family: var(--ff-display) !important;
+    font-weight: 400 !important;
+    font-style: italic;
+    font-size: clamp(1.35rem, 2.3vw, 2.05rem) !important;
+    line-height: 1.48 !important;
+    letter-spacing: -.008em;
+    color: #E9EEF6 !important;
+    margin: 0 0 2.5rem !important;
+    text-wrap: balance;
+}
+
+.testi-card.is-focus p {
+    color: #fff !important;
+}
+
+/* ── L'auteur ── */
+.testi-auth {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    gap: .35rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+}
+
+.testi-auth::before {
+    content: '';
+    display: block;
+    width: 22px;
+    height: 1px;
+    background: rgba(147, 196, 253, .3);
+    margin-bottom: 1.1rem;
+}
+
+.testi-auth strong {
+    font-family: var(--ff-body);
+    font-size: .84rem;
+    font-weight: 600;
+    letter-spacing: .04em;
+    color: #D7DFEA;
+}
+
+.testi-auth span {
+    font-family: var(--ff-body);
+    font-size: .68rem;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: #5C697D;
+}
+
+.testi-stars {
+    display: none !important;
+}
+
+.testi-av {
+    display: none !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   3 · RESPONSIVE
+   ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 1100px) {
+    .qa {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+    }
+
+    .qa-aside {
+        position: static;
+    }
+
+    .qa-note {
+        max-width: 46ch;
+    }
+}
+
+@media (max-width: 768px) {
+    .faq-item summary {
+        grid-template-columns: 2rem 1fr 1.1rem;
+        gap: 0 .8rem;
+        padding: 1.5rem 0 !important;
+    }
+
+    .qa-num {
+        font-size: .6rem;
+        padding-top: .35rem;
+    }
+
+    .faq-item summary h3 {
+        font-size: 1.02rem !important;
+        line-height: 1.42 !important;
+    }
+
+    .qa-sign {
+        width: 11px;
+        height: 11px;
+        margin-top: .5rem;
+    }
+
+    .qa-sign::before,
+    .qa-sign::after {
+        width: 11px;
+    }
+
+    .faq-item p {
+        margin-left: 2.8rem !important;
+        padding-right: 0 !important;
+        padding-bottom: 1.7rem !important;
+        font-size: .88rem !important;
+        line-height: 1.85 !important;
+    }
+
+    .voice-meta {
+        margin-bottom: 3.5rem;
+        gap: .4rem 1rem;
+        font-size: .66rem;
+    }
+
+    .testi-card {
+        padding: 3rem 0 !important;
+        /* Au doigt, l'estompe est trop brutale : on l'adoucit */
+        opacity: .35;
+    }
+
+    .testi-card p {
+        font-size: clamp(1.15rem, 4.8vw, 1.5rem) !important;
+        line-height: 1.52 !important;
+        margin-bottom: 1.9rem !important;
+    }
+}

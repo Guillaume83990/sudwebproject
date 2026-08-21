@@ -1,0 +1,478 @@
+/* ═══════════════════════════════════════════════════════════════
+   FOOTER.CSS — Sud Web Project
+   Le footer devient un colophon — la dernière page d'un ouvrage.
+
+   Le diagnostic : quatre colonnes de liens, une barre légale, puis
+   un pavé de 22 mots-clés. Ce dernier bloc est indispensable au
+   maillage mais c'est lui qui fait « annuaire ». On ne le retire
+   pas : on le traite comme une mention de bas de page.
+
+   Le geste : une signature typographique immense en filigrane, qui
+   occupe l'espace sans ajouter un mot.
+
+   À CHARGER après contact.css, avant type.css.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════════════════════════════════
+   1 · LA STRUCTURE
+   ═══════════════════════════════════════════════════════════════ */
+.footer {
+    position: relative;
+    overflow: hidden;
+    padding-top: 7rem;
+    border-top: 1px solid var(--border);
+}
+
+.footer-inner {
+    position: relative;
+    z-index: 2;
+    max-width: var(--max);
+    margin: 0 auto;
+    padding-inline: var(--gutter, 2.5rem);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) repeat(3, minmax(0, 1fr));
+    gap: 0 4.5rem;
+    padding-bottom: 5rem;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   2 · LA MARQUE
+   ─────────────────────────────────────────────────────────────── */
+.footer-brand {
+    max-width: 34ch;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    margin-bottom: 1.6rem;
+}
+
+.footer-tag {
+    font-family: var(--ff-body);
+    font-size: .72rem !important;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: #6E7C90 !important;
+    margin-bottom: 1.1rem !important;
+}
+
+.footer-tag strong {
+    color: #B7C6DA;
+    font-weight: 600;
+}
+
+.footer-desc {
+    font-family: var(--ff-body);
+    font-size: .85rem !important;
+    line-height: 1.85 !important;
+    color: #6E7C90 !important;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   3 · LES COLONNES
+   Un index fin. Le filet sous le titre remplace tout ornement.
+   ─────────────────────────────────────────────────────────────── */
+.footer-col h3 {
+    font-family: var(--ff-body) !important;
+    font-size: .66rem !important;
+    font-weight: 600 !important;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: #4E5A6C !important;
+    margin: 0 0 1.35rem !important;
+    padding-bottom: .85rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: .62rem;
+}
+
+.footer-col li a,
+.footer-cities li a {
+    position: relative;
+    font-family: var(--ff-body);
+    font-size: .82rem;
+    line-height: 1.5;
+    color: #8B98AB;
+    text-decoration: none;
+    transition: color .3s var(--ease), padding-left .35s var(--ease);
+}
+
+.footer-col li a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 0;
+    height: 1px;
+    background: var(--blue-l);
+    transition: width .35s var(--ease);
+}
+
+.footer-col li a:hover {
+    color: #fff;
+    padding-left: 1.1rem;
+}
+
+.footer-col li a:hover::before {
+    width: .7rem;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   4 · LA SIGNATURE EN FILIGRANE
+   Elle occupe l'espace sans ajouter un mot. Décorative et masquée
+   aux lecteurs d'écran : le nom est déjà dit plus haut.
+   ─────────────────────────────────────────────────────────────── */
+.footer-mark {
+    position: relative;
+    z-index: 1;
+    display: block;
+    margin: 0 auto;
+    padding: 0 var(--gutter, 2.5rem);
+    max-width: var(--max);
+    font-family: var(--ff-display);
+    font-weight: 400;
+    font-size: clamp(3.5rem, 13vw, 13rem);
+    line-height: .82;
+    letter-spacing: -.045em;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(147, 196, 253, .13);
+    text-align: center;
+    white-space: nowrap;
+    user-select: none;
+    pointer-events: none;
+    margin-bottom: 2.5rem;
+}
+
+.footer-mark em {
+    font-style: italic;
+    -webkit-text-stroke-color: rgba(147, 196, 253, .22);
+}
+
+/* ───────────────────────────────────────────────────────────────
+   5 · LA BARRE LÉGALE
+   ─────────────────────────────────────────────────────────────── */
+.footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem 2.5rem;
+    padding-top: 2.25rem;
+    border-top: 1px solid var(--border);
+}
+
+.footer-bottom p {
+    font-family: var(--ff-body);
+    font-size: .72rem !important;
+    line-height: 1.75 !important;
+    color: #4E5A6C !important;
+    max-width: 68ch;
+}
+
+.footer-bottom p strong {
+    color: #6E7C90;
+    font-weight: 500;
+}
+
+.footer-legal {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .5rem .9rem;
+    font-family: var(--ff-body);
+    font-size: .72rem;
+}
+
+.footer-legal a {
+    color: #6E7C90;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 1px;
+    transition: color .3s var(--ease), border-color .3s var(--ease);
+}
+
+.footer-legal a:hover {
+    color: var(--blue-l);
+    border-bottom-color: rgba(147, 196, 253, .5);
+}
+
+.footer-legal span {
+    color: #2E3644;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   6 · LE COLOPHON SEO
+   Indispensable au maillage, mais ce n'est pas de la lecture.
+   Corps réduit, contraste bas, interlignage serré : Google le lit
+   intégralement, l'œil le survole.
+   ─────────────────────────────────────────────────────────────── */
+.footer-seo {
+    position: relative;
+    z-index: 2;
+    max-width: var(--max);
+    margin: 3.5rem auto 0;
+    padding: 2rem var(--gutter, 2.5rem) 3rem;
+    border-top: 1px solid rgba(147, 196, 253, .05);
+}
+
+.footer-seo p {
+    font-family: var(--ff-body);
+    font-size: .66rem !important;
+    line-height: 1.95 !important;
+    letter-spacing: .01em;
+    color: #3D4757 !important;
+    text-align: center;
+    max-width: 90ch;
+    margin: 0 auto;
+}
+
+.footer-seo a {
+    color: #4E5A6C;
+    text-decoration: none;
+    transition: color .3s var(--ease);
+}
+
+.footer-seo a:hover {
+    color: var(--blue-l);
+}
+
+/* ───────────────────────────────────────────────────────────────
+   7 · LE RETOUR EN HAUT
+   Un cercle en fil, pas un bouton plein.
+   ─────────────────────────────────────────────────────────────── */
+.btt {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(5, 8, 15, .8) !important;
+    border: 1px solid rgba(147, 196, 253, .22) !important;
+    color: #B7C6DA;
+    box-shadow: none !important;
+    transition: border-color .35s var(--ease), color .35s var(--ease), transform .35s var(--ease);
+}
+
+.btt:hover {
+    border-color: var(--blue-l) !important;
+    color: #fff;
+    transform: translateY(-3px);
+    background: rgba(5, 8, 15, .92) !important;
+}
+
+.btt svg {
+    transition: transform .35s var(--ease);
+}
+
+.btt:hover svg {
+    transform: translateY(-2px);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   8 · TABLETTE
+   Deux colonnes, la marque sur toute la largeur.
+   ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+    .footer {
+        padding-top: 5rem;
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 3rem 3rem;
+        padding-bottom: 3.5rem;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+        max-width: 46ch;
+        text-align: center;
+        margin-inline: auto;
+    }
+
+    .footer-logo {
+        justify-content: center;
+    }
+
+    .footer-mark {
+        margin-bottom: 2rem;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1.25rem;
+    }
+
+    .footer-legal {
+        justify-content: center;
+    }
+
+    .footer-seo {
+        margin-top: 2.5rem;
+        padding-bottom: 2.5rem;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   9 · MOBILE
+   Une colonne, tout centré. Les listes deviennent des lignes de
+   texte séparées par des points : dix liens empilés font une
+   colonne interminable.
+   ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 640px) {
+    .footer {
+        padding-top: 4rem;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        padding-bottom: 2.75rem;
+        text-align: center;
+    }
+
+    .footer-brand {
+        max-width: none;
+    }
+
+    .footer-desc {
+        font-size: .82rem !important;
+    }
+
+    .footer-col h3 {
+        margin-bottom: 1.1rem !important;
+        padding-bottom: .7rem;
+    }
+
+    .footer-col ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: .55rem 1rem;
+    }
+
+    .footer-col li {
+        position: relative;
+    }
+
+    /* Le point de séparation entre deux liens */
+    .footer-col li+li::before {
+        content: '';
+        position: absolute;
+        left: -.55rem;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 2px;
+        height: 2px;
+        border-radius: 50%;
+        background: rgba(147, 196, 253, .25);
+    }
+
+    .footer-col li a {
+        font-size: .8rem;
+    }
+
+    .footer-col li a:hover {
+        padding-left: 0;
+    }
+
+    .footer-col li a:hover::before {
+        width: 0;
+    }
+
+    .footer-mark {
+        font-size: clamp(2.6rem, 16vw, 4.5rem);
+        margin-bottom: 1.5rem;
+        -webkit-text-stroke-width: .75px;
+    }
+
+    .footer-bottom {
+        padding-top: 1.75rem;
+        gap: 1rem;
+    }
+
+    .footer-bottom p {
+        font-size: .68rem !important;
+    }
+
+    .footer-seo {
+        margin-top: 2rem;
+        padding-top: 1.5rem;
+        padding-bottom: 2rem;
+    }
+
+    .footer-seo p {
+        font-size: .62rem !important;
+        line-height: 2 !important;
+    }
+
+    .btt {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   10 · CENTRAGE DU PIED — tablette et mobile
+   Les règles de la section 8 étaient écrasées par des styles
+   hérités : on les impose ici.
+   ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+
+    .footer-bottom {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    .footer-bottom p {
+        text-align: center !important;
+        margin-inline: auto !important;
+        max-width: 52ch;
+    }
+
+    .footer-legal {
+        justify-content: center !important;
+        text-align: center !important;
+    }
+
+    .footer-seo p {
+        text-align: center !important;
+    }
+
+    .btt {
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+    }
+
+    .btt:hover {
+        transform: translateX(-50%) translateY(-3px);
+    }
+}
+
+@media (max-width: 640px) {
+
+    .footer-bottom p {
+        max-width: 34ch;
+        line-height: 1.9 !important;
+    }
+
+    .footer-legal {
+        gap: .5rem .8rem;
+    }
+}

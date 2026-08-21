@@ -1,0 +1,436 @@
+/* ═══════════════════════════════════════════════════════════════
+   PRICING.CSS — Sud Web Project
+   Les trois formules cessent d'être des cartes comparées côte à
+   côte pour devenir une ASCENSION.
+
+   Le raisonnement : trois cartes alignées avec des listes de coches
+   et un badge « Populaire », c'est le patron de toutes les pages de
+   tarifs du web. Une échelle qui monte, c'est une gamme — et le
+   visiteur ne compare plus trois produits, il choisit un niveau.
+
+   À CHARGER après portfolio.css, avant type.css.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ───────────────────────────────────────────────────────────────
+   1 · L'ÉCHELLE
+   ─────────────────────────────────────────────────────────────── */
+.tier-scale {
+    position: relative;
+    margin-top: 1rem;
+    padding-left: 3.5rem;
+    border-top: 1px solid var(--border);
+}
+
+/* LA JAUGE — elle se remplit à mesure que l'on descend la gamme.
+   C'est le seul élément qui « raconte » la montée. */
+.tier-gauge {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: rgba(147, 196, 253, .1);
+    overflow: hidden;
+}
+
+.tier-gauge-fill {
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 0;
+    background: linear-gradient(180deg,
+            rgba(147, 196, 253, .35),
+            var(--blue-l));
+    box-shadow: 0 0 12px rgba(96, 165, 250, .55);
+}
+
+/* ───────────────────────────────────────────────────────────────
+   2 · LA STRATE
+   Chaque palier est plus haut et plus éclairé que le précédent.
+   L'échelle se lit avant même qu'on ait lu les prix.
+   ─────────────────────────────────────────────────────────────── */
+.tier {
+    position: relative;
+    display: grid;
+    grid-template-columns: 4rem minmax(0, 1fr) minmax(0, 20rem);
+    align-items: start;
+    gap: 0 4rem;
+    padding: 3.2rem 0;
+    border-bottom: 1px solid var(--border);
+    background: none;
+    border-radius: 0;
+    box-shadow: none;
+    transform: none !important;
+}
+
+.tier--2 {
+    padding: 4.2rem 0;
+}
+
+.tier--3 {
+    padding: 5.4rem 0;
+}
+
+/* Le voile qui monte avec la gamme */
+.tier::before {
+    content: '';
+    position: absolute;
+    inset: 0 -3rem 0 -3.5rem;
+    pointer-events: none;
+    background: linear-gradient(90deg,
+            rgba(147, 196, 253, .05),
+            rgba(147, 196, 253, .012) 45%,
+            transparent 75%);
+    opacity: 0;
+    transition: opacity .7s var(--ease);
+}
+
+.tier--1::before {
+    opacity: .25;
+}
+
+.tier--2::before {
+    opacity: .5;
+}
+
+.tier--3::before {
+    opacity: .85;
+}
+
+.tier.is-active::before {
+    opacity: 1;
+}
+
+/* Le filet qui se remplit sous la strate active */
+.tier::after {
+    content: '';
+    position: absolute;
+    left: -3.5rem;
+    bottom: -1px;
+    height: 1px;
+    width: 0;
+    background: linear-gradient(90deg, var(--blue-l), rgba(147, 196, 253, .1));
+    transition: width .9s var(--ease);
+}
+
+.tier.is-active::after {
+    width: calc(100% + 3.5rem);
+}
+
+/* ── Le numéro de palier ── */
+.tier-idx {
+    font-family: var(--ff-body);
+    font-size: .68rem;
+    font-weight: 600;
+    letter-spacing: .18em;
+    color: #4E5A6C;
+    padding-top: .85rem;
+    font-variant-numeric: tabular-nums;
+    transition: color .5s ease;
+}
+
+.tier.is-active .tier-idx {
+    color: var(--blue-l);
+}
+
+/* ───────────────────────────────────────────────────────────────
+   3 · LE CORPS
+   ─────────────────────────────────────────────────────────────── */
+.tier-name {
+    font-family: var(--ff-display) !important;
+    font-weight: 400 !important;
+    font-size: clamp(1.75rem, 2.6vw, 2.6rem) !important;
+    line-height: 1.08;
+    letter-spacing: -.014em;
+    color: #E9EEF6;
+    margin: 0 0 .5rem !important;
+    transition: color .45s ease;
+}
+
+.tier--3 .tier-name {
+    font-size: clamp(2rem, 3vw, 3.1rem) !important;
+    color: #fff;
+}
+
+.tier.is-active .tier-name {
+    color: #fff;
+}
+
+/* À qui s'adresse le palier — l'information qui manquait */
+.tier-for {
+    font-family: var(--ff-body);
+    font-size: .8rem;
+    letter-spacing: .02em;
+    color: #6E7C90;
+    margin: 0 0 1.8rem;
+}
+
+/* Le seuil : ce que le palier ajoute au précédent */
+.tier-carry {
+    display: block;
+    font-family: var(--ff-body);
+    font-size: .72rem;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: #B7C6DA;
+    margin-bottom: 1rem;
+}
+
+.tier-carry em {
+    font-style: normal;
+    color: #4E5A6C;
+    font-weight: 500;
+}
+
+/* Les prestations — une ligne de texte, pas une liste de coches */
+.tier-feats {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .55rem 1.15rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 46ch;
+}
+
+.tier-feats li {
+    position: relative;
+    font-family: var(--ff-body);
+    font-size: .85rem;
+    line-height: 1.5;
+    color: #94A3B8;
+    padding: 0;
+    transition: color .45s ease;
+}
+
+.tier-feats li::before {
+    content: none;
+}
+
+.tier-feats li+li::after {
+    content: '';
+    position: absolute;
+    left: -.62rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 11px;
+    background: rgba(147, 196, 253, .2);
+}
+
+.tier.is-active .tier-feats li {
+    color: #B3C0D1;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   4 · LE PRIX
+   Aligné à droite, en Instrument Serif, très grand. C'est lui qui
+   porte l'échelle : 600 puis 1 300 puis un mot.
+   ─────────────────────────────────────────────────────────────── */
+.tier-price {
+    text-align: right;
+    padding-top: .3rem;
+}
+
+.tier-from {
+    display: block;
+    font-family: var(--ff-body);
+    font-size: .64rem;
+    font-weight: 600;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: #4E5A6C;
+    margin-bottom: .55rem;
+}
+
+.tier-num {
+    display: block;
+    font-family: var(--ff-display);
+    font-weight: 400;
+    font-size: clamp(2.8rem, 4.6vw, 4.4rem);
+    line-height: .92;
+    letter-spacing: -.035em;
+    color: #E9EEF6;
+    font-variant-numeric: tabular-nums;
+    transition: color .45s ease;
+}
+
+.tier--3 .tier-num {
+    font-size: clamp(2rem, 3.2vw, 3.1rem);
+    color: var(--blue-l);
+}
+
+.tier.is-active .tier-num {
+    color: #fff;
+}
+
+.tier--3.is-active .tier-num {
+    color: var(--blue-l);
+}
+
+.tier-cur {
+    font-size: .48em;
+    letter-spacing: 0;
+    margin-left: .08em;
+    vertical-align: baseline;
+}
+
+/* Le lien de devis : discret, jamais un bouton plein */
+.tier-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    margin-top: 1.5rem;
+    font-family: var(--ff-body);
+    font-size: .78rem;
+    font-weight: 600;
+    letter-spacing: .04em;
+    color: #B7C6DA;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(147, 196, 253, .28);
+    padding-bottom: 2px;
+    transition: color .35s var(--ease), border-color .35s var(--ease);
+}
+
+.tier-cta:hover {
+    color: #fff;
+    border-bottom-color: var(--blue-l);
+}
+
+.tier-cta svg {
+    width: 14px;
+    height: 14px;
+    transition: transform .35s var(--ease);
+}
+
+.tier-cta:hover svg {
+    transform: translateX(4px);
+}
+
+/* ───────────────────────────────────────────────────────────────
+   5 · REPLI — l'ancienne grille de cartes
+   ─────────────────────────────────────────────────────────────── */
+.price-grid,
+.price-card,
+.price-top-badge {
+    display: none !important;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   6 · RESPONSIVE
+   Le prix passe au-dessus du nom : sur une colonne, il doit se
+   lire en premier.
+   ─────────────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+    .tier-scale {
+        padding-left: 2.25rem;
+    }
+
+    .tier {
+        grid-template-columns: 2.75rem 1fr;
+        gap: 0 1.25rem;
+        padding: 2.6rem 0;
+    }
+
+    .tier--2 {
+        padding: 3.1rem 0;
+    }
+
+    .tier--3 {
+        padding: 3.7rem 0;
+    }
+
+    .tier-body {
+        grid-column: 2;
+        order: 2;
+    }
+
+    .tier-price {
+        grid-column: 2;
+        order: 1;
+        text-align: left;
+        padding-top: 0;
+        margin-bottom: 1.5rem;
+    }
+
+    .tier-cta {
+        margin-top: 0;
+    }
+
+    .tier::before {
+        inset: 0 -1.5rem 0 -2.25rem;
+    }
+
+    .tier::after {
+        left: -2.25rem;
+    }
+
+    .tier.is-active::after {
+        width: calc(100% + 2.25rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .tier-scale {
+        padding-left: 1.75rem;
+    }
+
+    .tier {
+        grid-template-columns: 2rem 1fr;
+        gap: 0 .9rem;
+        padding: 2.2rem 0;
+    }
+
+    .tier--2 {
+        padding: 2.6rem 0;
+    }
+
+    .tier--3 {
+        padding: 3rem 0;
+    }
+
+    .tier-idx {
+        font-size: .62rem;
+        padding-top: .3rem;
+    }
+
+    .tier-name,
+    .tier--3 .tier-name {
+        font-size: 1.55rem !important;
+    }
+
+    .tier-num {
+        font-size: 2.5rem;
+    }
+
+    .tier--3 .tier-num {
+        font-size: 1.9rem;
+    }
+
+    .tier-for {
+        font-size: .76rem;
+        margin-bottom: 1.35rem;
+    }
+
+    .tier-feats {
+        gap: .45rem 1rem;
+        max-width: none;
+    }
+
+    .tier-feats li {
+        font-size: .8rem;
+    }
+
+    .tier::before {
+        inset: 0 -1rem 0 -1.75rem;
+    }
+
+    .tier::after {
+        left: -1.75rem;
+    }
+
+    .tier.is-active::after {
+        width: calc(100% + 1.75rem);
+    }
+}

@@ -36,7 +36,7 @@
 
     <!-- Schema.org -->
     <script
-        type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Sud Web Project — Développeur Web Saint-Raphaël","description":"Création de sites internet sur mesure à Saint-Raphaël. Spécialisé artisans BTP, restaurants, agences immobilières, coiffeurs et commerces du bassin Fréjus/Saint-Raphaël, Var 83.","url":"https://www.sudwebproject.com/creation-site-internet-saint-raphael.html","telephone":"+33611547324","email":"contact@sudwebproject.com","address":{"@type":"PostalAddress","addressLocality":"Saint-Raphaël","addressRegion":"Provence-Alpes-Côte d'Azur","postalCode":"83700","addressCountry":"FR"},"geo":{"@type":"GeoCoordinates","latitude":"43.4252","longitude":"6.7683"},"areaServed":[{"@type":"City","name":"Saint-Raphaël"},{"@type":"City","name":"Fréjus"},{"@type":"City","name":"Saint-Tropez"},{"@type":"AdministrativeArea","name":"Var"}],"priceRange":"€€","openingHours":"Mo-Sa 08:00-19:00","aggregateRating":{"@type":"AggregateRating","ratingValue":"5","reviewCount":"3","bestRating":"5"}}</script>
+        type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Sud Web Project — Développeur Web Saint-Raphaël","description":"Création de sites internet sur mesure à Saint-Raphaël. Spécialisé artisans BTP, restaurants, agences immobilières, coiffeurs et commerces du bassin Fréjus/Saint-Raphaël, Var 83.","url":"https://www.sudwebproject.com/creation-site-internet-saint-raphael.html","telephone":"+33611547324","email":"contact@sudwebproject.com","address":{"@type":"PostalAddress","addressLocality":"Saint-Raphaël","addressRegion":"Provence-Alpes-Côte d'Azur","postalCode":"83700","addressCountry":"FR"},"geo":{"@type":"GeoCoordinates","latitude":"43.4252","longitude":"6.7683"},"areaServed":[{"@type":"City","name":"Saint-Raphaël"},{"@type":"City","name":"Fréjus"},{"@type":"City","name":"Saint-Tropez"},{"@type":"AdministrativeArea","name":"Var"}],"priceRange":"€€","openingHours":"Mo-Sa 08:00-19:00"}</script>
     <script
         type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Combien coûte un site internet à Saint-Raphaël ?","acceptedAnswer":{"@type":"Answer","text":"La création d'un site internet à Saint-Raphaël commence à partir de 600€ pour un site vitrine 3 pages. Un site Premium 6 pages est à partir de 1 300€. Devis gratuit sous 24h, sans engagement."}},{"@type":"Question","name":"Créez-vous des sites pour les artisans BTP à Saint-Raphaël ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Je crée des sites internet pour tous les artisans BTP de Saint-Raphaël : électriciens, plombiers, maçons, peintres, menuisiers. Bouton d'appel urgent, formulaire devis, SEO local Saint-Raphaël et Fréjus."}},{"@type":"Question","name":"Vous déplacez-vous à Saint-Raphaël ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Je me déplace à Saint-Raphaël et dans tout le Var. Première consultation gratuite, en présentiel ou en visio."}},{"@type":"Question","name":"Quel délai pour créer un site internet à Saint-Raphaël ?","acceptedAnswer":{"@type":"Answer","text":"Un site essentiel est livré en 4 à 5 jours ouvrés. Un site Premium en 1 à 3 semaines. Délais garantis dans le devis."}}]}</script>
     <script
@@ -50,191 +50,109 @@
         href="https://www.sudwebproject.com/creation-site-internet-saint-raphael.html" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
-    <!-- Preload font -->
-    <link rel="preload" href="assets/fonts/playfair-display-v40-latin-900.woff2" as="font" type="font/woff2"
+    <!-- Preload LCP -->
+    <link rel="preload" as="image" media="(min-width: 769px)" href="assets/images/ville-saint-raphael-1280.webp"
+        type="image/webp" fetchpriority="high"
+        imagesrcset="assets/images/ville-saint-raphael-640.webp 640w, assets/images/ville-saint-raphael-960.webp 960w, assets/images/ville-saint-raphael-1280.webp 1280w, assets/images/ville-saint-raphael-1535.webp 1535w"
+        imagesizes="100vw" />
+    <link rel="preload" href="assets/fonts/instrument-serif-v5-latin-regular.woff2" as="font" type="font/woff2"
         crossorigin />
 
-    <!-- CSS -->
+    <!-- CSS — l'ordre compte : ville-hero.css ferme la pile -->
     <link rel="stylesheet" href="css/global.css" />
     <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="css/ville.css" />
     <link rel="stylesheet" href="css/cookies.css" media="print" onload="this.media='all'" />
-    <link rel="stylesheet" href="css/fonts-local.css" media="print" onload="this.media='all'" />
+    <link rel="stylesheet" href="css/fonts-local.css" />
+    <link rel="stylesheet" href="css/motion.css" />
+    <link rel="stylesheet" href="css/depth.css" />
+    <link rel="stylesheet" href="css/metiers.css" />
+    <link rel="stylesheet" href="css/refonte.css" />
+    <link rel="stylesheet" href="css/type.css" />
+    <link rel="stylesheet" href="css/refine.css" />
+    <link rel="stylesheet" href="css/space.css" />
+    <link rel="stylesheet" href="css/breath.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/ville-hero.css" />
+    <link rel="stylesheet" href="css/ville-lux.css" />
 
     <style>
         html {
             scroll-padding-top: 72px;
         }
 
-        /* ── BASSIN ÉCONOMIQUE ── */
-        .sr-bassin {
-            padding: 8rem 2rem;
-            background: var(--ink-2);
+        /* ── H1 long : la colonne s'élargit et le corps descend, pour que le
+              hero tienne dans l'écran et laisse voir le nom géant en bas ── */
+        .ville-hero-title {
+            font-size: clamp(1.65rem, 2.8vw, 2.55rem);
+            line-height: 1.16;
+            max-width: min(44rem, 66vw);
         }
 
-        .sr-bassin-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-top: 3rem;
+        .ville-hero-sub {
+            max-width: min(38rem, 56vw);
         }
 
-        .sr-bassin-card {
-            background: var(--glass-2);
-            border: 1px solid var(--border);
-            border-radius: var(--r);
-            padding: 2.5rem 2rem;
-            position: relative;
-            overflow: hidden;
-            transition: all var(--dur) var(--ease);
+        @media (max-width: 900px) {
+            .ville-hero-title {
+                font-size: clamp(1.5rem, 5vw, 2rem);
+                max-width: 100%;
+            }
+
+            .ville-hero-sub {
+                max-width: 100%;
+            }
         }
 
-        .sr-bassin-card::after {
-            content: '';
+        @media (max-height: 800px) and (min-width: 901px) {
+            .ville-hero-title {
+                font-size: clamp(1.45rem, 2.2vw, 2.05rem);
+            }
+
+            .ville-hero-sub {
+                font-size: .9rem;
+                line-height: 1.7;
+            }
+        }
+
+        /* ── PHOTOS — identique au gabarit Saint-Tropez ── */
+        .photo-placeholder {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: .5rem;
+            color: var(--mist-2);
+            font-size: .8rem;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .st-photo-caption {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--blue-d), var(--blue-l));
-            transform: scaleX(0);
-            transition: transform .5s var(--ease);
-        }
-
-        .sr-bassin-card:hover {
-            border-color: var(--border-h);
-            transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, .4);
-        }
-
-        .sr-bassin-card:hover::after {
-            transform: scaleX(1);
-        }
-
-        .sr-bassin-icon {
-            font-size: 2.5rem;
-            display: block;
-            margin-bottom: 1.25rem;
-        }
-
-        .sr-bassin-tag {
-            display: inline-block;
-            font-size: .7rem;
-            font-weight: 700;
-            letter-spacing: .1em;
-            text-transform: uppercase;
-            color: var(--blue-l);
-            background: rgba(59, 130, 246, .1);
-            border: 1px solid rgba(59, 130, 246, .25);
-            border-radius: 100px;
-            padding: .3rem .85rem;
-            margin-bottom: .85rem;
-        }
-
-        .sr-bassin-card h3 {
-            font-family: var(--ff-display);
-            font-size: 1.25rem;
-            font-weight: 900;
-            color: #fff;
-            margin-bottom: .75rem;
-            line-height: 1.25;
-        }
-
-        .sr-bassin-card p {
-            font-size: .9rem;
+            background: linear-gradient(to top, rgba(5, 8, 15, .88), transparent);
+            padding: 1.5rem 1rem .75rem;
+            font-size: .72rem;
+            letter-spacing: .04em;
             color: var(--mist);
-            line-height: 1.75;
+            font-weight: 500;
         }
 
-        .sr-bassin-card ul {
-            list-style: none;
-            padding: 0;
-            margin: 1rem 0 0;
-            display: flex;
-            flex-direction: column;
-            gap: .5rem;
-        }
-
-        .sr-bassin-card ul li {
-            font-size: .875rem;
-            color: var(--mist);
-            display: flex;
-            align-items: center;
-            gap: .6rem;
-        }
-
-        .sr-bassin-card ul li::before {
-            content: '→';
-            color: var(--blue-l);
-            font-weight: 700;
-            flex-shrink: 0;
-        }
-
-        /* ── BTP SECTION ── */
-        .sr-btp {
-            padding: 7rem 2rem;
-            background: linear-gradient(135deg, var(--ink) 0%, rgba(59, 130, 246, .04) 100%);
-            border-top: 1px solid var(--border);
-        }
-
-        .sr-btp-inner {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .sr-btp-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.25rem;
-            margin-top: 3rem;
-        }
-
-        .sr-btp-card {
-            background: var(--glass-2);
-            border: 1px solid var(--border);
-            border-radius: var(--r);
-            padding: 1.75rem 1.25rem;
-            text-align: center;
-            transition: all var(--dur) var(--ease);
-        }
-
-        .sr-btp-card:hover {
-            border-color: var(--border-h);
-            transform: translateY(-4px);
-        }
-
-        .sr-btp-icon {
-            font-size: 2rem;
-            display: block;
-            margin-bottom: .75rem;
-        }
-
-        .sr-btp-label {
-            font-size: .82rem;
-            font-weight: 700;
-            color: #fff;
-            line-height: 1.35;
-        }
-
-        .sr-btp-desc {
-            font-size: .75rem;
-            color: var(--mist);
-            margin-top: .4rem;
-            line-height: 1.5;
-        }
-
-        /* ── PHOTOS ── */
-        .sr-photo-hero {
+        .st-photo-hero {
             position: relative;
             border-radius: var(--r);
             overflow: hidden;
-            aspect-ratio: 16/7;
-            background: var(--glass-2);
+            aspect-ratio: 21/9;
             border: 1px solid var(--border);
             margin: 3rem 0;
         }
 
-        .sr-photo-hero img {
+        .st-photo-hero img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -242,92 +160,22 @@
             transition: transform 8s ease;
         }
 
-        .sr-photo-hero:hover img {
+        .st-photo-hero:hover img {
             transform: scale(1.03);
-        }
-
-        .sr-photo-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(8, 12, 20, .85), transparent);
-            padding: 1.5rem 1rem .75rem;
-            font-size: .75rem;
-            color: var(--mist);
-            font-weight: 500;
-        }
-
-        .sr-photo-ph {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: .75rem;
-            color: var(--mist-2);
-            font-size: .85rem;
-        }
-
-        .sr-photo-ph .ph-icon {
-            font-size: 3rem;
-        }
-
-        .sr-photo-duo {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin: 3rem 0;
-        }
-
-        .sr-photo-item {
-            position: relative;
-            border-radius: var(--r);
-            overflow: hidden;
-            aspect-ratio: 4/3;
-            background: var(--glass-2);
-            border: 1px solid var(--border);
-        }
-
-        .sr-photo-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 5s ease;
-        }
-
-        .sr-photo-item:hover img {
-            transform: scale(1.05);
-        }
-
-        .sr-photo-item .sr-photo-ph {
-            font-size: .78rem;
-        }
-
-        .sr-photo-item .sr-photo-ph .ph-icon {
-            font-size: 2rem;
         }
 
         /* ── SEO PROSE ── */
         .seo-prose {
             padding: 7rem 2rem;
-            background: var(--ink-2);
         }
 
         .seo-prose-inner {
-            max-width: 780px;
+            max-width: 820px;
             margin: 0 auto;
         }
 
         .seo-prose h2 {
-            font-family: var(--ff-display);
-            font-size: clamp(1.4rem, 2.5vw, 1.9rem);
-            font-weight: 700;
-            color: #E2E8F0;
             margin: 2.5rem 0 .85rem;
-            line-height: 1.25;
         }
 
         .seo-prose h2:first-child {
@@ -355,41 +203,240 @@
             border-color: var(--blue-l);
         }
 
-        /* ── RÉALISATIONS ── */
-        .sr-realisations {
+        /* ── GRILLE TEXTE / IMAGE — gabarit ── */
+        .st-luxe-section {
             padding: 8rem 2rem;
-            background: var(--ink);
         }
 
-        .sr-real-grid {
+        .st-luxe-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .st-luxe-text p {
+            color: var(--mist);
+            font-size: 1rem;
+            line-height: 1.85;
+            margin-bottom: 1.25rem;
+        }
+
+        .st-luxe-text strong {
+            color: #fff;
+        }
+
+        /* ── DUO RÉGLÉ — deux colonnes, pas de cartes ── */
+        .ville-duo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 6rem;
+        }
+
+        .ville-duo-item {
+            position: relative;
+            padding-top: 2rem;
+        }
+
+        .ville-duo-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--border-h, rgba(148, 163, 184, .28));
+        }
+
+        .ville-duo-label {
+            display: block;
+            font-size: .68rem;
+            font-weight: 600;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--blue-l);
+            margin-bottom: 1rem;
+        }
+
+        .ville-duo-item h3 {
+            margin-bottom: .85rem;
+        }
+
+        .ville-duo-item p {
+            font-size: .9rem;
+            color: var(--mist);
+            line-height: 1.85;
+            margin: 0;
+        }
+
+        .ville-duo-item ul {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ville-duo-item ul li {
+            font-size: .85rem;
+            color: var(--mist);
+            padding: .7rem 0;
+            border-top: 1px solid var(--border);
+            letter-spacing: .01em;
+        }
+
+        /* ── INDEX BTP — lignes numérotées sobres ── */
+        .sr-btp-list {
+            display: flex;
+            flex-direction: column;
+            border-top: 1px solid var(--border);
+        }
+
+        .sr-btp-line {
+            padding: 1.35rem 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: .25rem;
+        }
+
+        .sr-btp-label {
+            font-family: var(--ff-display);
+            font-size: 1.05rem;
+            color: #E9EEF6;
+            line-height: 1.3;
+        }
+
+        .sr-btp-desc {
+            font-size: .82rem;
+            color: var(--mist);
+            line-height: 1.6;
+        }
+
+        /* ── MÉTIERS — identique au gabarit ── */
+        .st-metiers-premium {
+            padding: 8rem 2rem;
+        }
+
+        .st-metier-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+            overflow: hidden;
+            margin-bottom: 1rem;
+            transition: border-color var(--dur) var(--ease);
+        }
+
+        .st-metier-row:hover {
+            border-color: var(--border-h);
+        }
+
+        .st-metier-main {
+            padding: 2rem 2.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .st-metier-main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, var(--blue-l), transparent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .5s var(--ease);
+        }
+
+        .st-metier-row:hover .st-metier-main::before {
+            transform: scaleX(1);
+        }
+
+        .st-metier-title {
+            font-family: var(--ff-display);
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: #E9EEF6;
+            line-height: 1.3;
+            display: block;
+        }
+
+        .st-metier-main p {
+            font-size: .875rem;
+            color: var(--mist);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .st-metier-links {
+            padding: 2rem 2.25rem;
+            border-left: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: .65rem;
+        }
+
+        .st-metier-links a {
+            font-size: .82rem;
+            color: var(--blue-l);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: .4rem;
+            transition: color var(--dur) var(--ease), gap .25s var(--ease);
+        }
+
+        .st-metier-links a::before {
+            content: '→';
+            font-size: .75rem;
+            flex-shrink: 0;
+        }
+
+        .st-metier-links a:hover {
+            color: #fff;
+            gap: .65rem;
+        }
+
+        /* ── RÉALISATIONS — identique au gabarit ── */
+        .st-realisations {
+            padding: 8rem 2rem;
+        }
+
+        .st-real-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
             margin-top: 3rem;
         }
 
-        .sr-real-card {
-            background: var(--glass-2);
+        .st-real-card {
             border: 1px solid var(--border);
             border-radius: var(--r);
             overflow: hidden;
             transition: all var(--dur) var(--ease);
         }
 
-        .sr-real-card:hover {
+        .st-real-card:hover {
             border-color: var(--border-h);
             transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, .4);
         }
 
-        .sr-real-img {
+        .st-real-img {
             position: relative;
             aspect-ratio: 16/9;
-            background: var(--glass);
             overflow: hidden;
         }
 
-        .sr-real-img img {
+        .st-real-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -397,111 +444,72 @@
             transition: transform 5s ease;
         }
 
-        .sr-real-card:hover .sr-real-img img {
+        .st-real-card:hover .st-real-img img {
             transform: scale(1.05);
         }
 
-        .sr-real-body {
+        .st-real-body {
             padding: 1.75rem;
         }
 
-        .sr-real-tag {
-            font-size: .72rem;
-            font-weight: 700;
+        .st-real-tag {
+            font-size: .68rem;
+            font-weight: 600;
             color: var(--blue-l);
             text-transform: uppercase;
-            letter-spacing: .1em;
-            margin-bottom: .5rem;
+            letter-spacing: .16em;
+            margin-bottom: .65rem;
             display: block;
         }
 
-        .sr-real-body h3 {
-            font-family: var(--ff-display);
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #fff;
+        .st-real-body h3 {
             margin-bottom: .5rem;
-            line-height: 1.3;
         }
 
-        .sr-real-body p {
+        .st-real-body p {
             font-size: .875rem;
             color: var(--mist);
-            line-height: 1.6;
+            line-height: 1.7;
             margin-bottom: 1.25rem;
         }
 
-        /* ── MAILLAGE PILLS ── */
-        .sr-maillage {
-            background: var(--ink-2);
-            padding: 5rem 2rem;
-            border-top: 1px solid var(--border);
-        }
+        @media (max-width: 900px) {
+            .st-luxe-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
 
-        .sr-maillage-inner {
-            max-width: 860px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .sr-maillage h2 {
-            font-family: var(--ff-display);
-            font-size: clamp(1.2rem, 2vw, 1.6rem);
-            font-weight: 700;
-            color: #E2E8F0;
-            margin-bottom: 1.25rem;
-        }
-
-        .sr-liens-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: .75rem;
-            justify-content: center;
-            margin-bottom: .5rem;
-        }
-
-        .sr-lien-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: .4rem;
-            padding: .55rem 1.1rem;
-            background: var(--glass-2);
-            border: 1px solid var(--border);
-            border-radius: 100px;
-            font-size: .82rem;
-            color: var(--mist);
-            text-decoration: none;
-            transition: all .25s ease;
-            font-weight: 500;
-        }
-
-        .sr-lien-pill:hover {
-            border-color: var(--blue-l);
-            color: var(--blue-l);
-            background: rgba(59, 130, 246, .06);
+            .ville-duo {
+                grid-template-columns: 1fr;
+                gap: 3.5rem;
+                margin-top: 4rem;
+            }
         }
 
         @media (max-width: 768px) {
-            .sr-bassin-grid {
+
+            .st-real-grid,
+            .st-metier-row {
                 grid-template-columns: 1fr;
             }
 
-            .sr-btp-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .st-metier-links {
+                border-left: none;
+                border-top: 1px solid var(--border);
+                justify-content: flex-start;
             }
 
-            .sr-photo-duo {
-                grid-template-columns: 1fr;
+            .st-photo-hero {
+                aspect-ratio: 16/10;
+                margin: 2rem 0;
             }
 
-            .sr-real-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .sr-btp-grid {
-                grid-template-columns: 1fr 1fr;
+            .seo-prose,
+            .st-luxe-section,
+            .st-metiers-premium,
+            .st-realisations {
+                padding-left: 1.35rem;
+                padding-right: 1.35rem;
             }
         }
     </style>
@@ -563,12 +571,21 @@
 
         <!-- ═══ HERO ═══ -->
         <section class="ville-hero" aria-labelledby="h1-saint-raphael">
-            <img class="ville-hero-img" src="assets/images/saint-raphael-port-ville.webp"
-                srcset="assets/images/saint-raphael-port-ville-mobile.webp 768w, assets/images/saint-raphael-port-ville.webp 1440w"
-                sizes="100vw" alt="Saint-Raphaël — port de plaisance et front de mer, Var 83" width="1440" height="900"
-                fetchpriority="high" decoding="async" onerror="this.style.display='none'" />
+            <img class="ville-hero-img" src="assets/images/ville-saint-raphael-1280.webp" srcset="assets/images/ville-saint-raphael-640.webp 640w,
+                        assets/images/ville-saint-raphael-960.webp 960w,
+                        assets/images/ville-saint-raphael-1280.webp 1280w,
+                        assets/images/ville-saint-raphael-1535.webp 1535w" sizes="100vw"
+                alt="Le massif de l'Estérel plongeant dans la mer à l'heure bleue — Saint-Raphaël, Var 83" width="1535"
+                height="863" fetchpriority="high" decoding="async" />
             <div class="ville-hero-img-overlay"></div>
             <div class="ville-hero-bg"></div>
+
+            <span class="ville-mark" aria-hidden="true">Saint-Raphaël</span>
+
+            <div class="ville-coord" aria-hidden="true">
+                <span class="ville-coord-line"></span>
+                <span class="ville-coord-val">43.4252° N · 6.7683° E</span>
+            </div>
 
             <div class="container">
                 <div class="ville-hero-badge">
@@ -595,65 +612,59 @@
                                 stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </a>
-                    <a href="tel:+33611547324" class="btn-ghost-hero">📞 +33 6 11 54 73 24</a>
+                    <a href="tel:+33611547324" class="btn-ghost-hero">+33 6 11 54 73 24</a>
                 </div>
-
-                <div class="ville-hero-metrics">
-                    <div class="metric"><span class="metric-n">35 000</span><span class="metric-l">Habitants
-                            Saint-Raphaël</span></div>
-                    <div class="metric-sep" aria-hidden="true"></div>
-                    <div class="metric"><span class="metric-n">90 000</span><span class="metric-l">Bassin
-                            Fréjus/St-Raph</span></div>
-                    <div class="metric-sep" aria-hidden="true"></div>
-                    <div class="metric"><span class="metric-n">100%</span><span class="metric-l">Code sur mesure</span>
-                    </div>
-                    <div class="metric-sep" aria-hidden="true"></div>
-                    <div class="metric"><span class="metric-n">24h</span><span class="metric-l">Réponse garantie</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ville-scroll-hint" aria-hidden="true"><span>Scroll</span>
-                <div class="ville-scroll-line"></div>
             </div>
         </section>
 
         <!-- ═══ PHOTO PANORAMIQUE ═══ -->
-        <section style="padding:0 2rem;background:var(--ink);">
-            <div class="container">
-                <div class="sr-photo-hero">
-                    <img src="assets/images/saint-raphael-panoramique.webp"
-                        srcset="assets/images/saint-raphael-panoramique-mobile.webp 768w, assets/images/saint-raphael-panoramique.webp 1280w"
-                        sizes="100vw" alt="Vue panoramique de Saint-Raphaël — port, front de mer et Estérel, Var 83"
-                        width="1280" height="560" loading="lazy" decoding="async" onerror="this.style.display='none'" />
-                    <div class="sr-photo-ph"></div>
-                    <div class="sr-photo-caption">Saint-Raphaël — port de plaisance, front de mer et massif de l'Estérel
-                        · Var 83</div>
-                </div>
+        <section class="st-band" aria-hidden="true">
+            <div class="st-photo-hero">
+                <img src="assets/images/sr-panorama-1400.webp" srcset="assets/images/sr-panorama-700.webp 700w,
+                            assets/images/sr-panorama-1000.webp 1000w,
+                            assets/images/sr-panorama-1400.webp 1400w" sizes="100vw"
+                    alt="Quai désert du port de plaisance de Saint-Raphaël au petit matin — Var 83" width="1400"
+                    height="600" loading="lazy" decoding="async" />
+                <div class="st-photo-caption">Saint-Raphaël — port de plaisance, front de mer et massif de l'Estérel ·
+                    Var 83</div>
             </div>
         </section>
 
-        <!-- ═══ BLOC SIGNATURE — Double bassin ═══ -->
-        <section class="sr-bassin" aria-labelledby="bassin-title">
+        <!-- ═══ LE DOUBLE BASSIN ═══ -->
+        <section class="ville-intro-section" aria-labelledby="bassin-title">
             <div class="container">
-                <div class="section-head" style="text-align:center;margin-bottom:0;">
-                    <div class="section-label">Saint-Raphaël & Fréjus — un bassin de 90 000 habitants</div>
-                    <h2 class="section-title" id="bassin-title">
-                        <span class="split-reveal">Deux villes, un seul marché.</span>
-                        <span class="split-reveal"><em style="font-style:italic;color:var(--blue-l);">Votre site
-                                internet doit couvrir les deux.</em></span>
-                    </h2>
-                    <p class="section-intro-seo">Saint-Raphaël et <a href="creation-site-internet-frejus.html"
-                            style="color:var(--blue-l);text-decoration:none;border-bottom:1px solid rgba(96,165,250,.25);">Fréjus</a>
-                        forment un bassin de vie unique de 90 000 habitants permanents. Un artisan, un restaurant ou un
-                        commerce qui n'apparaît que sur "Saint-Raphaël" laisse passer la moitié du marché. Je cible les
-                        deux dans votre SEO.</p>
+                <div class="ville-intro-grid">
+                    <div class="ville-intro-text">
+                        <div class="section-label">Saint-Raphaël &amp; Fréjus — un bassin de 90 000 habitants</div>
+                        <h2 class="ville-h2" id="bassin-title">
+                            <span class="split-reveal">Deux villes, un seul marché.</span>
+                            <span class="split-reveal ville-em" style="display:inline;font-size:inherit;">Votre site
+                                internet doit couvrir les deux.</span>
+                        </h2>
+                        <p>Saint-Raphaël et <a href="creation-site-internet-frejus.html">Fréjus</a> forment un bassin de
+                            vie unique de 90 000 habitants permanents. Un artisan, un restaurant ou un commerce qui
+                            n'apparaît que sur "Saint-Raphaël" laisse passer la moitié du marché. Je cible les deux dans
+                            votre SEO.</p>
+                        <a href="/#contact" class="btn-primary" style="margin-top:1.5rem;display:inline-flex;">
+                            Discutons de votre projet
+                        </a>
+                    </div>
+
+                    <div>
+                        <div class="ville-intro-img-wrap">
+                            <img src="assets/images/sr-detail-760.webp" srcset="assets/images/sr-detail-560.webp 560w,
+                                    assets/images/sr-detail-760.webp 760w,
+                                    assets/images/sr-detail-1000.webp 1000w" sizes="(max-width: 1100px) 100vw, 40vw"
+                                alt="Mur en pierre sèche de l'Estérel face à la mer — Saint-Raphaël, Var 83"
+                                width="1000" height="1333" loading="lazy" decoding="async" />
+                            <div class="ville-intro-img-label">Saint-Raphaël, Var 83</div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="sr-bassin-grid">
-                    <div class="sr-bassin-card gsap-fade-up">
-                        <span class="sr-bassin-icon">⛵</span>
-                        <span class="sr-bassin-tag">Toute l'année</span>
+                <div class="ville-duo">
+                    <article class="ville-duo-item gsap-fade-up">
+                        <span class="ville-duo-label">Toute l'année</span>
                         <h3>Saint-Raphaël — port actif, BTP et services</h3>
                         <p>Saint-Raphaël n'est pas qu'une station balnéaire. Son port de plaisance, son secteur BTP
                             dynamique, ses restaurants et commerces génèrent une activité économique continue, 12 mois
@@ -664,11 +675,10 @@
                             <li>Agences immobilières et property managers</li>
                             <li>Coiffeurs, salons et prestataires de services</li>
                         </ul>
-                    </div>
-                    <div class="sr-bassin-card gsap-fade-up">
-                        <span class="sr-bassin-icon">🏛️</span>
-                        <span class="sr-bassin-tag">Double visibilité SEO</span>
-                        <h3>Fréjus & Saint-Raphaël — capter le bassin entier</h3>
+                    </article>
+                    <article class="ville-duo-item gsap-fade-up">
+                        <span class="ville-duo-label">Double visibilité SEO</span>
+                        <h3>Fréjus &amp; Saint-Raphaël — capter le bassin entier</h3>
                         <p>Un client qui cherche "électricien Saint-Raphaël" peut aussi chercher "électricien Fréjus".
                             Je crée des sites qui couvrent les deux villes — votre SEO cible un bassin de 90 000
                             habitants au lieu de 35 000.</p>
@@ -678,15 +688,15 @@
                             <li>Schema.org avec zone de service étendue</li>
                             <li>Contenu géolocalisé pour chaque ville</li>
                         </ul>
-                    </div>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <!-- ═══ BTP SECTION ═══ -->
-        <section class="sr-btp" aria-labelledby="btp-title">
-            <div class="sr-btp-inner">
-                <div class="section-head" style="text-align:center;margin-bottom:0;">
+        <!-- ═══ BTP ═══ -->
+        <section class="st-luxe-section" aria-labelledby="btp-title">
+            <div class="container">
+                <div class="section-head" style="text-align:center;margin-bottom:3rem;">
                     <div class="section-label">Sites internet pour artisans BTP Saint-Raphaël</div>
                     <h2 class="section-title" id="btp-title">
                         <span class="split-reveal">Le BTP à Saint-Raphaël —</span>
@@ -697,38 +707,46 @@
                         Électriciens, plombiers, maçons, carreleurs, peintres — chaque artisan a besoin d'un site qui
                         génère des appels d'urgence et des demandes de devis toute l'année.</p>
                 </div>
-                <div class="sr-btp-grid">
-                    <div class="sr-btp-card gsap-fade-up">
-                        <span class="sr-btp-icon">🔌</span>
-                        <span class="sr-btp-label">Électricien Saint-Raphaël</span>
-                        <span class="sr-btp-desc">Bouton urgence, SEO "électricien Saint-Raphaël"</span>
+                <div class="st-luxe-grid">
+                    <div class="st-luxe-text">
+                        <div class="sr-btp-list">
+                            <div class="sr-btp-line gsap-fade-up">
+                                <span class="sr-btp-label">Électricien Saint-Raphaël</span>
+                                <span class="sr-btp-desc">Bouton urgence, SEO "électricien Saint-Raphaël"</span>
+                            </div>
+                            <div class="sr-btp-line gsap-fade-up">
+                                <span class="sr-btp-label">Plombier Saint-Raphaël</span>
+                                <span class="sr-btp-desc">Formulaire devis, SEO "plombier Var 83"</span>
+                            </div>
+                            <div class="sr-btp-line gsap-fade-up">
+                                <span class="sr-btp-label">Maçon &amp; entreprise BTP</span>
+                                <span class="sr-btp-desc">Galerie chantiers, référencement local</span>
+                            </div>
+                            <div class="sr-btp-line gsap-fade-up">
+                                <span class="sr-btp-label">Peintre &amp; décorateur</span>
+                                <span class="sr-btp-desc">Portfolio visuel, devis en ligne</span>
+                            </div>
+                        </div>
+                        <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem;">
+                            <a href="electricien-var.html" class="btn-outline">Voir la démo site artisan</a>
+                            <a href="etude-cas-electricien.html" class="btn-outline">Étude de cas</a>
+                        </div>
                     </div>
-                    <div class="sr-btp-card gsap-fade-up">
-                        <span class="sr-btp-icon">🔧</span>
-                        <span class="sr-btp-label">Plombier Saint-Raphaël</span>
-                        <span class="sr-btp-desc">Formulaire devis, SEO "plombier Var 83"</span>
+
+                    <div class="st-photo-square">
+                        <img src="assets/images/sr-roche-850.webp" srcset="assets/images/sr-roche-620.webp 620w,
+                                assets/images/sr-roche-850.webp 850w,
+                                assets/images/sr-roche-1100.webp 1100w" sizes="(max-width: 900px) 100vw, 45vw"
+                            alt="Roche de l'Estérel au bord de l'eau au crépuscule — Saint-Raphaël, Var 83" width="1100"
+                            height="1100" loading="lazy" decoding="async" />
+                        <div class="st-photo-caption">L'Estérel, à la tombée du jour</div>
                     </div>
-                    <div class="sr-btp-card gsap-fade-up">
-                        <span class="sr-btp-icon">🧱</span>
-                        <span class="sr-btp-label">Maçon & entreprise BTP</span>
-                        <span class="sr-btp-desc">Galerie chantiers, référencement local</span>
-                    </div>
-                    <div class="sr-btp-card gsap-fade-up">
-                        <span class="sr-btp-icon">🎨</span>
-                        <span class="sr-btp-label">Peintre & décorateur</span>
-                        <span class="sr-btp-desc">Portfolio visuel, devis en ligne</span>
-                    </div>
-                </div>
-                <div style="text-align:center;margin-top:2.5rem;">
-                    <a href="electricien-var.html" class="btn-outline">Voir la démo site artisan →</a>
-                    <a href="etude-cas-electricien.html" class="btn-outline" style="margin-left:1rem;">→ Étude de
-                        cas</a>
                 </div>
             </div>
         </section>
 
-        <!-- ═══ MÉTIERS — maillage ciblé St-Raphaël ═══ -->
-        <section class="ville-metiers" aria-labelledby="metiers-title">
+        <!-- ═══ MÉTIERS ═══ -->
+        <section class="st-metiers-premium" aria-labelledby="metiers-title">
             <div class="container">
                 <div class="section-head">
                     <div class="section-label">Création site internet Saint-Raphaël — par secteur</div>
@@ -741,55 +759,70 @@
                         pour les requêtes Google qui comptent pour votre activité — en saison comme hors saison.</p>
                 </div>
 
-                <div class="ville-metiers-grid">
-                    <!-- Agence immo — prioritaire -->
-                    <a href="creation-site-internet-agence-immobiliere.html" class="ville-metier-card gsap-fade-up">
-                        <span class="ville-metier-icon">🏡</span>
-                        <span class="ville-metier-label">Agence immobilière Saint-Raphaël</span>
-                        <p class="ville-metier-desc">Listings filtrables, fiches biens, galerie premium. Visible sur
-                            "agence immobilière Saint-Raphaël", "appartement Fréjus", "villa Estérel".</p>
-                        <span class="ville-metier-arrow">→ Page agence immo</span>
-                    </a>
-                    <!-- Restaurant -->
-                    <a href="creation-site-internet-restaurant.html" class="ville-metier-card gsap-fade-up">
-                        <span class="ville-metier-icon">🍽️</span>
-                        <span class="ville-metier-label">Restaurant Saint-Raphaël</span>
-                        <p class="ville-metier-desc">Menu en ligne, réservation directe, galerie. Visible sur
-                            "restaurant Saint-Raphaël", "brasserie port Var 83", "dîner bord de mer Estérel".</p>
-                        <span class="ville-metier-arrow">→ Page restaurant</span>
-                    </a>
-                    <!-- Électricien -->
-                    <a href="electricien-var.html" class="ville-metier-card gsap-fade-up">
-                        <span class="ville-metier-icon">🔌</span>
-                        <span class="ville-metier-label">Électricien & artisan BTP</span>
-                        <p class="ville-metier-desc">Bouton d'urgence mobile, devis en ligne. Référencé sur "électricien
-                            Saint-Raphaël", "artisan BTP Fréjus", "dépannage Var 83".</p>
-                        <span class="ville-metier-arrow">→ Voir la démo artisan</span>
-                    </a>
-                    <!-- Serrurier -->
-                    <a href="creation-site-internet-serrurier.html" class="ville-metier-card gsap-fade-up">
-                        <span class="ville-metier-icon">🔐</span>
-                        <span class="ville-metier-label">Serrurier & urgences</span>
-                        <p class="ville-metier-desc">Bouton d'appel urgent visible immédiatement. Référencé sur
-                            "serrurier Saint-Raphaël", "ouverture porte Fréjus", "urgence Var 83".</p>
-                        <span class="ville-metier-arrow">→ Page serrurier</span>
-                    </a>
-                    <!-- Coiffeur -->
-                    <a href="creation-site-internet-coiffeur.html" class="ville-metier-card gsap-fade-up">
-                        <span class="ville-metier-icon">✂️</span>
-                        <span class="ville-metier-label">Salon de coiffure & beauté</span>
-                        <p class="ville-metier-desc">Galerie réalisations, prise de rendez-vous. Référencé sur "coiffeur
-                            Saint-Raphaël", "salon beauté Fréjus", "coiffeur Var 83".</p>
-                        <span class="ville-metier-arrow">→ Page coiffeur</span>
-                    </a>
-                    <!-- Services complémentaires -->
-                    <div class="ville-metier-card gsap-fade-up" style="opacity:.85;cursor:default;">
-                        <span class="ville-metier-icon">🔄</span>
-                        <span class="ville-metier-label">Refonte & maintenance</span>
-                        <p class="ville-metier-desc">Votre site est lent ou vieilli ? Je le refonds entièrement.
-                            Maintenance mensuelle à partir de 60€/mois — modifications, sauvegardes, sécurité.</p>
-                        <a href="refonte-site-internet.html" class="ville-metier-arrow"
-                            style="color:var(--blue-l);text-decoration:none;">→ Refonte site internet</a>
+                <div class="st-metier-row gsap-fade-up">
+                    <div class="st-metier-main">
+                        <span class="st-metier-title">Agence immobilière Saint-Raphaël</span>
+                        <p>Listings filtrables, fiches biens, galerie premium. Visible sur "agence immobilière
+                            Saint-Raphaël", "appartement Fréjus", "villa Estérel".</p>
+                    </div>
+                    <div class="st-metier-links">
+                        <a href="creation-site-internet-agence-immobiliere.html">Page agence immo</a>
+                    </div>
+                </div>
+
+                <div class="st-metier-row gsap-fade-up">
+                    <div class="st-metier-main">
+                        <span class="st-metier-title">Restaurant Saint-Raphaël</span>
+                        <p>Menu en ligne, réservation directe, galerie. Visible sur "restaurant Saint-Raphaël",
+                            "brasserie port Var 83", "dîner bord de mer Estérel".</p>
+                    </div>
+                    <div class="st-metier-links">
+                        <a href="creation-site-internet-restaurant.html">Page restaurant</a>
+                    </div>
+                </div>
+
+                <div class="st-metier-row gsap-fade-up">
+                    <div class="st-metier-main">
+                        <span class="st-metier-title">Électricien &amp; artisan BTP</span>
+                        <p>Bouton d'urgence mobile, devis en ligne. Référencé sur "électricien Saint-Raphaël", "artisan
+                            BTP Fréjus", "dépannage Var 83".</p>
+                    </div>
+                    <div class="st-metier-links">
+                        <a href="electricien-var.html">Voir la démo artisan</a>
+                    </div>
+                </div>
+
+                <div class="st-metier-row gsap-fade-up">
+                    <div class="st-metier-main">
+                        <span class="st-metier-title">Serrurier &amp; urgences</span>
+                        <p>Bouton d'appel urgent visible immédiatement. Référencé sur "serrurier Saint-Raphaël",
+                            "ouverture porte Fréjus", "urgence Var 83".</p>
+                    </div>
+                    <div class="st-metier-links">
+                        <a href="creation-site-internet-serrurier.html">Page serrurier</a>
+                    </div>
+                </div>
+
+                <div class="st-metier-row gsap-fade-up">
+                    <div class="st-metier-main">
+                        <span class="st-metier-title">Salon de coiffure &amp; beauté</span>
+                        <p>Galerie réalisations, prise de rendez-vous. Référencé sur "coiffeur Saint-Raphaël", "salon
+                            beauté Fréjus", "coiffeur Var 83".</p>
+                    </div>
+                    <div class="st-metier-links">
+                        <a href="creation-site-internet-coiffeur.html">Page coiffeur</a>
+                    </div>
+                </div>
+
+                <div class="st-metier-row gsap-fade-up">
+                    <div class="st-metier-main">
+                        <span class="st-metier-title">Refonte &amp; maintenance</span>
+                        <p>Votre site est lent ou vieilli ? Je le refonds entièrement. Maintenance mensuelle à partir de
+                            60€/mois — modifications, sauvegardes, sécurité.</p>
+                    </div>
+                    <div class="st-metier-links">
+                        <a href="refonte-site-internet.html">Refonte site internet</a>
+                        <a href="maintenance.html">Forfaits maintenance</a>
                     </div>
                 </div>
 
@@ -797,7 +830,7 @@
                     <p><strong style="color:#fff;">Votre activité n'est pas listée ?</strong> J'accompagne tous les
                         professionnels de Saint-Raphaël — paysagistes, photographes, architectes, prestataires
                         événementiels, commerces… Chaque site est conçu sur mesure.</p>
-                    <a href="/#contact" class="btn-primary">Parlons de votre projet →</a>
+                    <a href="/#contact" class="btn-primary">Parlons de votre projet</a>
                 </div>
             </div>
         </section>
@@ -807,7 +840,7 @@
             <div class="container">
                 <div class="seo-prose-inner">
 
-                    <h2>Saint-Raphaël & Fréjus — pourquoi votre site internet doit cibler les deux villes</h2>
+                    <h2>Saint-Raphaël &amp; Fréjus — pourquoi votre site internet doit cibler les deux villes</h2>
                     <p>Saint-Raphaël et <a href="creation-site-internet-frejus.html">Fréjus</a> sont administrativement
                         deux communes, mais économiquement un seul bassin de vie de <strong>90 000 habitants
                             permanents</strong>. Les habitants circulent librement entre les deux villes pour leurs
@@ -816,23 +849,6 @@
                     <p>Pourtant, la plupart des sites internet ne ciblent qu'une seule ville. C'est une erreur SEO
                         majeure. Je crée des sites qui <strong>couvrent les deux villes dès le départ</strong> — votre
                         visibilité Google est doublée à budget égal.</p>
-
-                    <div class="sr-photo-duo">
-                        <div class="sr-photo-item">
-                            <img src="assets/images/photo-port-saint-raphael.webp"
-                                alt="Port de Saint-Raphaël — bateaux et front de mer, Var 83" width="600" height="400"
-                                loading="lazy" decoding="async" onerror="this.style.display='none'" />
-                            <div class="sr-photo-ph"></div>
-                            <div class="sr-photo-caption">Port de Saint-Raphaël, Var 83</div>
-                        </div>
-                        <div class="sr-photo-item">
-                            <img src="assets/images/massif-esterel.webp"
-                                alt="Massif de l'Estérel et côte de Saint-Raphaël — Var 83" width="600" height="400"
-                                loading="lazy" decoding="async" onerror="this.style.display='none'" />
-                            <div class="sr-photo-ph"></div>
-                            <div class="sr-photo-caption">Massif de l'Estérel — Saint-Raphaël</div>
-                        </div>
-                    </div>
 
                     <h2>Le BTP à Saint-Raphaël — un marché local qui passe par Google</h2>
                     <p>Saint-Raphaël concentre l'un des tissus BTP les plus actifs du Var. Construction, rénovation,
@@ -858,11 +874,22 @@
             </div>
         </section>
 
+        <!-- ═══ RESPIRATION ═══ -->
+        <section class="breath">
+            <div class="breath-inner">
+                <span class="breath-mark" aria-hidden="true"></span>
+                <p class="breath-line">Entre Saint-Raphaël et Fréjus, personne ne regarde la frontière.
+                    <em>Google, lui, la voit encore.</em>
+                </p>
+                <span class="breath-sign">Sud Web Project — Saint-Raphaël</span>
+            </div>
+        </section>
+
         <!-- ═══ RÉALISATIONS ═══ -->
-        <section class="sr-realisations" aria-labelledby="real-title">
+        <section class="st-realisations" aria-labelledby="real-title">
             <div class="container">
                 <div class="section-head" style="text-align:center;margin-bottom:3rem;">
-                    <div class="section-label">Exemples de réalisations — Saint-Raphaël & Var</div>
+                    <div class="section-label">Exemples de réalisations — Saint-Raphaël &amp; Var</div>
                     <h2 class="section-title" id="real-title">
                         <span class="split-reveal">Des sites qui travaillent</span>
                         <span class="split-reveal"><em style="font-style:italic;color:var(--blue-l);">pour vous — même
@@ -872,79 +899,85 @@
                         restaurants et commerces de Saint-Raphaël et du Var.</p>
                 </div>
 
-                <div class="sr-real-grid">
-                    <div class="sr-real-card gsap-fade-up">
-                        <div class="sr-real-img">
+                <div class="st-real-grid">
+                    <div class="st-real-card">
+                        <div class="st-real-img">
                             <img src="assets/images/photo-electricien.webp"
                                 alt="Site internet électricien Saint-Raphaël — artisan BTP Var 83" width="800"
                                 height="450" loading="lazy" decoding="async" onerror="this.style.display='none'" />
+                            <div class="photo-placeholder"></div>
                         </div>
-                        <div class="sr-real-body">
-                            <span class="sr-real-tag">Web Premium · Artisan BTP · Saint-Raphaël / Fréjus</span>
+                        <div class="st-real-body">
+                            <span class="st-real-tag">Web Premium · Artisan BTP · Saint-Raphaël / Fréjus</span>
                             <h3>Artisan BTP — Saint-Raphaël &amp; Fréjus</h3>
                             <p>6 pages, 100/100 PageSpeed. Bouton urgence, devis en ligne. SEO "électricien
                                 Saint-Raphaël", "artisan BTP Fréjus". Premiers résultats Google en 4 semaines.</p>
                             <a href="https://guillaume83990.github.io/electricien-st-tropez/" target="_blank"
-                                rel="noopener noreferrer" class="ville-cas-link">Voir la démo →</a>
-                            <a href="etude-cas-electricien.html" class="ville-cas-link"
-                                style="font-size:.8rem;opacity:.8;display:block;margin-top:.6rem;">→ Étude de cas
-                                complète</a>
+                                rel="noopener noreferrer" class="ville-cas-link">Voir la démo</a>
+                            <div style="margin-top:.75rem;">
+                                <a href="etude-cas-electricien.html" class="ville-cas-link"
+                                    style="font-size:.8rem;opacity:.8;">Étude de cas complète</a>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="sr-real-card gsap-fade-up">
-                        <div class="sr-real-img">
+                    <div class="st-real-card">
+                        <div class="st-real-img">
                             <img src="assets/images/photo-restaurant-gastronomique.webp"
                                 alt="Site internet restaurant Saint-Raphaël — port de plaisance" width="800"
                                 height="450" loading="lazy" decoding="async" onerror="this.style.display='none'" />
+                            <div class="photo-placeholder"></div>
                         </div>
-                        <div class="sr-real-body">
-                            <span class="sr-real-tag">Web Ultra · Restaurant · Saint-Raphaël / Var 83</span>
+                        <div class="st-real-body">
+                            <span class="st-real-tag">Web Ultra · Restaurant · Saint-Raphaël / Var 83</span>
                             <h3>Restaurant — Saint-Raphaël, port de plaisance</h3>
                             <p>7 pages, multilingue FR/EN/IT, réservation WhatsApp, galerie immersive. 100/100
                                 PageSpeed. Référencé "restaurant Saint-Raphaël" et "restaurant port Var 83".</p>
                             <a href="https://guillaume83990.github.io/la-table-mediterraneenne/" target="_blank"
-                                rel="noopener noreferrer" class="ville-cas-link">Voir la démo →</a>
-                            <a href="etude-cas-restaurant.html" class="ville-cas-link"
-                                style="font-size:.8rem;opacity:.8;display:block;margin-top:.6rem;">→ Étude de cas
-                                complète</a>
+                                rel="noopener noreferrer" class="ville-cas-link">Voir la démo</a>
+                            <div style="margin-top:.75rem;">
+                                <a href="etude-cas-restaurant.html" class="ville-cas-link"
+                                    style="font-size:.8rem;opacity:.8;">Étude de cas complète</a>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="sr-real-card gsap-fade-up">
-                        <div class="sr-real-img">
+                    <div class="st-real-card">
+                        <div class="st-real-img">
                             <img src="assets/images/photo-villa-agence-immobiliere.webp"
                                 alt="Site internet agence immobilière Saint-Raphaël — Var 83" width="800" height="450"
                                 loading="lazy" decoding="async" onerror="this.style.display='none'" />
+                            <div class="photo-placeholder"></div>
                         </div>
-                        <div class="sr-real-body">
-                            <span class="sr-real-tag">Web Premium · Immobilier · Saint-Raphaël / Var 83</span>
+                        <div class="st-real-body">
+                            <span class="st-real-tag">Web Premium · Immobilier · Saint-Raphaël / Var 83</span>
                             <h3>Agence immobilière — Saint-Raphaël &amp; Estérel</h3>
                             <p>Listings filtrables, galerie premium, formulaire leads. Idéal pour les agences qui
                                 veulent capter une clientèle locale à Saint-Raphaël et Fréjus.</p>
                             <a href="https://guillaume83990.github.io/azur-home-collection/" target="_blank"
-                                rel="noopener noreferrer" class="ville-cas-link">Voir la démo →</a>
+                                rel="noopener noreferrer" class="ville-cas-link">Voir la démo</a>
                         </div>
                     </div>
 
-                    <div class="sr-real-card gsap-fade-up">
-                        <div class="sr-real-img">
+                    <div class="st-real-card">
+                        <div class="st-real-img">
                             <img src="assets/images/photo-votre-projet.webp"
                                 alt="Votre futur site internet à Saint-Raphaël — Sud Web Project" width="800"
                                 height="450" loading="lazy" decoding="async" onerror="this.style.display='none'" />
+                            <div class="photo-placeholder"></div>
                         </div>
-                        <div class="sr-real-body">
-                            <span class="sr-real-tag">Votre projet · Saint-Raphaël · Var 83</span>
+                        <div class="st-real-body">
+                            <span class="st-real-tag">Votre projet · Saint-Raphaël · Var 83</span>
                             <h3>Votre site internet à Saint-Raphaël</h3>
                             <p>Artisan BTP, restaurant, agence immo, coiffeur, serrurier… Devis gratuit sous 24h.
                                 Maquette avant de commencer. Ciblage Saint-Raphaël ET Fréjus.</p>
-                            <a href="/#contact" class="ville-cas-link">Demander un devis gratuit →</a>
+                            <a href="/#contact" class="ville-cas-link">Demander un devis gratuit</a>
                         </div>
                     </div>
                 </div>
 
                 <div style="text-align:center;margin-top:3rem;">
-                    <a href="/#portfolio" class="btn-outline">Voir toutes les réalisations →</a>
+                    <a href="/#portfolio" class="btn-outline">Voir toutes les réalisations</a>
                 </div>
             </div>
         </section>
@@ -962,39 +995,39 @@
                 </div>
                 <div class="ville-pourquoi-grid">
                     <div class="ville-pourquoi-card gsap-fade-up">
-                        <div class="ville-pourquoi-icon">🎯</div>
-                        <h3>Double SEO — Saint-Raphaël & Fréjus</h3>
+                        <div class="ville-pourquoi-icon" aria-hidden="true"></div>
+                        <h3>Double SEO — Saint-Raphaël &amp; Fréjus</h3>
                         <p>Je cible les deux villes dans votre SEO : "votre activité + Saint-Raphaël" et "votre activité
                             + Fréjus". Votre visibilité Google couvre un bassin de 90 000 habitants au lieu de 35 000.
                         </p>
                     </div>
                     <div class="ville-pourquoi-card gsap-fade-up">
-                        <div class="ville-pourquoi-icon">⚡</div>
+                        <div class="ville-pourquoi-icon" aria-hidden="true"></div>
                         <h3>100/100 PageSpeed — le site le plus rapide de votre secteur</h3>
                         <p>Zéro WordPress, code à la main. Vos concurrents ont des sites qui mettent 8 secondes à
                             charger. Le vôtre charge en moins d'une seconde. Google récompense la vitesse.</p>
                     </div>
                     <div class="ville-pourquoi-card gsap-fade-up">
-                        <div class="ville-pourquoi-icon">🔨</div>
-                        <h3>Expert BTP & artisans locaux</h3>
+                        <div class="ville-pourquoi-icon" aria-hidden="true"></div>
+                        <h3>Expert BTP &amp; artisans locaux</h3>
                         <p>Je crée régulièrement des sites pour les artisans BTP du Var. Bouton d'appel urgent,
                             formulaire devis, galerie de chantiers — tout est pensé pour votre clientèle locale.</p>
                     </div>
                     <div class="ville-pourquoi-card gsap-fade-up">
-                        <div class="ville-pourquoi-icon">📅</div>
+                        <div class="ville-pourquoi-icon" aria-hidden="true"></div>
                         <h3>Visible 12 mois — pas seulement en saison</h3>
                         <p>Saint-Raphaël est actif toute l'année. J'optimise votre site pour les requêtes locales
                             permanentes (BTP, services) autant que pour les requêtes saisonnières (tourisme,
                             restauration).</p>
                     </div>
                     <div class="ville-pourquoi-card gsap-fade-up">
-                        <div class="ville-pourquoi-icon">📍</div>
+                        <div class="ville-pourquoi-icon" aria-hidden="true"></div>
                         <h3>Je me déplace à Saint-Raphaël</h3>
                         <p>Développeur web dans le Var, je me déplace à Saint-Raphaël pour la première réunion.
                             Consultation gratuite en présentiel ou en visioconférence.</p>
                     </div>
                     <div class="ville-pourquoi-card gsap-fade-up">
-                        <div class="ville-pourquoi-icon">✅</div>
+                        <div class="ville-pourquoi-icon" aria-hidden="true"></div>
                         <h3>Propriétaire à 100% — aucun abonnement</h3>
                         <p>Code, contenu, domaine — tout vous appartient. Aucun enfermement dans une plateforme.
                             Maintenance optionnelle à partir de 60€/mois.</p>
@@ -1003,42 +1036,14 @@
             </div>
         </section>
 
-        <!-- ═══ PROCESS ═══ -->
-        <section class="ville-process" aria-labelledby="process-title">
-            <div class="container">
-                <div class="section-head">
-                    <div class="section-label">Méthode de travail</div>
-                    <h2 class="section-title" id="process-title">
-                        Votre site internet Saint-Raphaël —<br>
-                        <em style="font-style:italic;color:var(--blue-l);">de la première réunion aux premiers clients
-                            Google.</em>
-                    </h2>
-                </div>
-                <div class="process-steps-grid">
-                    <div class="process-item gsap-fade-up">
-                        <div class="process-num-circle">01</div>
-                        <h3>Échange & devis sous 24h</h3>
-                        <p>On discute de votre activité à Saint-Raphaël, votre clientèle, vos objectifs. Je vous dis si
-                            votre secteur est compétitif à Saint-Raphaël/Fréjus. Devis clair sous 24h.</p>
-                    </div>
-                    <div class="process-item gsap-fade-up">
-                        <div class="process-num-circle">02</div>
-                        <h3>Maquette & validation</h3>
-                        <p>Direction artistique adaptée à votre activité. Vous validez avant tout développement. Aucune
-                            surprise en cours de route.</p>
-                    </div>
-                    <div class="process-item gsap-fade-up">
-                        <div class="process-num-circle">03</div>
-                        <h3>Développement & SEO St-Raphaël/Fréjus</h3>
-                        <p>Code à la main, SEO ciblant les deux villes. Tests mobile, vitesse, accessibilité.</p>
-                    </div>
-                    <div class="process-item gsap-fade-up">
-                        <div class="process-num-circle">04</div>
-                        <h3>Mise en ligne & premiers résultats</h3>
-                        <p>Lancement, Google Search Console, Google Business Profile Saint-Raphaël. Premiers contacts
-                            Google en 4 à 8 semaines.</p>
-                    </div>
-                </div>
+        <!-- ═══ RESPIRATION ═══ -->
+        <section class="breath">
+            <div class="breath-inner">
+                <span class="breath-mark" aria-hidden="true"></span>
+                <p class="breath-line">Un chantier bien fait se voit des années plus tard.
+                    <em>Un site aussi.</em>
+                </p>
+                <span class="breath-sign">Sud Web Project — Saint-Raphaël</span>
             </div>
         </section>
 
@@ -1057,7 +1062,7 @@
                 <div class="price-grid">
                     <article class="price-card gsap-fade-up">
                         <div class="price-head">
-                            <span class="price-icon" aria-hidden="true">🌐</span>
+                            <span class="price-icon" aria-hidden="true"></span>
                             <h3>Web Essentiel</h3>
                             <div class="price-val"><span class="price-from">À partir de</span><span
                                     class="price-num">600€</span></div>
@@ -1066,15 +1071,15 @@
                             <li>✓ 3 pages professionnelles</li>
                             <li>✓ 100% responsive mobile</li>
                             <li>✓ Bouton appel / contact direct</li>
-                            <li>✓ SEO local Saint-Raphaël & Fréjus</li>
+                            <li>✓ SEO local Saint-Raphaël &amp; Fréjus</li>
                             <li>✓ Propriété 100% à vous</li>
                         </ul>
-                        <a href="/#contact" class="btn-outline">Devis gratuit →</a>
+                        <a href="/#contact" class="btn-outline">Devis gratuit</a>
                     </article>
                     <article class="price-card price-feat gsap-fade-up">
-                        <div class="price-top-badge">⭐ Idéal artisans & commerces</div>
+                        <div class="price-top-badge">Idéal artisans &amp; commerces</div>
                         <div class="price-head">
-                            <span class="price-icon" aria-hidden="true">🛍️</span>
+                            <span class="price-icon" aria-hidden="true"></span>
                             <h3>Web Premium</h3>
                             <div class="price-val"><span class="price-from">À partir de</span><span class="price-num">1
                                     300€</span></div>
@@ -1083,15 +1088,15 @@
                             <li>✓ Jusqu'à 6 pages optimisées</li>
                             <li>✓ Design 100% sur-mesure</li>
                             <li>✓ Galerie professionnelle</li>
-                            <li>✓ SEO avancé St-Raphaël & Fréjus</li>
+                            <li>✓ SEO avancé St-Raphaël &amp; Fréjus</li>
                             <li>✓ Google Business optimisé</li>
                             <li>✓ Propriété 100% à vous</li>
                         </ul>
-                        <a href="/#contact" class="btn-primary">Devis gratuit →</a>
+                        <a href="/#contact" class="btn-primary">Devis gratuit</a>
                     </article>
                     <article class="price-card gsap-fade-up">
                         <div class="price-head">
-                            <span class="price-icon" aria-hidden="true">👑</span>
+                            <span class="price-icon" aria-hidden="true"></span>
                             <h3>Web Ultra</h3>
                             <div class="price-val"><span class="price-from">Tarif</span><span class="price-num"
                                     style="font-size:1.6rem;">Sur devis</span></div>
@@ -1104,45 +1109,13 @@
                             <li>✓ Réservation / e-commerce</li>
                             <li>✓ 100% responsive</li>
                         </ul>
-                        <a href="/#contact" class="btn-outline">Devis gratuit →</a>
+                        <a href="/#contact" class="btn-outline">Devis gratuit</a>
                     </article>
                 </div>
             </div>
         </section>
 
-        <!-- ═══ MAILLAGE PILLS — recadré ═══ -->
-        <section class="sr-maillage" aria-label="Maillage interne métiers et villes Saint-Raphaël">
-            <div class="sr-maillage-inner">
-                <h2>Site internet à Saint-Raphaël — tous les secteurs</h2>
-                <div class="sr-liens-grid">
-                    <a href="creation-site-internet-agence-immobiliere.html" class="sr-lien-pill">🏡 Site agence immo
-                        Saint-Raphaël</a>
-                    <a href="creation-site-internet-restaurant.html" class="sr-lien-pill">🍽️ Site restaurant
-                        Saint-Raphaël</a>
-                    <a href="electricien-var.html" class="sr-lien-pill">🔌 Site électricien Saint-Raphaël</a>
-                    <a href="creation-site-internet-serrurier.html" class="sr-lien-pill">🔐 Site serrurier
-                        Saint-Raphaël</a>
-                    <a href="creation-site-internet-coiffeur.html" class="sr-lien-pill">✂️ Site coiffeur
-                        Saint-Raphaël</a>
-                    <a href="refonte-site-internet.html" class="sr-lien-pill">🔄 Refonte site Saint-Raphaël</a>
-                    <a href="maintenance.html" class="sr-lien-pill">🛡️ Maintenance site Saint-Raphaël</a>
-                </div>
-
-                <h2 style="margin-top:2.5rem;">Développeur web dans tout le Var</h2>
-                <div class="sr-liens-grid">
-                    <a href="creation-site-internet-frejus.html" class="sr-lien-pill">🏛️ Site internet Fréjus</a>
-                    <a href="creation-site-internet-sainte-maxime.html" class="sr-lien-pill">🌊 Site internet
-                        Sainte-Maxime</a>
-                    <a href="creation-site-internet-saint-tropez.html" class="sr-lien-pill">⚓ Site internet
-                        Saint-Tropez</a>
-                    <a href="creation-site-internet-cogolin.html" class="sr-lien-pill">🏭 Site internet Cogolin</a>
-                    <a href="creation-site-internet-grimaud.html" class="sr-lien-pill">🏰 Site internet Grimaud</a>
-                    <a href="creation-site-internet-var.html" class="sr-lien-pill">🗺️ Tout le Var (83)</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══ VILLES MAILLAGE — recadrées ═══ -->
+        <!-- ═══ VILLES MAILLAGE ═══ -->
         <section class="ville-villes-block" aria-labelledby="villes-title">
             <div class="container">
                 <div class="section-head">
@@ -1158,42 +1131,42 @@
                 </div>
                 <div class="ville-villes-grid">
                     <div class="ville-ville-card active-city">
-                        <span class="ville-ville-icon">⛵</span>
+                        <span class="ville-ville-icon" aria-hidden="true"></span>
                         <span class="ville-ville-name">Saint-Raphaël</span>
                         <span class="ville-ville-sub">Vous êtes ici — création site internet Saint-Raphaël, Var
                             83.</span>
-                        <span class="ville-ville-tag">✓ Page active</span>
+                        <span class="ville-ville-tag">Page active</span>
                     </div>
                     <a href="creation-site-internet-frejus.html" class="ville-ville-card gsap-fade-up">
-                        <span class="ville-ville-icon">🏛️</span>
+                        <span class="ville-ville-icon" aria-hidden="true"></span>
                         <span class="ville-ville-name">Fréjus</span>
                         <span class="ville-ville-sub">54 000 habitants — bassin commun avec Saint-Raphaël.</span>
-                        <span class="ville-ville-tag">Page dédiée →</span>
+                        <span class="ville-ville-tag">Page dédiée</span>
                     </a>
                     <a href="creation-site-internet-sainte-maxime.html" class="ville-ville-card gsap-fade-up">
-                        <span class="ville-ville-icon">🌊</span>
+                        <span class="ville-ville-icon" aria-hidden="true"></span>
                         <span class="ville-ville-name">Sainte-Maxime</span>
                         <span class="ville-ville-sub">Station premium face à Saint-Tropez, active 12 mois par an.</span>
-                        <span class="ville-ville-tag">Page dédiée →</span>
+                        <span class="ville-ville-tag">Page dédiée</span>
                     </a>
                     <a href="creation-site-internet-saint-tropez.html" class="ville-ville-card gsap-fade-up">
-                        <span class="ville-ville-icon">⚓</span>
+                        <span class="ville-ville-icon" aria-hidden="true"></span>
                         <span class="ville-ville-name">Saint-Tropez</span>
                         <span class="ville-ville-sub">Siège de Sud Web Project. Hôtels, restaurants, agences de
                             prestige.</span>
-                        <span class="ville-ville-tag">Page dédiée →</span>
+                        <span class="ville-ville-tag">Page dédiée</span>
                     </a>
                     <a href="creation-site-internet-cogolin.html" class="ville-ville-card gsap-fade-up">
-                        <span class="ville-ville-icon">🏭</span>
+                        <span class="ville-ville-icon" aria-hidden="true"></span>
                         <span class="ville-ville-name">Cogolin</span>
                         <span class="ville-ville-sub">Capitale artisanale du Golfe de Saint-Tropez.</span>
-                        <span class="ville-ville-tag">Page dédiée →</span>
+                        <span class="ville-ville-tag">Page dédiée</span>
                     </a>
                     <a href="creation-site-internet-grimaud.html" class="ville-ville-card gsap-fade-up">
-                        <span class="ville-ville-icon">🏰</span>
-                        <span class="ville-ville-name">Grimaud & Port Grimaud</span>
+                        <span class="ville-ville-icon" aria-hidden="true"></span>
+                        <span class="ville-ville-name">Grimaud &amp; Port Grimaud</span>
                         <span class="ville-ville-sub">Village médiéval et cité lacustre internationale.</span>
-                        <span class="ville-ville-tag">Page dédiée →</span>
+                        <span class="ville-ville-tag">Page dédiée</span>
                     </a>
                 </div>
                 <p class="ville-seo-phrase">
@@ -1222,8 +1195,8 @@
                 <div class="ville-faq-list">
                     <details class="ville-faq-item gsap-fade-up">
                         <summary>
-                            <h3>Combien coûte la création d'un site internet à Saint-Raphaël ?</h3><span
-                                class="faq-toggle">+</span>
+                            <h3>Combien coûte la création d'un site internet à Saint-Raphaël ?</h3>
+                            <span class="faq-toggle">+</span>
                         </summary>
                         <p>La création d'un site internet à Saint-Raphaël commence à <strong>partir de 600€</strong>
                             pour un site vitrine 3 pages. Un site Premium 6 pages est à partir de <strong>1
@@ -1232,8 +1205,8 @@
                     </details>
                     <details class="ville-faq-item gsap-fade-up">
                         <summary>
-                            <h3>Créez-vous des sites pour les artisans BTP à Saint-Raphaël ?</h3><span
-                                class="faq-toggle">+</span>
+                            <h3>Créez-vous des sites pour les artisans BTP à Saint-Raphaël ?</h3>
+                            <span class="faq-toggle">+</span>
                         </summary>
                         <p>Oui, c'est l'une de mes spécialités à Saint-Raphaël. Je crée des sites pour tous les artisans
                             BTP : électriciens, plombiers, maçons, peintres, menuisiers. Bouton d'appel urgent visible
@@ -1244,8 +1217,17 @@
                     </details>
                     <details class="ville-faq-item gsap-fade-up">
                         <summary>
-                            <h3>Pourquoi cibler à la fois Saint-Raphaël ET Fréjus dans le SEO ?</h3><span
-                                class="faq-toggle">+</span>
+                            <h3>Quel délai pour créer un site internet à Saint-Raphaël ?</h3>
+                            <span class="faq-toggle">+</span>
+                        </summary>
+                        <p>Un site essentiel est livré en <strong>4 à 5 jours ouvrés</strong>. Un site Premium en
+                            <strong>1 à 3 semaines</strong>. Délais garantis dans le devis.
+                        </p>
+                    </details>
+                    <details class="ville-faq-item gsap-fade-up">
+                        <summary>
+                            <h3>Pourquoi cibler à la fois Saint-Raphaël ET Fréjus dans le SEO ?</h3>
+                            <span class="faq-toggle">+</span>
                         </summary>
                         <p>Saint-Raphaël et Fréjus forment un bassin de vie unique de <strong>90 000 habitants</strong>.
                             Les clients cherchent sur Google sans se soucier des frontières administratives. En ciblant
@@ -1254,15 +1236,16 @@
                     </details>
                     <details class="ville-faq-item gsap-fade-up">
                         <summary>
-                            <h3>Vous déplacez-vous à Saint-Raphaël ?</h3><span class="faq-toggle">+</span>
+                            <h3>Vous déplacez-vous à Saint-Raphaël ?</h3>
+                            <span class="faq-toggle">+</span>
                         </summary>
                         <p>Oui. Développeur web dans le Var, je me déplace à Saint-Raphaël pour la première réunion. La
                             consultation est gratuite — en présentiel ou en visioconférence.</p>
                     </details>
                     <details class="ville-faq-item gsap-fade-up">
                         <summary>
-                            <h3>En combien de temps mon site Saint-Raphaël apparaît sur Google ?</h3><span
-                                class="faq-toggle">+</span>
+                            <h3>En combien de temps mon site Saint-Raphaël apparaît sur Google ?</h3>
+                            <span class="faq-toggle">+</span>
                         </summary>
                         <p>À Saint-Raphaël, la concurrence en ligne est modérée. Avec un site bien optimisé, vous pouvez
                             apparaître en <strong>première page Google en 4 à 8 semaines</strong>. Les requêtes longue
@@ -1271,8 +1254,8 @@
                     </details>
                     <details class="ville-faq-item gsap-fade-up">
                         <summary>
-                            <h3>Intervenez-vous aussi à Fréjus et dans le reste du Var ?</h3><span
-                                class="faq-toggle">+</span>
+                            <h3>Intervenez-vous aussi à Fréjus et dans le reste du Var ?</h3>
+                            <span class="faq-toggle">+</span>
                         </summary>
                         <p>Oui. J'accompagne les professionnels de tout le Var : <a
                                 href="creation-site-internet-frejus.html">Fréjus</a>, <a
@@ -1282,44 +1265,6 @@
                                 href="creation-site-internet-grimaud.html">Grimaud</a> et <a
                                 href="creation-site-internet-var.html">tout le Var (83)</a>.</p>
                     </details>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══ TÉMOIGNAGES ═══ -->
-        <section class="testi" aria-labelledby="testi-title">
-            <div class="container">
-                <div class="section-head">
-                    <div class="section-label">Ils m'ont fait confiance</div>
-                    <h2 class="section-title" id="testi-title"><span class="split-reveal">Ce qu'ils en disent.</span>
-                    </h2>
-                </div>
-                <div class="testi-grid">
-                    <article class="testi-card gsap-fade-up">
-                        <div class="testi-stars" aria-label="5 étoiles sur 5">★★★★★</div>
-                        <p>«&nbsp;Très satisfait du travail réalisé pour mon site internet de photographe.
-                            Professionnel, réactif et à l'écoute. Si vous cherchez un développeur web dans le Var, je
-                            recommande sans hésiter.&nbsp;»</p>
-                        <div class="testi-auth"><span class="testi-av" aria-hidden="true">📸</span>
-                            <div><strong>Servane Roy Berton</strong><span>Photographe · Avis Google ⭐</span></div>
-                        </div>
-                    </article>
-                    <article class="testi-card gsap-fade-up">
-                        <div class="testi-stars" aria-label="5 étoiles sur 5">★★★★★</div>
-                        <p>«&nbsp;Très bon accompagnement, conseils clairs et travail de qualité. Je recommande
-                            fortement pour toute création de site web dans le Var.&nbsp;»</p>
-                        <div class="testi-auth"><span class="testi-av" aria-hidden="true">💼</span>
-                            <div><strong>Clement Dolphens</strong><span>Avis Google ⭐ · Var</span></div>
-                        </div>
-                    </article>
-                    <article class="testi-card gsap-fade-up">
-                        <div class="testi-stars" aria-label="5 étoiles sur 5">★★★★★</div>
-                        <p>«&nbsp;Super expérience avec Sud Web Project. Mon site a été créé rapidement et correspond
-                            parfaitement à mes attentes. Un excellent développeur web, sérieux et compétent.&nbsp;»</p>
-                        <div class="testi-auth"><span class="testi-av" aria-hidden="true">🌟</span>
-                            <div><strong>Heloise Berton</strong><span>Avis Google ⭐ · Saint-Tropez</span></div>
-                        </div>
-                    </article>
                 </div>
             </div>
         </section>
@@ -1339,16 +1284,16 @@
                     commencer.</p>
                 <div class="ville-cta-actions">
                     <a href="/#contact" class="btn-hero">
-                        Obtenir mon devis gratuit →
+                        Obtenir mon devis gratuit
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
                             <path d="M3.75 9h10.5M9.75 4.5L14.25 9l-4.5 4.5" stroke="currentColor" stroke-width="1.5"
                                 stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </a>
-                    <a href="tel:+33611547324" class="btn-ghost-hero">📞 +33 6 11 54 73 24</a>
+                    <a href="tel:+33611547324" class="btn-ghost-hero">+33 6 11 54 73 24</a>
                 </div>
                 <p class="ville-seo-text">Devis 100% gratuit · Sans engagement · Réponse sous 24h · Déplacement à
-                    Saint-Raphaël · SEO Saint-Raphaël & Fréjus · Var 83</p>
+                    Saint-Raphaël · SEO Saint-Raphaël &amp; Fréjus · Var 83</p>
             </div>
         </section>
 
@@ -1381,13 +1326,13 @@
                 <div class="footer-col">
                     <h3>Villes du Var</h3>
                     <ul>
-                        <li><a href="creation-site-internet-saint-raphael.html" class="footer-active">Saint-Raphaël
-                                ✓</a></li>
+                        <li><a href="creation-site-internet-saint-raphael.html" class="footer-active">Saint-Raphaël</a>
+                        </li>
                         <li><a href="creation-site-internet-frejus.html">Fréjus</a></li>
                         <li><a href="creation-site-internet-sainte-maxime.html">Sainte-Maxime</a></li>
                         <li><a href="creation-site-internet-saint-tropez.html">Saint-Tropez</a></li>
                         <li><a href="creation-site-internet-cogolin.html">Cogolin</a></li>
-                        <li><a href="creation-site-internet-grimaud.html">Grimaud & Port Grimaud</a></li>
+                        <li><a href="creation-site-internet-grimaud.html">Grimaud &amp; Port Grimaud</a></li>
                         <li><a href="creation-site-internet-var.html">Tout le Var (83)</a></li>
                     </ul>
                 </div>
@@ -1442,10 +1387,14 @@
                     <a href="mentions-legales.html#confidentialite">Confidentialité</a>
                     <span aria-hidden="true">·</span>
                     <a href="mentions-legales.html#cgv">CGV</a>
+                    <span aria-hidden="true">·</span>
                     <a href="cookies.html">Cookies</a>
                 </div>
             </div>
         </div>
+
+        <span class="footer-mark" aria-hidden="true">Sud<em>Web</em> Project</span>
+
         <div class="footer-seo">
             <p>Création site internet Saint-Raphaël · Développeur web Saint-Raphaël · Site artisan BTP Saint-Raphaël ·
                 Restaurant Saint-Raphaël web · Agence immobilière Saint-Raphaël · Coiffeur Saint-Raphaël site ·
@@ -1465,10 +1414,29 @@
         </button>
     </footer>
 
+    <!-- ═══ LIBRAIRIES ═══ -->
+    <script src="js/vendor/gsap.min.js" defer></script>
+    <script src="js/vendor/ScrollTrigger.min.js" defer></script>
+    <script src="js/vendor/lenis.min.js" defer></script>
+
+    <!-- motion.js pose les valeurs GSAP par défaut : avant tout le reste -->
+    <script src="js/motion.js" defer></script>
+
+    <!-- ═══ SCRIPTS DU SITE ═══ -->
     <script src="js/global.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+    <script src="js/lux.js" defer></script>
+    <script src="js/metiers.js" defer></script>
+    <script src="js/refonte.js" defer></script>
+    <script src="js/footer.js" defer></script>
     <script src="js/ville-animations.js" defer></script>
+    <!-- ville-hero.js reprend la main sur le hero : après ville-animations.js -->
+    <script src="js/ville-hero.js" defer></script>
+    <!-- ville-lux.js : la grammaire de l'accueil sur tous les autres blocs -->
+    <script src="js/ville-lux.js" defer></script>
+    <script src="js/breath.js" defer></script>
+    <!-- titles.js reprend la main sur les titres : toujours en dernier -->
+    <script src="js/titles.js" defer></script>
+
     <script>
         window.addEventListener('load', function () {
             var ric = window.requestIdleCallback || function (cb) { setTimeout(cb, 200); };
@@ -1478,12 +1446,15 @@
         });
     </script>
 
-    <div class="cookie-banner" role="dialog" aria-label="Cookies"
-        style="display:none;opacity:0;transform:translateX(-50%) translateY(20px);">
-        <p>Ce site utilise des cookies analytiques anonymisés. <a href="cookies.html">En savoir plus</a></p>
-        <div>
-            <button id="cookie-refuse">Refuser</button>
-            <button id="cookie-accept">Accepter</button>
+    <div class="cookie-banner" role="dialog" aria-label="Consentement cookies" aria-live="polite">
+        <div class="cookie-inner">
+            <p>Ce site utilise des cookies analytiques anonymisés pour mesurer l'audience.
+                <a href="cookies.html">En savoir plus</a>
+            </p>
+            <div class="cookie-btns">
+                <button id="cookie-refuse" class="cookie-btn cookie-btn-refuse">Refuser</button>
+                <button id="cookie-accept" class="cookie-btn cookie-btn-accept">Accepter</button>
+            </div>
         </div>
     </div>
 
