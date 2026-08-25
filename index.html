@@ -63,14 +63,9 @@
     <link rel="alternate" hreflang="x-default" href="https://www.sudwebproject.com/" />
 
     <!-- Preload LCP -->
-    <link rel="preload" as="image" media="(min-width: 769px)" href="assets/images/hero-saint-tropez-1920.webp"
-        type="image/webp" fetchpriority="high"
-        imagesrcset="assets/images/hero-saint-tropez-960.webp 960w, assets/images/hero-saint-tropez-1280.webp 1280w, assets/images/hero-saint-tropez-1536.webp 1536w, assets/images/hero-saint-tropez-1920.webp 1920w, assets/images/hero-saint-tropez-2400.webp 2400w"
-        imagesizes="100vw" />
-    <link rel="preload" as="image" media="(max-width: 768px)" href="assets/images/hero-saint-tropez-mobile-828.webp"
-        type="image/webp" fetchpriority="high"
-        imagesrcset="assets/images/hero-saint-tropez-mobile-828.webp 828w, assets/images/hero-saint-tropez-mobile-1280.webp 1280w"
-        imagesizes="100vw" />
+    <link rel="preload" as="image" href="assets/images/hero-port-nuit-960.webp" type="image/webp" fetchpriority="high"
+        imagesrcset="assets/images/hero-port-nuit-640.webp 640w, assets/images/hero-port-nuit-960.webp 960w, assets/images/hero-port-nuit-1280.webp 1280w"
+        imagesizes="(max-width: 768px) 42vw, 24vw" />
     <link rel="preload" href="assets/fonts/instrument-serif-v5-latin-regular.woff2" as="font" type="font/woff2"
         crossorigin />
 
@@ -100,114 +95,577 @@
 
     <style>
         /* ═══════════════════════════════════════════════════
-           PRELOADER SWP — construction du logo + atterrissage header
+           HERO — SCÈNE DE PANNEAUX
+           hero.css empile ainsi : 0 visuel · 1 #hero-fx (WebGL,
+           mix-blend-mode screen) · 2 voile de lecture ::before ·
+           3 contenu. La scène doit donc monter en z-index 2 pour
+           passer au-dessus du shader et du voile, tout en restant
+           sous le texte.
            ═══════════════════════════════════════════════════ */
-        #swp-preloader {
-            position: fixed;
-            inset: 0;
-            z-index: 99999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            pointer-events: none;
-        }
-
-        #swp-pre-bg {
-            position: absolute;
-            inset: 0;
-            background: #080C14;
-            z-index: 0;
-        }
-
-        #swp-preloader canvas {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            display: block;
-            z-index: 1;
-        }
-
-        #swp-pre-vignette {
-            position: absolute;
-            inset: 0;
+        .hero .hero-visual {
             z-index: 2;
-            background: radial-gradient(ellipse at 50% 50%, transparent 58%, rgba(8, 12, 20, .6) 100%);
-        }
-
-        .swp-pre-content {
-            position: relative;
-            z-index: 3;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-top: 15vh;
-        }
-
-        .swp-pre-spacer {
-            height: clamp(140px, 23vh, 250px);
-        }
-
-        #swp-pre-word {
-            display: flex;
-            font-family: 'DM Sans', -apple-system, sans-serif;
-            font-weight: 700;
-            font-size: clamp(1.55rem, 4.8vw, 2.8rem);
-            letter-spacing: .13em;
             overflow: hidden;
         }
 
-        #swp-pre-word span {
-            display: inline-block;
-            opacity: 0;
-            transform: translateY(60%);
-            white-space: pre;
-            color: #FFFFFF;
-            text-shadow: 0 2px 20px rgba(8, 12, 20, .95), 0 0 3px rgba(8, 12, 20, .8);
+        .hero .hero-stage {
+            position: absolute;
+            top: 50%;
+            right: 2vw;
+            transform: translateY(-50%);
+            width: min(52vw, 860px);
+            aspect-ratio: 5 / 4;
+            container-type: inline-size;
+            font-size: clamp(5px, 1.15cqw, 11px);
+            perspective: 1250px;
+            perspective-origin: 70% 42%;
+            isolation: isolate;
         }
 
-        #swp-pre-word span.accent {
-            color: #3B82F6;
+        .stage-glow {
+            position: absolute;
+            top: 6%;
+            left: 26%;
+            width: 62%;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(96, 165, 250, .40) 0%, rgba(59, 130, 246, .16) 34%, rgba(59, 130, 246, .05) 56%, transparent 72%);
+            z-index: 0;
+            pointer-events: none;
         }
 
-        #swp-pre-caption {
-            margin-top: 1.05rem;
-            font-family: 'DM Sans', -apple-system, sans-serif;
-            font-size: .68rem;
-            letter-spacing: .32em;
+        .stage-deck {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            transform-style: preserve-3d;
+        }
+
+        .mk {
+            position: absolute;
+            margin: 0;
+            border: 1px solid rgba(226, 232, 240, .26);
+            border-radius: 12px;
+            overflow: hidden;
+            background: #0B1424;
+            transform-style: preserve-3d;
+            backface-visibility: hidden;
+        }
+
+        /* Liseré lumineux sur l'arête supérieure — donne l'épaisseur */
+        .mk::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 12px;
+            border-top: 1px solid rgba(226, 232, 240, .18);
+            pointer-events: none;
+            z-index: 9;
+        }
+
+        /* ── 1. Panneau typographique SWP — le plus loin ── */
+        .mk-swp {
+            top: 2%;
+            left: -4%;
+            width: 52%;
+            aspect-ratio: 3 / 4;
+            z-index: 2;
+            padding: 1.9em 1.7em;
+            background: linear-gradient(160deg, #16233B 0%, #0A1220 62%, #070C16 100%);
+            transform: rotateY(-26deg) rotateX(7deg) translateZ(-190px) scale(1.06);
+            box-shadow: 0 50px 90px rgba(2, 4, 8, .7);
+        }
+
+        .mk-grid {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(96, 165, 250, .1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(96, 165, 250, .1) 1px, transparent 1px);
+            background-size: 2.6em 2.6em;
+            pointer-events: none;
+        }
+
+        .mk-swp-head {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: .25em;
+        }
+
+        .mk-swp-brand {
+            font-size: 1.05em;
+            font-weight: 700;
+            letter-spacing: .22em;
             text-transform: uppercase;
-            color: #C3CDDB;
-            opacity: 0;
-            text-shadow: 0 2px 16px rgba(8, 12, 20, .95);
+            color: #E2E8F0;
         }
 
-        /* Scroll verrouillé pendant la séquence */
-        html.swp-preloading,
-        html.swp-preloading body {
-            overflow: hidden !important;
+        .mk-swp-role {
+            font-size: .82em;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: rgba(226, 232, 240, .42);
+        }
+
+        .mk-swp-mono {
+            position: absolute;
+            top: 26%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: var(--ff-display, Georgia, serif);
+            font-size: 9.5em;
+            line-height: .8;
+            font-weight: 400;
+            letter-spacing: -.02em;
+            color: rgba(226, 232, 240, .22);
+            white-space: nowrap;
+        }
+
+        .mk-swp-list {
+            position: absolute;
+            left: 1.7em;
+            bottom: 1.9em;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: .85em;
+        }
+
+        .mk-swp-list li {
+            font-size: .82em;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: rgba(226, 232, 240, .55);
+            display: flex;
+            gap: .9em;
+        }
+
+        .mk-swp-list li span {
+            color: rgba(96, 165, 250, .85);
+        }
+
+        /* ── 2. Fenêtre navigateur ── */
+        .mk-browser {
+            top: 9%;
+            right: -2%;
+            width: 64%;
+            aspect-ratio: 16 / 11;
+            z-index: 4;
+            background: #0D1728;
+            transform: rotateY(-26deg) rotateX(7deg) translateZ(0);
+            box-shadow: 0 60px 110px rgba(2, 4, 8, .78);
+        }
+
+        .mk-bar {
+            display: flex;
+            align-items: center;
+            gap: .55em;
+            height: 2.3em;
+            padding: 0 1em;
+            background: #16233A;
+            border-bottom: 1px solid rgba(226, 232, 240, .14);
+        }
+
+        .mk-bar i {
+            width: .62em;
+            height: .62em;
+            border-radius: 50%;
+            background: rgba(226, 232, 240, .4);
+        }
+
+        .mk-browser-nav {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1.4em;
+            padding: .85em 1.4em;
+            font-size: .78em;
+            letter-spacing: .13em;
+            text-transform: uppercase;
+            color: rgba(226, 232, 240, .62);
+            border-bottom: 1px solid rgba(226, 232, 240, .12);
+        }
+
+        .mk-browser-body {
+            position: relative;
+            height: calc(100% - 2.3em - 2.5em);
+        }
+
+        .mk-browser-text {
+            position: absolute;
+            inset: 0 auto 0 0;
+            width: 58%;
+            padding: 1.7em 1.5em;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: .9em;
+            z-index: 2;
+            background: linear-gradient(90deg, rgba(7, 11, 19, .94) 0%, rgba(7, 11, 19, .8) 55%, transparent 100%);
+        }
+
+        .mk-browser-title {
+            margin: 0;
+            font-family: var(--ff-display, Georgia, serif);
+            font-size: 2.15em;
+            line-height: 1.12;
+            color: #F1F5F9;
+        }
+
+        .mk-browser-sub {
+            margin: 0;
+            font-size: .82em;
+            letter-spacing: .1em;
+            color: rgba(226, 232, 240, .5);
+        }
+
+        .mk-browser-btn {
+            align-self: flex-start;
+            font-size: .78em;
+            letter-spacing: .06em;
+            color: #fff;
+            background: #2563EB;
+            padding: .7em 1.3em;
+            border-radius: 4px;
+        }
+
+        .mk-browser-img {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .mk-browser-img img {
+            display: block;
+            width: 100%;
             height: 100%;
+            object-fit: cover;
+            object-position: 50% 46%;
         }
 
-        /* Les animations d'entrée du hero attendent la fin du preloader */
-        html.swp-preloading .hero-eyebrow,
-        html.swp-preloading .hero-title .split-reveal,
-        html.swp-preloading .hero-sub,
-        html.swp-preloading .hero-seo-phrase,
-        html.swp-preloading .hero-actions,
-        html.swp-preloading .hero-metrics,
-        html.swp-preloading .hero-visual,
-        html.swp-preloading .hero-scroll-hint {
-            animation-play-state: paused !important;
+        /* ── 3. Wireframe ── */
+        .mk-wire {
+            bottom: 8%;
+            left: 6%;
+            width: 46%;
+            aspect-ratio: 16 / 10;
+            z-index: 5;
+            padding: 1.5em 1.4em;
+            background: #0A1220;
+            transform: rotateY(-26deg) rotateX(7deg) translateZ(150px) scale(.96);
+            box-shadow: 0 55px 100px rgba(2, 4, 8, .82);
+        }
+
+        .mk-wire-head {
+            display: flex;
+            flex-direction: column;
+            gap: .35em;
+            margin-bottom: 1.5em;
+        }
+
+        .mk-wire-n {
+            font-size: .8em;
+            letter-spacing: .18em;
+            color: rgba(96, 165, 250, .8);
+        }
+
+        .mk-wire-label {
+            font-size: .85em;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: rgba(226, 232, 240, .62);
+        }
+
+        .mk-wire-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.3em;
+            align-items: start;
+        }
+
+        .mk-wire-col {
+            display: flex;
+            flex-direction: column;
+            gap: .75em;
+        }
+
+        .wl {
+            height: .5em;
+            border-radius: 2px;
+            background: rgba(226, 232, 240, .13);
+        }
+
+        .w95 {
+            width: 95%;
+        }
+
+        .w80 {
+            width: 80%;
+        }
+
+        .w70 {
+            width: 70%;
+        }
+
+        .w60 {
+            width: 60%;
+        }
+
+        .w55 {
+            width: 55%;
+        }
+
+        .w45 {
+            width: 45%;
+        }
+
+        .mk-wire-box {
+            height: 7em;
+            border: 1px solid rgba(226, 232, 240, .13);
+            border-radius: 4px;
+            background: rgba(226, 232, 240, .03);
+        }
+
+        /* ── 4. Panneau code ── */
+        .mk-code {
+            bottom: -2%;
+            right: -4%;
+            width: 48%;
+            aspect-ratio: 16 / 10;
+            z-index: 6;
+            transform: rotateY(-26deg) rotateX(7deg) translateZ(300px) scale(.92);
+            box-shadow: 0 65px 120px rgba(2, 4, 8, .85);
+        }
+
+        .mk-code-img {
+            position: absolute;
+            inset: 0;
+        }
+
+        .mk-code-img img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 72% 50%;
+            opacity: 1;
+        }
+
+        .mk-code-lines {
+            position: relative;
+            margin: 0;
+            padding: 1.5em 1.4em;
+            font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+            font-size: .8em;
+            line-height: 1.75;
+            color: rgba(226, 232, 240, .7);
+            background: linear-gradient(100deg, rgba(6, 10, 18, .94) 0%, rgba(6, 10, 18, .78) 45%, rgba(6, 10, 18, .18) 100%);
+            height: 100%;
+            overflow: hidden;
+            white-space: pre;
+        }
+
+        .mk-code-badge {
+            position: absolute;
+            top: 1em;
+            right: 1em;
+            font-family: ui-monospace, Menlo, monospace;
+            font-size: .85em;
+            color: #fff;
+            background: #2563EB;
+            padding: .45em .7em;
+            border-radius: 4px;
+        }
+
+        /* ══════ RESPONSIVE — la scène ne disparaît jamais ══════ */
+
+        @media (min-width: 1600px) {
+            .hero .hero-stage {
+                right: 5vw;
+                width: min(48vw, 920px);
+            }
+        }
+
+        @media (max-width: 1250px) {
+            .hero .hero-stage {
+                width: 56vw;
+                right: 0;
+                perspective: 1050px;
+            }
+
+            .mk-wire {
+                display: none;
+            }
+
+            .mk-code {
+                width: 54%;
+                bottom: 2%;
+                transform: rotateY(-26deg) rotateX(7deg) translateZ(240px) scale(.94);
+            }
+        }
+
+        /* ── Sous 980px : la scène passe SOUS le texte, à plat ── */
+        @media (max-width: 980px) {
+            .hero {
+                min-height: auto !important;
+                display: block !important;
+            }
+
+            .hero .hero-visual {
+                position: relative !important;
+                inset: auto !important;
+                margin: 2.5rem auto 0 !important;
+                width: 100% !important;
+                overflow: visible;
+            }
+
+            .hero .hero-stage {
+                position: relative;
+                top: auto;
+                right: auto;
+                transform: none;
+                width: 100%;
+                max-width: 640px;
+                margin: 0 auto;
+                aspect-ratio: 4 / 3;
+                perspective: 900px;
+                perspective-origin: 62% 45%;
+            }
+
+            .stage-glow {
+                top: 2%;
+                left: 18%;
+                width: 70%;
+            }
+
+            .mk-wire {
+                display: none;
+            }
+
+            .mk-swp {
+                top: 4%;
+                left: -2%;
+                width: 46%;
+                transform: rotateY(-22deg) rotateX(6deg) translateZ(-120px) scale(1.04);
+            }
+
+            .mk-browser {
+                top: 8%;
+                right: -2%;
+                width: 70%;
+                transform: rotateY(-22deg) rotateX(6deg) translateZ(0);
+            }
+
+            .mk-code {
+                bottom: 2%;
+                right: -2%;
+                width: 56%;
+                transform: rotateY(-22deg) rotateX(6deg) translateZ(180px) scale(.94);
+            }
+        }
+
+        /* ── Téléphone : deux panneaux, à plat, empilés ── */
+        @media (max-width: 620px) {
+            .hero .hero-stage {
+                aspect-ratio: 3 / 4;
+                perspective: none;
+                max-width: none;
+                font-size: clamp(7px, 2.6cqw, 12px);
+            }
+
+            .stage-deck {
+                transform-style: flat;
+            }
+
+            .mk-swp,
+            .mk-wire {
+                display: none;
+            }
+
+            /* Ratio aligné sur la source 16/9 : plus de rognage vertical */
+            .mk-browser {
+                top: 0;
+                left: 0;
+                right: auto;
+                width: 100%;
+                aspect-ratio: auto;
+                height: 54%;
+                transform: none;
+                box-shadow: 0 26px 52px rgba(2, 4, 8, .75);
+            }
+
+            .mk-browser-body {
+                height: calc(100% - 2.3em - 2.5em);
+            }
+
+            .mk-browser-text {
+                width: 72%;
+                padding: 1.2em 1.2em;
+            }
+
+            /* Ratio aligné sur la source 16/10 */
+            .mk-code {
+                bottom: 0;
+                right: 0;
+                width: 100%;
+                aspect-ratio: auto;
+                height: 40%;
+                transform: none;
+                box-shadow: 0 26px 52px rgba(2, 4, 8, .75);
+            }
+
+            .stage-glow {
+                opacity: .55;
+            }
         }
 
         @media (prefers-reduced-motion: reduce) {
-            #swp-preloader {
-                display: none !important;
+            .hero .hero-stage {
+                perspective: none;
             }
 
-            html.swp-preloading,
-            html.swp-preloading body {
-                overflow: visible !important;
+            .mk {
+                transform: none !important;
+            }
+        }
+
+        /* ═══════════════════════════════════════════════════
+           À PROPOS — CADRAGE DE LA PHOTO
+           about.css impose un cadre à ratio fixe : sur téléphone
+           la source verticale y était rognée. On rend la hauteur
+           libre pour que la photo s'affiche entière.
+           ═══════════════════════════════════════════════════ */
+        @media (max-width: 900px) {
+            .about .about-img-wrap {
+                aspect-ratio: auto !important;
+                height: auto !important;
+                min-height: 0 !important;
+                max-height: none !important;
+                overflow: hidden;
+            }
+
+            .about .about-img-wrap picture,
+            .about .about-img-wrap img {
+                display: block;
+                width: 100% !important;
+                height: auto !important;
+                max-height: none !important;
+                object-fit: contain !important;
+                object-position: 50% 50% !important;
+            }
+
+            .about .about-img-side {
+                max-width: 460px;
+                margin-inline: auto;
+            }
+        }
+
+        /* Desktop : on garde le cadre, mais ancré sur le visage */
+        @media (min-width: 901px) {
+            .about .about-img-wrap img {
+                object-position: 50% 28%;
             }
         }
 
@@ -429,21 +887,32 @@
     <!-- ═══ HERO ═══ -->
     <section class="hero" id="hero" aria-labelledby="hero-title">
         <canvas id="particles-bg" class="particles-bg" aria-hidden="true"></canvas>
+
         <div class="hero-inner">
+
             <div class="hero-content">
+
                 <div class="hero-eyebrow">
                     <span class="eyebrow-dot" aria-hidden="true"></span>
                     <span>Développeur web indépendant — Saint-Tropez, Var 83</span>
                 </div>
+
                 <h1 class="hero-title" id="hero-title">
-                    <span class="split-reveal">Création de site internet &amp; Développeur Web à Saint-Tropez :</span>
-                    <span class="split-reveal hero-em">des sites conçus pour vous rapporter des clients.</span>
+                    <span class="split-reveal">
+                        Création de site internet &amp; Développeur Web à Saint-Tropez :
+                    </span>
+                    <span class="split-reveal hero-em">
+                        des sites conçus pour vous rapporter des clients.
+                    </span>
                 </h1>
-                <p class="hero-sub">Développeur web indépendant à Saint-Tropez. Je conçois des sites vitrines premium,
-                    ultra-rapides et optimisés pour le SEO local. Artisans, agences immobilières, restaurants et PME du
-                    Var, passez devant vos concurrents sur Google.</p>
-                <p class="hero-seo-phrase">J'accompagne les professionnels du Var : électriciens, serruriers, coiffeurs,
-                    restaurateurs, agences immobilières, conciergeries et brokers yacht.</p>
+
+                <p class="hero-sub">
+                    Je suis Guillaume, développeur web indépendant à Saint-Tropez.
+                    Je conçois des sites vitrines premium, rapides et sur mesure
+                    pour les professionnels qui veulent faire de leur présence en
+                    ligne un véritable outil commercial.
+                </p>
+
                 <div class="hero-actions">
                     <a href="#contact" class="btn-hero">
                         <span>Parlons de votre projet</span>
@@ -452,42 +921,111 @@
                                 stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </a>
-                    <a href="tel:+33611547324" class="btn-ghost-hero">+33 6 11 54 73 24</a>
+
+                    <a href="tel:+33611547324" class="btn-ghost-hero">
+                        +33 6 11 54 73 24
+                    </a>
                 </div>
-                <div class="hero-metrics">
-                    <div class="metric"><span class="metric-n">24h</span><span class="metric-l">Réponse garantie</span>
-                    </div>
-                    <div class="metric-sep" aria-hidden="true"></div>
-                    <div class="metric"><span class="metric-n">100%</span><span class="metric-l">Sur-mesure</span></div>
-                    <div class="metric-sep" aria-hidden="true"></div>
-                    <div class="metric"><span class="metric-n">10+</span><span class="metric-l">Villes du Var</span>
-                    </div>
-                </div>
+
             </div>
+
             <div class="hero-visual" aria-hidden="true">
-                <div class="hero-img-wrap">
-                    <picture>
-                        <source media="(max-width: 768px)" srcset="assets/images/hero-saint-tropez-mobile-828.webp 828w,
-                        assets/images/hero-saint-tropez-mobile-1280.webp 1280w" sizes="100vw" width="1280"
-                            height="1600" type="image/webp" />
-                        <img src="assets/images/hero-saint-tropez-1920.webp" srcset="assets/images/hero-saint-tropez-960.webp 960w,
-                        assets/images/hero-saint-tropez-1280.webp 1280w,
-                        assets/images/hero-saint-tropez-1536.webp 1536w,
-                        assets/images/hero-saint-tropez-1920.webp 1920w,
-                        assets/images/hero-saint-tropez-2400.webp 2400w" sizes="100vw"
-                            alt="Développeur web Saint-Tropez — le port et les yachts à l'heure bleue, Var 83"
-                            width="1920" height="1080" fetchpriority="high" decoding="async" />
-                    </picture>
-                    <div class="img-overlay" aria-hidden="true"></div>
-                    <div class="img-label"><span class="label-dot" aria-hidden="true"></span><span>Saint-Tropez, Var
-                            83</span></div>
+
+
+                <div class="hero-stage">
+
+                    <span class="stage-glow" aria-hidden="true"></span>
+
+                    <div class="stage-deck">
+
+                        <!-- Panneau typographique -->
+                        <div class="mk mk-swp">
+                            <span class="mk-grid" aria-hidden="true"></span>
+                            <div class="mk-swp-head">
+                                <span class="mk-swp-brand">Sud Web Project</span>
+                                <span class="mk-swp-role">Développeur web</span>
+                            </div>
+                            <span class="mk-swp-mono">SWP</span>
+                            <ol class="mk-swp-list">
+                                <li><span>01</span> Conception</li>
+                                <li><span>02</span> Développement</li>
+                                <li><span>03</span> Optimisation</li>
+                                <li><span>04</span> Maintenance</li>
+                            </ol>
+                        </div>
+
+                        <!-- Fenêtre navigateur -->
+                        <div class="mk mk-browser">
+                            <div class="mk-bar" aria-hidden="true">
+                                <i></i><i></i><i></i>
+                            </div>
+                            <div class="mk-browser-nav" aria-hidden="true">
+                                <span>Accueil</span><span>Services</span><span>À propos</span><span>Contact</span>
+                            </div>
+                            <div class="mk-browser-body">
+                                <div class="mk-browser-img">
+                                    <img src="assets/images/hero-port-nuit-960.webp"
+                                        srcset="assets/images/hero-port-nuit-640.webp 640w, assets/images/hero-port-nuit-960.webp 960w, assets/images/hero-port-nuit-1280.webp 1280w"
+                                        sizes="(max-width: 768px) 42vw, 24vw"
+                                        alt="Développeur web Saint-Tropez — le port et les yachts à l'heure bleue, Var 83"
+                                        width="1280" height="720" fetchpriority="high" decoding="async" />
+                                </div>
+                                <div class="mk-browser-text">
+                                    <p class="mk-browser-title">Des sites pensés<br>pour performer</p>
+                                    <p class="mk-browser-sub">Design — Performance — SEO</p>
+                                    <span class="mk-browser-btn">Découvrir le projet</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Wireframe -->
+                        <div class="mk mk-wire">
+                            <div class="mk-wire-head">
+                                <span class="mk-wire-n">03</span>
+                                <span class="mk-wire-label">Expérience utilisateur</span>
+                            </div>
+                            <div class="mk-wire-body" aria-hidden="true">
+                                <div class="mk-wire-col">
+                                    <span class="wl w80"></span><span class="wl w60"></span>
+                                    <span class="wl w95"></span><span class="wl w45"></span>
+                                    <span class="wl w70"></span><span class="wl w55"></span>
+                                </div>
+                                <div class="mk-wire-box"></div>
+                            </div>
+                        </div>
+
+                        <!-- Panneau code -->
+                        <div class="mk mk-code">
+                            <div class="mk-code-img">
+                                <img src="assets/images/hero-yacht-nuit-960.webp"
+                                    srcset="assets/images/hero-yacht-nuit-640.webp 640w, assets/images/hero-yacht-nuit-960.webp 960w, assets/images/hero-yacht-nuit-1280.webp 1280w"
+                                    sizes="(max-width: 768px) 60vw, 22vw" alt="" width="1280" height="800"
+                                    loading="lazy" decoding="async" />
+                            </div>
+                            <pre class="mk-code-lines" aria-hidden="true"><code>.hero {
+  align-items: center;
+  max-width: 1280px;
+  padding: 6rem 2rem;
+}
+.hero-title {
+  font-family: serif;
+  letter-spacing: -.02em;
+}</code></pre>
+                            <span class="mk-code-badge" aria-hidden="true">&lt;/&gt;</span>
+                        </div>
+
+                    </div>
+
                 </div>
-                <div class="hero-side-text" aria-hidden="true"><span>développeur</span><span>web</span><span>var
-                        83</span></div>
+
+                <div class="hero-side-text" aria-hidden="true">
+                    <span>développeur</span>
+                    <span>web</span>
+                    <span>var 83</span>
+                </div>
+
             </div>
-        </div>
-        <div class="hero-scroll-hint" aria-hidden="true"><span>Scroll</span>
-            <div class="scroll-line"></div>
+
         </div>
     </section>
 

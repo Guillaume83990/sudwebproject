@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Étude de Cas — Restaurant Gastronomique Saint-Tropez | 100/100 Mobile & Desktop | Sud Web Project</title>
     <meta name="description"
-        content="Étude de cas : création site internet restaurant gastronomique Saint-Tropez. 100/100 performances mobile & desktop, SEO 100/100. Site 7 pages multilingue FR/EN/IT avec réservation WhatsApp." />
+        content="Étude de cas : création site internet restaurant gastronomique Saint-Tropez. 100/100 performances mobile & desktop, SEO 100/100. Site complet multilingue FR/EN/IT avec réservation WhatsApp." />
     <meta name="keywords"
         content="étude de cas site internet restaurant var, performance web restaurant saint-tropez, SEO restaurant var 83, création site restaurant gastronomique, site restaurant multilingue saint-tropez" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
@@ -25,7 +25,7 @@
     <meta property="og:title"
         content="Étude de Cas — Restaurant Saint-Tropez | 100/100 Mobile & Desktop | Sud Web Project" />
     <meta property="og:description"
-        content="Site 7 pages multilingue FR/EN/IT, WhatsApp réservations, 100/100 performances mobile et desktop, SEO 100/100. La Table Méditerranéenne — Saint-Tropez." />
+        content="Site complet multilingue FR/EN/IT, WhatsApp réservations, 100/100 performances mobile et desktop, SEO 100/100. La Table Méditerranéenne — Saint-Tropez." />
     <meta property="og:url" content="https://www.sudwebproject.com/etude-cas-restaurant.html" />
     <meta property="og:locale" content="fr_FR" />
     <meta property="og:site_name" content="Sud Web Project" />
@@ -33,7 +33,7 @@
 
     <!-- Schema.org -->
     <script
-        type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Étude de cas : La Table Méditerranéenne — site restaurant gastronomique Saint-Tropez","description":"Site 7 pages multilingue FR/EN/IT, 100/100 mobile et desktop, WhatsApp réservations intelligent, SEO 100/100.","author":{"@type":"Person","name":"Guillaume Robin","jobTitle":"Développeur web freelance"},"publisher":{"@type":"Organization","name":"Sud Web Project","url":"https://www.sudwebproject.com"},"datePublished":"2025-04-01","dateModified":"2025-06-01","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.sudwebproject.com/etude-cas-restaurant.html"}}</script>
+        type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Étude de cas : La Table Méditerranéenne — site restaurant gastronomique Saint-Tropez","description":"Site complet multilingue FR/EN/IT, 100/100 mobile et desktop, WhatsApp réservations intelligent, SEO 100/100.","author":{"@type":"Person","name":"Guillaume Robin","jobTitle":"Développeur web freelance"},"publisher":{"@type":"Organization","name":"Sud Web Project","url":"https://www.sudwebproject.com"},"datePublished":"2025-04-01","dateModified":"2025-06-01","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.sudwebproject.com/etude-cas-restaurant.html"}}</script>
     <script
         type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.sudwebproject.com"},{"@type":"ListItem","position":2,"name":"Réalisations","item":"https://www.sudwebproject.com/#portfolio"},{"@type":"ListItem","position":3,"name":"Étude de cas — Restaurant gastronomique Saint-Tropez","item":"https://www.sudwebproject.com/etude-cas-restaurant.html"}]}</script>
 
@@ -46,6 +46,12 @@
     <!-- Preload font -->
     <link rel="preload" href="assets/fonts/instrument-serif-v5-latin-regular.woff2" as="font" type="font/woff2"
         crossorigin />
+
+    <!-- Preload LCP — hero -->
+    <link rel="preload" as="image" href="assets/images/etude-cas-restaurant-hero-1280.webp"
+        imagesrcset="assets/images/etude-cas-restaurant-hero-640.webp 640w, assets/images/etude-cas-restaurant-hero-960.webp 960w, assets/images/etude-cas-restaurant-hero-1280.webp 1280w, assets/images/etude-cas-restaurant-hero-1535.webp 1535w"
+        imagesizes="100vw" fetchpriority="high" />
+
     <!-- CSS -->
     <link rel="stylesheet" href="css/global.css" />
     <link rel="stylesheet" href="css/index.css" />
@@ -60,190 +66,103 @@
     <link rel="stylesheet" href="css/type.css" />
     <link rel="stylesheet" href="css/refine.css" />
     <link rel="stylesheet" href="css/space.css" />
-    <link rel="stylesheet" href="css/hero.css" />
+    <link rel="stylesheet" href="css/breath.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/ville-hero.css" />
+    <link rel="stylesheet" href="css/ville-lux.css" />
     <style>
         html {
             scroll-padding-top: 72px;
         }
 
-        /* ── SCORES ── */
-        .ec-scores {
-            padding: 8rem 2rem;
-            background: var(--ink-2);
+        /* ── Défense image ── */
+        .st-photo-hero img,
+        .st-photo-square img,
+        .ville-intro-img-wrap img {
+            display: block;
+            width: 100%;
+            height: auto;
         }
 
-        .scores-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.25rem;
-            margin-top: 1.5rem;
-        }
-
-        .score-card {
-            background: var(--glass-2);
-            border: 1px solid var(--border);
-            border-radius: var(--r);
-            padding: 1.75rem 1.25rem;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: .5rem;
-            transition: all var(--dur) var(--ease);
-        }
-
-        .score-card:hover {
-            border-color: var(--border-h);
-            transform: translateY(-4px);
-        }
-
-        .sc-num {
-            font-family: var(--ff-display);
-            font-size: 2.8rem;
-            font-weight: 900;
-            line-height: 1;
-            letter-spacing: -.03em;
-        }
-
-        .sc-green {
-            color: #22c55e;
-        }
-
-        .sc-orange {
-            color: #f97316;
-        }
-
-        .score-card h3 {
-            font-size: .95rem;
-            font-weight: 700;
-            color: #fff;
-            margin: 0;
-        }
-
-        .score-card h4 {
-            font-size: .78rem;
-            font-weight: 600;
-            color: var(--blue-l);
-            margin: 0;
-        }
-
-        .score-card p {
-            font-size: .8rem;
-            color: var(--mist);
-            line-height: 1.6;
-            margin: 0;
-        }
-
-        .scores-label {
-            font-family: var(--ff-display);
-            font-size: 1rem;
-            color: var(--mist);
-            text-transform: uppercase;
-            letter-spacing: .1em;
-            margin: 3rem 0 .75rem;
-            font-weight: 600;
-        }
-
-        /* ── FONCTIONNALITÉS ── */
-        .ec-feats {
-            padding: 8rem 2rem;
-            background: var(--ink);
-        }
-
-        .ec-feats-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .ec-feat-card {
-            background: var(--glass-2);
-            border: 1px solid var(--border);
-            border-radius: var(--r);
-            padding: 2.5rem 2rem;
+        /* ── COORDONNÉES HERO — variante verticale ── */
+        .ville-hero {
             position: relative;
-            overflow: hidden;
-            transition: all var(--dur) var(--ease);
         }
 
-        .ec-feat-card:hover {
-            border-color: var(--border-h);
-            transform: translateY(-4px);
-        }
-
-        .ec-feat-n {
+        .ville-hero .ville-coord {
             position: absolute;
-            top: 1.5rem;
-            right: 2rem;
-            font-family: var(--ff-display);
-            font-size: 4.5rem;
-            font-weight: 900;
-            color: rgba(255, 255, 255, .04);
-            line-height: 1;
+            top: 50%;
+            right: 2.25rem;
+            transform: translateY(-50%);
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            gap: 1.6rem;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            font-size: .62rem;
+            font-weight: 500;
+            letter-spacing: .34em;
+            white-space: nowrap;
+            color: rgba(226, 232, 240, .42);
             pointer-events: none;
         }
 
-        .ec-feat-icon {
-            font-size: 2.25rem;
-            margin-bottom: 1rem;
-            filter: drop-shadow(0 0 12px rgba(59, 130, 246, .4));
+        .ville-hero .ville-coord::before {
+            content: "";
             display: block;
+            width: 1px;
+            height: clamp(46px, 9vh, 96px);
+            background: rgba(226, 232, 240, .22);
         }
 
-        .ec-feat-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: .4rem;
-            background: rgba(34, 197, 94, .1);
-            border: 1px solid rgba(34, 197, 94, .25);
-            border-radius: 2rem;
-            padding: .25rem .75rem;
-            font-size: .72rem;
-            font-weight: 700;
-            color: #22c55e;
-            letter-spacing: .05em;
-            text-transform: uppercase;
-            margin-bottom: .85rem;
-        }
-
-        .ec-feat-card h3 {
-            font-family: var(--ff-display);
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: .75rem;
-            line-height: 1.3;
-        }
-
-        .ec-feat-card p {
-            color: var(--mist);
-            font-size: .92rem;
-            line-height: 1.8;
-        }
-
-        .ec-feat-card strong {
-            color: #fff;
-        }
-
-        /* ── CHALLENGE ── */
-        .ec-challenge {
-            padding: 8rem 2rem;
+        /* ── NOTE DE TRANSPARENCE ── */
+        .ec-note-section {
+            padding: 4rem 2rem 0;
             background: var(--ink-2);
         }
 
-        .ec-challenge-inner {
-            max-width: 780px;
+        .ec-note {
+            max-width: 820px;
             margin: 0 auto;
+            border-left: 1px solid var(--border);
+            padding-left: 1.5rem;
         }
 
+        .ec-note-label {
+            display: block;
+            font-size: .68rem;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--mist);
+            margin-bottom: .75rem;
+        }
+
+        .ec-note p {
+            color: var(--mist);
+            font-size: .9rem;
+            line-height: 1.8;
+            margin: 0 0 .65rem;
+        }
+
+        .ec-note p:last-child {
+            margin-bottom: 0;
+        }
+
+        .ec-note strong {
+            color: #fff;
+        }
+
+        /* ── LE BESOIN ── */
         .ec-quote {
             font-family: var(--ff-display);
-            font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+            font-size: clamp(1.35rem, 2.4vw, 1.9rem);
             font-weight: 700;
             color: #E2E8F0;
             line-height: 1.35;
             margin-bottom: 1.5rem;
+            text-wrap: balance;
         }
 
         .ec-quote em {
@@ -255,276 +174,322 @@
             color: var(--mist);
             font-size: .975rem;
             line-height: 1.85;
-            margin-top: 1rem;
+            margin-top: 1.15rem;
         }
 
         .ec-sub strong {
             color: #fff;
         }
 
-        /* ── NOTE ── */
-        .ec-note {
-            background: rgba(59, 130, 246, .07);
-            border: 1px solid rgba(59, 130, 246, .25);
-            border-radius: var(--r-sm);
-            padding: 1rem 1.5rem;
-            display: flex;
-            align-items: flex-start;
-            gap: .75rem;
-            max-width: 820px;
-            margin: 2rem auto 0;
-        }
-
-        .ec-note p {
-            color: var(--mist);
-            font-size: .875rem;
-            line-height: 1.75;
-            margin: 0;
-        }
-
-        .ec-note strong {
-            color: #fff;
-        }
-
-        /* ── EXPERT ── */
-        .ec-expert {
-            background: var(--glass-2);
-            border: 1px solid var(--border);
-            border-radius: var(--r);
-            padding: 3rem 2.5rem;
-            margin-top: 3rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .ec-expert::before {
-            content: '"';
-            position: absolute;
-            top: -1rem;
-            left: 1.5rem;
-            font-family: var(--ff-display);
-            font-size: 8rem;
-            font-weight: 900;
-            color: rgba(59, 130, 246, .08);
-            line-height: 1;
-            pointer-events: none;
-        }
-
-        .ec-expert p {
-            color: var(--mist);
-            font-size: .975rem;
-            line-height: 1.85;
-            margin-bottom: 1rem;
-        }
-
-        .ec-expert p:last-child {
-            margin-bottom: 0;
-        }
-
-        .ec-expert strong {
-            color: #fff;
-        }
-
-        /* ── MAILLAGE ── */
-        .ec-maillage {
-            padding: 7rem 2rem;
-            background: var(--ink-2);
-            border-top: 1px solid var(--border);
-        }
-
-        .ec-maillage-grid {
+        /* ── COLONNES RÉGLÉES ── */
+        .ec-cols {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 3rem;
+            row-gap: 3.25rem;
+            margin-top: 3.5rem;
+            align-items: start;
         }
 
-        .ec-maillage-card {
-            background: var(--glass-2);
-            border: 1px solid var(--border);
-            border-radius: var(--r);
-            padding: 2rem 1.75rem;
-            text-decoration: none;
+        .ec-cols-4 {
+            grid-template-columns: repeat(4, 1fr);
+            column-gap: 2.25rem;
+            row-gap: 2.75rem;
+            margin-top: 1.25rem;
+        }
+
+        .ec-cols-3 {
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: 2.75rem;
+            row-gap: 3.25rem;
+        }
+
+        .ec-col {
             display: flex;
             flex-direction: column;
-            gap: .6rem;
-            transition: all var(--dur) var(--ease);
+            gap: .7rem;
+            border-top: 1px solid var(--border);
+            padding-top: 1.5rem;
+            text-decoration: none;
+            min-width: 0;
         }
 
-        .ec-maillage-card:hover {
-            border-color: var(--border-h);
-            transform: translateY(-4px);
-            box-shadow: 0 16px 40px rgba(0, 0, 0, .35);
+        a.ec-col {
+            transition: border-color var(--dur) var(--ease);
         }
 
-        .ec-maillage-icon {
-            font-size: 2rem;
-            display: block;
+        a.ec-col:hover,
+        a.ec-col:focus-visible {
+            border-top-color: var(--blue-l);
         }
 
-        .ec-maillage-card h3 {
+        .ec-col-n {
+            font-family: var(--ff-display);
+            font-size: .8rem;
+            font-weight: 700;
+            letter-spacing: .1em;
+            color: var(--mist);
+            opacity: .6;
+        }
+
+        .ec-col-tag {
+            font-size: .68rem;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--blue-l);
+        }
+
+        .ec-col h3 {
             font-family: var(--ff-display);
             font-size: 1.05rem;
             font-weight: 700;
             color: #fff;
+            line-height: 1.35;
             margin: 0;
-            line-height: 1.3;
+            text-wrap: balance;
         }
 
-        .ec-maillage-card p {
-            font-size: .83rem;
+        .ec-col p {
+            font-size: .9rem;
             color: var(--mist);
-            line-height: 1.6;
+            line-height: 1.8;
             margin: 0;
         }
 
-        .ec-maillage-arrow {
+        .ec-col strong {
+            color: #fff;
+        }
+
+        .ec-col-arrow {
             color: var(--blue-l);
             font-size: .85rem;
             font-weight: 700;
             margin-top: auto;
-            padding-top: .75rem;
+            padding-top: .9rem;
         }
 
-        /* ── DÉMO ── */
-        .ec-demo {
-            padding: 6rem 2rem;
+        /* ── SCORES ── */
+        .ec-scores {
+            padding: 8rem 2rem;
+            background: var(--ink-2);
+        }
+
+        .ec-scores-label {
+            font-family: var(--ff-display);
+            font-size: .8rem;
+            color: var(--mist);
+            text-transform: uppercase;
+            letter-spacing: .14em;
+            font-weight: 600;
+            margin: 3.5rem 0 0;
+        }
+
+        .ec-score-n {
+            font-family: var(--ff-display);
+            font-size: clamp(1.9rem, 4.5vw, 2.6rem);
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -.03em;
+            color: #fff;
+        }
+
+        .ec-scores-note {
+            font-size: .8rem;
+            color: var(--mist);
+            opacity: .7;
+            margin-top: 2.5rem;
+            line-height: 1.7;
+        }
+
+        /* ── ANALYSE ── */
+        .ec-analyse {
+            max-width: 820px;
+            margin: 3.5rem auto 0;
+            border-top: 1px solid var(--border);
+            padding-top: 2rem;
+        }
+
+        .ec-analyse p {
+            color: var(--mist);
+            font-size: .975rem;
+            line-height: 1.85;
+            margin: 0 0 1rem;
+        }
+
+        .ec-analyse p:last-child {
+            margin-bottom: 0;
+        }
+
+        .ec-analyse strong {
+            color: #fff;
+        }
+
+        /* ── MANIFESTE ── */
+        .ec-manifeste {
+            padding: 8rem 2rem;
             background: var(--ink);
         }
 
-        .ec-demo-block {
-            background: linear-gradient(135deg, rgba(59, 130, 246, .1), rgba(29, 78, 216, .06));
-            border: 1px solid rgba(59, 130, 246, .25);
-            border-radius: var(--r);
-            padding: 4rem 2.5rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+        .ec-manifeste-grid {
+            display: grid;
+            grid-template-columns: 1.05fr .95fr;
+            gap: 4rem;
+            align-items: center;
         }
 
-        .ec-demo-block::before {
-            content: '';
-            position: absolute;
-            top: -40%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 600px;
-            height: 400px;
-            background: radial-gradient(ellipse, rgba(59, 130, 246, .07) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .ec-demo-block h2 {
+        .ec-manifeste-title {
             font-family: var(--ff-display);
-            font-size: clamp(1.4rem, 2.5vw, 2rem);
+            font-size: clamp(1.75rem, 4vw, 3.2rem);
             font-weight: 900;
             color: #fff;
-            margin-bottom: 1rem;
+            line-height: 1.12;
+            letter-spacing: -.02em;
+            margin: 1rem 0 1.25rem;
+            text-wrap: balance;
         }
 
-        .ec-demo-block p {
+        .ec-manifeste p {
             color: var(--mist);
             font-size: .975rem;
             line-height: 1.8;
-            max-width: 520px;
-            margin: 0 auto 2rem;
+            margin: 0 0 2rem;
         }
 
-        .ec-demo-actions {
+        .ec-manifeste figure {
+            margin: 0;
+        }
+
+        .ec-manifeste-actions {
             display: flex;
             gap: 1rem;
-            justify-content: center;
             flex-wrap: wrap;
         }
 
-        .ec-demo-note {
+        .ec-manifeste-note {
             font-size: .78rem;
             color: var(--mist);
             margin-top: 1.25rem;
             opacity: .65;
         }
 
-        /* RESPONSIVE */
+        /* ── SECTIONS ── */
+        .ec-feats {
+            padding: 8rem 2rem;
+            background: var(--ink);
+        }
+
+        .ec-maillage {
+            padding: 7rem 2rem;
+            background: var(--ink-2);
+            border-top: 1px solid var(--border);
+        }
+
+        .ec-cta-note {
+            font-size: .78rem;
+            color: var(--mist);
+            margin-top: 1.25rem;
+            opacity: .65;
+        }
+
+        /* ══════ RESPONSIVE — ordre décroissant strict ══════ */
+        @media (max-width: 1200px) {
+            .ec-cols-4 {
+                column-gap: 1.75rem;
+            }
+        }
+
+        @media (max-width: 1100px) {
+            .ville-hero .ville-coord {
+                right: 1.25rem;
+                font-size: .58rem;
+                letter-spacing: .3em;
+            }
+        }
+
         @media (max-width: 1024px) {
-            .scores-grid {
+            .ec-cols-4 {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .ec-maillage-grid {
+            .ec-cols-3 {
                 grid-template-columns: 1fr 1fr;
             }
-        }
 
-        @media (max-width: 768px) {
-            .ec-feats-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .ec-maillage-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .ec-expert {
-                padding: 2rem 1.5rem;
-            }
-
-            .ec-demo-block {
-                padding: 2.5rem 1.5rem;
-            }
-
-            .scores-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: .75rem;
-            }
-
-            .score-card {
-                padding: 1.25rem .75rem;
-                gap: .35rem;
-            }
-
-            .sc-num {
-                font-size: 2.2rem;
-            }
-
-            .score-card h3 {
-                font-size: .82rem;
-            }
-
-            .score-card h4 {
-                font-size: .72rem;
-            }
-
-            .score-card p {
-                display: none;
-            }
-
-            .scores-label {
-                font-size: .85rem;
-                margin: 2rem 0 .5rem;
-            }
-        }
-
-        @media (max-width: 400px) {
-            .scores-grid {
-                gap: .5rem;
-            }
-
-            .sc-num {
-                font-size: 1.9rem;
+            .ec-manifeste-grid {
+                gap: 3rem;
             }
         }
 
         @media (max-width: 900px) {
+            .ville-hero .ville-coord {
+                display: none;
+            }
+
+            .ec-manifeste-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
             .footer-grid {
-                grid-template-columns: 1fr 1fr !important;
+                grid-template-columns: 1fr 1fr;
                 gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .ec-cols,
+            .ec-cols-3 {
+                grid-template-columns: 1fr;
+                row-gap: 2.5rem;
+            }
+
+            .ec-cols-4 {
+                grid-template-columns: 1fr 1fr;
+                column-gap: 1.25rem;
+                row-gap: 2rem;
+            }
+
+            .ec-feats,
+            .ec-scores,
+            .ec-manifeste,
+            .ec-maillage {
+                padding: 6rem 1.5rem;
+            }
+
+            .ec-note-section {
+                padding: 3rem 1.5rem 0;
             }
         }
 
         @media (max-width: 540px) {
             .footer-grid {
-                grid-template-columns: 1fr !important;
+                grid-template-columns: 1fr;
                 gap: 1.5rem;
+            }
+
+            .ec-manifeste-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .ec-manifeste-actions .btn-hero,
+            .ec-manifeste-actions .btn-ghost-hero {
+                width: 100%;
+                justify-content: center;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .ec-cols-4 {
+                column-gap: 1rem;
+                row-gap: 1.75rem;
+            }
+
+            .ec-note {
+                padding-left: 1rem;
             }
         }
     </style>
@@ -540,7 +505,7 @@
     </div>
 
     <!-- ═══ NAV ═══ -->
-    <nav id="main-nav" class="nav" role="navigation" aria-label="Navigation principale">
+    <nav id="main-nav" class="nav" aria-label="Navigation principale">
         <div class="nav-inner">
             <a href="/" class="nav-logo" aria-label="Sud Web Project — Développeur web Saint-Tropez">
                 <svg viewBox="0 0 50 50" width="30" height="30" aria-hidden="true">
@@ -586,7 +551,16 @@
 
         <!-- ═══ HERO ═══ -->
         <section class="ville-hero" aria-labelledby="h1-etude-rest">
+            <div class="ville-hero-img">
+                <img src="assets/images/etude-cas-restaurant-hero-1280.webp"
+                    srcset="assets/images/etude-cas-restaurant-hero-640.webp 640w, assets/images/etude-cas-restaurant-hero-960.webp 960w, assets/images/etude-cas-restaurant-hero-1280.webp 1280w, assets/images/etude-cas-restaurant-hero-1535.webp 1535w"
+                    sizes="100vw" alt="Le passe d'une cuisine de restaurant gastronomique, vide avant le service"
+                    width="1535" height="863" fetchpriority="high" decoding="async" />
+                <div class="ville-hero-img-overlay"></div>
+            </div>
             <div class="ville-hero-bg"></div>
+            <span class="ville-mark" aria-hidden="true">SAINT-TROPEZ</span>
+
             <div class="container">
                 <div class="ville-hero-badge">
                     <span class="badge-dot"></span>
@@ -599,9 +573,9 @@
                 </h1>
 
                 <p class="ville-hero-sub">
-                    Ce projet fictif illustre ce qu'un site 7 pages haut de gamme, multilingue FR/EN/IT avec WhatsApp
-                    intelligent peut apporter à un restaurant gastronomique dans le Var. <strong>100/100 performances
-                        mobile ET desktop — une prouesse rare.</strong>
+                    Ce projet fictif illustre ce qu'un site complet haut de gamme, multilingue FR/EN/IT avec WhatsApp
+                    intelligent peut apporter à un restaurant gastronomique dans le Var. <strong>100/100 en
+                        performances mobile et desktop, mesurés sur le site déployé.</strong>
                 </p>
 
                 <div class="ville-hero-actions">
@@ -613,63 +587,74 @@
                                 stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </a>
-                    <a href="creation-site-internet-restaurant.html" class="btn-ghost-hero">→ Page restaurant Var</a>
-                </div>
-
-                <div class="ville-hero-metrics">
-                    <div class="metric"><span class="metric-n" style="color:#22c55e">100</span><span
-                            class="metric-l">Perf. mobile</span></div>
-                    <div class="metric-sep" aria-hidden="true"></div>
-                    <div class="metric"><span class="metric-n" style="color:#22c55e">100</span><span
-                            class="metric-l">Perf. desktop</span></div>
-                    <div class="metric-sep" aria-hidden="true"></div>
-                    <div class="metric"><span class="metric-n" style="color:#22c55e">100</span><span
-                            class="metric-l">SEO</span></div>
-                    <div class="metric-sep" aria-hidden="true"></div>
-                    <div class="metric"><span class="metric-n" style="color:#22c55e">96</span><span
-                            class="metric-l">Accessibilité</span></div>
+                    <a href="creation-site-internet-restaurant.html" class="btn-ghost-hero">Page restaurant Var →</a>
                 </div>
             </div>
+
+            <span class="ville-coord" aria-hidden="true">43.2677° N · 6.6407° E</span>
+
             <div class="ville-scroll-hint" aria-hidden="true"><span>Scroll</span>
                 <div class="ville-scroll-line"></div>
             </div>
         </section>
 
-        <!-- ═══ NOTE TRANSPARENCE ═══ -->
-        <section style="padding:2rem 2rem 0;background:var(--ink-2);" aria-label="Note de transparence">
+        <!-- ═══ NOTE DE TRANSPARENCE ═══ -->
+        <section class="ec-note-section" aria-label="Note de transparence">
             <div class="container">
                 <div class="ec-note">
-                    <span style="font-size:1.1rem;flex-shrink:0">⚠️</span>
-                    <p><strong>Note de transparence :</strong> La Table Méditerranéenne est un projet de démonstration
-                        fictif conçu par Sud Web Project pour illustrer les capacités d'un site restaurant haut de gamme
-                        dans le Var — multilingue, WhatsApp, galerie immersive et performances maximales.</p>
+                    <span class="ec-note-label">Note de transparence</span>
+                    <p><strong>La Table Méditerranéenne est un restaurant fictif.</strong> La marque, la carte et
+                        l'histoire racontée ci-dessous sont inventées — ce n'est pas une référence client.</p>
+                    <p><strong>Le site, lui, existe.</strong> Il est développé, déployé et accessible en ligne. Les
+                        scores présentés plus bas sont mesurés sur ce site réel, et vous pouvez les vérifier vous-même
+                        à tout moment via le lien PageSpeed.</p>
                 </div>
             </div>
         </section>
 
         <!-- ═══ LE BESOIN ═══ -->
-        <section class="ec-challenge" aria-labelledby="besoin-title">
+        <section class="ville-intro-section" aria-labelledby="besoin-title">
             <div class="container">
-                <div class="ec-challenge-inner">
-                    <div class="section-label">Le besoin du client</div>
-                    <p class="ec-quote" id="besoin-title">
-                        Un client choisit son restaurant gastronomique sur Google avant même de quitter son hôtel.
-                        <em>Sans site qui donne envie — pas de réservation, même pour le meilleur chef.</em>
-                    </p>
-                    <p class="ec-sub">
-                        Pour La Table Méditerranéenne à Saint-Tropez, l'objectif était ambitieux : un site <strong>7
-                            pages haut de gamme</strong>, multilingue FR/EN/IT pour capter la clientèle internationale,
-                        avec WhatsApp intelligent pour les réservations et une galerie immersive — le tout à 100/100 en
-                        performance.
-                    </p>
-                    <p class="ec-sub">
-                        La clientèle d'un restaurant gastronomique à Saint-Tropez est internationale, exigeante, et
-                        réserve depuis son téléphone. <strong>Un site lent ou sans version multilingue, c'est une table
-                            vide.</strong> Un site premium qui charge instantanément en 3 langues, c'est une salle
-                        pleine.
-                    </p>
+                <div class="ville-intro-grid">
+                    <div class="ville-intro-text">
+                        <div class="section-label">Le besoin du client</div>
+                        <p class="ec-quote" id="besoin-title">
+                            Un client choisit son restaurant gastronomique sur Google avant même de quitter son hôtel.
+                            <em>Sans site qui donne envie — pas de réservation, même pour le meilleur chef.</em>
+                        </p>
+                        <p class="ec-sub">
+                            Pour La Table Méditerranéenne à Saint-Tropez, l'objectif était ambitieux : un site
+                            <strong>complet et haut de gamme</strong>, multilingue FR/EN/IT pour capter la clientèle
+                            internationale, avec WhatsApp intelligent pour les réservations et une galerie immersive —
+                            le tout à 100/100 en performance.
+                        </p>
+                        <p class="ec-sub">
+                            La clientèle d'un restaurant gastronomique à Saint-Tropez est internationale, exigeante, et
+                            réserve depuis son téléphone. <strong>Un site lent ou sans version multilingue, c'est une
+                                table qu'on ne réserve pas.</strong> Un site premium, rapide et disponible en trois
+                            langues, c'est une table qu'on trouve.
+                        </p>
+                    </div>
+                    <div class="ville-intro-img-wrap">
+                        <img src="assets/images/etude-cas-restaurant-portrait-760.webp"
+                            srcset="assets/images/etude-cas-restaurant-portrait-560.webp 560w, assets/images/etude-cas-restaurant-portrait-760.webp 760w, assets/images/etude-cas-restaurant-portrait-1000.webp 1000w"
+                            sizes="(max-width: 900px) 100vw, 42vw"
+                            alt="Pile d'assiettes blanches sur un plan de travail inox, avant le service" width="1000"
+                            height="1333" loading="lazy" decoding="async" />
+                    </div>
                 </div>
             </div>
+        </section>
+
+        <!-- ═══ BANDEAU 21:9 ═══ -->
+        <section class="st-band" aria-label="Cuisine professionnelle vide avant le service">
+            <figure class="st-photo-hero">
+                <img src="assets/images/etude-cas-restaurant-bandeau-1400.webp"
+                    srcset="assets/images/etude-cas-restaurant-bandeau-700.webp 700w, assets/images/etude-cas-restaurant-bandeau-1000.webp 1000w, assets/images/etude-cas-restaurant-bandeau-1400.webp 1400w"
+                    sizes="100vw" alt="Ligne de cuisine professionnelle en inox, vide et éteinte" width="1400"
+                    height="600" loading="lazy" decoding="async" />
+                <figcaption class="st-photo-caption">L'envers de la salle — Saint-Tropez, Var 83</figcaption>
+            </figure>
         </section>
 
         <!-- ═══ LA SOLUTION ═══ -->
@@ -678,50 +663,54 @@
                 <div class="section-head">
                     <div class="section-label">La solution mise en place</div>
                     <h2 class="section-title" id="solution-title">
-                        <span class="split-reveal">7 pages premium,</span>
-                        <span class="split-reveal"><em style="font-style:italic;color:var(--blue-l);">conçues pour
-                                remplir la salle.</em></span>
+                        <span class="split-reveal">Un site complet,</span>
+                        <span class="split-reveal"><em class="ville-em">conçu pour remplir la salle.</em></span>
                     </h2>
                 </div>
-                <div class="ec-feats-grid">
-                    <article class="ec-feat-card gsap-fade-up">
-                        <div class="ec-feat-n" aria-hidden="true">01</div>
-                        <span class="ec-feat-badge">🌍 Multilingue</span>
-                        <span class="ec-feat-icon">🍽️</span>
+                <div class="ec-cols">
+                    <article class="ec-col gsap-fade-up">
+                        <span class="ec-col-n" aria-hidden="true">01</span>
+                        <span class="ec-col-tag">Multilingue</span>
                         <h3>Menu trilingue FR/EN/IT — sans rechargement</h3>
                         <p>Le menu complet est disponible en français, anglais et italien, sans rechargement de page.
                             Les clients internationaux trouvent les informations dans leur langue — <strong>la
                                 réservation suit naturellement.</strong></p>
                     </article>
-                    <article class="ec-feat-card gsap-fade-up">
-                        <div class="ec-feat-n" aria-hidden="true">02</div>
-                        <span class="ec-feat-badge">💬 WhatsApp</span>
-                        <span class="ec-feat-icon">📲</span>
+                    <article class="ec-col gsap-fade-up">
+                        <span class="ec-col-n" aria-hidden="true">02</span>
+                        <span class="ec-col-tag">WhatsApp</span>
                         <h3>WhatsApp réservations intelligent</h3>
                         <p>Un clic ouvre WhatsApp avec un message pré-rempli : date souhaitée, couverts, préférences. Le
-                            client envoie en 5 secondes. <strong>Le restaurateur reçoit une demande complète — zéro
-                                friction, zéro formulaire.</strong></p>
+                            client envoie en quelques secondes. <strong>Le restaurateur reçoit une demande complète —
+                                zéro friction, zéro formulaire.</strong></p>
                     </article>
-                    <article class="ec-feat-card gsap-fade-up">
-                        <div class="ec-feat-n" aria-hidden="true">03</div>
-                        <span class="ec-feat-badge">📸 Galerie</span>
-                        <span class="ec-feat-icon">🖼️</span>
+                    <article class="ec-col gsap-fade-up">
+                        <span class="ec-col-n" aria-hidden="true">03</span>
+                        <span class="ec-col-tag">Galerie</span>
                         <h3>Galerie immersive pleine page</h3>
                         <p>Photos des plats, de l'ambiance et de la terrasse en galerie pleine page avec transitions
                             fluides. Le client <strong>visualise l'expérience gastronomique avant de réserver</strong> —
                             et cette envie déclenche l'acte.</p>
                     </article>
-                    <article class="ec-feat-card gsap-fade-up">
-                        <div class="ec-feat-n" aria-hidden="true">04</div>
-                        <span class="ec-feat-badge">🔍 SEO</span>
-                        <span class="ec-feat-icon">🌐</span>
-                        <h3>SEO multilingue & local Saint-Tropez</h3>
+                    <article class="ec-col gsap-fade-up">
+                        <span class="ec-col-n" aria-hidden="true">04</span>
+                        <span class="ec-col-tag">SEO</span>
+                        <h3>SEO multilingue &amp; local Saint-Tropez</h3>
                         <p>Balises hreflang FR/EN/IT, Schema.org Restaurant, Google Business Profile optimisé.
-                            <strong>Visible sur "restaurant gastronomique Saint-Tropez" en trois langues</strong> —
-                            clients français, anglophones et italiens capturés.
+                            <strong>Structuré pour ressortir sur "restaurant gastronomique Saint-Tropez" en trois
+                                langues</strong> — clients français, anglophones et italiens.
                         </p>
                     </article>
                 </div>
+            </div>
+        </section>
+
+        <!-- ═══ RESPIRATION 1 ═══ -->
+        <section class="breath">
+            <div class="breath-inner">
+                <span class="breath-mark">Choix</span>
+                <p class="breath-line">La salle se juge à table.<br><em>Le restaurant se choisit avant.</em></p>
+                <span class="breath-sign">Sud Web Project — Var 83</span>
             </div>
         </section>
 
@@ -732,119 +721,108 @@
                     <div class="section-label">Les résultats — scores Google</div>
                     <h2 class="section-title" id="scores-title">
                         <span class="split-reveal">Scores Google PageSpeed</span>
-                        <span class="split-reveal"><em style="font-style:italic;color:var(--blue-l);">réels — mobile
-                                &amp; desktop.</em></span>
+                        <span class="split-reveal"><em class="ville-em">mesurés — mobile &amp; desktop.</em></span>
                     </h2>
                 </div>
 
-                <p class="scores-label">📱 Mobile</p>
-                <div class="scores-grid">
-                    <div class="score-card gsap-fade-up">
-                        <span class="sc-num sc-green">100</span>
-                        <span>🟢</span>
+                <p class="ec-scores-label">Mobile</p>
+                <div class="ec-cols ec-cols-4">
+                    <div class="ec-col gsap-fade-up">
+                        <span class="ec-score-n">100</span>
                         <h3>Performances</h3>
-                        <h4>100/100</h4>
-                        <p>Score parfait mobile malgré 7 pages et galerie immersive. Chargement instantané — le client
-                            voit les plats sans attendre.</p>
+                        <p>Score parfait mobile malgré la galerie immersive. Le client voit les plats sans attendre.</p>
                     </div>
-                    <div class="score-card gsap-fade-up">
-                        <span class="sc-num sc-green">96</span>
-                        <span>🟢</span>
+                    <div class="ec-col gsap-fade-up">
+                        <span class="ec-score-n">96</span>
                         <h3>Accessibilité</h3>
-                        <h4>96/100</h4>
-                        <p>Contrastes WCAG, structure sémantique, navigation clavier. Score excellent pour un site
-                            trilingue avec galerie riche.</p>
+                        <p>Contrastes WCAG, structure sémantique, navigation clavier — sur un site trilingue à galerie
+                            riche.</p>
                     </div>
-                    <div class="score-card gsap-fade-up">
-                        <span class="sc-num sc-green">96</span>
-                        <span>🟢</span>
+                    <div class="ec-col gsap-fade-up">
+                        <span class="ec-score-n">96</span>
                         <h3>Bonnes pratiques</h3>
-                        <h4>96/100</h4>
-                        <p>HTTPS, images WebP, zéro librairie vulnérable. Niveau très élevé avec intégration WhatsApp et
-                            galerie immersive.</p>
+                        <p>HTTPS, images WebP, zéro librairie vulnérable, avec intégration WhatsApp.</p>
                     </div>
-                    <div class="score-card gsap-fade-up">
-                        <span class="sc-num sc-green">100</span>
-                        <span>🟢</span>
+                    <div class="ec-col gsap-fade-up">
+                        <span class="ec-score-n">100</span>
                         <h3>SEO</h3>
-                        <h4>100/100</h4>
-                        <p>H1 géolocalisé, Schema.org Restaurant, hreflang FR/EN/IT. Domine "restaurant gastronomique
-                            Saint-Tropez" en 3 langues.</p>
+                        <p>H1 géolocalisé, Schema.org Restaurant, hreflang FR/EN/IT.</p>
                     </div>
                 </div>
 
-                <p class="scores-label">🖥️ Desktop</p>
-                <div class="scores-grid">
-                    <div class="score-card gsap-fade-up">
-                        <span class="sc-num sc-green">100</span>
-                        <span>🟢</span>
+                <p class="ec-scores-label">Desktop</p>
+                <div class="ec-cols ec-cols-4">
+                    <div class="ec-col gsap-fade-up">
+                        <span class="ec-score-n">100</span>
                         <h3>Performances</h3>
-                        <h4>100/100</h4>
-                        <p>Score parfait desktop. Galerie chargée instantanément — l'expérience premium commence dès
-                            l'ouverture.</p>
+                        <p>Score parfait desktop. La galerie s'affiche sans attente dès l'ouverture.</p>
                     </div>
-                    <div class="score-card gsap-fade-up">
-                        <span class="sc-num sc-green">93</span>
-                        <span>🟢</span>
+                    <div class="ec-col gsap-fade-up">
+                        <span class="ec-score-n">93</span>
                         <h3>Accessibilité</h3>
-                        <h4>93/100</h4>
-                        <p>Niveau excellent. Les quelques points reflètent les choix esthétiques intentionnels du design
-                            gastronomique.</p>
+                        <p>Trois points sous le mobile : ils reflètent des choix esthétiques assumés sur les grands
+                            formats.</p>
                     </div>
-                    <div class="score-card gsap-fade-up">
-                        <span class="sc-num sc-green">96</span>
-                        <span>🟢</span>
+                    <div class="ec-col gsap-fade-up">
+                        <span class="ec-score-n">96</span>
                         <h3>Bonnes pratiques</h3>
-                        <h4>96/100</h4>
-                        <p>Cohérence technique totale avec mobile. Sécurité et protocoles parfaitement maîtrisés.</p>
+                        <p>Cohérence technique avec le mobile. Sécurité et protocoles maîtrisés.</p>
                     </div>
-                    <div class="score-card gsap-fade-up">
-                        <span class="sc-num sc-green">100</span>
-                        <span>🟢</span>
+                    <div class="ec-col gsap-fade-up">
+                        <span class="ec-score-n">100</span>
                         <h3>SEO</h3>
-                        <h4>100/100</h4>
-                        <p>Structure parfaite. Google indexe les 3 versions linguistiques — chaque page positionne le
-                            restaurant sur son marché.</p>
+                        <p>Google indexe les trois versions linguistiques — chacune cible son marché.</p>
                     </div>
                 </div>
 
-                <div class="ec-expert gsap-fade-up">
-                    <p><strong>100/100 en performances mobile ET desktop</strong> — une prouesse rare pour un site 7
-                        pages avec galerie immersive, menu trilingue et intégration WhatsApp. Ce site restaurant dépasse
-                        systématiquement TripAdvisor et les plateformes de réservation sur les requêtes locales
-                        gastronomiques dans le Var.</p>
-                    <p>7 pages optimisées individuellement, images WebP en lazy-loading, fonts hébergées localement,
+                <p class="ec-scores-note">Scores relevés sur le site déployé. Lighthouse évolue : ces valeurs peuvent
+                    varier d'une mesure à l'autre — le lien PageSpeed plus bas permet de les recalculer en direct.</p>
+
+                <div class="ec-analyse gsap-fade-up">
+                    <p><strong>100/100 en performances mobile et desktop.</strong> Sur un site à galerie immersive, menu
+                        trilingue et intégration WhatsApp, ce niveau reste rare. Il est structuré pour ressortir sur les
+                        requêtes locales gastronomiques du Var, dans les trois langues.</p>
+                    <p>Chaque page optimisée individuellement, images WebP en lazy-loading, fonts hébergées localement,
                         WhatsApp déclenché côté client sans serveur. Le multilinguisme FR/EN/IT est géré en JavaScript
-                        pur — zéro plugin, zéro surcharge. <strong>Résultat : le score parfait d'un site simple, la
-                            richesse d'un site premium.</strong></p>
+                        pur — zéro plugin, zéro surcharge. <strong>Résultat : le score d'un site simple, la richesse
+                            d'un site premium.</strong></p>
                 </div>
             </div>
         </section>
 
-        <!-- ═══ DÉMO ═══ -->
-        <section class="ec-demo" aria-labelledby="demo-title">
+        <!-- ═══ MANIFESTE / DÉMO ═══ -->
+        <section class="ec-manifeste" aria-labelledby="demo-title">
             <div class="container">
-                <div class="ec-demo-block">
-                    <div class="section-label" style="justify-content:center;margin-bottom:1.5rem;">Tester le site en
-                        direct</div>
-                    <h2 id="demo-title">Voyez l'expérience par vous-même.</h2>
-                    <p>Ouvrez le site sur mobile. Testez le changement de langue, cliquez sur WhatsApp, parcourez la
-                        galerie. Comparez avec n'importe quel restaurant concurrent dans le Var. La différence est
-                        immédiate.</p>
-                    <div class="ec-demo-actions">
-                        <a href="https://guillaume83990.github.io/la-table-mediterraneenne/" target="_blank"
-                            rel="noopener noreferrer" class="btn-hero">
-                            Voir La Table Méditerranéenne →
-                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-                                <path d="M3.75 9h10.5M9.75 4.5L14.25 9l-4.5 4.5" stroke="currentColor"
-                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </a>
-                        <a href="https://pagespeed.web.dev/analysis?url=https://guillaume83990.github.io/la-table-mediterraneenne/"
-                            target="_blank" rel="noopener noreferrer" class="btn-ghost-hero">Vérifier les scores
-                            PageSpeed →</a>
+                <div class="ec-manifeste-grid">
+                    <div class="ec-manifeste-text">
+                        <div class="section-label">Tester le site en direct</div>
+                        <h2 class="ec-manifeste-title" id="demo-title">Voyez l'expérience<br><em class="ville-em">par
+                                vous-même.</em></h2>
+                        <p>Ouvrez le site sur mobile. Testez le changement de langue, cliquez sur WhatsApp, parcourez la
+                            galerie. Comparez avec les autres restaurants que vous trouvez sur Google. La différence est
+                            immédiate.</p>
+                        <div class="ec-manifeste-actions">
+                            <a href="https://guillaume83990.github.io/la-table-mediterraneenne/" target="_blank"
+                                rel="noopener noreferrer" class="btn-hero">
+                                Voir La Table Méditerranéenne →
+                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                                    <path d="M3.75 9h10.5M9.75 4.5L14.25 9l-4.5 4.5" stroke="currentColor"
+                                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </a>
+                            <a href="https://pagespeed.web.dev/analysis?url=https://guillaume83990.github.io/la-table-mediterraneenne/"
+                                target="_blank" rel="noopener noreferrer" class="btn-ghost-hero">Vérifier les scores
+                                PageSpeed →</a>
+                        </div>
+                        <p class="ec-manifeste-note">Site de démonstration — déployé sur GitHub Pages</p>
                     </div>
-                    <p class="ec-demo-note">💡 Site de démonstration — déployé sur GitHub Pages</p>
+                    <figure class="st-photo-square">
+                        <img src="assets/images/etude-cas-restaurant-carre-850.webp"
+                            srcset="assets/images/etude-cas-restaurant-carre-620.webp 620w, assets/images/etude-cas-restaurant-carre-850.webp 850w, assets/images/etude-cas-restaurant-carre-1100.webp 1100w"
+                            sizes="(max-width: 900px) 100vw, 44vw"
+                            alt="Cloches de service en inox alignées sur un plan de travail" width="1100" height="1100"
+                            loading="lazy" decoding="async" />
+                    </figure>
                 </div>
             </div>
         </section>
@@ -852,96 +830,98 @@
         <!-- ═══ MAILLAGE CONTEXTUEL — Variante P ═══ -->
         <section class="ec-maillage" aria-labelledby="maillage-title">
             <div class="container">
-                <div class="section-head" style="text-align:center;margin-bottom:0;">
+                <div class="section-head">
                     <div class="section-label">Aller plus loin</div>
                     <h2 class="section-title" id="maillage-title">
                         <span class="split-reveal">Un site comme celui-ci</span>
-                        <span class="split-reveal"><em style="font-style:italic;color:var(--blue-l);">pour votre
-                                restaurant.</em></span>
+                        <span class="split-reveal"><em class="ville-em">pour votre restaurant.</em></span>
                     </h2>
                 </div>
-                <div class="ec-maillage-grid">
-                    <a href="creation-site-internet-restaurant.html" class="ec-maillage-card gsap-fade-up">
-                        <span class="ec-maillage-icon">🍽️</span>
+                <div class="ec-cols ec-cols-3">
+                    <a href="creation-site-internet-restaurant.html" class="ec-col gsap-fade-up">
                         <h3>Création site internet restaurant Var</h3>
                         <p>Découvrez notre expertise complète pour les restaurants du Var 83 — menu en ligne, WhatsApp,
                             galerie, multilingue, SEO local.</p>
-                        <span class="ec-maillage-arrow">→ Page restaurant Var</span>
+                        <span class="ec-col-arrow">→ Page restaurant Var</span>
                     </a>
-                    <a href="site-internet-restaurant-saint-tropez.html" class="ec-maillage-card gsap-fade-up">
-                        <span class="ec-maillage-icon">⚓</span>
+                    <a href="site-internet-restaurant-saint-tropez.html" class="ec-col gsap-fade-up">
                         <h3>Site internet restaurant Saint-Tropez</h3>
                         <p>Page dédiée aux restaurants de Saint-Tropez — clientèle internationale, terrasses de
                             prestige, exigences premium.</p>
-                        <span class="ec-maillage-arrow">→ Restaurant Saint-Tropez</span>
+                        <span class="ec-col-arrow">→ Restaurant Saint-Tropez</span>
                     </a>
-                    <a href="creation-site-internet-saint-tropez.html" class="ec-maillage-card gsap-fade-up">
-                        <span class="ec-maillage-icon">🌊</span>
+                    <a href="creation-site-internet-saint-tropez.html" class="ec-col gsap-fade-up">
                         <h3>Création site internet Saint-Tropez</h3>
                         <p>Basé à Saint-Tropez, je connais le marché local et accompagne tous les professionnels du
                             Golfe de Saint-Tropez.</p>
-                        <span class="ec-maillage-arrow">→ Page Saint-Tropez</span>
+                        <span class="ec-col-arrow">→ Page Saint-Tropez</span>
                     </a>
-                    <a href="refonte-site-internet.html" class="ec-maillage-card gsap-fade-up">
-                        <span class="ec-maillage-icon">🔄</span>
+                    <a href="refonte-site-internet.html" class="ec-col gsap-fade-up">
                         <h3>Refonte de site internet Var</h3>
                         <p>Votre site de restaurant existe mais est lent ou sans multilinguisme ? Je le refonds
                             entièrement — nouveau design, nouvelles performances.</p>
-                        <span class="ec-maillage-arrow">→ Voir la refonte</span>
+                        <span class="ec-col-arrow">→ Voir la refonte</span>
                     </a>
-                    <a href="maintenance.html" class="ec-maillage-card gsap-fade-up">
-                        <span class="ec-maillage-icon">🛡️</span>
+                    <a href="maintenance.html" class="ec-col gsap-fade-up">
                         <h3>Maintenance site internet Var</h3>
-                        <p>Après le lancement, je maintiens votre site disponible 24h/7j. Crucial pour un restaurant — à
-                            partir de 60€/mois.</p>
-                        <span class="ec-maillage-arrow">→ Voir la maintenance</span>
+                        <p>Après le lancement, je maintiens votre site disponible 24h/24, 7j/7. Crucial pour un
+                            restaurant — à partir de 60 €/mois.</p>
+                        <span class="ec-col-arrow">→ Voir la maintenance</span>
                     </a>
-                    <a href="/#portfolio" class="ec-maillage-card gsap-fade-up">
-                        <span class="ec-maillage-icon">🖼️</span>
+                    <a href="/#portfolio" class="ec-col gsap-fade-up">
                         <h3>Toutes les réalisations</h3>
                         <p>Découvrez les autres sites créés pour les professionnels du Var — artisans, agences immo,
                             coiffeurs, conciergeries.</p>
-                        <span class="ec-maillage-arrow">→ Voir le portfolio</span>
+                        <span class="ec-col-arrow">→ Voir le portfolio</span>
                     </a>
                 </div>
             </div>
         </section>
 
+        <!-- ═══ RESPIRATION 2 ═══ -->
+        <section class="breath">
+            <div class="breath-inner">
+                <span class="breath-mark">Service</span>
+                <p class="breath-line">Un service se prépare toute la journée.<br><em>Le site, une fois pour
+                        toutes.</em></p>
+                <span class="breath-sign">Sud Web Project — Var 83</span>
+            </div>
+        </section>
+
         <!-- ═══ CTA FINAL ═══ -->
-        <section style="padding:4rem 2rem 6rem;background:var(--ink);" aria-labelledby="cta-title">
+        <section class="ville-cta" aria-labelledby="cta-title">
             <div class="container">
-                <div style="text-align:center;max-width:640px;margin:0 auto;">
-                    <div class="section-label" style="justify-content:center;margin-bottom:1.5rem;">Votre restaurant
-                        mérite un site à sa hauteur</div>
-                    <h2 class="section-title" id="cta-title" style="text-align:center;">
+                <div class="section-head">
+                    <div class="section-label">Votre restaurant mérite un site à sa hauteur</div>
+                    <h2 class="section-title" id="cta-title">
                         Ce soir, des clients cherchent où dîner.<br>
-                        <em style="font-style:italic;color:var(--blue-l);">Est-ce que votre site leur donne envie ?</em>
+                        <em class="ville-em">Est-ce que votre site leur donne envie ?</em>
                     </h2>
-                    <p style="color:var(--mist);font-size:.975rem;line-height:1.8;margin:1.5rem 0 2rem;">
-                        Découvrez l'offre complète sur la <a href="creation-site-internet-restaurant.html"
-                            style="color:var(--blue-l);font-weight:600;">création de site pour restaurant</a> ou
-                        demandez directement votre devis gratuit.
-                    </p>
-                    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-                        <a href="/#contact" class="btn-hero">
-                            Créer mon site restaurant →
-                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-                                <path d="M3.75 9h10.5M9.75 4.5L14.25 9l-4.5 4.5" stroke="currentColor"
-                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </a>
-                        <a href="tel:+33611547324" class="btn-ghost-hero">📞 +33 6 11 54 73 24</a>
-                    </div>
-                    <p style="font-size:.78rem;color:var(--mist);margin-top:1.25rem;opacity:.65;">Devis 100% gratuit ·
-                        Sans engagement · Réponse sous 24h · Var 83</p>
                 </div>
+                <p class="ville-cta-sub">Découvrez l'offre complète sur la <a
+                        href="creation-site-internet-restaurant.html">création de site pour restaurant</a> ou demandez
+                    directement votre devis gratuit.</p>
+                <div class="ville-cta-actions">
+                    <a href="/#contact" class="btn-hero">
+                        Créer mon site restaurant →
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                            <path d="M3.75 9h10.5M9.75 4.5L14.25 9l-4.5 4.5" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                    <a href="tel:+33611547324" class="btn-ghost-hero" aria-label="Appeler le 06 11 54 73 24">+33 6 11 54
+                        73 24</a>
+                </div>
+                <p class="ec-cta-note">Devis 100% gratuit · Sans engagement · Réponse sous 24h · Var 83</p>
+                <p class="ville-seo-text">Étude de cas restaurant gastronomique Saint-Tropez · Performance web
+                    restaurant Var 83 · Site restaurant multilingue · Création site restaurant Golfe de Saint-Tropez</p>
             </div>
         </section>
 
     </main>
 
     <!-- ═══ FOOTER MINIMALISTE — Variante P ═══ -->
-    <footer class="footer" id="main-footer" role="contentinfo">
+    <footer class="footer" id="main-footer">
         <div class="footer-inner">
             <div class="footer-grid">
                 <div class="footer-brand">
@@ -1011,6 +991,7 @@
                     </ul>
                 </div>
             </div>
+            <div class="footer-mark" aria-hidden="true">Sud Web Project</div>
             <div class="footer-bottom">
                 <p>©
                     <script>document.write(new Date().getFullYear())</script> Sud Web Project · <strong>Étude de cas
@@ -1022,6 +1003,7 @@
                     <a href="mentions-legales.html#confidentialite">Confidentialité</a>
                     <span aria-hidden="true">·</span>
                     <a href="mentions-legales.html#cgv">CGV</a>
+                    <span aria-hidden="true">·</span>
                     <a href="cookies.html">Cookies</a>
                 </div>
             </div>
@@ -1047,14 +1029,17 @@
     <script src="js/vendor/ScrollTrigger.min.js" defer></script>
     <script src="js/vendor/lenis.min.js" defer></script>
     <script src="js/motion.js" defer></script>
-
-
     <script src="js/global.js" defer></script>
     <script src="js/lux.js" defer></script>
     <script src="js/metiers.js" defer></script>
     <script src="js/refonte.js" defer></script>
-    <script src="js/titles.js" defer></script>
+    <script src="js/footer.js" defer></script>
     <script src="js/ville-animations.js" defer></script>
+    <script src="js/ville-hero.js" defer></script>
+    <script src="js/ville-lux.js" defer></script>
+    <script src="js/breath.js" defer></script>
+    <script src="js/titles.js" defer></script>
+
     <script>
         window.addEventListener('load', function () {
             var ric = window.requestIdleCallback || function (cb) { setTimeout(cb, 200); };
@@ -1066,10 +1051,12 @@
 
     <div class="cookie-banner" role="dialog" aria-label="Cookies"
         style="display:none;opacity:0;transform:translateX(-50%) translateY(20px);">
-        <p>Ce site utilise des cookies analytiques anonymisés. <a href="cookies.html">En savoir plus</a></p>
-        <div>
-            <button id="cookie-refuse">Refuser</button>
-            <button id="cookie-accept">Accepter</button>
+        <div class="cookie-inner">
+            <p>Ce site utilise des cookies analytiques anonymisés. <a href="cookies.html">En savoir plus</a></p>
+            <div class="cookie-btns">
+                <button id="cookie-refuse">Refuser</button>
+                <button id="cookie-accept">Accepter</button>
+            </div>
         </div>
     </div>
 

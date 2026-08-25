@@ -6,124 +6,325 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex, nofollow" />
     <title>Merci — Message bien reçu | Sud Web Project</title>
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <meta name="author" content="Guillaume Robin — Sud Web Project" />
     <meta name="theme-color" content="#080C14" />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+
+    <!-- Preload font -->
+    <link rel="preload" href="assets/fonts/instrument-serif-v5-latin-regular.woff2" as="font" type="font/woff2"
+        crossorigin />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/ville.css" />
+    <link rel="stylesheet" href="css/cookies.css" media="print" onload="this.media='all'" />
+    <link rel="stylesheet" href="css/fonts-local.css" />
+    <link rel="stylesheet" href="css/motion.css" />
+    <link rel="stylesheet" href="css/depth.css" />
+    <link rel="stylesheet" href="css/metiers.css" />
+    <link rel="stylesheet" href="css/refonte.css" />
+    <link rel="stylesheet" href="css/why.css" />
+    <link rel="stylesheet" href="css/type.css" />
+    <link rel="stylesheet" href="css/refine.css" />
+    <link rel="stylesheet" href="css/space.css" />
+    <link rel="stylesheet" href="css/breath.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/ville-hero.css" />
+    <link rel="stylesheet" href="css/ville-lux.css" />
     <style>
-        *,
-        *::before,
-        *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        html {
+            scroll-padding-top: 72px;
         }
 
-        body {
-            background: #080C14;
-            color: #CBD5E1;
-            font-family: 'DM Sans', system-ui, sans-serif;
+        /* ── ÉCRAN DE CONFIRMATION ── */
+        .mc-screen {
             min-height: 100vh;
+            min-height: 100svh;
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
-            text-align: center;
-            padding: 2rem;
+            padding: 9rem 2rem 6rem;
+            background: var(--ink);
         }
 
-        .icon {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
+        .mc-inner {
+            max-width: 620px;
+            margin: 0 auto;
+            width: 100%;
         }
 
-        h1 {
-            font-family: Georgia, serif;
-            font-size: clamp(2rem, 5vw, 3rem);
+        .mc-rule {
+            width: 1px;
+            height: clamp(48px, 8vh, 88px);
+            background: rgba(226, 232, 240, .22);
+            margin-bottom: 2.25rem;
+        }
+
+        .mc-title {
+            font-family: var(--ff-display);
+            font-size: clamp(2.1rem, 6vw, 3.4rem);
             font-weight: 900;
             color: #fff;
-            margin-bottom: 1rem;
-            letter-spacing: -.02em;
+            line-height: 1.12;
+            letter-spacing: -.025em;
+            margin: 1rem 0 1.5rem;
+            text-wrap: balance;
         }
 
-        h1 em {
-            color: #60A5FA;
-            font-style: italic;
+        .mc-lead {
+            color: var(--mist);
+            font-size: 1.02rem;
+            line-height: 1.85;
+            margin: 0 0 1.25rem;
         }
 
-        p {
-            color: #94A3B8;
-            font-size: 1rem;
-            line-height: 1.75;
-            max-width: 480px;
-            margin-bottom: 2.5rem;
-        }
-
-        a {
-            display: inline-flex;
-            align-items: center;
-            gap: .5rem;
-            background: linear-gradient(135deg, #3B82F6, #1D4ED8);
+        .mc-lead strong {
             color: #fff;
+        }
+
+        .mc-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2.5rem;
+        }
+
+        .mc-note {
+            margin-top: 2.5rem;
+            border-top: 1px solid var(--border);
+            padding-top: 1.5rem;
+            font-size: .82rem;
+            color: var(--mist);
+            line-height: 1.9;
+            opacity: .8;
+        }
+
+        .mc-note a {
+            color: var(--mist);
             text-decoration: none;
-            font-weight: 700;
-            font-size: .9rem;
-            padding: .85rem 2rem;
-            border-radius: 50px;
-            box-shadow: 0 4px 20px rgba(59, 130, 246, .4);
-            transition: transform .2s, box-shadow .2s;
+            border-bottom: 1px solid var(--border);
+            transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
         }
 
-        a:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(59, 130, 246, .5);
+        .mc-note a:hover,
+        .mc-note a:focus-visible {
+            color: var(--blue-l);
+            border-bottom-color: var(--blue-l);
         }
 
-        .site-logo {
-            display: inline-flex;
+        /* ── FOOTER RÉDUIT ── */
+        .mc-footer {
+            padding: 2.5rem 2rem 3rem;
+            background: var(--ink-2);
+            border-top: 1px solid var(--border);
+        }
+
+        .mc-footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .mc-footer p {
+            font-size: .8rem;
+            color: var(--mist);
+            margin: 0;
+            opacity: .75;
+        }
+
+        .mc-footer-legal {
+            display: flex;
             align-items: center;
             gap: .6rem;
-            text-decoration: none;
-            color: #fff;
-            font-family: Georgia, serif;
-            font-weight: 700;
-            font-size: 1rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .site-logo em {
-            color: #60A5FA;
-            font-style: normal;
-        }
-
-        .delay-note {
-            display: block;
-            margin-top: 1.25rem;
+            flex-wrap: wrap;
             font-size: .8rem;
-            color: #64748B;
+        }
+
+        .mc-footer-legal a {
+            color: var(--mist);
+            text-decoration: none;
+            opacity: .75;
+            transition: color var(--dur) var(--ease), opacity var(--dur) var(--ease);
+        }
+
+        .mc-footer-legal a:hover,
+        .mc-footer-legal a:focus-visible {
+            color: var(--blue-l);
+            opacity: 1;
+        }
+
+        .mc-footer-legal span {
+            opacity: .35;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            .mc-screen {
+                padding: 7rem 1.5rem 4rem;
+            }
+
+            .mc-footer {
+                padding: 2rem 1.5rem 2.5rem;
+            }
+        }
+
+        @media (max-width: 540px) {
+            .mc-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .mc-actions .btn-hero,
+            .mc-actions .btn-ghost-hero {
+                width: 100%;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .mc-footer-inner {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
         }
     </style>
 </head>
 
 <body>
-    <a href="/" class="site-logo" aria-label="Sud Web Project">
-        <svg viewBox="0 0 50 50" width="36" height="36" aria-hidden="true">
-            <polygon points="25,2.5 45,13.75 45,36.25 25,47.5 5,36.25 5,13.75" fill="url(#g)" stroke="#3B82F6"
-                stroke-width="1.5" />
-            <defs>
-                <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#3B82F6" />
-                    <stop offset="100%" style="stop-color:#1D4ED8" />
-                </linearGradient>
-            </defs>
-            <text x="25" y="31" text-anchor="middle" fill="white" font-size="14" font-family="monospace"
-                font-weight="bold">&lt;/&gt;</text>
-        </svg>
-        <span>Sud<em>Web</em> Project</span>
-    </a>
-    <div class="icon">✅</div>
-    <h1>Message <em>bien reçu.</em></h1>
-    <p>Merci pour votre demande. Je reviens vers vous sous 24h avec une réponse personnalisée.</p>
-    <a href="/">← Retour à l'accueil</a>
-    <span class="delay-note">📅 Réponse garantie sous 24h</span>
+
+    <div id="page-transition" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="cursor" id="cursor" aria-hidden="true">
+        <div class="cursor-dot"></div>
+        <div class="cursor-ring"></div>
+    </div>
+
+    <!-- ═══ NAV ═══ -->
+    <nav id="main-nav" class="nav" aria-label="Navigation principale">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo" aria-label="Sud Web Project — Développeur web Saint-Tropez">
+                <svg viewBox="0 0 50 50" width="30" height="30" aria-hidden="true">
+                    <polygon points="25,2.5 45,13.75 45,36.25 25,47.5 5,36.25 5,13.75" fill="url(#nG)" stroke="#3B82F6"
+                        stroke-width="1.5" />
+                    <defs>
+                        <linearGradient id="nG" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#3B82F6" />
+                            <stop offset="100%" style="stop-color:#1D4ED8" />
+                        </linearGradient>
+                    </defs>
+                    <text x="25" y="31" text-anchor="middle" fill="white" font-size="15" font-family="monospace"
+                        font-weight="bold">&lt;/&gt;</text>
+                </svg>
+                <span>Sud<em>Web</em> Project</span>
+            </a>
+            <ul class="nav-links" id="nav-menu">
+                <li><a href="/#services">Services</a></li>
+                <li><a href="/#portfolio">Réalisations</a></li>
+                <li><a href="/#tarifs">Tarifs</a></li>
+                <li><a href="/#apropos">À propos</a></li>
+                <li><a href="/#contact">Contact</a></li>
+            </ul>
+            <a href="/#contact" class="nav-cta">Devis gratuit</a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false"
+                aria-controls="nav-menu"><span></span><span></span><span></span></button>
+        </div>
+        <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+    </nav>
+
+    <main>
+
+        <section class="mc-screen" aria-labelledby="mc-title">
+            <div class="mc-inner">
+                <div class="mc-rule" aria-hidden="true"></div>
+
+                <div class="section-label">Demande envoyée · Sud Web Project</div>
+
+                <h1 class="mc-title" id="mc-title">Message<br><span class="ville-em">bien reçu.</span></h1>
+
+                <p class="mc-lead">Merci pour votre demande. <strong>Je vous réponds sous 24h</strong>, personnellement
+                    et sans formulaire intermédiaire — c'est moi qui lis votre message et c'est moi qui y répondrai.</p>
+
+                <p class="mc-lead">Si votre projet est urgent, le téléphone reste le plus direct.</p>
+
+                <div class="mc-actions">
+                    <a href="/" class="btn-hero">
+                        Retour à l'accueil →
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                            <path d="M3.75 9h10.5M9.75 4.5L14.25 9l-4.5 4.5" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                    <a href="tel:+33611547324" class="btn-ghost-hero" aria-label="Appeler le 06 11 54 73 24">+33 6 11 54
+                        73 24</a>
+                </div>
+
+                <p class="mc-note">
+                    En attendant, vous pouvez parcourir les <a href="/#portfolio">réalisations</a>, la
+                    <a href="refonte-site-internet.html">refonte de site</a> ou la
+                    <a href="maintenance.html">maintenance</a>.<br>
+                    Réponse sous 24h · Du lundi au samedi · Saint-Tropez, Var 83
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ═══ FOOTER RÉDUIT ═══ -->
+    <footer class="mc-footer" id="main-footer">
+        <div class="mc-footer-inner">
+            <p>©
+                <script>document.write(new Date().getFullYear())</script> Sud Web Project · Développeur web
+                Saint-Tropez, Var 83
+            </p>
+            <div class="mc-footer-legal">
+                <a href="mentions-legales.html">Mentions légales</a>
+                <span aria-hidden="true">·</span>
+                <a href="mentions-legales.html#confidentialite">Confidentialité</a>
+                <span aria-hidden="true">·</span>
+                <a href="mentions-legales.html#cgv">CGV</a>
+                <span aria-hidden="true">·</span>
+                <a href="cookies.html">Cookies</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/vendor/gsap.min.js" defer></script>
+    <script src="js/vendor/ScrollTrigger.min.js" defer></script>
+    <script src="js/vendor/lenis.min.js" defer></script>
+    <script src="js/motion.js" defer></script>
+    <script src="js/global.js" defer></script>
+    <script src="js/lux.js" defer></script>
+    <script src="js/titles.js" defer></script>
+
+    <script>
+        window.addEventListener('load', function () {
+            var ric = window.requestIdleCallback || function (cb) { setTimeout(cb, 200); };
+            ric(function () {
+                var s = document.createElement('script'); s.src = 'js/cookies.js'; document.head.appendChild(s);
+            });
+        });
+    </script>
+
+    <div class="cookie-banner" role="dialog" aria-label="Cookies"
+        style="display:none;opacity:0;transform:translateX(-50%) translateY(20px);">
+        <div class="cookie-inner">
+            <p>Ce site utilise des cookies analytiques anonymisés. <a href="cookies.html">En savoir plus</a></p>
+            <div class="cookie-btns">
+                <button id="cookie-refuse">Refuser</button>
+                <button id="cookie-accept">Accepter</button>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- ═══ FAVICON — toutes plateformes ═══ -->
+    <!-- ═══ FAVICON ═══ -->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
@@ -19,587 +19,405 @@
 
     <title>Mentions légales & Politique de confidentialité | Sud Web Project</title>
     <meta name="description"
-        content="Mentions légales, politique de confidentialité et conditions générales de vente de Sud Web Project — développeur web freelance à Saint-Tropez, Var 83." />
+        content="Mentions légales, politique de confidentialité, conditions générales de vente et transparence sur les contenus générés par IA de Sud Web Project — développeur web freelance à Saint-Tropez, Var 83." />
     <meta name="robots" content="noindex, follow" />
+    <meta name="author" content="Guillaume Robin — Sud Web Project" />
     <link rel="canonical" href="https://www.sudwebproject.com/mentions-legales.html" />
 
+    <!-- Preload font -->
+    <link rel="preload" href="assets/fonts/instrument-serif-v5-latin-regular.woff2" as="font" type="font/woff2"
+        crossorigin />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/ville.css" />
+    <link rel="stylesheet" href="css/cookies.css" media="print" onload="this.media='all'" />
     <link rel="stylesheet" href="css/fonts-local.css" />
+    <link rel="stylesheet" href="css/motion.css" />
+    <link rel="stylesheet" href="css/depth.css" />
+    <link rel="stylesheet" href="css/metiers.css" />
+    <link rel="stylesheet" href="css/refonte.css" />
+    <link rel="stylesheet" href="css/why.css" />
+    <link rel="stylesheet" href="css/type.css" />
+    <link rel="stylesheet" href="css/refine.css" />
+    <link rel="stylesheet" href="css/space.css" />
+    <link rel="stylesheet" href="css/breath.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/ville-hero.css" />
+    <link rel="stylesheet" href="css/ville-lux.css" />
     <style>
-        /* ── RESET & BASE ─────────────────────────────── */
-        *,
-        *::before,
-        *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --ink: #080C14;
-            --ink-2: #0D1220;
-            --glass: rgba(255, 255, 255, .04);
-            --border: rgba(255, 255, 255, .08);
-            --border-h: rgba(59, 130, 246, .35);
-            --blue: #3B82F6;
-            --blue-l: #60A5FA;
-            --blue-d: #1D4ED8;
-            --mist: #94A3B8;
-            --mist-2: #64748B;
-            --ff-display: 'Playfair Display', Georgia, serif;
-            --ff-body: 'DM Sans', system-ui, sans-serif;
-            --r: 14px;
-            --max: 900px;
-        }
-
         html {
-            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
         }
 
-        body {
+        /* ── EN-TÊTE ── */
+        .lg-header {
+            padding: 9rem 2rem 0;
             background: var(--ink);
-            color: #CBD5E1;
-            font-family: var(--ff-body);
-            font-size: 1rem;
-            line-height: 1.75;
-            -webkit-font-smoothing: antialiased;
         }
 
-        /* ── GRAIN ────────────────────────────────────── */
-        .grain {
-            position: fixed;
-            inset: 0;
-            z-index: 0;
-            pointer-events: none;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-            opacity: .4;
-        }
-
-        /* ── NAV ──────────────────────────────────────── */
-        .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: rgba(8, 12, 20, .9);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .nav-inner {
-            max-width: 1280px;
+        .lg-inner {
+            max-width: 860px;
             margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
         }
 
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: .75rem;
-            text-decoration: none;
-            color: #fff;
-            font-weight: 700;
-            font-size: 1rem;
+        .lg-rule {
+            width: 1px;
+            height: clamp(44px, 7vh, 80px);
+            background: rgba(226, 232, 240, .22);
+            margin-bottom: 2rem;
         }
 
-        .nav-logo em {
-            color: var(--blue-l);
-            font-style: normal;
-        }
-
-        .nav-back {
-            margin-left: auto;
-            display: inline-flex;
-            align-items: center;
-            gap: .5rem;
-            color: var(--blue-l);
-            font-size: .85rem;
-            font-weight: 600;
-            text-decoration: none;
-            padding: .5rem 1.1rem;
-            border: 1px solid var(--border);
-            border-radius: 50px;
-            transition: all .2s ease;
-        }
-
-        .nav-back:hover {
-            border-color: var(--border-h);
-            background: rgba(59, 130, 246, .08);
-            color: #fff;
-        }
-
-        /* ── MAIN ─────────────────────────────────────── */
-        main {
-            position: relative;
-            z-index: 1;
-            max-width: var(--max);
-            margin: 0 auto;
-            padding: 8rem 2rem 6rem;
-        }
-
-        /* ── HEADER PAGE ──────────────────────────────── */
-        .page-header {
-            text-align: center;
-            margin-bottom: 4rem;
-            padding-bottom: 3rem;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .page-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: .5rem;
-            background: rgba(59, 130, 246, .1);
-            border: 1px solid rgba(59, 130, 246, .25);
-            color: var(--blue-l);
-            padding: .35rem 1rem;
-            border-radius: 50px;
-            font-size: .72rem;
-            font-weight: 700;
-            letter-spacing: .1em;
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-        }
-
-        .page-title {
+        .lg-title {
             font-family: var(--ff-display);
-            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-size: clamp(2rem, 5vw, 3.2rem);
             font-weight: 900;
             color: #fff;
+            line-height: 1.12;
             letter-spacing: -.025em;
-            line-height: 1.1;
-            margin-bottom: 1rem;
+            margin: 1rem 0 1.25rem;
+            text-wrap: balance;
         }
 
-        .page-title em {
-            color: var(--blue-l);
-            font-style: italic;
-        }
-
-        .page-subtitle {
+        .lg-lead {
             color: var(--mist);
-            font-size: .95rem;
-            max-width: 560px;
-            margin: 0 auto;
+            font-size: 1rem;
+            line-height: 1.85;
+            margin: 0;
         }
 
-        /* ── SOMMAIRE ─────────────────────────────────── */
-        .sommaire {
-            display: flex;
-            flex-wrap: wrap;
-            gap: .6rem;
-            justify-content: center;
-            margin-bottom: 4rem;
-            padding: 1.75rem;
-            background: var(--glass);
-            border: 1px solid var(--border);
-            border-radius: var(--r);
+        .lg-maj {
+            margin-top: 1.5rem;
+            font-size: .8rem;
+            color: var(--mist);
+            opacity: .7;
         }
 
-        .sommaire a {
-            color: var(--blue-l);
+        /* ── SOMMAIRE ── */
+        .lg-toc {
+            max-width: 860px;
+            margin: 3.5rem auto 0;
+            border-top: 1px solid var(--border);
+            padding-top: 1.75rem;
+            font-size: .9rem;
+            line-height: 2.4;
+            color: var(--mist);
+        }
+
+        .lg-toc a {
+            color: var(--mist);
             text-decoration: none;
-            font-size: .78rem;
-            font-weight: 600;
-            letter-spacing: .04em;
-            padding: .4rem .9rem;
-            border: 1px solid var(--border);
-            border-radius: 50px;
-            transition: all .2s ease;
+            border-bottom: 1px solid transparent;
+            transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+            white-space: nowrap;
         }
 
-        .sommaire a:hover {
-            border-color: var(--border-h);
-            background: rgba(59, 130, 246, .08);
-            color: #fff;
+        .lg-toc a:hover,
+        .lg-toc a:focus-visible {
+            color: var(--blue-l);
+            border-bottom-color: var(--blue-l);
         }
 
-        /* ── SECTIONS ─────────────────────────────────── */
-        .legal-section {
-            margin-bottom: 4rem;
+        .lg-toc-sep {
+            opacity: .35;
+            margin: 0 .55rem;
+        }
+
+        /* ── CORPS ── */
+        .lg-body {
+            padding: 5rem 2rem 6rem;
+            background: var(--ink);
+        }
+
+        .lg-section {
+            max-width: 860px;
+            margin: 0 auto 5rem;
             scroll-margin-top: 90px;
         }
 
-        .legal-section-title {
+        .lg-section:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .lg-section-title {
             font-family: var(--ff-display);
-            font-size: clamp(1.4rem, 2.5vw, 2rem);
+            font-size: clamp(1.35rem, 2.6vw, 2rem);
             font-weight: 900;
             color: #fff;
             letter-spacing: -.02em;
-            margin-bottom: 1.75rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            gap: .75rem;
+            line-height: 1.2;
+            margin: 0 0 .5rem;
+            text-wrap: balance;
         }
 
-        .legal-section-title span {
-            font-size: .75rem;
-            font-weight: 600;
-            color: var(--blue-l);
-            letter-spacing: .1em;
+        .lg-section-ref {
+            display: block;
+            font-size: .68rem;
+            font-weight: 700;
+            letter-spacing: .14em;
             text-transform: uppercase;
-            font-family: var(--ff-body);
-            background: rgba(59, 130, 246, .1);
-            border: 1px solid rgba(59, 130, 246, .2);
-            padding: .25rem .7rem;
-            border-radius: 50px;
+            color: var(--mist);
+            margin-bottom: 2rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 1px solid var(--border);
         }
 
-        /* ── BLOCS ────────────────────────────────────── */
-        .legal-block {
-            background: var(--glass);
-            border: 1px solid var(--border);
-            border-radius: var(--r);
-            padding: 1.75rem;
-            margin-bottom: 1.25rem;
-            transition: border-color .2s ease;
+        /* ── BLOCS RÉGLÉS ── */
+        .lg-block {
+            border-top: 1px solid var(--border);
+            padding: 1.75rem 0;
         }
 
-        .legal-block:hover {
-            border-color: var(--border-h);
+        .lg-block:first-of-type {
+            border-top: none;
+            padding-top: 0;
         }
 
-        .legal-block h3 {
+        .lg-block h3 {
             font-family: var(--ff-display);
             font-size: 1.05rem;
             font-weight: 700;
             color: #fff;
-            margin-bottom: .75rem;
+            margin: 0 0 .75rem;
+            line-height: 1.4;
         }
 
-        .legal-block p {
-            color: #CBD5E1;
+        .lg-block p {
+            color: var(--mist);
             font-size: .93rem;
-            line-height: 1.8;
-            margin-bottom: .75rem;
+            line-height: 1.85;
+            margin: 0 0 .75rem;
         }
 
-        .legal-block p:last-child {
+        .lg-block p:last-child {
             margin-bottom: 0;
         }
 
-        .legal-block strong {
+        .lg-block strong {
             color: #fff;
         }
 
-        .legal-block a {
+        .lg-block a {
             color: var(--blue-l);
             text-decoration: none;
-            border-bottom: 1px solid rgba(96, 165, 250, .3);
-            transition: all .2s;
+            border-bottom: 1px solid var(--border);
+            transition: border-color var(--dur) var(--ease);
         }
 
-        .legal-block a:hover {
-            color: #fff;
+        .lg-block a:hover,
+        .lg-block a:focus-visible {
             border-bottom-color: var(--blue-l);
         }
 
-        .legal-block ul {
+        .lg-block ul {
             list-style: none;
-            margin: .75rem 0;
+            margin: .85rem 0;
+            padding: 0;
             display: flex;
             flex-direction: column;
-            gap: .45rem;
+            gap: .55rem;
         }
 
-        .legal-block ul li {
-            color: #CBD5E1;
-            font-size: .9rem;
-            padding-left: 1.25rem;
+        .lg-block ul li {
+            color: var(--mist);
+            font-size: .91rem;
+            line-height: 1.75;
+            padding-left: 1.35rem;
             position: relative;
         }
 
-        .legal-block ul li::before {
-            content: '→';
+        .lg-block ul li::before {
+            content: '—';
             position: absolute;
             left: 0;
-            color: var(--blue-l);
+            color: var(--mist);
+            opacity: .5;
+        }
+
+        /* ── IDENTITÉ ── */
+        .lg-ident {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 3rem;
+            row-gap: 1.5rem;
+            margin-bottom: 2.25rem;
+        }
+
+        .lg-ident-item {
+            border-top: 1px solid var(--border);
+            padding-top: 1rem;
+            min-width: 0;
+        }
+
+        .lg-ident-label {
+            display: block;
+            font-size: .68rem;
             font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--mist);
+            margin-bottom: .35rem;
+        }
+
+        .lg-ident-value {
+            font-size: .95rem;
+            color: #fff;
+            line-height: 1.6;
+            overflow-wrap: break-word;
+        }
+
+        .lg-ident-value a {
+            color: #fff;
+            text-decoration: none;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .lg-ident-value a:hover {
+            border-bottom-color: var(--blue-l);
+        }
+
+        /* ── ENCADRÉ ── */
+        .lg-note {
+            border-left: 1px solid var(--border);
+            padding: .25rem 0 .25rem 1.5rem;
+            margin: 0 0 2.25rem;
+            color: var(--mist);
+            font-size: .91rem;
+            line-height: 1.85;
+        }
+
+        .lg-note strong {
+            color: #fff;
+        }
+
+        /* ── À COMPLÉTER ── */
+        .lg-todo {
+            border-left: 1px solid var(--blue-l);
+            padding: .25rem 0 .25rem 1.5rem;
+            margin: 1.25rem 0;
+            color: var(--mist);
+            font-size: .88rem;
+            line-height: 1.8;
+        }
+
+        .lg-todo strong {
+            color: var(--blue-l);
+        }
+
+        /* ── CONTACT FINAL ── */
+        .lg-contact {
+            max-width: 860px;
+            margin: 5rem auto 0;
+            border-top: 1px solid var(--border);
+            padding-top: 2.5rem;
+        }
+
+        .lg-contact h2 {
+            font-family: var(--ff-display);
+            font-size: clamp(1.4rem, 2.6vw, 2rem);
+            font-weight: 900;
+            color: #fff;
+            margin: 0 0 .85rem;
+            letter-spacing: -.02em;
+        }
+
+        .lg-contact p {
+            color: var(--mist);
+            font-size: .95rem;
+            line-height: 1.85;
+            margin: 0 0 2rem;
+        }
+
+        /* ── FOOTER RÉDUIT ── */
+        .lg-footer {
+            padding: 2.5rem 2rem 3rem;
+            background: var(--ink-2);
+            border-top: 1px solid var(--border);
+        }
+
+        .lg-footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .lg-footer p {
+            font-size: .8rem;
+            color: var(--mist);
+            margin: 0;
+            opacity: .75;
+        }
+
+        .lg-footer-legal {
+            display: flex;
+            align-items: center;
+            gap: .6rem;
+            flex-wrap: wrap;
             font-size: .8rem;
         }
 
-        /* ── INFO CARD ────────────────────────────────── */
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: .75rem;
-            margin-bottom: 1.25rem;
-        }
-
-        .info-item {
-            background: var(--glass);
-            border: 1px solid var(--border);
-            border-radius: calc(var(--r) * .75);
-            padding: 1rem 1.25rem;
-        }
-
-        .info-item .info-label {
-            font-size: .72rem;
-            font-weight: 700;
-            color: var(--blue-l);
-            text-transform: uppercase;
-            letter-spacing: .08em;
-            margin-bottom: .3rem;
-        }
-
-        .info-item .info-value {
-            font-size: .9rem;
-            color: #fff;
-            font-weight: 500;
-        }
-
-        /* ── ALERTE ───────────────────────────────────── */
-        .legal-alert {
-            background: rgba(59, 130, 246, .06);
-            border: 1px solid rgba(59, 130, 246, .2);
-            border-left: 3px solid var(--blue);
-            border-radius: var(--r);
-            padding: 1.25rem 1.5rem;
-            margin-bottom: 1.25rem;
-            color: #CBD5E1;
-            font-size: .9rem;
-            line-height: 1.7;
-        }
-
-        .legal-alert strong {
-            color: var(--blue-l);
-        }
-
-        /* ── CTA FINAL ────────────────────────────────── */
-        .legal-cta {
-            text-align: center;
-            padding: 3rem 2rem;
-            background: var(--glass);
-            border: 1px solid var(--border);
-            border-radius: var(--r);
-            margin-top: 4rem;
-        }
-
-        .legal-cta h3 {
-            font-family: var(--ff-display);
-            font-size: 1.75rem;
-            font-weight: 900;
-            color: #fff;
-            margin-bottom: .75rem;
-        }
-
-        .legal-cta p {
+        .lg-footer-legal a {
             color: var(--mist);
-            font-size: .95rem;
-            margin-bottom: 2rem;
-        }
-
-        .legal-cta-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: .6rem;
-            background: linear-gradient(135deg, var(--blue), var(--blue-d));
-            color: #fff;
             text-decoration: none;
-            font-weight: 700;
-            font-size: .9rem;
-            letter-spacing: .04em;
-            padding: .9rem 2.2rem;
-            border-radius: 50px;
-            box-shadow: 0 4px 20px rgba(59, 130, 246, .4);
-            transition: all .3s ease;
+            opacity: .75;
+            transition: color var(--dur) var(--ease), opacity var(--dur) var(--ease);
         }
 
-        .legal-cta-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 35px rgba(59, 130, 246, .55);
-        }
-
-        /* ── FOOTER ───────────────────────────────────── */
-        .legal-footer {
-            position: relative;
-            z-index: 1;
-            border-top: 1px solid var(--border);
-            padding: 2rem;
-            text-align: center;
-            background: rgba(8, 12, 20, .8);
-        }
-
-        .legal-footer p {
-            color: var(--mist-2);
-            font-size: .82rem;
-            margin: .35rem 0;
-        }
-
-        .legal-footer a {
+        .lg-footer-legal a:hover,
+        .lg-footer-legal a:focus-visible {
             color: var(--blue-l);
-            text-decoration: none;
+            opacity: 1;
         }
 
-        .legal-footer a:hover {
-            color: #fff;
+        .lg-footer-legal span {
+            opacity: .35;
         }
 
-        /* ── RESPONSIVE ───────────────────────────────── */
-
-        /* Tablette 768–1024px */
-        @media (max-width: 1024px) {
-            main {
-                max-width: 100%;
-                padding: 8rem 3rem 6rem;
-            }
-
-            .info-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .page-title {
-                font-size: clamp(1.8rem, 4vw, 2.8rem);
-            }
-        }
-
-        /* Mobile 480–768px */
+        /* ══════ RESPONSIVE ══════ */
         @media (max-width: 768px) {
-            main {
-                padding: 6rem 1.25rem 4rem;
+            .lg-header {
+                padding: 7rem 1.5rem 0;
             }
 
-            .nav-inner {
-                padding: .85rem 1.25rem;
+            .lg-body {
+                padding: 4rem 1.5rem 4rem;
             }
 
-            .info-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: .6rem;
+            .lg-section {
+                margin-bottom: 4rem;
             }
 
-            .page-title {
-                font-size: 1.85rem;
-                letter-spacing: -.02em;
+            .lg-ident {
+                grid-template-columns: 1fr;
+                column-gap: 0;
+                row-gap: 1.25rem;
             }
 
-            .page-subtitle {
-                font-size: .88rem;
+            .lg-toc {
+                line-height: 2.6;
             }
 
-            .page-header {
-                margin-bottom: 2.5rem;
-                padding-bottom: 2rem;
-            }
-
-            .sommaire {
-                padding: 1.25rem;
-                gap: .45rem;
-                margin-bottom: 2.5rem;
-            }
-
-            .sommaire a {
-                font-size: .72rem;
-                padding: .35rem .75rem;
-            }
-
-            .legal-section {
-                margin-bottom: 3rem;
-            }
-
-            .legal-section-title {
-                font-size: 1.3rem;
-                flex-wrap: wrap;
-                gap: .5rem;
-            }
-
-            .legal-block {
-                padding: 1.25rem;
-            }
-
-            .legal-block h3 {
-                font-size: .95rem;
-            }
-
-            .legal-block p,
-            .legal-block ul li {
-                font-size: .88rem;
-            }
-
-            .legal-alert {
-                padding: 1rem 1.25rem;
-                font-size: .88rem;
-            }
-
-            .legal-cta {
-                padding: 2rem 1.25rem;
-            }
-
-            .legal-cta h3 {
-                font-size: 1.35rem;
-            }
-
-            .legal-cta p {
-                font-size: .88rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .legal-cta-btn {
-                font-size: .82rem;
-                padding: .8rem 1.6rem;
-            }
-
-            .info-item {
-                padding: .85rem 1rem;
-            }
-
-            .info-item .info-value {
-                font-size: .83rem;
-                word-break: break-all;
+            .lg-footer {
+                padding: 2rem 1.5rem 2.5rem;
             }
         }
 
-        /* Très petit mobile <480px */
-        @media (max-width: 480px) {
-            main {
-                padding: 5.5rem 1rem 3rem;
+        @media (max-width: 540px) {
+
+            .lg-note,
+            .lg-todo {
+                padding-left: 1.15rem;
             }
 
-            .nav-inner {
-                padding: .75rem 1rem;
-            }
-
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .page-title {
-                font-size: 1.6rem;
-            }
-
-            .legal-section-title {
-                font-size: 1.15rem;
-            }
-
-            .sommaire {
-                padding: 1rem;
-            }
-
-            .legal-block {
-                padding: 1rem;
-            }
-
-            .legal-cta {
-                padding: 1.5rem 1rem;
-            }
-
-            .legal-cta h3 {
-                font-size: 1.2rem;
-            }
-
-            .legal-cta-btn {
-                width: 100%;
-                justify-content: center;
-                font-size: .8rem;
-            }
-
-            .legal-footer p {
-                font-size: .76rem;
+            .lg-footer-inner {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
             }
         }
     </style>
@@ -607,13 +425,18 @@
 
 <body>
 
+    <div id="page-transition" aria-hidden="true"></div>
     <div class="grain" aria-hidden="true"></div>
+    <div class="cursor" id="cursor" aria-hidden="true">
+        <div class="cursor-dot"></div>
+        <div class="cursor-ring"></div>
+    </div>
 
-    <!-- NAV -->
-    <nav class="nav" role="navigation" aria-label="Navigation">
+    <!-- ═══ NAV ═══ -->
+    <nav id="main-nav" class="nav" aria-label="Navigation principale">
         <div class="nav-inner">
-            <a href="index.html" class="nav-logo" aria-label="Sud Web Project — Accueil">
-                <svg viewBox="0 0 50 50" width="28" height="28" aria-hidden="true">
+            <a href="/" class="nav-logo" aria-label="Sud Web Project — Développeur web Saint-Tropez">
+                <svg viewBox="0 0 50 50" width="30" height="30" aria-hidden="true">
                     <polygon points="25,2.5 45,13.75 45,36.25 25,47.5 5,36.25 5,13.75" fill="url(#nG)" stroke="#3B82F6"
                         stroke-width="1.5" />
                     <defs>
@@ -627,339 +450,565 @@
                 </svg>
                 <span>Sud<em>Web</em> Project</span>
             </a>
-            <a href="index.html" class="nav-back" aria-label="Retour à l'accueil">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                    <path d="M8.75 3.5L5.25 7l3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                </svg>
-                Retour au site
-            </a>
+            <ul class="nav-links" id="nav-menu">
+                <li><a href="/#services">Services</a></li>
+                <li><a href="/#portfolio">Réalisations</a></li>
+                <li><a href="/#tarifs">Tarifs</a></li>
+                <li><a href="/#apropos">À propos</a></li>
+                <li><a href="/#contact">Contact</a></li>
+            </ul>
+            <a href="/#contact" class="nav-cta">Devis gratuit</a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false"
+                aria-controls="nav-menu"><span></span><span></span><span></span></button>
         </div>
+        <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
     </nav>
 
-    <!-- MAIN -->
     <main>
 
-        <!-- HEADER -->
-        <header class="page-header">
-            <div class="page-badge">⚖️ Juridique</div>
-            <h1 class="page-title">Mentions légales &<br><em>confidentialité.</em></h1>
-            <p class="page-subtitle">Informations légales, politique de confidentialité et conditions générales
-                applicables au site sudwebproject.com</p>
+        <!-- ═══ EN-TÊTE ═══ -->
+        <header class="lg-header">
+            <div class="lg-inner">
+                <div class="lg-rule" aria-hidden="true"></div>
+                <div class="section-label">Informations juridiques</div>
+                <h1 class="lg-title">Mentions légales &amp;<br><span class="ville-em">confidentialité.</span></h1>
+                <p class="lg-lead">Informations légales, politique de confidentialité, politique de cookies, conditions
+                    générales de vente et transparence sur les contenus générés par intelligence artificielle,
+                    applicables au site sudwebproject.com.</p>
+                <p class="lg-maj">Dernière mise à jour : 24 août 2026</p>
+            </div>
+
+            <nav class="lg-toc" aria-label="Sommaire">
+                <a href="#mentions">Mentions légales</a><span class="lg-toc-sep" aria-hidden="true">·</span>
+                <a href="#confidentialite">Confidentialité</a><span class="lg-toc-sep" aria-hidden="true">·</span>
+                <a href="#cookies">Cookies</a><span class="lg-toc-sep" aria-hidden="true">·</span>
+                <a href="#ia">Contenus générés par IA</a><span class="lg-toc-sep" aria-hidden="true">·</span>
+                <a href="#propriete">Propriété intellectuelle</a><span class="lg-toc-sep" aria-hidden="true">·</span>
+                <a href="#cgv">CGV</a><span class="lg-toc-sep" aria-hidden="true">·</span>
+                <a href="#responsabilite">Responsabilité</a><span class="lg-toc-sep" aria-hidden="true">·</span>
+                <a href="#contact-legal">Contact</a>
+            </nav>
         </header>
 
-        <!-- SOMMAIRE -->
-        <nav class="sommaire" aria-label="Sommaire">
-            <a href="#mentions">Mentions légales</a>
-            <a href="#confidentialite">Confidentialité</a>
-            <a href="#cookies">Cookies</a>
-            <a href="#propriete">Propriété intellectuelle</a>
-            <a href="#cgv">CGV</a>
-            <a href="#responsabilite">Responsabilité</a>
-            <a href="#contact-legal">Contact</a>
-        </nav>
+        <div class="lg-body">
 
-        <!-- ═══ 1. MENTIONS LÉGALES ═══ -->
-        <section class="legal-section" id="mentions" aria-labelledby="mentions-title">
-            <h2 class="legal-section-title" id="mentions-title">Mentions légales <span>Art. 6 LCEN</span></h2>
+            <!-- ═══ 1. MENTIONS LÉGALES ═══ -->
+            <section class="lg-section" id="mentions" aria-labelledby="mentions-title">
+                <h2 class="lg-section-title" id="mentions-title">Mentions légales</h2>
+                <span class="lg-section-ref">Article 6-III de la loi n° 2004-575 du 21 juin 2004 (LCEN)</span>
 
-            <div class="info-grid">
-                <div class="info-item">
-                    <div class="info-label">Responsable</div>
-                    <div class="info-value">Guillaume Robin</div>
-                </div>
-                <div class="info-item">
-                    <div class="info-label">Activité</div>
-                    <div class="info-value">Auto-entrepreneur</div>
-                </div>
-                <div class="info-item">
-                    <div class="info-label">SIRET</div>
-                    <div class="info-value">52106514400037</div>
-                </div>
-                <div class="info-item">
-                    <div class="info-label">Siège</div>
-                    <div class="info-value">Saint-Tropez, Var 83</div>
-                </div>
-                <div class="info-item">
-                    <div class="info-label">Email</div>
-                    <div class="info-value"><a href="mailto:contact@sudwebproject.com">contact@sudwebproject.com</a>
+                <div class="lg-ident">
+                    <div class="lg-ident-item">
+                        <span class="lg-ident-label">Éditeur du site</span>
+                        <div class="lg-ident-value">Guillaume Robin</div>
+                    </div>
+                    <div class="lg-ident-item">
+                        <span class="lg-ident-label">Statut</span>
+                        <div class="lg-ident-value">Entrepreneur individuel (auto-entrepreneur)</div>
+                    </div>
+                    <div class="lg-ident-item">
+                        <span class="lg-ident-label">SIRET</span>
+                        <div class="lg-ident-value">521 065 144 00037</div>
+                    </div>
+                    <div class="lg-ident-item">
+                        <span class="lg-ident-label">TVA</span>
+                        <div class="lg-ident-value">Non applicable — art. 293 B du CGI</div>
+                    </div>
+                    <div class="lg-ident-item">
+                        <span class="lg-ident-label">Adresse</span>
+                        <div class="lg-ident-value">19 Avenue de la Resistance- Les Echelles du Levant - Bat F42 — 83990
+                            Saint-Tropez, France</div>
+                    </div>
+                    <div class="lg-ident-item">
+                        <span class="lg-ident-label">Téléphone</span>
+                        <div class="lg-ident-value"><a href="tel:+33611547324">+33 6 11 54 73 24</a></div>
+                    </div>
+                    <div class="lg-ident-item">
+                        <span class="lg-ident-label">Email</span>
+                        <div class="lg-ident-value"><a
+                                href="mailto:contact@sudwebproject.com">contact@sudwebproject.com</a></div>
+                    </div>
+                    <div class="lg-ident-item">
+                        <span class="lg-ident-label">Directeur de la publication</span>
+                        <div class="lg-ident-value">Guillaume Robin</div>
                     </div>
                 </div>
-                <div class="info-item">
-                    <div class="info-label">Téléphone</div>
-                    <div class="info-value"><a href="tel:+33611547324">+33 6 11 54 73 24</a></div>
+
+                <div class="lg-block">
+                    <h3>Hébergement du site</h3>
+                    <p><strong>Cloudflare, Inc.</strong> — 101 Townsend Street, San Francisco, CA 94107, États-Unis —
+                        <a href="https://www.cloudflare.com" target="_blank"
+                            rel="noopener noreferrer">cloudflare.com</a>
+                    </p>
+                    <p>Le nom de domaine est enregistré auprès d'<strong>OVH SAS</strong> — 2 rue Kellermann, 59100
+                        Roubaix, France — <a href="https://www.ovh.com" target="_blank"
+                            rel="noopener noreferrer">ovh.com</a></p>
+                    <p>L'hébergeur étant établi hors de l'Union européenne, les données techniques associées à la
+                        consultation du site peuvent transiter par les États-Unis. Ce transfert est encadré par les
+                        garanties mises en place par Cloudflare, notamment les clauses contractuelles types de la
+                        Commission européenne.</p>
                 </div>
-            </div>
+            </section>
 
-            <div class="legal-block">
-                <h3>Directeur de la publication</h3>
-                <p>Le directeur de la publication est <strong>Guillaume Robin</strong>, responsable de Sud Web Project.
-                    Ce site est édité sous le régime de l'auto-entreprise, non assujetti à la TVA (article 293 B du
-                    CGI).</p>
-            </div>
+            <!-- ═══ 2. CONFIDENTIALITÉ ═══ -->
+            <section class="lg-section" id="confidentialite" aria-labelledby="confidentialite-title">
+                <h2 class="lg-section-title" id="confidentialite-title">Politique de confidentialité</h2>
+                <span class="lg-section-ref">Règlement (UE) 2016/679 (RGPD) · Loi Informatique et Libertés</span>
 
-            <div class="legal-block">
-                <h3>Hébergement</h3>
-                <p><strong>Cloudflare Pages</strong> — 101 Townsend St, San Francisco, CA 94107, USA — <a
-                        href="https://www.cloudflare.com" target="_blank" rel="noopener">cloudflare.com</a></p>
-                <p>Nom de domaine enregistré via <strong>OVH SAS</strong> — 2 rue Kellermann, 59100 Roubaix — <a
-                        href="https://www.ovh.com" target="_blank" rel="noopener">ovh.com</a></p>
-            </div>
-        </section>
+                <p class="lg-note">Ce site ne vend, ne loue et ne cède aucune donnée personnelle. Les seules données
+                    collectées sont celles que vous transmettez volontairement pour permettre le traitement de votre
+                    demande.</p>
 
-        <!-- ═══ 2. CONFIDENTIALITÉ ═══ -->
-        <section class="legal-section" id="confidentialite" aria-labelledby="confidentialite-title">
-            <h2 class="legal-section-title" id="confidentialite-title">Politique de confidentialité <span>RGPD</span>
-            </h2>
+                <div class="lg-block">
+                    <h3>Responsable du traitement</h3>
+                    <p><strong>Guillaume Robin — Sud Web Project</strong>, dont les coordonnées figurent dans les
+                        mentions légales ci-dessus. Compte tenu de la nature et du volume des traitements, la
+                        désignation d'un délégué à la protection des données n'est pas requise.</p>
+                </div>
 
-            <div class="legal-alert">
-                <strong>Engagement :</strong> Sud Web Project s'engage à protéger votre vie privée. Ce site ne vend
-                aucune donnée personnelle et collecte le strict minimum nécessaire au traitement de vos demandes.
-            </div>
+                <div class="lg-block">
+                    <h3>Données collectées</h3>
+                    <p>Les données collectées via le formulaire de contact sont :</p>
+                    <ul>
+                        <li>Nom ou raison sociale</li>
+                        <li>Adresse email</li>
+                        <li>Numéro de téléphone (facultatif)</li>
+                        <li>Ville et description du projet</li>
+                    </ul>
+                    <p>Ces données sont utilisées <strong>uniquement</strong> pour répondre à votre demande de devis ou
+                        de contact. Aucune donnée n'est transmise à des tiers à des fins commerciales ou publicitaires.
+                    </p>
+                </div>
 
-            <div class="legal-block">
-                <h3>Données collectées</h3>
-                <p>Les données collectées via le formulaire de contact sont :</p>
-                <ul>
-                    <li>Nom ou raison sociale</li>
-                    <li>Adresse email</li>
-                    <li>Numéro de téléphone (facultatif)</li>
-                    <li>Ville et description du projet</li>
-                </ul>
-                <p>Ces données sont utilisées <strong>uniquement</strong> pour répondre à votre demande de devis ou de
-                    contact. Elles ne sont jamais transmises à des tiers à des fins commerciales.</p>
-            </div>
+                <div class="lg-block">
+                    <h3>Base légale du traitement</h3>
+                    <p>Le traitement repose sur les mesures précontractuelles prises à votre demande (art. 6.1.b du
+                        RGPD) lorsque vous sollicitez un devis, et sur l'intérêt légitime à répondre à une demande
+                        de contact (art. 6.1.f). L'envoi de communications non sollicitées n'est pas pratiqué.</p>
+                </div>
 
-            <div class="legal-block">
-                <h3>Responsable du traitement</h3>
-                <p><strong>Guillaume Robin — Sud Web Project</strong><br>
-                    Saint-Tropez, Var 83<br>
-                    Email : <a href="mailto:contact@sudwebproject.com">contact@sudwebproject.com</a></p>
-            </div>
+                <div class="lg-block">
+                    <h3>Durée de conservation</h3>
+                    <p>Les données de prospection sont conservées <strong>3 ans</strong> à compter du dernier contact,
+                        conformément aux recommandations de la CNIL. Les données liées à une relation contractuelle sont
+                        conservées pendant la durée du contrat, puis archivées pendant les délais légaux de
+                        prescription et de conservation comptable (<strong>10 ans</strong> pour les pièces
+                        comptables).</p>
+                </div>
 
-            <div class="legal-block">
-                <h3>Base légale du traitement</h3>
-                <p>Le traitement de vos données repose sur votre <strong>consentement</strong> (case à cocher du
-                    formulaire) et sur l'<strong>intérêt légitime</strong> de répondre à votre demande commerciale (art.
-                    6.1.f du RGPD).</p>
-            </div>
+                <div class="lg-block">
+                    <h3>Destinataires et sous-traitants</h3>
+                    <p>Vos données sont accessibles au seul responsable du traitement. Deux prestataires techniques
+                        interviennent dans l'acheminement et l'hébergement :</p>
+                    <ul>
+                        <li><strong>EmailJS</strong> — acheminement des messages du formulaire de contact. Le service
+                            étant établi hors de l'Union européenne, le transfert est encadré par des garanties
+                            appropriées au sens du chapitre V du RGPD.</li>
+                        <li><strong>Cloudflare</strong> — hébergement du site et journalisation technique, dans les
+                            conditions décrites dans les mentions légales.</li>
+                    </ul>
+                </div>
 
-            <div class="legal-block">
-                <h3>Durée de conservation</h3>
-                <p>Vos données sont conservées pendant <strong>3 ans</strong> à compter de votre dernier contact,
-                    conformément aux recommandations de la CNIL. Au-delà, elles sont supprimées ou anonymisées.</p>
-            </div>
+                <div class="lg-block">
+                    <h3>Vos droits</h3>
+                    <p>Conformément au RGPD et à la loi Informatique et Libertés, vous disposez des droits suivants :
+                    </p>
+                    <ul>
+                        <li><strong>Droit d'accès</strong> — obtenir la liste des données vous concernant</li>
+                        <li><strong>Droit de rectification</strong> — corriger des données inexactes</li>
+                        <li><strong>Droit à l'effacement</strong> — demander la suppression de vos données</li>
+                        <li><strong>Droit à la portabilité</strong> — recevoir vos données dans un format exploitable
+                        </li>
+                        <li><strong>Droit d'opposition</strong> — vous opposer à un traitement fondé sur l'intérêt
+                            légitime</li>
+                        <li><strong>Droit à la limitation</strong> — restreindre le traitement dans certains cas</li>
+                        <li><strong>Droit de définir des directives</strong> relatives au sort de vos données après
+                            votre décès</li>
+                    </ul>
+                    <p>Pour exercer ces droits, écrivez à <a
+                            href="mailto:contact@sudwebproject.com">contact@sudwebproject.com</a>. Une réponse vous sera
+                        apportée dans un délai d'un mois, pouvant être prolongé de deux mois en cas de demande complexe.
+                        Un justificatif d'identité pourra être demandé en cas de doute raisonnable sur l'identité du
+                        demandeur.</p>
+                </div>
 
-            <div class="legal-block">
-                <h3>Vos droits</h3>
-                <p>Conformément au RGPD (Règlement UE 2016/679) et à la loi Informatique et Libertés, vous disposez des
-                    droits suivants :</p>
-                <ul>
-                    <li><strong>Droit d'accès</strong> — obtenir la liste des données vous concernant</li>
-                    <li><strong>Droit de rectification</strong> — corriger des données inexactes</li>
-                    <li><strong>Droit à l'effacement</strong> — demander la suppression de vos données</li>
-                    <li><strong>Droit à la portabilité</strong> — recevoir vos données dans un format exploitable</li>
-                    <li><strong>Droit d'opposition</strong> — vous opposer à un traitement</li>
-                    <li><strong>Droit à la limitation</strong> — restreindre le traitement dans certains cas</li>
-                </ul>
-                <p>Pour exercer ces droits : <a href="mailto:contact@sudwebproject.com">contact@sudwebproject.com</a>
-                </p>
-            </div>
+                <div class="lg-block">
+                    <h3>Réclamation auprès de la CNIL</h3>
+                    <p>Si vous estimez, après nous avoir contactés, que vos droits ne sont pas respectés, vous pouvez
+                        introduire une réclamation auprès de la <strong>CNIL</strong> — 3 place de Fontenoy, TSA 80715,
+                        75334 Paris Cedex 07 — <a href="https://www.cnil.fr" target="_blank"
+                            rel="noopener noreferrer">www.cnil.fr</a></p>
+                </div>
+            </section>
 
-            <div class="legal-block">
-                <h3>Réclamation CNIL</h3>
-                <p>Si vous estimez que vos droits ne sont pas respectés, vous pouvez introduire une réclamation auprès
-                    de la <strong>CNIL</strong> (Commission Nationale de l'Informatique et des Libertés) :<br>
-                    <a href="https://www.cnil.fr" target="_blank" rel="noopener">www.cnil.fr</a> — 3 Place de Fontenoy,
-                    TSA 80715, 75334 Paris Cedex 07
-                </p>
-            </div>
+            <!-- ═══ 3. COOKIES ═══ -->
+            <section class="lg-section" id="cookies" aria-labelledby="cookies-title">
+                <h2 class="lg-section-title" id="cookies-title">Politique de cookies</h2>
+                <span class="lg-section-ref">Article 82 de la loi Informatique et Libertés · Directive ePrivacy</span>
 
-            <div class="legal-block">
-                <h3>Service d'envoi d'emails</h3>
-                <p>Le formulaire de contact utilise <strong>EmailJS</strong> pour l'acheminement des messages. EmailJS
-                    est un service tiers conforme au RGPD. Les données transmises via le formulaire sont uniquement
-                    utilisées pour acheminer votre message vers nos boîtes de réception.</p>
-            </div>
-        </section>
+                <div class="lg-block">
+                    <h3>Cookies déposés</h3>
+                    <ul>
+                        <li><strong>Cookie de consentement</strong> — mémorise votre choix d'acceptation ou de refus
+                            afin de ne pas vous solliciter à chaque visite. Ce cookie est nécessaire au fonctionnement
+                            du dispositif de consentement et ne requiert pas votre accord. Durée : 12 mois.</li>
+                        <li><strong>Mesure d'audience</strong> — la fréquentation du site est mesurée de façon
+                            anonymisée, sans suivi individuel et sans recoupement avec d'autres traitements.</li>
+                    </ul>
+                    <p>Aucun cookie publicitaire, aucun traceur de réseau social et aucun outil de profilage n'est
+                        déposé sur ce site.</p>
+                </div>
 
-        <!-- ═══ 3. COOKIES ═══ -->
-        <section class="legal-section" id="cookies" aria-labelledby="cookies-title">
-            <h2 class="legal-section-title" id="cookies-title">Politique de cookies <span>ePrivacy</span></h2>
+                <div class="lg-block">
+                    <h3>Gestion de vos préférences</h3>
+                    <p>Vous pouvez retirer votre consentement à tout moment via le bandeau, ou supprimer les cookies
+                        depuis les paramètres de votre navigateur. Le refus n'a aucune incidence sur l'accès au site ni
+                        sur ses fonctionnalités. Le détail figure sur la page <a href="cookies.html">cookies</a>.</p>
+                </div>
+            </section>
 
-            <div class="legal-block">
-                <h3>Cookies utilisés</h3>
-                <p>Ce site utilise un nombre limité de cookies :</p>
-                <ul>
+            <!-- ═══ 4. CONTENUS GÉNÉRÉS PAR IA ═══ -->
+            <section class="lg-section" id="ia" aria-labelledby="ia-title">
+                <h2 class="lg-section-title" id="ia-title">Contenus générés par intelligence artificielle</h2>
+                <span class="lg-section-ref">Article 50 du règlement (UE) 2024/1689 — applicable depuis le 2 août
+                    2026</span>
 
-                    <li><strong>Cookie de consentement cookies</strong> — mémorise votre choix d'acceptation ou de
-                        refus. Durée : 12 mois.</li>
-                    <li><strong>Cookies analytiques</strong> (si acceptés) — mesure d'audience anonymisée via Cloudflare
-                        Web Analytics, sans collecte d'adresses IP complètes.</li>
-                </ul>
-            </div>
+                <p class="lg-note"><strong>Les photographies illustrant ce site sont des images générées par
+                        intelligence artificielle.</strong> Elles ne sont pas des photographies documentaires : elles ne
+                    représentent ni un lieu précis, ni un établissement réel, ni une personne réelle, ni une réalisation
+                    livrée à un client.</p>
 
-            <div class="legal-block">
-                <h3>Gestion de vos préférences</h3>
-                <p>Vous pouvez retirer votre consentement à tout moment en cliquant sur "Refuser" dans la bannière
-                    cookies, ou en supprimant les cookies de votre navigateur dans ses paramètres. Le refus des cookies
-                    analytiques n'affecte pas la navigation sur le site.</p>
-            </div>
-        </section>
+                <div class="lg-block">
+                    <h3>Nature des visuels</h3>
+                    <p>Les images d'illustration présentes sur les pages de ce site — vues de ville, intérieurs,
+                        détails techniques, ambiances — ont été <strong>produites à l'aide d'outils d'intelligence
+                            artificielle générative</strong>, à partir de descriptions rédigées par Sud Web Project.
+                        Elles font ensuite l'objet d'un traitement technique classique : recadrage aux formats du site,
+                        redimensionnement et conversion au format WebP.</p>
+                    <p>Ces visuels ont une fonction <strong>illustrative et éditoriale</strong>. Ils ne constituent pas
+                        une représentation fidèle d'un lieu, d'un bien, d'un établissement ou d'une prestation
+                        identifiables.</p>
+                </div>
 
-        <!-- ═══ 4. PROPRIÉTÉ INTELLECTUELLE ═══ -->
-        <section class="legal-section" id="propriete" aria-labelledby="propriete-title">
-            <h2 class="legal-section-title" id="propriete-title">Propriété intellectuelle <span>©</span></h2>
+                <div class="lg-block">
+                    <h3>Ce qui n'est pas généré par IA</h3>
+                    <ul>
+                        <li>Le code source du site, écrit à la main</li>
+                        <li>Les informations légales, tarifaires et contractuelles de cette page</li>
+                        <li>Les captures d'écran présentant l'évolution du site sudwebproject.com, qui sont des captures
+                            réelles</li>
+                        <li>Les avis clients éventuellement affichés, qui proviennent de comptes tiers vérifiables</li>
+                    </ul>
+                </div>
 
-            <div class="legal-block">
-                <h3>Contenu du site</h3>
-                <p>L'ensemble du contenu de ce site (textes, images, code source, design, logos, animations) est la
-                    propriété exclusive de <strong>Guillaume Robin — Sud Web Project</strong> ou fait l'objet d'une
-                    licence d'utilisation.</p>
-                <p>Toute reproduction, représentation, modification, publication ou adaptation de tout ou partie des
-                    éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite sans autorisation
-                    écrite préalable.</p>
-            </div>
+                <div class="lg-block">
+                    <h3>Projets de démonstration</h3>
+                    <p>Les réalisations présentées dans le portfolio et dans les études de cas sont des
+                        <strong>projets de démonstration conçus par Sud Web Project</strong> pour illustrer une méthode
+                        de travail. Les marques, enseignes, adresses et contenus qui y figurent sont fictifs et ne
+                        correspondent pas à des sites clients en ligne, sauf mention contraire explicite sur la page
+                        concernée.
+                    </p>
+                    <p>Les scores de performance éventuellement publiés sont des mesures relevées sur le projet de
+                        démonstration concerné, à un instant donné. Ils ne constituent ni un engagement, ni une
+                        prévision de résultat pour un autre projet.</p>
+                </div>
 
-            <div class="legal-block">
-                <h3>Marques et logos</h3>
-                <p>Les marques, logos et signes distinctifs reproduits sur ce site sont la propriété de leurs titulaires
-                    respectifs. Toute reproduction non autorisée est interdite.</p>
-            </div>
+                <div class="lg-block">
+                    <h3>Cadre réglementaire</h3>
+                    <p>Cette information est publiée au titre des obligations de transparence prévues par
+                        l'<strong>article 50 du règlement (UE) 2024/1689</strong> établissant des règles harmonisées
+                        concernant l'intelligence artificielle, dont les dispositions relatives à la transparence des
+                        contenus générés ou manipulés artificiellement sont applicables depuis le <strong>2 août
+                            2026</strong>.</p>
+                    <p>Le marquage technique lisible par machine des contenus de synthèse incombe aux fournisseurs des
+                        systèmes d'IA utilisés. Sud Web Project informe pour sa part le public, de manière claire et
+                        accessible, du caractère artificiel des visuels publiés sur ce site.</p>
+                </div>
+            </section>
 
-            <div class="legal-block">
-                <h3>Sites clients</h3>
-                <p>Les sites internet créés pour les clients dans le cadre d'une mission sont la <strong>propriété
-                        entière et exclusive du client</strong> à la livraison finale et après règlement complet de la
-                    facture. Guillaume Robin — Sud Web Project renonce à tout droit de rétention sur les livrables.</p>
-            </div>
-        </section>
+            <!-- ═══ 5. PROPRIÉTÉ INTELLECTUELLE ═══ -->
+            <section class="lg-section" id="propriete" aria-labelledby="propriete-title">
+                <h2 class="lg-section-title" id="propriete-title">Propriété intellectuelle</h2>
+                <span class="lg-section-ref">Code de la propriété intellectuelle</span>
 
-        <!-- ═══ 5. CGV ═══ -->
-        <section class="legal-section" id="cgv" aria-labelledby="cgv-title">
-            <h2 class="legal-section-title" id="cgv-title">Conditions générales de vente <span>CGV</span></h2>
+                <div class="lg-block">
+                    <h3>Contenu du site</h3>
+                    <p>L'ensemble du contenu de ce site — textes, code source, design, mise en page, logos, animations —
+                        est la propriété exclusive de <strong>Guillaume Robin — Sud Web Project</strong> ou fait
+                        l'objet d'une licence d'utilisation.</p>
+                    <p>Toute reproduction, représentation, modification, publication ou adaptation de tout ou partie de
+                        ces éléments, quel que soit le procédé utilisé, est interdite sans autorisation écrite
+                        préalable.</p>
+                </div>
 
-            <div class="legal-block">
-                <h3>Devis et commande</h3>
-                <p>Tout projet fait l'objet d'un <strong>devis gratuit et sans engagement</strong>, valable 30 jours à
-                    compter de son émission. La commande est confirmée par la signature du devis et le versement d'un
-                    acompte de <strong>50% du montant total HT</strong>.</p>
-            </div>
+                <div class="lg-block">
+                    <h3>Marques et signes distinctifs</h3>
+                    <p>Les marques, logos et signes distinctifs reproduits sur ce site sont la propriété de leurs
+                        titulaires respectifs. Leur mention éventuelle est faite à titre d'information et n'implique
+                        aucun partenariat.</p>
+                </div>
 
-            <div class="legal-block">
-                <h3>Tarifs</h3>
-                <p>Les prix indiqués sur ce site sont <strong>indicatifs et hors taxes</strong>. En tant
-                    qu'auto-entrepreneur, Guillaume Robin n'est pas assujetti à la TVA (art. 293 B du CGI) : la mention
-                    « TVA non applicable » figure sur les factures.</p>
-                <p>Le tarif final est précisé dans le devis signé par les deux parties.</p>
-            </div>
+                <div class="lg-block">
+                    <h3>Sites créés pour les clients</h3>
+                    <p>Les sites internet réalisés dans le cadre d'une mission deviennent la <strong>propriété entière
+                            et exclusive du client</strong> après livraison finale et règlement complet de la facture.
+                        Sud Web Project renonce à tout droit de rétention sur les livrables une fois le paiement
+                        intégral encaissé.</p>
+                    <p>Sauf opposition écrite du client, Sud Web Project se réserve la faculté de mentionner le projet
+                        et d'en présenter des visuels à titre de référence.</p>
+                </div>
+            </section>
 
-            <div class="legal-block">
-                <h3>Modalités de paiement</h3>
-                <ul>
-                    <li><strong>50%</strong> à la signature du devis (acompte de démarrage)</li>
-                    <li><strong>50%</strong> à la livraison finale, avant mise en ligne</li>
-                </ul>
-                <p>Paiement par virement bancaire. Les retards de paiement entraînent des pénalités de
-                    <strong>3 fois le taux légal</strong>, conformément à l'article L441-6 du Code de Commerce.
-                </p>
-            </div>
+            <!-- ═══ 6. CGV ═══ -->
+            <section class="lg-section" id="cgv" aria-labelledby="cgv-title">
+                <h2 class="lg-section-title" id="cgv-title">Conditions générales de vente</h2>
+                <span class="lg-section-ref">Applicables à toute prestation commandée auprès de Sud Web Project</span>
 
-            <div class="legal-block">
-                <h3>Délais de livraison</h3>
-                <p>Les délais sont précisés dans le devis. Ils sont donnés à titre indicatif et peuvent varier en
-                    fonction des retours clients, des modifications demandées et de la complexité du projet. Les délais
-                    de livraison débutent à compter de la réception de l'acompte et des éléments nécessaires au projet.
-                </p>
-            </div>
+                <div class="lg-block">
+                    <h3>Clients professionnels uniquement</h3>
+                    <p>Les prestations proposées par Sud Web Project sont <strong>exclusivement destinées à des clients
+                            agissant dans le cadre de leur activité professionnelle</strong> — entreprises, commerçants,
+                        artisans, professions libérales, associations exerçant une activité économique, quelle que soit
+                        leur forme juridique.</p>
+                    <p>Sud Web Project ne conclut pas de contrat avec des consommateurs au sens de l'article liminaire
+                        du Code de la consommation, c'est-à-dire avec des personnes physiques agissant à des fins
+                        n'entrant pas dans le cadre de leur activité commerciale, industrielle, artisanale, libérale ou
+                        agricole. Les dispositions du Code de la consommation relatives aux contrats conclus avec des
+                        consommateurs ne sont donc pas applicables aux présentes conditions.</p>
+                    <p>Le client déclare agir à titre professionnel et communique, à la demande de Sud Web Project, son
+                        <strong>numéro SIRET ou d'immatriculation</strong> ainsi que sa raison sociale. Ces éléments
+                        sont repris sur le devis et sur la facture.
+                    </p>
+                </div>
 
-            <div class="legal-block">
-                <h3>Propriété des livrables</h3>
-                <p>Le client devient propriétaire de l'ensemble des livrables (code source, fichiers, contenus) après
-                    règlement <strong>intégral de la facture</strong>. Avant ce règlement, les livrables restent la
-                    propriété de Sud Web Project.</p>
-            </div>
+                <div class="lg-block">
+                    <h3>Devis et commande</h3>
+                    <p>Toute prestation fait l'objet d'un <strong>devis gratuit et sans engagement</strong>, valable 30
+                        jours à compter de son émission. La commande est ferme à la signature du devis et au versement
+                        de l'acompte prévu ci-après. La signature du devis emporte acceptation sans réserve des
+                        présentes conditions.</p>
+                </div>
 
-            <div class="legal-block">
-                <h3>Hébergement et nom de domaine</h3>
-                <p>Sauf mention contraire dans le devis, l'hébergement et le nom de domaine sont à la <strong>charge
-                        exclusive du client</strong>. Guillaume Robin peut proposer son accompagnement pour la mise en
-                    place, sans obligation.</p>
-            </div>
+                <div class="lg-block">
+                    <h3>Tarifs</h3>
+                    <p>Les prix indiqués sur ce site sont <strong>indicatifs et exprimés hors taxes</strong>. Sud Web
+                        Project n'est pas assujetti à la TVA (art. 293 B du CGI) : la mention « TVA non applicable »
+                        figure sur les factures. Le tarif définitif est celui du devis signé par les deux parties.</p>
+                </div>
 
-            <div class="legal-block">
-                <h3>Confidentialité</h3>
-                <p>Guillaume Robin s'engage à respecter la confidentialité des informations communiquées par le client
-                    dans le cadre du projet. Ces informations ne seront pas transmises à des tiers.</p>
-            </div>
+                <div class="lg-block">
+                    <h3>Modalités de paiement</h3>
+                    <ul>
+                        <li><strong>50 %</strong> à la signature du devis, à titre d'acompte de démarrage</li>
+                        <li><strong>50 %</strong> à la livraison finale, avant mise en ligne</li>
+                    </ul>
+                    <p>Paiement par virement bancaire, à réception de facture. Les sommes versées à la commande
+                        constituent des <strong>acomptes</strong> et non des arrhes : elles engagent définitivement les
+                        deux parties.</p>
+                    <p>En cas de retard de paiement entre professionnels, des pénalités égales à <strong>trois fois le
+                            taux d'intérêt légal</strong> sont exigibles de plein droit, sans mise en demeure préalable,
+                        ainsi qu'une <strong>indemnité forfaitaire pour frais de recouvrement de 40 €</strong>
+                        (articles L441-10 et D441-5 du Code de commerce). Lorsque les frais de recouvrement exposés sont
+                        supérieurs à ce montant, une indemnisation complémentaire peut être demandée sur justificatifs.
+                    </p>
+                </div>
 
-            <div class="legal-block">
-                <h3>Droit applicable</h3>
-                <p>Les présentes CGV sont soumises au droit <strong>français</strong>. En cas de litige, et à défaut de
-                    résolution amiable, les tribunaux compétents sont ceux du ressort du siège de Sud Web Project
-                    (<strong>Var, France</strong>).</p>
-            </div>
-        </section>
+                <div class="lg-block">
+                    <h3>Délais de livraison</h3>
+                    <p>Les délais figurent dans le devis. Ils courent à compter de la réception de l'acompte et de
+                        l'ensemble des éléments nécessaires au projet (textes, images, accès techniques). Ils sont
+                        susceptibles d'être ajustés en fonction des retours du client, des modifications demandées en
+                        cours de projet et des délais de mise à disposition de ces éléments.</p>
+                </div>
 
-        <!-- ═══ 6. RESPONSABILITÉ ═══ -->
-        <section class="legal-section" id="responsabilite" aria-labelledby="responsabilite-title">
-            <h2 class="legal-section-title" id="responsabilite-title">Limitation de responsabilité</h2>
+                <div class="lg-block">
+                    <h3>Obligations du client</h3>
+                    <p>Le client s'engage à fournir les éléments nécessaires à la réalisation de la prestation et
+                        garantit détenir les droits d'utilisation des contenus qu'il transmet, notamment les
+                        photographies, textes et marques. Il garantit Sud Web Project contre toute réclamation d'un
+                        tiers à ce titre.</p>
+                </div>
 
-            <div class="legal-block">
-                <h3>Contenu du site</h3>
-                <p>Les informations contenues sur ce site sont fournies à titre indicatif. Sud Web Project s'efforce de
-                    les maintenir à jour mais ne peut garantir leur exhaustivité ou leur exactitude à tout moment. Sud
-                    Web Project ne pourra être tenu responsable des erreurs ou omissions.</p>
-            </div>
+                <div class="lg-block">
+                    <h3>Propriété des livrables</h3>
+                    <p>Le client devient propriétaire de l'ensemble des livrables — code source, fichiers, contenus —
+                        après règlement <strong>intégral</strong> de la facture. Avant ce règlement, les livrables
+                        demeurent la propriété de Sud Web Project.</p>
+                </div>
 
-            <div class="legal-block">
-                <h3>Liens externes</h3>
-                <p>Ce site peut contenir des liens vers des sites tiers. Sud Web Project n'exerce aucun contrôle sur le
-                    contenu de ces sites et décline toute responsabilité quant à leur contenu ou leur accessibilité.</p>
-            </div>
+                <div class="lg-block">
+                    <h3>Hébergement et nom de domaine — principe</h3>
+                    <p>Sauf souscription à la formule décrite ci-après, l'hébergement et le nom de domaine sont à la
+                        <strong>charge exclusive du client</strong> et souscrits en son nom. Sud Web Project peut
+                        accompagner leur mise en place sans que cela emporte obligation de résultat sur la disponibilité
+                        des services fournis par des tiers.
+                    </p>
+                </div>
 
-            <div class="legal-block">
-                <h3>Disponibilité</h3>
-                <p>Sud Web Project ne peut garantir l'accès ininterrompu au site. Des interruptions peuvent survenir
-                    pour des raisons de maintenance, de mise à jour ou de problèmes liés à l'hébergeur. Sud Web Project
-                    ne saurait être tenu responsable des dommages liés à une indisponibilité temporaire.</p>
-            </div>
-        </section>
+                <div class="lg-block">
+                    <h3>Formule tout compris : nom de domaine et hébergement pris en charge</h3>
+                    <p>Le client peut opter pour une formule dans laquelle Sud Web Project se charge de la souscription
+                        du nom de domaine et de l'hébergement, et en <strong>règle le coût pour la première période
+                            souscrite</strong>. Cette prise en charge est mentionnée expressément au devis, avec la
+                        durée couverte.</p>
+                    <p>Dans ce cadre :</p>
+                    <ul>
+                        <li>Le nom de domaine et le compte d'hébergement sont enregistrés <strong>au nom du
+                                client</strong>, qui en est le titulaire dès l'origine. Sud Web Project n'en est ni
+                            propriétaire ni titulaire, et ne conserve aucun droit dessus.</li>
+                        <li>Le client fournit les informations d'identification exigées par le bureau
+                            d'enregistrement et l'hébergeur, et demeure responsable de leur exactitude et de leur mise à
+                            jour.</li>
+                        <li>Les identifiants et accès sont remis au client, qui peut à tout moment transférer le nom de
+                            domaine ou l'hébergement vers le prestataire de son choix, sans autorisation préalable.</li>
+                        <li>La prise en charge financière porte <strong>uniquement sur la période indiquée au
+                                devis</strong>. Les renouvellements ultérieurs sont à la charge du client.</li>
+                    </ul>
+                </div>
 
-        <!-- ═══ 7. CONTACT ═══ -->
-        <section class="legal-section" id="contact-legal">
-            <div class="legal-cta">
-                <h3>Une question juridique ?</h3>
-                <p>Pour toute demande relative à vos données personnelles, à vos droits RGPD ou aux présentes mentions
-                    légales, contactez-moi directement.</p>
-                <a href="mailto:contact@sudwebproject.com" class="legal-cta-btn">
-                    <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                    </svg>
-                    contact@sudwebproject.com
-                </a>
-            </div>
-        </section>
+                <div class="lg-block">
+                    <h3>Renouvellement et rappel</h3>
+                    <p>Environ <strong>trois mois avant l'échéance</strong> de la période prise en charge, Sud Web
+                        Project adresse au client un courrier électronique l'informant que le nom de domaine et
+                        l'hébergement doivent être renouvelés, et lui indiquant les démarches à effectuer.</p>
+                    <p>Ce rappel constitue une <strong>obligation de moyens</strong> et un service de courtoisie. Il est
+                        envoyé à la dernière adresse électronique communiquée par le client, à charge pour ce dernier de
+                        signaler tout changement. <strong>Le renouvellement relève de la seule responsabilité du
+                            client</strong>, titulaire du nom de domaine et du compte d'hébergement.</p>
+                    <p>À défaut de renouvellement dans les délais fixés par le bureau d'enregistrement et l'hébergeur,
+                        le site devient inaccessible et le nom de domaine peut être libéré puis enregistré par un tiers,
+                        sans possibilité de récupération. Sud Web Project ne saurait être tenu responsable des
+                        conséquences d'un défaut de renouvellement, y compris en cas de non-réception du rappel pour un
+                        motif indépendant de sa volonté — adresse obsolète, message classé en indésirable, boîte
+                        saturée.</p>
+                    <p>Si le client souhaite que Sud Web Project prenne en charge les renouvellements suivants, cela
+                        fait l'objet d'un accord distinct, précisé au devis ou dans une formule de <a
+                            href="maintenance.html">maintenance</a>.</p>
+                </div>
+
+                <div class="lg-block">
+                    <h3>Confidentialité</h3>
+                    <p>Sud Web Project s'engage à respecter la confidentialité des informations communiquées par le
+                        client dans le cadre du projet et à ne pas les transmettre à des tiers.</p>
+                </div>
+
+                <div class="lg-block">
+                    <h3>Droit applicable et juridiction compétente</h3>
+                    <p>Les présentes conditions sont soumises au <strong>droit français</strong>. En cas de litige, les
+                        parties s'efforcent de trouver une solution amiable avant toute action contentieuse.</p>
+                    <p>À défaut d'accord amiable, et les présentes conditions étant conclues entre professionnels,
+                        <strong>compétence expresse est attribuée aux tribunaux du ressort du siège de Sud Web
+                            Project</strong>, y compris en cas de pluralité de défendeurs, d'appel en garantie ou de
+                        procédure d'urgence.
+                    </p>
+                </div>
+            </section>
+
+
+            <!-- ═══ 7. RESPONSABILITÉ ═══ -->
+            <section class="lg-section" id="responsabilite" aria-labelledby="responsabilite-title">
+                <h2 class="lg-section-title" id="responsabilite-title">Limitation de responsabilité</h2>
+                <span class="lg-section-ref">Informations et disponibilité du site</span>
+
+                <div class="lg-block">
+                    <h3>Contenu du site</h3>
+                    <p>Les informations publiées sur ce site sont fournies à titre indicatif. Sud Web Project s'efforce
+                        de les tenir à jour sans pouvoir garantir leur exhaustivité ou leur exactitude à tout instant,
+                        et ne saurait être tenu responsable des erreurs ou omissions qu'elles pourraient comporter.</p>
+                </div>
+
+                <div class="lg-block">
+                    <h3>Liens vers des sites tiers</h3>
+                    <p>Ce site comporte des liens vers des sites tiers. Sud Web Project n'exerce aucun contrôle sur leur
+                        contenu et décline toute responsabilité quant à celui-ci, à leur accessibilité et aux pratiques
+                        de leurs éditeurs en matière de données personnelles.</p>
+                </div>
+
+                <div class="lg-block">
+                    <h3>Disponibilité</h3>
+                    <p>L'accès au site peut être interrompu pour des raisons de maintenance, de mise à jour ou pour des
+                        motifs liés à l'hébergeur. Sud Web Project ne saurait être tenu responsable des conséquences
+                        d'une indisponibilité temporaire.</p>
+                </div>
+
+                <div class="lg-block">
+                    <h3>Résultats des prestations</h3>
+                    <p>Les prestations de création, de refonte et de maintenance sont réalisées conformément aux bonnes
+                        pratiques du métier et constituent une <strong>obligation de moyens</strong>. Le positionnement
+                        dans les moteurs de recherche, le volume de trafic et les résultats commerciaux dépendent de
+                        facteurs extérieurs — algorithmes des moteurs, concurrence, marché — sur lesquels Sud Web
+                        Project n'a pas de maîtrise et qui ne peuvent faire l'objet d'aucune garantie.</p>
+                </div>
+            </section>
+
+            <!-- ═══ 8. CONTACT ═══ -->
+            <section class="lg-contact" id="contact-legal" aria-labelledby="contact-legal-title">
+                <h2 id="contact-legal-title">Une question juridique ?</h2>
+                <p>Pour toute demande relative à vos données personnelles, à l'exercice de vos droits ou aux présentes
+                    mentions, écrivez-moi directement. Une réponse vous sera apportée dans le délai d'un mois prévu par
+                    le RGPD.</p>
+                <div class="ville-cta-actions">
+                    <a href="mailto:contact@sudwebproject.com" class="btn-hero">
+                        contact@sudwebproject.com →
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                            <path d="M3.75 9h10.5M9.75 4.5L14.25 9l-4.5 4.5" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                    <a href="/" class="btn-ghost-hero">Retour à l'accueil →</a>
+                </div>
+            </section>
+
+        </div>
 
     </main>
 
-    <!-- FOOTER -->
-    <footer class="legal-footer" role="contentinfo">
-        <p>© <span id="yr"></span> Sud Web Project — Guillaume Robin, auto-entrepreneur — Saint-Tropez, Var 83</p>
-        <p>SIRET : 52106514400037 · <a href="index.html">Retour à l'accueil</a></p>
+    <!-- ═══ FOOTER RÉDUIT ═══ -->
+    <footer class="lg-footer" id="main-footer">
+        <div class="lg-footer-inner">
+            <p>©
+                <script>document.write(new Date().getFullYear())</script> Sud Web Project — Guillaume Robin,
+                entrepreneur individuel · SIRET 521 065 144 00037 · Saint-Tropez, Var 83
+            </p>
+            <div class="lg-footer-legal">
+                <a href="/">Accueil</a>
+                <span aria-hidden="true">·</span>
+                <a href="cookies.html">Cookies</a>
+                <span aria-hidden="true">·</span>
+                <a href="/#contact">Contact</a>
+            </div>
+        </div>
     </footer>
 
-    <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+    <script src="js/vendor/gsap.min.js" defer></script>
+    <script src="js/vendor/ScrollTrigger.min.js" defer></script>
+    <script src="js/vendor/lenis.min.js" defer></script>
+    <script src="js/motion.js" defer></script>
+    <script src="js/global.js" defer></script>
+    <script src="js/lux.js" defer></script>
+    <script src="js/titles.js" defer></script>
+
+    <script>
+        window.addEventListener('load', function () {
+            var ric = window.requestIdleCallback || function (cb) { setTimeout(cb, 200); };
+            ric(function () {
+                var s = document.createElement('script'); s.src = 'js/cookies.js'; document.head.appendChild(s);
+            });
+        });
+    </script>
 
     <div class="cookie-banner" role="dialog" aria-label="Cookies"
         style="display:none;opacity:0;transform:translateX(-50%) translateY(20px);">
-        <p>Ce site utilise des cookies analytiques anonymisés. <a href="cookies.html">En savoir plus</a></p>
-        <div>
-            <button id="cookie-refuse">Refuser</button>
-            <button id="cookie-accept">Accepter</button>
+        <div class="cookie-inner">
+            <p>Ce site utilise des cookies analytiques anonymisés. <a href="cookies.html">En savoir plus</a></p>
+            <div class="cookie-btns">
+                <button id="cookie-refuse">Refuser</button>
+                <button id="cookie-accept">Accepter</button>
+            </div>
         </div>
     </div>
+
 </body>
 
 </html>
