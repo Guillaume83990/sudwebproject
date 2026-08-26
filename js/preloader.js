@@ -1,349 +1,197 @@
 /* ═══════════════════════════════════════════════════════════════
-   SWP PRELOADER — Sud Web Project
-   Construction du logo par tracé, rotation 360°, atterrissage header.
-   Dépendances : Three.js r128 + GSAP 3 (chargés avant ce fichier)
+   SWP PRELOADER — « La signature »
+   Une ligne de lumière construit le symbole, le nom apparaît,
+   puis la signature rejoint sa place définitive dans le header.
+
+   Dépendance : GSAP 3 uniquement (déjà chargé par le site).
+   Aucune scène 3D : le symbole est le SVG du header, tracé au
+   stroke-dashoffset. Le vol est un transform composité.
    ═══════════════════════════════════════════════════════════════ */
 (function () {
     'use strict';
 
-    /* ─────────────────────────────────────────────────────────────
-       RÉGLAGES — c'est ici et nulle part ailleurs
-       ───────────────────────────────────────────────────────────── */
     var CONFIG = {
-        ROTATION_DURATION: 4.8,        // durée d'UN tour complet, en secondes
-        PLAY_ONCE_PER_SESSION: false,  // true = ne rejoue pas si déjà vu dans l'onglet
-        ANCHOR_SELECTOR: '#swp-logo-anchor', // le logo du header, cible d'atterrissage
-        HEADER_HEX_RATIO: 0.45,        // rayon de l'hexagone / hauteur du SVG header
-        WATCHDOG_MS: 4000              // si Three/GSAP ne chargent pas : on révèle
+        ANCHOR: '#swp-logo-anchor',   // le logo du header — destination
+        SPEED: 1,                     // 1 = tempo de référence · 1.3 = plus rapide · 0.8 = plus lent
+        WATCHDOG_MS: 9000             // au-delà, on rend la main quoi qu'il arrive
     };
 
-    // Palette — mesurée sur le logo du header
-    var BRAND = {
-        face: 0x3B82F6,   // faces de l'hexagone  (= fill du SVG)
-        side: 0x1D4ED8,   // tranches             (= fin du dégradé du SVG)
-        edge: 0x93C4FD,   // arêtes lumineuses
-        glyph: 0xFFFFFF,  // le </>
-        glyphSide: 0xDCE7F5,
-        glow: 0x3B82F6,
-        dust: 0x2563EB
-    };
-
-    var HEX_R = 1.25, HEX_DEPTH = 0.44, BEVEL = 0.07;
-
-    /* Les 5 traits du </> — coordonnées locales */
-    var GLYPH_SEGMENTS = [
-        [[-0.66, 0.00], [-0.26, 0.34]],
-        [[-0.66, 0.00], [-0.26, -0.34]],
-        [[-0.13, -0.37], [0.13, 0.37]],
-        [[0.66, 0.00], [0.26, 0.34]],
-        [[0.66, 0.00], [0.26, -0.34]]
-    ];
-
-    /* ─────────────────────────────────────────────────────────────
-       ÉLÉMENTS
-       ───────────────────────────────────────────────────────────── */
     var root = document.documentElement;
-    var preloader = document.getElementById('swp-preloader');
-    var preBg = document.getElementById('swp-pre-bg');
-    var preVignette = document.getElementById('swp-pre-vignette');
-    var wordEl = document.getElementById('swp-pre-word');
-    var captionEl = document.getElementById('swp-pre-caption');
-    var anchor = document.querySelector(CONFIG.ANCHOR_SELECTOR);
+    var pre = document.getElementById('swp-preloader');
+    if (!pre) return;
 
-    if (!preloader) return;
+    var bg = document.getElementById('swp-pre-bg');
+    var mark = document.getElementById('swp-pre-mark');
+    var seed = document.getElementById('swp-pre-seed');
+    var trace = document.getElementById('swp-pre-trace');
+    var fill = document.getElementById('swp-pre-fill');
+    var glyph = document.getElementById('swp-pre-glyph');
+    var wordEl = document.getElementById('swp-pre-word');
+    var rule = document.getElementById('swp-pre-rule');
+    var anchor = document.querySelector(CONFIG.ANCHOR);
+
+    var watchdog = null;
 
     /* ─────────────────────────────────────────────────────────────
-       SORTIE IMMÉDIATE — cas où on ne joue pas la séquence
+       SORTIE — un seul chemin de sortie, quel que soit le scénario
        ───────────────────────────────────────────────────────────── */
+    var done = false;
     function finish() {
+        if (done) return;
+        done = true;
         root.classList.remove('swp-preloading');
-        preloader.style.display = 'none';
+        pre.style.display = 'none';
         if (anchor) anchor.style.opacity = '';
+        if (watchdog) { clearTimeout(watchdog); watchdog = null; }
         if (window.__swpFailsafe) { clearTimeout(window.__swpFailsafe); window.__swpFailsafe = null; }
+        window.__swpIntroDone = true;
+        // Point d'accroche pour les scripts qui veulent démarrer après l'intro
+        window.dispatchEvent(new CustomEvent('swp:intro-done'));
     }
 
-    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var alreadySeen = false;
+    /* ─────────────────────────────────────────────────────────────
+       CAS DE SORTIE IMMÉDIATE
+       ───────────────────────────────────────────────────────────── */
+    var reduceMotion = false;
     try {
-        alreadySeen = CONFIG.PLAY_ONCE_PER_SESSION &&
-            sessionStorage.getItem('swp_intro_seen') === '1';
-    } catch (e) { /* sessionStorage indisponible : on joue */ }
+        reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    } catch (e) { }
 
-    if (reduceMotion || alreadySeen || !window.THREE || !window.gsap) {
+    if (window.__swpSkipIntro || reduceMotion || !window.gsap) {
         finish();
         return;
     }
-    try { sessionStorage.setItem('swp_intro_seen', '1'); } catch (e) { }
 
-    // On prend la main : le failsafe du <head> est remplacé par le nôtre
+    // On reprend la main sur le failsafe posé dans le <head>
     if (window.__swpFailsafe) clearTimeout(window.__swpFailsafe);
-    window.__swpFailsafe = setTimeout(finish, CONFIG.WATCHDOG_MS + 12000);
+    watchdog = setTimeout(finish, CONFIG.WATCHDOG_MS);
 
     /* ─────────────────────────────────────────────────────────────
-       LE MOT — SUD / WEB (bleu) / PROJECT
+       LE NOM — SUD / WEB (accentué) / PROJECT
        ───────────────────────────────────────────────────────────── */
-    var WORD = 'SUDWEBPROJECT';
-    WORD.split('').forEach(function (ch, i) {
-        var s = document.createElement('span');
-        s.textContent = ch;
-        if (i >= 3 && i < 6) s.className = 'accent';
-        wordEl.appendChild(s);
-    });
-    var letters = wordEl.querySelectorAll('span');
-
-    /* ─────────────────────────────────────────────────────────────
-       SCÈNE
-       ───────────────────────────────────────────────────────────── */
-    var renderer, scene, camera, raf;
-    var logoGroup, hexBody, hexFaceMat, hexSideMat, edgeMat,
-        glyphFaceMat, glyphSideMat, hexGlow, ambientField;
-    var edgeBars = [], glyphBars = [], allLogoMats = [];
-
-    var V = [];
-    for (var i = 0; i < 6; i++) {
-        var a = Math.PI / 6 + i * Math.PI / 3;
-        V.push([HEX_R * Math.cos(a), HEX_R * Math.sin(a)]);
-    }
-
-    function hexagonShape(radius) {
-        var shape = new THREE.Shape();
-        for (var i = 0; i < 6; i++) {
-            var ang = Math.PI / 6 + i * Math.PI / 3;
-            var x = radius * Math.cos(ang), y = radius * Math.sin(ang);
-            if (i === 0) shape.moveTo(x, y); else shape.lineTo(x, y);
-        }
-        shape.closePath();
-        return shape;
-    }
-
-    // Barre dont l'origine est au point de départ : scale.x 0 → 1 = le trait se dessine
-    function growBar(ax, ay, bx, by, thick, depth, materials, overshoot) {
-        var dx = bx - ax, dy = by - ay;
-        var len = Math.sqrt(dx * dx + dy * dy) + (overshoot || 0);
-        var geo = new THREE.BoxGeometry(len, thick, depth);
-        geo.translate(len / 2, 0, 0);
-        var mesh = new THREE.Mesh(geo, materials);
-        mesh.position.set(ax, ay, 0);
-        mesh.rotation.z = Math.atan2(dy, dx);
-        mesh.scale.x = 0;
-        return mesh;
-    }
-
-    function initThree() {
-        renderer = new THREE.WebGLRenderer({
-            antialias: true, alpha: true, powerPreference: 'high-performance'
-        });
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        // PAS d'outputEncoding : MeshBasicMaterial doit restituer la couleur brute
-        preloader.appendChild(renderer.domElement);
-
-        scene = new THREE.Scene();
-        camera = new THREE.PerspectiveCamera(46, window.innerWidth / window.innerHeight, 0.1, 220);
-        camera.position.set(0, 0.25, 7.4);
-
-        // Champ d'ambiance, loin derrière : ne voile jamais le logo
-        var DCOUNT = window.innerWidth < 640 ? 130 : 240;
-        var dpos = new Float32Array(DCOUNT * 3);
-        for (var d = 0; d < DCOUNT; d++) {
-            dpos[d * 3] = (Math.random() - 0.5) * 26;
-            dpos[d * 3 + 1] = (Math.random() - 0.5) * 17;
-            dpos[d * 3 + 2] = -6 - Math.random() * 20;
-        }
-        var dgeo = new THREE.BufferGeometry();
-        dgeo.setAttribute('position', new THREE.BufferAttribute(dpos, 3));
-        ambientField = new THREE.Points(dgeo, new THREE.PointsMaterial({
-            color: BRAND.dust, size: 0.024, transparent: true, opacity: 0,
-            blending: THREE.AdditiveBlending, depthWrite: false, sizeAttenuation: true
-        }));
-        scene.add(ambientField);
-
-        logoGroup = new THREE.Group();
-        scene.add(logoGroup);
-
-        /* Matériaux NON ÉCLAIRÉS : la couleur affichée EST la couleur déclarée */
-        edgeMat = new THREE.MeshBasicMaterial({ color: BRAND.edge, transparent: true, opacity: 0 });
-        glyphFaceMat = new THREE.MeshBasicMaterial({ color: BRAND.glyph, transparent: true, opacity: 0 });
-        glyphSideMat = new THREE.MeshBasicMaterial({ color: BRAND.glyphSide, transparent: true, opacity: 0 });
-        hexFaceMat = new THREE.MeshBasicMaterial({ color: BRAND.face, transparent: true, opacity: 0 });
-        hexSideMat = new THREE.MeshBasicMaterial({ color: BRAND.side, transparent: true, opacity: 0 });
-        allLogoMats = [edgeMat, glyphFaceMat, glyphSideMat, hexFaceMat, hexSideMat];
-
-        // 1 — les 6 arêtes de l'hexagone
-        for (var e = 0; e < 6; e++) {
-            var p = V[e], q = V[(e + 1) % 6];
-            var bar = growBar(p[0], p[1], q[0], q[1], 0.055, 0.055, edgeMat, 0.05);
-            logoGroup.add(bar);
-            edgeBars.push(bar);
-        }
-
-        // 2 — les 5 traits du </>  (BoxGeometry : 0..3 = flancs, 4/5 = faces)
-        var glyphMats = [glyphSideMat, glyphSideMat, glyphSideMat, glyphSideMat,
-            glyphFaceMat, glyphFaceMat];
-        GLYPH_SEGMENTS.forEach(function (seg) {
-            var b = growBar(seg[0][0], seg[0][1], seg[1][0], seg[1][1], 0.105, 0.68, glyphMats, 0.05);
-            b.scale.y = 0.26;
-            b.scale.z = 0.09;
-            logoGroup.add(b);
-            glyphBars.push(b);
-        });
-
-        // 3 — le volume plein (ExtrudeGeometry : groupe 0 = faces, groupe 1 = tranches)
-        var hexGeo = new THREE.ExtrudeGeometry(hexagonShape(HEX_R), {
-            depth: HEX_DEPTH, bevelEnabled: true,
-            bevelThickness: BEVEL, bevelSize: BEVEL, bevelSegments: 4
-        });
-        hexGeo.center();
-        hexBody = new THREE.Mesh(hexGeo, [hexFaceMat, hexSideMat]);
-        hexBody.scale.z = 0.04;
-        logoGroup.add(hexBody);
-
-        // halo, derrière : n'altère jamais la couleur des faces
-        var glowGeo = new THREE.ExtrudeGeometry(hexagonShape(HEX_R * 1.24), {
-            depth: 0.04, bevelEnabled: false
-        });
-        glowGeo.center();
-        hexGlow = new THREE.Mesh(glowGeo, new THREE.MeshBasicMaterial({
-            color: BRAND.glow, transparent: true, opacity: 0,
-            blending: THREE.AdditiveBlending, depthWrite: false
-        }));
-        hexGlow.position.z = -0.55;
-        scene.add(hexGlow);
-
-        logoGroup.rotation.x = -0.16;
-
-        window.addEventListener('resize', onResize);
-        animate();
-    }
-
-    function onResize() {
-        if (!renderer) return;
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    }
-
-    function animate() {
-        raf = requestAnimationFrame(animate);
-        ambientField.rotation.y += 0.0003;
-        renderer.render(scene, camera);
-    }
-
-    function stopRender() {
-        if (raf) cancelAnimationFrame(raf);
-        raf = null;
-        window.removeEventListener('resize', onResize);
-        if (renderer) {
-            renderer.dispose();
-            if (renderer.domElement && renderer.domElement.parentNode) {
-                renderer.domElement.parentNode.removeChild(renderer.domElement);
+    var letters = [];
+    (function buildWord() {
+        if (!wordEl) return;
+        var parts = [
+            { text: 'SUD', accent: false },
+            { text: 'WEB', accent: true },
+            { text: 'PROJECT', accent: false }
+        ];
+        parts.forEach(function (part, pi) {
+            part.text.split('').forEach(function (ch) {
+                var s = document.createElement('span');
+                s.textContent = ch;
+                if (part.accent) s.className = 'accent';
+                wordEl.appendChild(s);
+                letters.push(s);
+            });
+            if (pi < parts.length - 1) {
+                var gap = document.createElement('span');
+                gap.className = 'gap';
+                gap.innerHTML = '&nbsp;';
+                wordEl.appendChild(gap);
             }
-        }
-    }
+        });
+    })();
 
-    /* Position monde du logo du header — recalculée au moment du saut,
-       donc juste quel que soit l'écran ou si vous déplacez le logo */
-    function headerTarget() {
-        var r = anchor.getBoundingClientRect();
-        var cx = r.left + r.width / 2, cy = r.top + r.height / 2;
-        var ndcX = (cx / window.innerWidth) * 2 - 1;
-        var ndcY = -((cy / window.innerHeight) * 2 - 1);
-        var dist = camera.position.z;
-        var h = 2 * Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2) * dist;
-        var w = h * camera.aspect;
-        var worldPerPx = h / window.innerHeight;
-        var targetRadiusPx = r.height * CONFIG.HEADER_HEX_RATIO;
-        return {
-            x: ndcX * w / 2 + camera.position.x,
-            y: ndcY * h / 2 + camera.position.y,
-            scale: (targetRadiusPx * worldPerPx) / HEX_R
-        };
+    /* ─────────────────────────────────────────────────────────────
+       DESTINATION — mesurée, jamais codée en dur
+       ───────────────────────────────────────────────────────────── */
+    var TARGET = { x: 0, y: 0, scale: 1, ok: false };
+
+    function measureFlight() {
+        if (!anchor || !mark) return;
+        var a = mark.getBoundingClientRect();
+        var b = anchor.getBoundingClientRect();
+        if (!a.width || !b.width) return;
+        TARGET.x = (b.left + b.width / 2) - (a.left + a.width / 2);
+        TARGET.y = (b.top + b.height / 2) - (a.top + a.height / 2);
+        TARGET.scale = b.width / a.width;
+        TARGET.ok = true;
     }
 
     /* ─────────────────────────────────────────────────────────────
-       SÉQUENCE
+       SÉQUENCE — une seule timeline
        ───────────────────────────────────────────────────────────── */
-    function runSequence() {
+    function run() {
+        // Le logo du header s'efface : c'est la signature qui viendra l'occuper
         if (anchor) anchor.style.opacity = '0';
 
-        var tl = gsap.timeline();
-        var ROT_START = 3.5;
-        var ROT_END = ROT_START + CONFIG.ROTATION_DURATION;   // 8.3s
+        // Longueur exacte du contour, mesurée sur le tracé réel
+        var len = 0;
+        if (trace && typeof trace.getTotalLength === 'function') {
+            len = trace.getTotalLength();
+            gsap.set(trace, { strokeDasharray: len, strokeDashoffset: len });
+        }
 
-        /* Phase 1 — 0 → 1.4s : le contour se trace, arête par arête */
-        tl.to(ambientField.material, { opacity: 0.28, duration: 0.9, ease: 'power1.out' }, 0);
-        tl.to(edgeMat, { opacity: 1, duration: 0.28, ease: 'power1.out' }, 0.06);
-        edgeBars.forEach(function (bar, i) {
-            tl.to(bar.scale, { x: 1, duration: 0.32, ease: 'power2.inOut' }, 0.1 + i * 0.19);
-        });
+        var tl = gsap.timeline({ onComplete: finish });
+        tl.timeScale(CONFIG.SPEED);
 
-        /* Phase 2 — 1.2 → 2.2s : les 5 traits du </> */
-        tl.to([glyphFaceMat, glyphSideMat], { opacity: 1, duration: 0.25, ease: 'power1.out' }, 1.2);
-        glyphBars.forEach(function (bar, i) {
-            tl.to(bar.scale, { x: 1, duration: 0.30, ease: 'power2.inOut' }, 1.25 + i * 0.15);
-        });
+        /* ── Phase 1 · Respiration — 0.00 → 0.40 ── */
+        tl.to(bg, { opacity: 1, duration: 0.40, ease: 'power1.out' }, 0);
 
-        /* Phase 3 — 2.2 → 3.4s : matérialisation en volume */
-        tl.to(camera.position, { z: 6.2, duration: 1.4, ease: 'power2.inOut' }, 2.2);
-        tl.to([hexFaceMat, hexSideMat], { opacity: 1, duration: 0.9, ease: 'power2.out' }, 2.3);
-        tl.to(hexBody.scale, { z: 1, duration: 1.05, ease: 'power3.out' }, 2.3);
-        glyphBars.forEach(function (bar, i) {
-            tl.to(bar.scale, { y: 1, z: 1, duration: 0.8, ease: 'power3.out' }, 2.4 + i * 0.05);
-        });
-        tl.to(edgeMat, { opacity: 1, duration: 0.7, ease: 'power1.inOut' }, 2.6);
-        tl.to(hexGlow.material, { opacity: 0.3, duration: 1.0, ease: 'power1.in' }, 2.4);
+        /* ── Phase 2 · La ligne de lumière — 0.35 → 0.90 ── */
+        tl.fromTo(seed,
+            { scaleX: 0, opacity: 0 },
+            { scaleX: 1, opacity: 1, duration: 0.55, ease: 'power2.out' }, 0.35);
 
-        /* Phase 4 — 3.5 → 8.3s : UN tour complet de 360° */
-        tl.to(logoGroup.scale, { x: 1.06, y: 1.06, z: 1.06, duration: 0.28, ease: 'power2.out' }, ROT_START);
-        tl.to(logoGroup.scale, { x: 1, y: 1, z: 1, duration: 0.42, ease: 'power2.inOut' }, ROT_START + 0.28);
-        tl.to(logoGroup.rotation, {
-            y: Math.PI * 2, duration: CONFIG.ROTATION_DURATION, ease: 'power1.inOut'
-        }, ROT_START);
+        /* ── Phase 3 · Le tracé du symbole — 0.85 → 2.15 ──
+           Le cœur de la séquence : la ligne devient le contour. */
+        if (len) {
+            tl.to(trace, { strokeDashoffset: 0, duration: 1.30, ease: 'power1.inOut' }, 0.85);
+        }
+        tl.to(seed, { opacity: 0, duration: 0.45, ease: 'power1.in' }, 1.10);
 
-        /* Phase 5 — le nom apparaît pendant la rotation */
-        tl.to(letters, { opacity: 1, y: '0%', duration: 0.6, stagger: 0.05, ease: 'power3.out' }, 4.1);
-        tl.to(captionEl, { opacity: 1, y: 0, duration: 0.55, ease: 'power2.out' }, 5.0);
+        /* ── Phase 4 · Le symbole se remplit — 2.15 → 2.80 ── */
+        tl.to([fill, glyph], { opacity: 1, duration: 0.60, ease: 'power2.out' }, 2.15);
+        tl.to(trace, { opacity: 0, duration: 0.55, ease: 'power1.in' }, 2.25);
 
-        /* Phase 6 — rotation terminée → le logo rejoint le header */
-        tl.call(function () {
-            var t = headerTarget();
-            gsap.to(logoGroup.rotation, { x: 0, duration: 1.1, ease: 'power2.inOut' });
-            gsap.to(logoGroup.position, { x: t.x, y: t.y, z: 0, duration: 1.25, ease: 'power3.inOut' });
-            gsap.to(logoGroup.scale, { x: t.scale, y: t.scale, z: t.scale, duration: 1.25, ease: 'power3.inOut' });
-            gsap.to(hexGlow.material, { opacity: 0, duration: 0.65, ease: 'power1.in' });
-        }, null, ROT_END);
+        /* ── Phase 5 · Le nom, puis le filet de signature — 2.55 → 4.10 ── */
+        if (letters.length) {
+            tl.to(letters, {
+                opacity: 1, y: 0, duration: 0.70,
+                stagger: 0.05, ease: 'power3.out'
+            }, 2.55);
+        }
+        tl.to(rule, { scaleX: 1, duration: 0.80, ease: 'power2.inOut' }, 3.30);
 
-        tl.to([letters, captionEl], { opacity: 0, y: -14, duration: 0.5, ease: 'power2.in' }, ROT_END);
-        tl.to([preBg, preVignette], { opacity: 0, duration: 0.9, ease: 'power2.inOut' }, ROT_END + 0.15);
-        tl.to(ambientField.material, { opacity: 0, duration: 0.85, ease: 'power1.in' }, ROT_END + 0.15);
+        /* ── Phase 6 · La signature rejoint le header — 4.10 → 5.15 ──
+           La mesure est faite juste avant le tween : les valeurs sont
+           résolues à l'exécution, donc justes même si la page a bougé. */
+        tl.call(measureFlight, null, 4.10);
+        tl.to(mark, {
+            x: function () { return TARGET.ok ? TARGET.x : 0; },
+            y: function () { return TARGET.ok ? TARGET.y : 0; },
+            scale: function () { return TARGET.ok ? TARGET.scale : 1; },
+            duration: 1.05, ease: 'power3.inOut'
+        }, 4.10);
+        tl.to([wordEl, rule], { opacity: 0, duration: 0.55, ease: 'power2.in' }, 4.10);
 
-        /* Le site reprend la main : on relâche le scroll et les animations du hero */
-        tl.call(function () {
-            root.classList.remove('swp-preloading');
-        }, null, ROT_END + 0.15);
+        /* ── Phase 7 · Passage de relais — 5.15 → 5.85 ── */
+        if (anchor) tl.to(anchor, { opacity: 1, duration: 0.22, ease: 'none' }, 5.15);
+        tl.to(mark, { opacity: 0, duration: 0.22, ease: 'none' }, 5.22);
 
-        /* Passage de relais : le logo 3D cède la place au SVG du header */
-        tl.to(anchor, { opacity: 1, duration: 0.3, ease: 'power1.out' }, ROT_END + 1.1);
-        tl.to(allLogoMats, { opacity: 0, duration: 0.3, ease: 'power1.in' }, ROT_END + 1.15);
-
-        tl.call(function () {
-            stopRender();
-            finish();
-        }, null, ROT_END + 1.5);
+        /* Le site reprend la main */
+        tl.call(function () { root.classList.remove('swp-preloading'); }, null, 5.30);
+        tl.to(bg, { opacity: 0, duration: 0.55, ease: 'power2.inOut' }, 5.30);
+        tl.to(pre, { opacity: 0, duration: 0.30, ease: 'none' }, 5.55);
     }
 
     /* ─────────────────────────────────────────────────────────────
-       DÉMARRAGE
+       DÉMARRAGE — après les polices, sinon le header n'a pas
+       encore ses dimensions finales et l'atterrissage tombe à côté
        ───────────────────────────────────────────────────────────── */
     function boot() {
-        if (!anchor) { finish(); return; }   // pas d'ancre = pas de séquence
         try {
-            initThree();
-            runSequence();
+            if (document.fonts && document.fonts.ready) {
+                Promise.race([
+                    document.fonts.ready,
+                    new Promise(function (r) { setTimeout(r, 400); })
+                ]).then(run, run);
+            } else {
+                run();
+            }
         } catch (err) {
-            console.warn('[SWP preloader]', err);
-            stopRender();
             finish();
         }
     }

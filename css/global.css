@@ -1341,7 +1341,7 @@ section {
         top: 60px;
         right: -100%;
         width: 260px;
-        height: calc(100vh - 60px);
+        height: calc(100svh - 60px);
         background: rgba(8, 12, 20, .98);
         backdrop-filter: blur(20px);
         flex-direction: column;
@@ -1790,4 +1790,101 @@ section {
 
 .footer-seo a:hover {
     color: var(--blue-l);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ÉCRANS BAS — SMARTPHONE EN PAYSAGE
+   ---------------------------------------------------------------
+   Un téléphone tourné fait 844×390 ou 932×430 : il dépasse le
+   seuil de 768px et reçoit donc la mise en page desktop alors
+   qu'il ne dispose que de ~390px de hauteur.
+
+   Ce bloc rétablit la composition compacte du mobile en se
+   fondant sur la HAUTEUR et l'ORIENTATION, pas sur la largeur.
+   500px couvre tous les téléphones en paysage sans jamais
+   atteindre une tablette (iPad paysage = 1024×768).
+   ═══════════════════════════════════════════════════════════════ */
+@media (max-height: 500px) and (orientation: landscape) {
+
+    /* ── Header : la composition compacte, pas la desktop ── */
+    .nav-inner {
+        padding: .6rem 1.25rem;
+        gap: .75rem;
+    }
+
+    .nav-logo {
+        font-size: 1rem;
+    }
+
+    .nav-logo svg {
+        width: 26px;
+        height: 26px;
+    }
+
+    /* Le menu déroulant reprend la logique mobile */
+    .nav-links {
+        position: fixed;
+        top: 52px;
+        right: -100%;
+        width: 260px;
+        height: calc(100svh - 52px);
+        background: rgba(8, 12, 20, .98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: .75rem 0;
+        gap: 0;
+        margin: 0;
+        overflow-y: auto;
+        transition: right .35s var(--ease);
+        z-index: 999;
+        border-left: 1px solid var(--border);
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links li {
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, .04);
+    }
+
+    .nav-links a {
+        display: block;
+        padding: .7rem 1.5rem;
+        font-size: .9rem;
+        color: var(--mist);
+    }
+
+    .nav-links a::after {
+        display: none;
+    }
+
+    .nav-toggle {
+        display: flex;
+        margin-left: auto;
+    }
+
+    /* Le CTA seul sur une ligne mangerait la moitié de la hauteur */
+    .nav-cta {
+        display: none;
+    }
+
+    /* ── Sections : les respirations verticales se resserrent ── */
+    .why,
+    .portfolio,
+    .services,
+    .tarifs,
+    .apropos,
+    .contact,
+    .faq {
+        padding-top: 3.5rem;
+        padding-bottom: 3.5rem;
+    }
+
+    /* ── Le footer ne doit pas devenir une page à lui seul ── */
+    .footer-inner {
+        padding-top: 2.5rem;
+        padding-bottom: 2rem;
+    }
 }
