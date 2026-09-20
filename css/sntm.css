@@ -1,0 +1,261 @@
+/* ═══════════════════════════════════════════════════
+   SNTM.CSS — Sud Web Project
+   PORTFOLIO À DEUX REGISTRES
+   Registre 1 : projets clients réels
+   Registre 2 : projets de démonstration
+   Aucun badge, aucune couleur criarde : la distinction
+   se fait par le titre de registre, le cachet du client
+   et le libellé du lien.
+   À charger APRÈS portfolio.css et methode.css.
+   ═══════════════════════════════════════════════════ */
+
+/* ── TITRE DE REGISTRE ─────────────────────────────
+   Occupe un emplacement pleine largeur de la cimaise
+   pour ne pas perturber la grille existante, mais on
+   neutralise tout ce qui en ferait une carte.
+   ───────────────────────────────────────────────── */
+.pf-work.pf-reg {
+    display: block;
+    background: none;
+    border: 0;
+    box-shadow: none;
+    padding: 0;
+    margin: 0 0 1rem;
+    min-height: 0;
+    transform: none !important;
+    pointer-events: none;
+}
+
+.pf-work.pf-reg::before,
+.pf-work.pf-reg::after {
+    display: none;
+}
+
+.pf-work.pf-reg--demo {
+    margin-top: 5.5rem;
+}
+
+.pf-reg-label {
+    display: block;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-h);
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--blue-l);
+}
+
+.pf-reg--demo .pf-reg-label {
+    border-top-color: var(--border);
+    color: var(--mist-2);
+}
+
+.pf-reg-note {
+    display: block;
+    margin-top: .5rem;
+    max-width: 52ch;
+    font-size: .85rem;
+    line-height: 1.7;
+    color: var(--mist-2);
+}
+
+/* ── IDENTITÉ DU CLIENT — le cachet ────────────────
+   Un seul repère, dans le cartel. Ce n'est pas un mur
+   de logos : c'est la marque de l'entreprise pour
+   laquelle le site a été fait.
+   ───────────────────────────────────────────────── */
+.pf-ident {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: .35rem;
+}
+
+.pf-ident>div {
+    min-width: 0;
+}
+
+.pf-mark {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    object-fit: cover;
+    background: var(--ink-2);
+}
+
+/* La mention « Client » se distingue de « Concept »
+   par la couleur d'accent, pas par une pastille. */
+.pf-num em {
+    font-style: normal;
+    font-size: .68em;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--mist-2);
+    margin-left: .6rem;
+}
+
+.pf-num em.pf-client {
+    color: var(--blue-l);
+}
+
+.pf-num em.pf-client::before {
+    content: '';
+    display: inline-block;
+    width: .45rem;
+    height: 1px;
+    margin-right: .5rem;
+    vertical-align: middle;
+    background: var(--blue-l);
+}
+
+/* ── CARTE CLIENT — deux actions au lieu d'une ── */
+.pf-foot-line--client {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.pf-foot-line--client .pf-demo+.pf-demo {
+    color: var(--mist);
+}
+
+.pf-foot-line--client .pf-demo+.pf-demo:hover {
+    color: var(--blue-l);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+    .pf-work.pf-reg--demo {
+        margin-top: 3.5rem;
+    }
+
+    .pf-reg-label {
+        font-size: .74rem;
+    }
+
+    .pf-mark {
+        width: 38px;
+        height: 38px;
+    }
+
+    .pf-foot-line--client {
+        gap: 1rem;
+    }
+}
+
+/* ═══════════════════════════════════════════════════
+   À PROPOS — lien vers la méthode
+   ═══════════════════════════════════════════════════ */
+.about-more {
+    margin: -1rem 0 2rem;
+    font-size: .88rem;
+}
+
+.about-more a {
+    font-weight: 600;
+    color: var(--blue-l);
+    border-bottom: 1px solid transparent;
+    transition: border-color .3s var(--ease);
+}
+
+.about-more a:hover {
+    border-bottom-color: var(--blue-l);
+}
+
+/* ═══════════════════════════════════════════════════
+   LIGNE D'INTENTION — sous chaque cartel du portfolio
+   Ce qui a été décidé pour cette entreprise-là, et
+   pourquoi. C'est elle qui démontre le sur-mesure.
+   ═══════════════════════════════════════════════════ */
+.pf-why {
+    margin: .9rem 0 1.1rem;
+    padding-left: 1rem;
+    border-left: 1px solid var(--border-h);
+    max-width: 46ch;
+    font-family: var(--ff-display);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--snow);
+}
+
+.pf-work--client .pf-why {
+    border-left-color: var(--blue-l);
+}
+
+/* ── PUNCHLINE DE LA MÉTHODE ── */
+.method-punch {
+    max-width: 780px;
+    margin: 0 auto 1.5rem;
+    font-family: var(--ff-display);
+    font-size: clamp(1.15rem, 2.1vw, 1.7rem);
+    line-height: 1.4;
+    color: #fff;
+}
+
+.method-punch em {
+    display: block;
+    font-style: italic;
+    color: var(--blue-l);
+}
+
+@media (max-width: 768px) {
+    .pf-why {
+        font-size: .95rem;
+        max-width: 100%;
+    }
+
+    .method-punch {
+        text-align: left;
+    }
+}
+
+/* ═══════════════════════════════════════════════════
+   CONTACT — le déroulé en trois temps
+   Trois lignes réglées, pas trois cartes.
+   ═══════════════════════════════════════════════════ */
+.cflow {
+    list-style: none;
+    margin: 0 0 2.5rem;
+    padding: 0;
+    max-width: 46ch;
+}
+
+.cflow li {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    align-items: baseline;
+    padding: .85rem 0;
+    border-top: 1px solid var(--border);
+    font-size: .95rem;
+    line-height: 1.6;
+    color: var(--mist);
+}
+
+.cflow li:last-child {
+    border-bottom: 1px solid var(--border);
+}
+
+.cflow li span {
+    font-family: var(--ff-display);
+    font-size: .85rem;
+    color: var(--blue-l);
+}
+
+/* Note sous le titre du formulaire */
+.cform-note {
+    margin: -1.25rem 0 1.75rem;
+    font-size: .82rem;
+    line-height: 1.65;
+    color: var(--mist-2);
+}
+
+@media (max-width: 768px) {
+    .cflow {
+        margin-bottom: 2rem;
+        max-width: 100%;
+    }
+}

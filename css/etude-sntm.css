@@ -1,0 +1,446 @@
+/* ═══════════════════════════════════════════════════
+   ETUDE-SNTM.CSS — Sud Web Project
+   Étude de cas SNTM SAP — premier projet client
+   Registre visuel : la surface et le reflet.
+   Chargé en dernier, après la pile commune.
+   ═══════════════════════════════════════════════════ */
+
+/* ── EN-TÊTE DE PAGE ── */
+.cs-hero {
+    padding: 11rem 2rem 5rem;
+    background: var(--ink);
+}
+
+.cs-hero-inner {
+    max-width: 1040px;
+    margin: 0 auto;
+}
+
+.cs-title {
+    font-family: var(--ff-display);
+    font-size: clamp(2.1rem, 4vw, 3.6rem);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -.025em;
+    color: #fff;
+    margin: 0 0 1.75rem;
+}
+
+.cs-title em {
+    font-style: italic;
+    color: var(--blue-l);
+}
+
+.cs-lead {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: var(--mist);
+    max-width: 62ch;
+    margin: 0;
+}
+
+/* Fiche projet — colonnes réglées, pas de cartes */
+.cs-facts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 3.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+}
+
+.cs-fact dt {
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--mist-2);
+    margin-bottom: .5rem;
+}
+
+.cs-fact dd {
+    margin: 0;
+    font-size: .95rem;
+    line-height: 1.6;
+    color: var(--snow);
+}
+
+.cs-fact dd a {
+    color: var(--blue-l);
+    border-bottom: 1px solid transparent;
+    transition: border-color .3s var(--ease);
+}
+
+.cs-fact dd a:hover {
+    border-bottom-color: var(--blue-l);
+}
+
+/* ── SECTIONS ── */
+.cs-sec {
+    padding: 6rem 2rem;
+}
+
+.cs-sec--alt {
+    background: var(--ink-2);
+}
+
+.cs-inner {
+    max-width: 1040px;
+    margin: 0 auto;
+}
+
+.cs-h {
+    font-family: var(--ff-display);
+    font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -.02em;
+    color: #fff;
+    margin: 0 0 2rem;
+}
+
+.cs-h em {
+    font-style: italic;
+    color: var(--blue-l);
+}
+
+.cs-sec p {
+    font-size: 1.02rem;
+    line-height: 1.95;
+    color: var(--mist);
+    max-width: 68ch;
+}
+
+.cs-sec p+p {
+    margin-top: 1.4rem;
+}
+
+.cs-sec p strong {
+    color: var(--snow);
+    font-weight: 500;
+}
+
+/* ── FIGURES ── */
+.cs-fig {
+    margin: 3rem 0 0;
+}
+
+.cs-fig img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+}
+
+.cs-fig--archive img {
+    filter: grayscale(.8) contrast(.93);
+    transition: filter .5s var(--ease);
+}
+
+.cs-fig--archive:hover img {
+    filter: grayscale(.25) contrast(1);
+}
+
+.cs-fig figcaption {
+    margin-top: .85rem;
+    font-size: .7rem;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--mist-2);
+}
+
+.cs-fig--new figcaption {
+    color: var(--blue-l);
+}
+
+.cs-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.cs-pair .cs-fig {
+    margin-top: 0;
+}
+
+/* ── LE CONSTAT — deux colonnes réglées ── */
+.cs-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: 3rem;
+}
+
+.cs-col-head {
+    display: block;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border);
+    font-size: .76rem;
+    font-weight: 700;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    color: var(--mist-2);
+    margin-bottom: 1.5rem;
+}
+
+.cs-col--after .cs-col-head {
+    border-top-color: var(--border-h);
+    color: var(--blue-l);
+}
+
+.cs-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.cs-list li {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    align-items: start;
+    padding: 1.05rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, .05);
+    font-size: .95rem;
+    line-height: 1.75;
+    color: var(--mist);
+}
+
+.cs-list li span {
+    font-family: var(--ff-display);
+    font-size: .88rem;
+    color: var(--mist-2);
+    padding-top: .1rem;
+}
+
+.cs-col--after .cs-list li span {
+    color: var(--blue-l);
+}
+
+/* ── CE QUE J'AI CHANGÉ ── */
+.cs-changes {
+    border-bottom: 1px solid var(--border);
+    margin-top: 1rem;
+}
+
+.cs-row {
+    display: grid;
+    grid-template-columns: minmax(0, .34fr) minmax(0, .66fr);
+    gap: 3rem;
+    align-items: start;
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--border);
+}
+
+.cs-row-head {
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+}
+
+.cs-n {
+    font-size: .76rem;
+    font-weight: 700;
+    letter-spacing: .18em;
+    color: var(--blue-l);
+}
+
+.cs-name {
+    font-family: var(--ff-display);
+    font-size: clamp(1.25rem, 2vw, 1.7rem);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -.02em;
+    color: #fff;
+    margin: 0;
+}
+
+.cs-row p {
+    margin: 0;
+    max-width: 54ch;
+}
+
+/* ── RESPIRATION ── */
+.cs-breath {
+    padding: 7rem 2rem;
+    background: var(--ink);
+    text-align: center;
+}
+
+.cs-breath p {
+    max-width: 720px;
+    margin: 0 auto;
+    font-family: var(--ff-display);
+    font-size: clamp(1.3rem, 2.6vw, 2.1rem);
+    line-height: 1.45;
+    color: var(--snow);
+}
+
+.cs-breath em {
+    display: block;
+    font-style: italic;
+    color: var(--blue-l);
+}
+
+.cs-breath-sign {
+    display: block;
+    margin-top: 2rem;
+    font-size: .7rem;
+    font-weight: 600;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--mist-2);
+}
+
+/* ── MESURE À VENIR — honnêteté ── */
+.cs-pending {
+    margin-top: 3rem;
+    padding-left: 1.75rem;
+    border-left: 1px solid var(--border);
+}
+
+.cs-pending p {
+    font-size: .95rem;
+    color: var(--mist);
+}
+
+/* ── CLÔTURE ── */
+.cs-end {
+    padding: 6rem 2rem 7rem;
+    background: var(--ink-2);
+    border-top: 1px solid var(--border);
+}
+
+.cs-end-inner {
+    max-width: 1040px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.cs-end p {
+    margin: 0 0 1.5rem;
+    max-width: 48ch;
+}
+
+.cs-links {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    font-size: .88rem;
+    font-weight: 600;
+}
+
+.cs-links a {
+    color: var(--blue-l);
+    border-bottom: 1px solid transparent;
+    transition: border-color .3s var(--ease);
+}
+
+.cs-links a:hover {
+    border-bottom-color: var(--blue-l);
+}
+
+/* ── FIL D'ARIANE ── */
+.cs-crumb {
+    max-width: 1040px;
+    margin: 0 auto 2rem;
+    font-size: .78rem;
+    letter-spacing: .04em;
+    color: var(--mist-2);
+}
+
+.cs-crumb a {
+    color: var(--mist);
+}
+
+.cs-crumb a:hover {
+    color: var(--blue-l);
+}
+
+/* ═══════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+    .cs-facts {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.75rem;
+    }
+
+    .cs-cols {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .cs-pair {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .cs-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .cs-hero {
+        padding: 8rem 1rem 3.5rem;
+    }
+
+    .cs-sec {
+        padding: 4rem 1rem;
+    }
+
+    .cs-breath {
+        padding: 5rem 1rem;
+    }
+
+    .cs-end {
+        padding: 4rem 1rem 5rem;
+    }
+
+    .cs-lead {
+        font-size: 1rem;
+    }
+
+    .cs-row {
+        padding: 2rem 0;
+    }
+
+    .cs-links {
+        gap: 1.25rem;
+    }
+}
+
+/* ═══════════════════════════════════════════════════
+   PUNCHLINE DE CLÔTURE
+   ═══════════════════════════════════════════════════ */
+.cs-claim {
+    max-width: 640px;
+    margin: 3.5rem 0 0;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--border-h);
+    font-family: var(--ff-display);
+    font-size: clamp(1.3rem, 2.4vw, 2rem);
+    line-height: 1.35;
+    color: #fff;
+}
+
+.cs-claim em {
+    display: block;
+    font-style: italic;
+    color: var(--blue-l);
+}
+
+@media (max-width: 768px) {
+    .cs-claim {
+        margin-top: 2.5rem;
+        padding-top: 2rem;
+    }
+}

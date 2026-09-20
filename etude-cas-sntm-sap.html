@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Étude de cas SNTM SAP — Refonte site internet entreprise de nettoyage | Sud Web Project</title>
+    <meta name="description"
+        content="Étude de cas : la refonte complète du site internet de SNTM SAP, entreprise de nettoyage et de traitement des sols du Golfe de Saint-Tropez. Le point de départ, les décisions, l'avant / après." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="author" content="Guillaume Robin — Sud Web Project" />
+    <meta name="geo.region" content="FR-83" />
+    <meta name="geo.placename" content="Saint-Tropez, Var, Provence-Alpes-Côte d'Azur" />
+    <meta name="theme-color" content="#080C14" />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Étude de cas SNTM SAP — Refonte site internet entreprise de nettoyage" />
+    <meta property="og:description"
+        content="La refonte complète du site d'une entreprise de nettoyage et de traitement des sols du Golfe de Saint-Tropez : le point de départ, les décisions, l'avant / après." />
+    <meta property="og:url" content="https://www.sudwebproject.com/etude-cas-sntm-sap.html" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Sud Web Project" />
+    <meta property="og:image" content="https://www.sudwebproject.com/assets/images/sntm-apres-1600.webp" />
+
+    <!-- Schema.org -->
+    <script
+        type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.sudwebproject.com/"},{"@type":"ListItem","position":2,"name":"Réalisations","item":"https://www.sudwebproject.com/#portfolio"},{"@type":"ListItem","position":3,"name":"Étude de cas SNTM SAP","item":"https://www.sudwebproject.com/etude-cas-sntm-sap.html"}]}</script>
+    <script
+        type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Étude de cas SNTM SAP — refonte du site d'une entreprise de nettoyage","description":"La refonte complète du site internet de SNTM SAP, entreprise de nettoyage et de traitement des sols du Golfe de Saint-Tropez.","author":{"@type":"Person","name":"Guillaume Robin"},"publisher":{"@type":"Organization","name":"Sud Web Project","url":"https://www.sudwebproject.com"},"mainEntityOfPage":"https://www.sudwebproject.com/etude-cas-sntm-sap.html","image":"https://www.sudwebproject.com/assets/images/sntm-apres-1600.webp","about":{"@type":"Thing","name":"Refonte de site internet pour une entreprise de nettoyage"},"inLanguage":"fr-FR"}</script>
+
+    <link rel="canonical" href="https://www.sudwebproject.com/etude-cas-sntm-sap.html" />
+
+    <!-- CSS — même pile que les autres pages, la feuille de la page ferme -->
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/cookies.css" media="print" onload="this.media='all'" />
+    <link rel="stylesheet" href="css/fonts-local.css" />
+    <link rel="stylesheet" href="css/motion.css" />
+    <link rel="stylesheet" href="css/depth.css" />
+    <link rel="stylesheet" href="css/type.css" />
+    <link rel="stylesheet" href="css/refine.css" />
+    <link rel="stylesheet" href="css/space.css" />
+    <link rel="stylesheet" href="css/breath.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/methode.css" />
+    <link rel="stylesheet" href="css/etude-sntm.css" />
+
+    <style>
+        /* Nav recentrée — même réglage que l'accueil */
+        .nav-inner {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.75rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        @media (max-width:900px) {
+            .nav-inner {
+                grid-template-columns: 1fr auto;
+            }
+        }
+
+        html {
+            scroll-padding-top: 72px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="page-transition" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="cursor" id="cursor" aria-hidden="true">
+        <div class="cursor-dot"></div>
+        <div class="cursor-ring"></div>
+    </div>
+
+    <!-- ═══ NAV ═══ -->
+    <nav id="main-nav" class="nav" role="navigation" aria-label="Navigation principale">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo" aria-label="Sud Web Project — Développeur web Saint-Tropez">
+                <svg id="swp-logo-anchor" viewBox="0 0 50 50" width="30" height="30" aria-hidden="true">
+                    <polygon points="25,2.5 45,13.75 45,36.25 25,47.5 5,36.25 5,13.75" fill="url(#nG)" stroke="#3B82F6"
+                        stroke-width="1.5" />
+                    <defs>
+                        <linearGradient id="nG" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#3B82F6" />
+                            <stop offset="100%" style="stop-color:#1D4ED8" />
+                        </linearGradient>
+                    </defs>
+                    <text x="25" y="31" text-anchor="middle" fill="white" font-size="15" font-family="monospace"
+                        font-weight="bold">&lt;/&gt;</text>
+                </svg>
+                <span>Sud<em>Web</em> Project</span>
+            </a>
+            <ul class="nav-links" id="nav-menu">
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#portfolio">Réalisations</a></li>
+                <li><a href="index.html#tarifs">Tarifs</a></li>
+                <li><a href="index.html#apropos">À propos</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <a href="index.html#contact" class="nav-cta">Devis gratuit</a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false"
+                aria-controls="nav-menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+    </nav>
+
+
+    <!-- ═══ EN-TÊTE ═══ -->
+    <header class="cs-hero">
+        <div class="cs-crumb">
+            <a href="index.html">Accueil</a> · <a href="index.html#portfolio">Réalisations</a> · SNTM SAP
+        </div>
+        <div class="cs-hero-inner">
+            <div class="section-label">Étude de cas — projet client</div>
+            <h1 class="cs-title">SNTM SAP : la refonte du site d'une
+                <em>entreprise de nettoyage du Golfe de Saint-Tropez.</em>
+            </h1>
+            <p class="cs-lead">SNTM SAP entretient les sols et les locaux professionnels du Golfe de Saint-Tropez :
+                commerces, établissements scolaires, bureaux, copropriétés, chantiers à livrer. Marbre, travertin,
+                terre cuite, parquet, béton ciré, grès cérame — chaque matériau appelle une méthode différente, et
+                c'est cette différence qui fait le métier. <strong>Le site devait la rendre visible avant
+                    qu'on décroche le téléphone.</strong></p>
+
+            <dl class="cs-facts">
+                <div class="cs-fact">
+                    <dt>Client</dt>
+                    <dd>SNTM SAP</dd>
+                </div>
+                <div class="cs-fact">
+                    <dt>Secteur</dt>
+                    <dd>Nettoyage &amp; traitement des sols</dd>
+                </div>
+                <div class="cs-fact">
+                    <dt>Prestation</dt>
+                    <dd>Refonte complète, FR / EN</dd>
+                </div>
+                <div class="cs-fact">
+                    <dt>Le site</dt>
+                    <dd><a href="https://guillaume83990.github.io/sntm-sap/index.html" target="_blank"
+                            rel="noopener noreferrer">Voir le site en ligne →</a></dd>
+                </div>
+            </dl>
+        </div>
+    </header>
+
+    <!-- ═══ LE POINT DE DÉPART ═══ -->
+    <section class="cs-sec cs-sec--alt" aria-labelledby="cs-avant">
+        <div class="cs-inner">
+            <h2 class="cs-h" id="cs-avant">Le point de départ.</h2>
+            <p>Le site précédent remplissait sa fonction première : exister, donner un nom, donner un numéro. Il avait
+                été mis en place vite, à partir d'un modèle, comme le font la plupart des entreprises qui privilégient
+                le terrain — et pendant plusieurs années, il a suffi.</p>
+            <p>Ce qu'il ne disait pas, c'est le métier. Il annonçait <strong>« propreté », « multi-services »,
+                    « nettoyage »</strong> : trois mots que peut écrire n'importe quelle entreprise du secteur, en
+                France entière. Les photographies venaient d'une banque d'images — des gants en caoutchouc, des bidons
+                de produit, une serpillière. Aucune ne montrait un sol traité par SNTM.</p>
+            <p>Toute l'expertise existait dans l'entreprise. Elle n'existait pas en ligne.</p>
+
+            <div class="cs-pair">
+                <figure class="cs-fig cs-fig--archive">
+                    <img src="assets/images/sntm-avant-1000.webp"
+                        srcset="assets/images/sntm-avant-700.webp 700w, assets/images/sntm-avant-1000.webp 1000w"
+                        sizes="(max-width: 1024px) 100vw, 500px"
+                        alt="Ancien site internet SNTM SAP — les trois services présentés avec des photos de banque d'images"
+                        width="1000" height="418" loading="lazy" decoding="async" />
+                    <figcaption>Site précédent · les trois services</figcaption>
+                </figure>
+                <figure class="cs-fig cs-fig--archive">
+                    <img src="assets/images/sntm-avant-b-1000.webp"
+                        srcset="assets/images/sntm-avant-b-700.webp 700w, assets/images/sntm-avant-b-1000.webp 1000w, assets/images/sntm-avant-b-1400.webp 1400w"
+                        sizes="(max-width: 1024px) 100vw, 500px"
+                        alt="Ancien site internet SNTM SAP — la page d'accueil, avec une photographie de banque d'images montrant un seau, des gants et des produits d'entretien"
+                        width="1000" height="437" loading="lazy" decoding="async" />
+                    <figcaption>Site précédent · la page d'accueil</figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ LE CONSTAT ═══ -->
+    <section class="cs-sec" aria-labelledby="cs-constat">
+        <div class="cs-inner">
+            <h2 class="cs-h" id="cs-constat">Ce qui manquait, point par point.</h2>
+            <p>Avant de dessiner quoi que ce soit, on liste. D'un côté ce que le site disait, de l'autre ce que
+                l'entreprise fait réellement. L'écart entre les deux colonnes est tout le projet.</p>
+
+            <div class="cs-cols">
+                <div class="cs-col cs-col--before">
+                    <span class="cs-col-head">Ce que le site disait</span>
+                    <ul class="cs-list">
+                        <li><span aria-hidden="true">01</span> Trois services génériques, sans distinction de
+                            matériau ni de contexte</li>
+                        <li><span aria-hidden="true">02</span> Des photographies de banque d'images, interchangeables
+                            avec n'importe quel concurrent</li>
+                        <li><span aria-hidden="true">03</span> Aucune mention du déroulé d'une intervention</li>
+                        <li><span aria-hidden="true">04</span> Une seule langue, sur un territoire où une partie des
+                            donneurs d'ordre ne parle pas français</li>
+                        <li><span aria-hidden="true">05</span> Aucune page susceptible de répondre à une recherche
+                            précise sur Google</li>
+                    </ul>
+                </div>
+
+                <div class="cs-col cs-col--after">
+                    <span class="cs-col-head">Ce que l'entreprise fait</span>
+                    <ul class="cs-list">
+                        <li><span aria-hidden="true">01</span> Six matériaux traités différemment : marbre,
+                            travertin, terre cuite, parquet, béton ciré, grès cérame</li>
+                        <li><span aria-hidden="true">02</span> Des chantiers réels, dont le résultat se voit sur la
+                            surface elle-même</li>
+                        <li><span aria-hidden="true">03</span> Une méthode : visite sur site, test sur zone,
+                            intervention, entretien</li>
+                        <li><span aria-hidden="true">04</span> Des clients internationaux dans le Golfe — villas,
+                            copropriétés, gestionnaires</li>
+                        <li><span aria-hidden="true">05</span> Quatre prestations distinctes, chacune avec ses
+                            contraintes propres</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ RESPIRATION ═══ -->
+    <section class="cs-breath">
+        <p>Avant, une paire de gants en caoutchouc.
+            <em>Après, un travertin.</em>
+        </p>
+        <span class="cs-breath-sign">Sud Web Project — Saint-Tropez</span>
+    </section>
+
+    <!-- ═══ LE PARTI PRIS ═══ -->
+    <section class="cs-sec cs-sec--alt" aria-labelledby="cs-parti">
+        <div class="cs-inner">
+            <h2 class="cs-h" id="cs-parti">Le parti pris <em>visuel.</em></h2>
+            <p>Une entreprise de nettoyage, sur internet, se présente presque toujours de la même façon : fond blanc
+                ou bleu clair, une personne en tenue, un chariot, un sourire. Ce vocabulaire montre l'effort. Il ne
+                montre pas le résultat.</p>
+            <p>Or SNTM n'est pas jugée sur son effort. Elle est jugée sur une surface, à un mètre du sol, par quelqu'un
+                qui se penche. <strong>Toute la direction artistique découle de ce constat.</strong></p>
+
+            <div class="cs-changes">
+                <article class="cs-row">
+                    <div class="cs-row-head">
+                        <span class="cs-n" aria-hidden="true">01</span>
+                        <h3 class="cs-name">Le fond sombre</h3>
+                    </div>
+                    <p>Un sol traité se reconnaît à ce qu'il renvoie. Un reflet ne se lit pas sur du blanc : il lui
+                        faut de l'ombre autour. Le noir n'est pas un choix d'ambiance, c'est ce qui rend la matière
+                        visible.</p>
+                </article>
+
+                <article class="cs-row">
+                    <div class="cs-row-head">
+                        <span class="cs-n" aria-hidden="true">02</span>
+                        <h3 class="cs-name">La lumière rasante</h3>
+                    </div>
+                    <p>C'est l'éclairage qu'utilise un professionnel pour contrôler son travail : la lumière prise de
+                        biais révèle le grain, les micro-rayures, les auréoles. Le site regarde les sols comme SNTM les
+                        regarde.</p>
+                </article>
+
+                <article class="cs-row">
+                    <div class="cs-row-head">
+                        <span class="cs-n" aria-hidden="true">03</span>
+                        <h3 class="cs-name">Aucun matériel, aucun personnel</h3>
+                    </div>
+                    <p>Pas de chariot, pas de gants, pas d'équipe qui sourit. Ces images disent qu'on travaille — ce
+                        dont personne ne doute. Les images retenues disent ce qu'on obtient, ce qui est la seule
+                        question du client.</p>
+                </article>
+
+                <article class="cs-row">
+                    <div class="cs-row-head">
+                        <span class="cs-n" aria-hidden="true">04</span>
+                        <h3 class="cs-name">La matière vue de près</h3>
+                    </div>
+                    <p>On ne distingue pas un travertin d'un grès cérame dans une photo de pièce entière. On les
+                        distingue à vingt centimètres. Chaque matériau est montré à la distance où son traitement se
+                        juge.</p>
+                </article>
+
+                <article class="cs-row">
+                    <div class="cs-row-head">
+                        <span class="cs-n" aria-hidden="true">05</span>
+                        <h3 class="cs-name">Une seule couleur, un seul endroit</h3>
+                    </div>
+                    <p>Le rouge de l'entreprise n'est utilisé que là où il doit provoquer quelque chose : demander un
+                        devis. Partout ailleurs, la page s'efface. Une couleur qui apparaît partout ne signale plus
+                        rien.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ CE QUE J'AI CHANGÉ ═══ -->
+    <section class="cs-sec" aria-labelledby="cs-change">
+        <div class="cs-inner">
+            <h2 class="cs-h" id="cs-change">Ce que j'ai changé.</h2>
+
+            <div class="cs-changes">
+                <article class="cs-row">
+                    <div class="cs-row-head">
+                        <span class="cs-n" aria-hidden="true">01</span>
+                        <h3 class="cs-name">L'image</h3>
+                    </div>
+                    <p>Une direction artistique construite sur ce que SNTM manipule réellement — le détail des
+                        décisions est exposé plus haut. Plus une seule photo de banque d'images : le métier est montré
+                        par ses surfaces, pas par son matériel.</p>
+                </article>
+
+                <article class="cs-row">
+                    <div class="cs-row-head">
+                        <span class="cs-n" aria-hidden="true">02</span>
+                        <h3 class="cs-name">L'architecture</h3>
+                    </div>
+                    <p>Une page dédiée par prestation — locaux commerciaux, établissements scolaires, remise en état
+                        après travaux, traitement des sols — et six matériaux traités séparément, chacun avec son
+                        entrée propre. Là où il y avait trois mots, il y a un chemin.</p>
+                </article>
+
+                <article class="cs-row">
+                    <div class="cs-row-head">
+                        <span class="cs-n" aria-hidden="true">03</span>
+                        <h3 class="cs-name">L'expérience</h3>
+                    </div>
+                    <p>Le déroulé d'une intervention est écrit avant qu'on appelle : visite sur site, test sur zone,
+                        intervention, entretien. C'est la première chose qu'on cherche à savoir avant de confier un sol
+                        à quelqu'un, et c'est ce qui distingue une entreprise d'un numéro de téléphone.</p>
+                </article>
+
+                <article class="cs-row">
+                    <div class="cs-row-head">
+                        <span class="cs-n" aria-hidden="true">04</span>
+                        <h3 class="cs-name">La visibilité</h3>
+                    </div>
+                    <p>Structure technique reprise entièrement, contenu écrit par prestation et par commune du Golfe,
+                        images en formats modernes et en plusieurs largeurs. Le référencement local se construit sur des
+                        pages qui répondent à une question précise, pas sur des mots-clés ajoutés.</p>
+                </article>
+
+                <article class="cs-row">
+                    <div class="cs-row-head">
+                        <span class="cs-n" aria-hidden="true">05</span>
+                        <h3 class="cs-name">Les deux langues</h3>
+                    </div>
+                    <p>Une version anglaise complète, page par page. Dans le Golfe, une partie des donneurs d'ordre —
+                        villas, copropriétés, gestionnaires — ne cherche pas en français.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ LE RÉSULTAT ═══ -->
+    <section class="cs-sec cs-sec--alt" aria-labelledby="cs-apres">
+        <div class="cs-inner">
+            <h2 class="cs-h" id="cs-apres">Le résultat.</h2>
+            <p>Un site codé entièrement à la main, sans modèle ni extension. La page d'accueil ne cherche plus à dire
+                que l'entreprise est sérieuse : elle montre une surface, nomme la zone, et propose deux actions.</p>
+
+            <figure class="cs-fig cs-fig--new">
+                <img src="assets/images/sntm-apres-1600.webp" srcset="assets/images/sntm-apres-1000.webp 1000w,
+                        assets/images/sntm-apres-1600.webp 1600w,
+                        assets/images/sntm-apres-2000.webp 2000w" sizes="(max-width: 1024px) 100vw, 1040px"
+                    alt="Nouveau site internet SNTM SAP — nettoyage professionnel et traitement des sols, Golfe de Saint-Tropez"
+                    width="2000" height="937" loading="lazy" decoding="async" />
+                <figcaption>Nouveau site — conçu et développé sur mesure</figcaption>
+            </figure>
+
+            <p class="cs-claim">Ce projet n'aurait pas pu être conçu
+                <em>pour quelqu'un d'autre.</em>
+            </p>
+
+            <div class="cs-pending">
+                <p><strong>Et les résultats chiffrés ?</strong> Le site vient d'être mis en ligne. Le trafic, les
+                    positions et les demandes entrantes se mesurent sur plusieurs mois — ils seront ajoutés ici quand
+                    ils existeront, avec leur période et leur source. Ce qui est présenté sur cette page est ce qui a
+                    été livré, rien d'autre.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ CLÔTURE ═══ -->
+    <section class="cs-end">
+        <div class="cs-end-inner">
+            <div>
+                <div class="section-label">Votre projet</div>
+                <p>La même démarche s'applique à votre métier, quel qu'il soit : comprendre ce que vous faites avant de
+                    décider à quoi votre site doit ressembler.</p>
+                <a href="index.html#contact" class="btn-primary">
+                    <span>Parlons de votre projet</span>
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                        <path d="M3.75 9h10.5M9.75 4.5L14.25 9l-4.5 4.5" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </a>
+            </div>
+            <div class="cs-links">
+                <a href="https://guillaume83990.github.io/sntm-sap/index.html" target="_blank"
+                    rel="noopener noreferrer">Voir le site de SNTM SAP →</a>
+                <a href="refonte-site-internet.html">L'offre de refonte</a>
+                <a href="index.html#portfolio">Toutes les réalisations</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="footer" id="main-footer" role="contentinfo">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <svg viewBox="0 0 50 50" width="32" height="32" aria-hidden="true">
+                            <polygon points="25,2.5 45,13.75 45,36.25 25,47.5 5,36.25 5,13.75" fill="url(#fG)"
+                                stroke="#3B82F6" stroke-width="1.5" />
+                            <defs>
+                                <linearGradient id="fG" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#3B82F6" />
+                                    <stop offset="100%" style="stop-color:#1D4ED8" />
+                                </linearGradient>
+                            </defs>
+                            <text x="25" y="31" text-anchor="middle" fill="white" font-size="15" font-family="monospace"
+                                font-weight="bold">&lt;/&gt;</text>
+                        </svg>
+                        <span>Sud<em>Web</em> Project</span>
+                    </div>
+                    <p class="footer-tag"><strong>Développeur web freelance</strong> · Saint-Tropez, Var 83</p>
+                    <p class="footer-desc">Création de sites internet sur mesure — agences immobilières,
+                        restaurants,
+                        conciergeries, brokers yacht, artisans et PME du Var.</p>
+                </div>
+                <!-- FOOTER COL — Villes -->
+                <div class="footer-col">
+                    <h3>Villes</h3>
+                    <ul class="footer-cities">
+                        <li><a href="creation-site-internet-saint-tropez.html">Saint-Tropez</a></li>
+                        <li><a href="creation-site-internet-cogolin.html">Cogolin</a></li>
+                        <li><a href="creation-site-internet-grimaud.html">Grimaud</a></li>
+                        <li><a href="creation-site-internet-ramatuelle.html">Ramatuelle</a></li>
+                        <li><a href="creation-site-internet-gassin.html">Gassin</a></li>
+                        <li><a href="creation-site-internet-sainte-maxime.html">Sainte-Maxime</a></li>
+                        <li><a href="creation-site-internet-cavalaire.html">Cavalaire</a></li>
+                        <li><a href="creation-site-internet-frejus.html">Fréjus</a></li>
+                        <li><a href="creation-site-internet-saint-raphael.html">Saint-Raphaël</a></li>
+                        <li><a href="creation-site-internet-var.html">Var (83)</a></li>
+                    </ul>
+                </div>
+                <!-- FOOTER COL — Métiers -->
+                <div class="footer-col">
+                    <h3>Métiers</h3>
+                    <ul>
+                        <li><a href="creation-site-internet-agence-immobiliere.html">Agence immobilière</a></li>
+                        <li><a href="site-internet-conciergerie-saint-tropez.html">Conciergerie</a></li>
+                        <li><a href="creation-site-internet-location-yacht.html">Broker Yacht</a></li>
+                        <li><a href="creation-site-internet-restaurant.html">Restaurant</a></li>
+                        <li><a href="electricien-var.html">Électricien</a></li>
+                        <li><a href="creation-site-internet-serrurier.html">Serrurier</a></li>
+                        <li><a href="creation-site-internet-coiffeur.html">Coiffeur</a></li>
+                    </ul>
+                </div>
+                <!-- FOOTER COL — Services + Réalisations -->
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="refonte-site-internet.html">Refonte de site internet</a></li>
+                        <li><a href="maintenance.html">Maintenance de site internet</a></li>
+                    </ul>
+                    <h3 style="margin-top:1.25rem;">Réalisations</h3>
+                    <ul>
+                        <li><a href="index.html#portfolio">Portfolio</a></li>
+                        <li><a href="etude-cas-electricien.html">Étude de cas électricien</a></li>
+                        <li><a href="etude-cas-coiffeur.html">Étude de cas coiffeur</a></li>
+                        <li><a href="etude-cas-restaurant.html">Étude de cas restaurant</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>©
+                    <script>document.write(new Date().getFullYear())</script> Sud Web Project ·
+                    <strong>Développeur web
+                        Saint-Tropez</strong> · <strong>Création site internet Var</strong> · Agences
+                    immobilières ·
+                    Restaurants · Brokers yacht
+                </p>
+                <div class="footer-legal">
+                    <a href="mentions-legales.html">Mentions légales</a>
+                    <span aria-hidden="true">·</span>
+                    <a href="mentions-legales.html#confidentialite">Confidentialité</a>
+                    <span aria-hidden="true">·</span>
+                    <a href="mentions-legales.html#cgv">CGV</a>
+                    <a href="cookies.html">Cookies</a>
+                </div>
+            </div>
+        </div>
+        <span class="footer-mark" aria-hidden="true">Sud<em>Web</em> Project</span>
+        <div class="footer-seo">
+            <p>Création site internet Saint-Tropez ·
+                <a href="creation-site-internet-cogolin.html">Cogolin</a> ·
+                <a href="creation-site-internet-grimaud.html">Grimaud</a> ·
+                <a href="creation-site-internet-ramatuelle.html">Ramatuelle</a> ·
+                <a href="creation-site-internet-gassin.html">Gassin</a> ·
+                <a href="creation-site-internet-sainte-maxime.html">Sainte-Maxime</a> ·
+                <a href="creation-site-internet-cavalaire.html">Cavalaire</a> ·
+                <a href="creation-site-internet-frejus.html">Fréjus</a> ·
+                <a href="creation-site-internet-saint-raphael.html">Saint-Raphaël</a> ·
+                <a href="creation-site-internet-var.html">Var (83)</a> ·
+                <a href="site-internet-agence-immobiliere-saint-tropez.html">Agence immo Saint-Tropez</a> ·
+                <a href="site-internet-agence-immobiliere-sainte-maxime.html">Agence immo Sainte-Maxime</a> ·
+                <a href="site-internet-agence-immobiliere-grimaud.html">Agence immo Grimaud</a> ·
+                <a href="site-internet-restaurant-saint-tropez.html">Restaurant Saint-Tropez</a> ·
+                <a href="site-internet-restaurant-sainte-maxime.html">Restaurant Sainte-Maxime</a> ·
+                <a href="site-internet-broker-yacht-saint-tropez.html">Broker Yacht Saint-Tropez</a> ·
+                <a href="site-internet-conciergerie-saint-tropez.html">Conciergerie Saint-Tropez</a> ·
+                <a href="creation-site-internet-electricien-cogolin.html">Électricien Cogolin</a> ·
+                <a href="electricien-var.html">Électricien Var</a> ·
+                <a href="creation-site-internet-serrurier.html">Serrurier</a> ·
+                <a href="creation-site-internet-coiffeur.html">Coiffeur</a> ·
+                <a href="refonte-site-internet.html">Refonte site internet</a> ·
+                <a href="maintenance.html">Maintenance web Var</a>
+            </p>
+        </div>
+        <button id="back-to-top" class="btt" aria-label="Retour en haut">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4.5 9l4.5-4.5L13.5 9M9 4.5V13.5" />
+            </svg>
+        </button>
+    </footer>
+
+    <!-- ═══ LIBRAIRIES — en local ═══ -->
+    <script src="js/vendor/three.min.js" defer></script>
+    <script src="js/vendor/gsap.min.js" defer></script>
+    <script src="js/vendor/ScrollTrigger.min.js" defer></script>
+    <script src="js/vendor/lenis.min.js" defer></script>
+
+    <!-- motion.js pose les valeurs GSAP par défaut : il doit passer avant tout le reste -->
+    <script src="js/motion.js" defer></script>
+
+    <!-- ═══ SCRIPTS DU SITE ═══ -->
+    <script src="js/preloader.js" defer></script>
+    <script src="js/global.js" defer></script>
+    <script src="js/lux.js" defer></script>
+    <script src="js/metiers.js" defer></script>
+    <script src="js/refonte.js" defer></script>
+    <script src="js/breath.js" defer></script>
+    <script src="js/portfolio.js" defer></script>
+    <script src="js/pricing.js" defer></script>
+    <script src="js/extras.js" defer></script>
+    <script src="js/trust.js" defer></script>
+    <script src="js/about.js" defer></script>
+    <script src="js/zone.js" defer></script>
+    <script src="js/contact.js" defer></script>
+    <script src="js/footer.js" defer></script>
+    <script src="js/hero-fx.js" defer></script>
+    <!-- titles.js reprend la main sur les titres préparés par global.js : toujours en dernier -->
+    <script src="js/titles.js" defer></script>
+    <script src="js/anchor.js" defer></script>
+
+    <script>
+        window.addEventListener('load', function () {
+            var ric = window.requestIdleCallback || function (cb) { setTimeout(cb, 200); };
+            ric(function () {
+                var s1 = document.createElement('script');
+                s1.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
+                s1.onload = function () { var s2 = document.createElement('script'); s2.src = 'js/emailjs-contact.js'; document.head.appendChild(s2); };
+                document.head.appendChild(s1);
+            });
+        });
+    </script>
+    <script src="js/cookies.js" defer></script>
+
+    <div class="cookie-banner" role="dialog" aria-label="Consentement cookies" aria-live="polite">
+        <div class="cookie-inner">
+            <p>Ce site utilise des cookies analytiques anonymisés pour mesurer l'audience.
+                <a href="cookies.html">En savoir plus</a>
+            </p>
+            <div class="cookie-btns">
+                <button id="cookie-refuse" class="cookie-btn cookie-btn-refuse">Refuser</button>
+                <button id="cookie-accept" class="cookie-btn cookie-btn-accept">Accepter</button>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

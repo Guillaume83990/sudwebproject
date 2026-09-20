@@ -9,7 +9,7 @@
   ═══════════════════════════════════════════ -->
   <url>
     <loc>https://www.sudwebproject.com/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -133,7 +133,17 @@
   </url>
 
   <!-- ═══════════════════════════════════════════
-       ÉTUDES DE CAS
+       PROJETS CLIENTS
+  ═══════════════════════════════════════════ -->
+  <url>
+    <loc>https://www.sudwebproject.com/etude-cas-sntm-sap.html</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- ═══════════════════════════════════════════
+       ÉTUDES DE CAS — PROJETS DE DÉMONSTRATION
   ═══════════════════════════════════════════ -->
   <url>
     <loc>https://www.sudwebproject.com/etude-cas-electricien.html</loc>

@@ -1,0 +1,153 @@
+/* ═══════════════════════════════════════════════════
+   TARIFS-VILLES.CSS — Sud Web Project
+   Gabarit unique des trois formules sur les 11 pages
+   villes.
+   Classes préfixées vt- : aucune collision possible
+   avec ville.css, ville-lux.css ou index.css.
+   À charger EN DERNIER sur chaque page ville.
+   ═══════════════════════════════════════════════════ */
+
+/* ── Chapô : ce que le prix mesure ── */
+.vt-lead {
+    max-width: 62ch;
+    margin: 1.25rem auto 0;
+    font-size: .95rem;
+    line-height: 1.85;
+    color: var(--mist);
+    text-align: center;
+}
+
+.vt-lead strong {
+    color: var(--snow);
+    font-weight: 500;
+}
+
+/* ── Report de formule à formule ───────────────────
+   IMPORTANT : cette mention est une <li> à l'intérieur
+   de la liste, jamais un enfant direct de .price-card.
+   ville-lux.css place le contenu des cartes par sa
+   POSITION ; un enfant supplémentaire décale tout.
+   ───────────────────────────────────────────────── */
+.vt-feats li.vt-head {
+    grid-template-columns: minmax(0, 1fr);
+    border-top: 0;
+    padding: 0 0 .9rem;
+    font-size: .74rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--mist-2);
+}
+
+.vt-feats li.vt-head em {
+    font-style: normal;
+    color: var(--blue-l);
+}
+
+.vt-feats li.vt-head+li {
+    border-top: 1px solid rgba(255, 255, 255, .06);
+}
+
+/* ── Lignes numérotées ─────────────────────────────
+   Chaque <li> contient EXACTEMENT deux enfants :
+   le numéro, puis un <span> qui enveloppe tout le
+   texte. Sans cette enveloppe, chaque mot en gras
+   deviendrait une cellule de grille distincte.
+   ───────────────────────────────────────────────── */
+.vt-feats {
+    list-style: none;
+    margin: 1rem 0 1.75rem;
+    padding: 0;
+    display: block;
+    width: 100%;
+    min-width: 0;
+    grid-column: 1 / -1;
+    /* neutralise un éventuel placement hérité de la carte */
+    grid-row: auto;
+    float: none;
+}
+
+.vt-feats li {
+    display: grid;
+    grid-template-columns: 2.25rem minmax(0, 1fr);
+    align-items: baseline;
+    gap: .35rem;
+    padding: .8rem 0;
+    margin: 0;
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, .06);
+    font-size: .88rem;
+    line-height: 1.7;
+    color: var(--mist);
+}
+
+.vt-feats li:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, .06);
+}
+
+.vt-feats li::before,
+.vt-feats li::marker {
+    content: none;
+}
+
+.vt-feats .vt-n {
+    font-family: var(--ff-display);
+    font-size: .8rem;
+    color: var(--mist-2);
+    white-space: nowrap;
+}
+
+.vt-feats .vt-t {
+    display: block;
+    min-width: 0;
+    overflow-wrap: break-word;
+}
+
+.vt-feats .vt-t strong {
+    color: #fff;
+    font-weight: 500;
+}
+
+/* ── Note sous la grille ── */
+.vt-note {
+    max-width: 760px;
+    margin: 3rem auto 0;
+    padding-left: 1.75rem;
+    border-left: 1px solid var(--border);
+    font-size: .88rem;
+    line-height: 1.85;
+    color: var(--mist);
+}
+
+.vt-note strong {
+    color: var(--snow);
+    font-weight: 600;
+}
+
+.vt-note a {
+    color: var(--blue-l);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color var(--dur) var(--ease);
+}
+
+.vt-note a:hover,
+.vt-note a:focus-visible {
+    border-bottom-color: var(--blue-l);
+}
+
+@media (max-width: 768px) {
+    .vt-lead {
+        text-align: left;
+    }
+
+    .vt-feats li {
+        grid-template-columns: 1.9rem minmax(0, 1fr);
+        font-size: .85rem;
+    }
+
+    .vt-note {
+        margin-top: 2.25rem;
+        padding-left: 1.25rem;
+    }
+}

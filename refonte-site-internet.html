@@ -42,8 +42,6 @@
 
     <!-- Canonical -->
     <link rel="canonical" href="https://www.sudwebproject.com/refonte-site-internet.html" />
-    <link rel="alternate" hreflang="fr" href="https://www.sudwebproject.com/refonte-site-internet.html" />
-    <link rel="alternate" hreflang="x-default" href="https://www.sudwebproject.com/refonte-site-internet.html" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
     <!-- Preload font -->
@@ -143,6 +141,23 @@
 
         .rf-sub strong {
             color: #fff;
+        }
+
+        /* ── PUNCHLINE DE SECTION ── */
+        .rf-punch {
+            max-width: 820px;
+            margin: 2.5rem auto 0;
+            font-family: var(--ff-display);
+            font-size: clamp(1.2rem, 2.2vw, 1.75rem);
+            line-height: 1.4;
+            color: #fff;
+            text-wrap: balance;
+        }
+
+        .rf-punch em {
+            display: block;
+            font-style: italic;
+            color: var(--blue-l);
         }
 
         /* ── LISTE ÉDITORIALE NUMÉROTÉE ── */
@@ -259,6 +274,37 @@
             font-weight: 700;
             margin-top: auto;
             padding-top: .85rem;
+        }
+
+        /* Colonne mise en avant — le projet client */
+        .rf-col--client {
+            border-top-color: var(--border-h);
+        }
+
+        .rf-col-ident {
+            display: flex;
+            align-items: center;
+            gap: .85rem;
+        }
+
+        .rf-col-mark {
+            flex-shrink: 0;
+            width: 38px;
+            height: 38px;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+            object-fit: cover;
+            background: var(--ink-2);
+        }
+
+        .rf-col-status {
+            display: block;
+            font-size: .68rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--blue-l);
+            margin-top: .2rem;
         }
 
         /* ── AVANT / APRÈS ── */
@@ -592,9 +638,9 @@
     </div>
 
     <!-- ═══ NAV ═══ -->
-    <nav id="main-nav" class="nav" aria-label="Navigation principale">
+    <nav id="main-nav" class="nav" role="navigation" aria-label="Navigation principale">
         <div class="nav-inner">
-            <a href="/" class="nav-logo" aria-label="Sud Web Project — Développeur web Saint-Tropez">
+            <a href="index.html" class="nav-logo" aria-label="Sud Web Project — Développeur web Saint-Tropez">
                 <svg viewBox="0 0 50 50" width="30" height="30" aria-hidden="true">
                     <polygon points="25,2.5 45,13.75 45,36.25 25,47.5 5,36.25 5,13.75" fill="url(#nG)" stroke="#3B82F6"
                         stroke-width="1.5" />
@@ -616,7 +662,7 @@
                 <li><a href="index.html#apropos">À propos</a></li>
                 <li><a href="index.html#contact">Contact</a></li>
             </ul>
-            <a href="/#contact" class="nav-cta">Devis gratuit</a>
+            <a href="index.html#contact" class="nav-cta">Devis gratuit</a>
             <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false"
                 aria-controls="nav-menu"><span></span><span></span><span></span></button>
         </div>
@@ -628,7 +674,7 @@
         <div class="container">
             <a href="index.html">Accueil</a>
             <span class="bc-sep">›</span>
-            <a href="/#services">Services</a>
+            <a href="index.html#services">Services</a>
             <span class="bc-sep">›</span>
             <span aria-current="page">Refonte de site internet</span>
         </div>
@@ -666,14 +712,14 @@
                 </p>
 
                 <div class="ville-hero-actions">
-                    <a href="/#contact" class="btn-hero">
-                        Parler de mon projet →
+                    <a href="index.html#contact" class="btn-hero">
+                        <span>Parler de mon projet</span>
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
                             <path d="M3.75 9h10.5M9.75 4.5L14.25 9l-4.5 4.5" stroke="currentColor" stroke-width="1.5"
                                 stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </a>
-                    <a href="#audit" class="btn-ghost-hero">Demander un audit de l'existant →</a>
+                    <a href="#audit" class="btn-ghost-hero">Demander un audit de l'existant</a>
                 </div>
             </div>
 
@@ -777,10 +823,10 @@
                     <article class="rf-item gsap-fade-up">
                         <span class="rf-item-n" aria-hidden="true">03</span>
                         <div>
-                            <h3>Design vieilli ou non responsive</h3>
-                            <p>Un site conçu il y a plusieurs années porte les codes graphiques de son époque. Ce n'est
-                                pas qu'une question de goût : sur un marché où le client compare, <strong>l'apparence
-                                    est lue comme un indice de sérieux</strong>.</p>
+                            <h3>Un site qui ne ressemble plus à l'entreprise</h3>
+                            <p>L'activité a évolué, la clientèle aussi, le niveau d'exigence a monté — le site, lui,
+                                porte encore les codes graphiques de l'année où il a été fait. <strong>Sur un marché où
+                                    le client compare, l'apparence est lue comme un indice de sérieux.</strong></p>
                         </div>
                     </article>
                     <article class="rf-item gsap-fade-up">
@@ -822,10 +868,19 @@
                         <span class="split-reveal">Une refonte ne se limite pas</span>
                         <span class="split-reveal"><em class="ville-em">à l'apparence.</em></span>
                     </h2>
+                    <p class="rf-punch">Refondre, ce n'est pas rhabiller.
+                        <em>C'est se redemander ce que cette entreprise doit dégager.</em>
+                    </p>
                     <p class="section-intro-seo">Selon l'état du site, une refonte peut toucher un seul de ces plans ou
                         tous à la fois. L'audit sert précisément à déterminer lesquels.</p>
                 </div>
                 <div class="rf-cols">
+                    <div class="rf-col gsap-fade-up">
+                        <span class="rf-col-title">Direction artistique</span>
+                        <p>Le point de départ, pas la dernière couche. Typographie, palette, images, rythme des pages,
+                            densité : chaque choix traduit quelque chose de l'entreprise, ou ne sert à rien. C'est ici
+                            que se décide si votre site ressemble au vôtre ou à celui de votre voisin.</p>
+                    </div>
                     <div class="rf-col gsap-fade-up">
                         <span class="rf-col-title">Positionnement</span>
                         <p>Ce que le site dit de l'activité, à qui il s'adresse, et ce qu'il demande au visiteur de
@@ -843,10 +898,6 @@
                     <div class="rf-col gsap-fade-up">
                         <span class="rf-col-title">Expérience utilisateur</span>
                         <p>Le parcours réel du visiteur, de l'arrivée sur une page jusqu'à la prise de contact.</p>
-                    </div>
-                    <div class="rf-col gsap-fade-up">
-                        <span class="rf-col-title">Direction artistique</span>
-                        <p>Typographie, palette, images, rythme des pages — une identité plutôt qu'un habillage.</p>
                     </div>
                     <div class="rf-col gsap-fade-up">
                         <span class="rf-col-title">Responsive</span>
@@ -927,8 +978,8 @@
                         <h3>02 — Réalisations : lisibilité et honnêteté</h3>
                         <p class="rf-avap-intro">Les projets étaient présentés en vignettes accompagnées d'étiquettes
                             colorées, sans indication de leur nature. La nouvelle version leur donne la pleine largeur,
-                            supprime les couleurs hors palette, et précise noir sur blanc que ces réalisations sont des
-                            projets de démonstration et non des sites clients en ligne.</p>
+                            supprime les couleurs hors palette, et sépare clairement les projets clients réels des
+                            projets de démonstration.</p>
                         <div class="rf-avap-grid">
                             <figure class="rf-avap-shot">
                                 <img src="assets/images/refonte-avant-realisations-960.webp"
@@ -942,7 +993,7 @@
                                 <img src="assets/images/refonte-apres-realisations-960.webp"
                                     srcset="assets/images/refonte-apres-realisations-640.webp 640w, assets/images/refonte-apres-realisations-960.webp 960w, assets/images/refonte-apres-realisations-1280.webp 1280w"
                                     sizes="(max-width: 900px) 100vw, 46vw"
-                                    alt="Nouvelle section réalisations de Sud Web Project, projets en pleine largeur et mention du statut de démonstration"
+                                    alt="Nouvelle section réalisations de Sud Web Project, projets en pleine largeur et statut de chaque projet indiqué"
                                     width="1280" height="720" loading="lazy" decoding="async" />
                                 <figcaption>Après</figcaption>
                             </figure>
@@ -1211,7 +1262,7 @@
                         <p>Galerie de réalisations, prise de rendez-vous accessible, SEO « coiffeur + ville ».</p>
                         <span class="rf-col-arrow">→ Coiffeurs</span>
                     </a>
-                    <a href="/#contact" class="rf-col gsap-fade-up">
+                    <a href="index.html#contact" class="rf-col gsap-fade-up">
                         <span class="rf-col-title">Autre activité dans le Var ?</span>
                         <p>Hôtel, photographe, architecte, prestataire événementiel — je refonds tous les types de sites
                             professionnels.</p>
@@ -1268,12 +1319,28 @@
                         <span class="split-reveal">Voir la démarche</span>
                         <span class="split-reveal"><em class="ville-em">appliquée ailleurs.</em></span>
                     </h2>
-                    <p class="section-intro-seo">Les projets présentés dans le portfolio sont des projets de
-                        démonstration conçus par Sud Web Project pour illustrer une méthode. Ils ne correspondent pas à
-                        des sites clients en ligne.</p>
+                    <p class="section-intro-seo">Le premier projet ci-dessous est une refonte réelle, livrée pour un
+                        client, avec son accord. Les suivants sont des projets de démonstration conçus par Sud Web
+                        Project pour illustrer la méthode — ils ne correspondent pas à des sites clients en ligne.</p>
                 </div>
                 <div class="rf-cols rf-cols-3">
-                    <a href="/#portfolio" class="rf-col gsap-fade-up">
+                    <a href="etude-cas-sntm-sap.html" class="rf-col rf-col--client gsap-fade-up">
+                        <span class="rf-col-ident">
+                            <img class="rf-col-mark" src="assets/images/logo-sntm-128.webp"
+                                srcset="assets/images/logo-sntm-64.webp 64w, assets/images/logo-sntm-128.webp 128w"
+                                sizes="38px" alt="Logo SNTM SAP" width="128" height="128" loading="lazy"
+                                decoding="async" />
+                            <span>
+                                <h3>SNTM SAP — refonte complète</h3>
+                                <span class="rf-col-status">Client · Golfe de Saint-Tropez</span>
+                            </span>
+                        </span>
+                        <p>Un site construit à partir d'un modèle, remplacé par un sur-mesure bilingue : une page par
+                            prestation, six matériaux traités séparément, et une direction artistique tirée du métier.
+                        </p>
+                        <span class="rf-col-arrow">→ Voir le projet</span>
+                    </a>
+                    <a href="index.html#portfolio" class="rf-col gsap-fade-up">
                         <h3>Portfolio réalisations</h3>
                         <p>Les projets créés pour illustrer le travail sur les différents métiers du Var — restaurants,
                             agences immobilières, artisans.</p>
@@ -1302,12 +1369,6 @@
                         <p>Une fois le site repris, le suivi permet qu'il reste propre et modifiable dans le temps.
                             À partir de 60 €/mois.</p>
                         <span class="rf-col-arrow">→ Voir la maintenance</span>
-                    </a>
-                    <a href="/#contact" class="rf-col gsap-fade-up">
-                        <h3>Parler de votre site</h3>
-                        <p>Décrivez votre situation en quelques lignes — je vous dis ce qui mérite d'être repris et ce
-                            qui peut rester.</p>
-                        <span class="rf-col-arrow">→ Me contacter</span>
                     </a>
                 </div>
             </div>
@@ -1386,8 +1447,8 @@
                     parcours client — et je vous dis ce qui mérite d'être repris, ce qui peut rester, et ce qu'il faudra
                     protéger pendant la migration. Sans engagement, sans jargon.</p>
                 <div class="ville-cta-actions">
-                    <a href="/#contact" class="btn-hero">
-                        Parler de la refonte de mon site →
+                    <a href="index.html#contact" class="btn-hero">
+                        <span>Parler de la refonte de mon site</span>
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
                             <path d="M3.75 9h10.5M9.75 4.5L14.25 9l-4.5 4.5" stroke="currentColor" stroke-width="1.5"
                                 stroke-linecap="round" stroke-linejoin="round" />
@@ -1406,7 +1467,7 @@
     </main>
 
     <!-- ═══ FOOTER ═══ -->
-    <footer class="footer" id="main-footer">
+    <footer class="footer" id="main-footer" role="contentinfo">
         <div class="footer-inner">
             <div class="footer-grid">
                 <div class="footer-brand">
@@ -1462,11 +1523,12 @@
                     <ul>
                         <li><a href="refonte-site-internet.html" class="footer-active">Refonte site internet</a></li>
                         <li><a href="maintenance.html">Maintenance web Var</a></li>
-                        <li><a href="/#portfolio">Portfolio réalisations</a></li>
+                        <li><a href="index.html#portfolio">Portfolio réalisations</a></li>
+                        <li><a href="etude-cas-sntm-sap.html">Projet client — SNTM SAP</a></li>
                         <li><a href="etude-cas-electricien.html">Étude de cas électricien</a></li>
                         <li><a href="etude-cas-restaurant.html">Étude de cas restaurant</a></li>
                         <li><a href="etude-cas-coiffeur.html">Étude de cas coiffeur</a></li>
-                        <li><a href="/#contact">Contact &amp; audit gratuit</a></li>
+                        <li><a href="index.html#contact">Contact &amp; audit gratuit</a></li>
                     </ul>
                 </div>
             </div>
@@ -1529,13 +1591,12 @@
         });
     </script>
 
-    <div class="cookie-banner" role="dialog" aria-label="Cookies"
-        style="display:none;opacity:0;transform:translateX(-50%) translateY(20px);">
+    <div class="cookie-banner" role="dialog" aria-label="Consentement cookies" aria-live="polite">
         <div class="cookie-inner">
             <p>Ce site utilise des cookies analytiques anonymisés. <a href="cookies.html">En savoir plus</a></p>
             <div class="cookie-btns">
-                <button id="cookie-refuse">Refuser</button>
-                <button id="cookie-accept">Accepter</button>
+                <button id="cookie-refuse" class="cookie-btn cookie-btn-refuse">Refuser</button>
+                <button id="cookie-accept" class="cookie-btn cookie-btn-accept">Accepter</button>
             </div>
         </div>
     </div>

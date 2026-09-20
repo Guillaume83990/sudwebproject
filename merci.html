@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="noindex, nofollow" />
+    <meta name="robots" content="noindex, follow" />
     <title>Merci — Message bien reçu | Sud Web Project</title>
     <meta name="author" content="Guillaume Robin — Sud Web Project" />
     <meta name="theme-color" content="#080C14" />
@@ -85,6 +85,34 @@
 
         .mc-lead strong {
             color: #fff;
+        }
+
+        /* Le déroulé de la suite — trois lignes réglées */
+        .mc-flow {
+            list-style: none;
+            margin: 2.25rem 0 0;
+            padding: 0;
+        }
+
+        .mc-flow li {
+            display: grid;
+            grid-template-columns: 2.5rem 1fr;
+            align-items: baseline;
+            padding: .85rem 0;
+            border-top: 1px solid var(--border);
+            font-size: .95rem;
+            line-height: 1.6;
+            color: var(--mist);
+        }
+
+        .mc-flow li:last-child {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .mc-flow li span {
+            font-family: var(--ff-display);
+            font-size: .85rem;
+            color: var(--blue-l);
         }
 
         .mc-actions {
@@ -209,7 +237,7 @@
     </div>
 
     <!-- ═══ NAV ═══ -->
-    <nav id="main-nav" class="nav" aria-label="Navigation principale">
+    <nav id="main-nav" class="nav" role="navigation" aria-label="Navigation principale">
         <div class="nav-inner">
             <a href="index.html" class="nav-logo" aria-label="Sud Web Project — Développeur web Saint-Tropez">
                 <svg viewBox="0 0 50 50" width="30" height="30" aria-hidden="true">
@@ -233,7 +261,7 @@
                 <li><a href="index.html#apropos">À propos</a></li>
                 <li><a href="index.html#contact">Contact</a></li>
             </ul>
-            <a href="/#contact" class="nav-cta">Devis gratuit</a>
+            <a href="index.html#contact" class="nav-cta">Devis gratuit</a>
             <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false"
                 aria-controls="nav-menu"><span></span><span></span><span></span></button>
         </div>
@@ -255,9 +283,16 @@
 
                 <p class="mc-lead">Si votre projet est urgent, le téléphone reste le plus direct.</p>
 
+                <ol class="mc-flow">
+                    <li><span aria-hidden="true">01</span> Je lis votre message et je vous réponds sous 24h</li>
+                    <li><span aria-hidden="true">02</span> On échange sur votre entreprise et ce que le site doit
+                        provoquer</li>
+                    <li><span aria-hidden="true">03</span> Vous recevez un devis chiffré, sans engagement</li>
+                </ol>
+
                 <div class="mc-actions">
-                    <a href="/" class="btn-hero">
-                        Retour à l'accueil →
+                    <a href="index.html" class="btn-hero">
+                        <span>Retour à l'accueil</span>
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
                             <path d="M3.75 9h10.5M9.75 4.5L14.25 9l-4.5 4.5" stroke="currentColor" stroke-width="1.5"
                                 stroke-linecap="round" stroke-linejoin="round" />
@@ -268,7 +303,7 @@
                 </div>
 
                 <p class="mc-note">
-                    En attendant, vous pouvez parcourir les <a href="/#portfolio">réalisations</a>, la
+                    En attendant, vous pouvez parcourir les <a href="index.html#portfolio">réalisations</a>, la
                     <a href="refonte-site-internet.html">refonte de site</a> ou la
                     <a href="maintenance.html">maintenance</a>.<br>
                     Réponse sous 24h · Du lundi au samedi · Saint-Tropez, Var 83
@@ -279,7 +314,7 @@
     </main>
 
     <!-- ═══ FOOTER RÉDUIT ═══ -->
-    <footer class="mc-footer" id="main-footer">
+    <footer class="mc-footer" id="main-footer" role="contentinfo">
         <div class="mc-footer-inner">
             <p>©
                 <script>document.write(new Date().getFullYear())</script> Sud Web Project · Développeur web
@@ -314,13 +349,12 @@
         });
     </script>
 
-    <div class="cookie-banner" role="dialog" aria-label="Cookies"
-        style="display:none;opacity:0;transform:translateX(-50%) translateY(20px);">
+    <div class="cookie-banner" role="dialog" aria-label="Consentement cookies" aria-live="polite">
         <div class="cookie-inner">
             <p>Ce site utilise des cookies analytiques anonymisés. <a href="cookies.html">En savoir plus</a></p>
             <div class="cookie-btns">
-                <button id="cookie-refuse">Refuser</button>
-                <button id="cookie-accept">Accepter</button>
+                <button id="cookie-refuse" class="cookie-btn cookie-btn-refuse">Refuser</button>
+                <button id="cookie-accept" class="cookie-btn cookie-btn-accept">Accepter</button>
             </div>
         </div>
     </div>

@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════
-   VILLE-LUX.JS — Sud Web Project
+   VILLE-LUX.JS — Sud Web Project — v2
    Les animations des pages ville, dans la grammaire de l'accueil.
 
    Une règle partout : la RÈGLE arrive avant le CONTENU. Le filet
@@ -7,9 +7,35 @@
    l'impression d'une mise en page qui se construit plutôt que
    d'éléments qui apparaissent.
 
-   ville-animations.js gère encore les .gsap-fade-up génériques.
-   On ne le supprime pas : on prend la main sur les blocs traités
-   ici, en annulant ses tweens sur ces cibles précises.
+   CORRECTIF v2 — LE SCROLL QUI DÉCROCHE
+   Trois points.
+
+   a · LE CLIP-PATH QUI RESTE POSÉ
+   Les photos pleine largeur s'ouvrent par un masque clip-path,
+   et leur image dérive ensuite en scrub. Or le clip-path restait
+   appliqué au conteneur après l'ouverture. Tant qu'un clip-path
+   est posé sur un parent, le navigateur ne peut plus composer le
+   transform de l'enfant sur le GPU : il repeint l'image entière
+   à chaque frame. Sur un visuel de 1400 px agrandi de 10 %, c'est
+   le seul endroit de la page capable de faire tomber des frames —
+   et la sensation de scroll qui se fige puis rattrape.
+   On retire donc le clip-path dès que le masque a fini de
+   s'ouvrir. L'état final est un masque plein : visuellement,
+   strictement identique.
+
+   b · LA PARALLAXE NON PROMUE
+   L'image dérivait sans couche dédiée. On la promeut pendant la
+   traversée et on la libère en sortie, pour ne pas immobiliser de
+   mémoire graphique sur toute la page.
+
+   c · LE RECALAGE DE LA FAQ
+   Ouvrir une réponse change la hauteur du document, donc un
+   recalage était déclenché 780 ms plus tard — parfois en plein
+   scroll. On passe par le recalage groupé de motion.js, qui
+   attend que le défilement soit au repos.
+
+   ville-animations.js v2 ne traite plus les blocs pris en charge
+   ici : il n'y a plus de tween concurrent à annuler.
 
    Sans GSAP, tout reste visible et cliquable.
    ═══════════════════════════════════════════════════════════════ */
@@ -22,6 +48,12 @@
 
     var $$ = function (s, c) {
         return Array.prototype.slice.call((c || document).querySelectorAll(s));
+    };
+
+    /* Recalage groupé fourni par motion.js : il patiente tant que
+       le scroll bouge. Repli simple si motion.js est absent. */
+    var refresh = (window.SWP && window.SWP.refresh) || function () {
+        if (hasST) ScrollTrigger.refresh();
     };
 
     /* ═════════════════════════════════════════════════════════
@@ -47,7 +79,7 @@
                     gsap.killTweensOf(ans);
                     gsap.to(ans, {
                         height: 0, opacity: 0, duration: .45, ease: 'power2.inOut',
-                        onComplete: function () { item.open = false; }
+                        onComplete: function () { item.open = false; refresh(); }
                     });
                     return;
                 }
@@ -66,10 +98,11 @@
                 gsap.killTweensOf(ans);
                 gsap.fromTo(ans,
                     { height: 0, opacity: 0 },
-                    { height: 'auto', opacity: 1, duration: .7, ease: 'power2.inOut' }
+                    {
+                        height: 'auto', opacity: 1, duration: .7, ease: 'power2.inOut',
+                        onComplete: function () { refresh(); }
+                    }
                 );
-
-                setTimeout(function () { if (hasST) ScrollTrigger.refresh(); }, 780);
             });
         });
     }
@@ -83,6 +116,7 @@
     };
 
     var isMobile = window.matchMedia('(max-width: 768px)').matches;
+    var isCoarse = window.matchMedia('(pointer: coarse)').matches;
 
     /* ─────────────────────────────────────────────────────────
        Outil : le filet se trace, puis les lignes montent
@@ -104,7 +138,6 @@
 
         if (!rows || !rows.length) return;
 
-        gsap.killTweensOf(rows);
         gsap.fromTo(rows,
             { opacity: 0, y: opts.y || 22 },
             {
@@ -122,6 +155,9 @@
        2 · LES PHOTOS PLEINE LARGEUR
        Masque à l'entrée, puis dérive interne. L'agrandissement
        reste faible : au-delà on voit le cadrage bouger.
+
+       Le masque se retire de lui-même une fois ouvert : c'est ce
+       qui rend la dérive composable sur le GPU. Voir l'en-tête.
        ═══════════════════════════════════════════════════════ */
     $$('.st-photo-hero, .st-photo-item, .ville-intro-img-wrap, .st-real-img').forEach(function (wrap) {
         var img = wrap.querySelector('img');
@@ -131,16 +167,33 @@
             {
                 clipPath: 'inset(0% 0% 0% 0%)',
                 duration: M.d3, ease: M.easeMask,
-                scrollTrigger: { trigger: wrap, start: 'top 88%', once: true }
+                scrollTrigger: { trigger: wrap, start: 'top 88%', once: true },
+                onComplete: function () {
+                    /* l'ouverture est finie : on rend le conteneur
+                       transparent au compositeur */
+                    gsap.set(wrap, { clearProps: 'clipPath' });
+                }
             }
         );
 
-        if (img && !isMobile) {
+        /* Pas de dérive sur écran tactile ni en dessous de 768 px :
+           le gain visuel n'y compense pas le coût. */
+        if (img && !isMobile && !isCoarse) {
             gsap.fromTo(img,
                 { yPercent: -5, scale: 1.1 },
                 {
                     yPercent: 5, scale: 1.1, ease: 'none',
-                    scrollTrigger: { trigger: wrap, start: 'top bottom', end: 'bottom top', scrub: 1.2 }
+                    force3D: true,
+                    scrollTrigger: {
+                        trigger: wrap,
+                        start: 'top bottom',
+                        end: 'bottom top',
+                        scrub: 1.2,
+                        invalidateOnRefresh: true,
+                        onToggle: function (self) {
+                            gsap.set(img, { willChange: self.isActive ? 'transform' : 'auto' });
+                        }
+                    }
                 }
             );
         }
@@ -151,7 +204,9 @@
        ═══════════════════════════════════════════════════════ */
     var intro = document.querySelector('.ville-intro-text');
     if (intro) {
-        var introBits = $$('.section-label, p, .ville-punchline, .btn-primary', intro);
+        /* li ajouté : les listes numérotées des blocs métier
+           doivent suivre le même rythme que les paragraphes. */
+        var introBits = $$('.section-label, p, li, .ville-punchline, .btn-primary', intro);
         gsap.fromTo(introBits,
             { opacity: 0, y: 24 },
             {
@@ -203,7 +258,6 @@
        4 · LES MÉTIERS
        ═══════════════════════════════════════════════════════ */
     $$('.st-metier-row').forEach(function (row) {
-        gsap.killTweensOf(row);
         gsap.fromTo(row,
             { opacity: 0, y: 26 },
             {
@@ -240,7 +294,7 @@
     /* ═════════════════════════════════════════════════════════
        6 · LES RÉALISATIONS
        ═══════════════════════════════════════════════════════ */
-    $$('.st-real-card').forEach(function (card, i) {
+    $$('.st-real-card').forEach(function (card) {
         var body = card.querySelector('.st-real-body');
         if (!body) return;
         gsap.fromTo(body.children,
@@ -271,7 +325,6 @@
         });
 
         var steps = $$('.process-item');
-        gsap.killTweensOf(steps);
         gsap.fromTo(steps,
             { opacity: 0, y: 22 },
             {
@@ -294,9 +347,7 @@
             onEnter: function () { pg.classList.add('is-ruled'); }
         });
 
-        $$('.ville-tarifs .price-card').forEach(function (card, i) {
-            gsap.killTweensOf(card);
-
+        $$('.ville-tarifs .price-card').forEach(function (card) {
             var feats = card.querySelectorAll('.price-feats li');
             var head = card.querySelector('.price-head');
             var cta = card.querySelector('a');

@@ -15,6 +15,20 @@
         contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
 
+            /* Garde-fou : si le formulaire venait à reprendre l'attribut
+               novalidate, l'événement submit se déclencherait même sur un
+               champ obligatoire vide. On revérifie donc ici avant d'envoyer
+               quoi que ce soit — et on montre le premier champ fautif. */
+            if (typeof this.checkValidity === 'function' && !this.checkValidity()) {
+                if (typeof this.reportValidity === 'function') {
+                    this.reportValidity();
+                } else {
+                    const premier = this.querySelector(':invalid');
+                    if (premier) premier.focus();
+                }
+                return;
+            }
+
             const submitBtn = this.querySelector('.submit-btn');
             const originalHTML = submitBtn.innerHTML;
 
