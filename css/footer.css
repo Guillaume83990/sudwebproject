@@ -476,3 +476,8 @@
         gap: .5rem .8rem;
     }
 }
+/* Deuxième titre d'une même colonne (Services puis Réalisations) :
+   la marge du titre était écrasée par la règle ci-dessus */
+.footer-col ul + h3 {
+    margin-top: 2.4rem !important;
+}

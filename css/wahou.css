@@ -1,0 +1,232 @@
+/* ═══════════════════════════════════════════════════════════════
+   WAHOU.CSS — Sud Web Project — accueil uniquement
+   Trois gestes, une seule idée : tout est dans le bleu de la
+   maison, et la couleur du client apparaît quand on s'approche.
+
+     1 · la scène du hero suit la main et prend de la profondeur
+     2 · la lampe : au survol, la vraie couleur apparaît autour
+         du pointeur, comme une lampe promenée dans une galerie
+     3 · la plongée : au défilement, on entre dans Portolan, qui
+         révèle ses couleurs en plein écran
+
+   Tout passe par des propriétés individuelles (translate, rotate,
+   scale) pilotées par des variables : elles se composent avec les
+   `transform` déjà posés par l'accueil, sans jamais les écraser.
+   Sans JavaScript, rien ne change.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── 1 · La scène ── */
+.stage-deck {
+    will-change: transform;
+}
+
+.hero .mk {
+    /* --e* : l'entrée · --p* : la plongée. Deux jeux séparés pour
+       que les deux animations ne se disputent jamais une valeur. */
+    translate: var(--px, 0px) calc(var(--py, 0px) + var(--ey, 0px)) calc(var(--pz, 0px) + var(--ez, 0px));
+    scale: var(--ps, 1);
+    opacity: calc(var(--po, 1) * var(--eo, 1));
+}
+
+/* La vidéo de la visite Portolan, posée sur sa capture */
+.mk-video,
+.pf-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1.2s cubic-bezier(.22, 1, .36, 1);
+    pointer-events: none;
+}
+
+.mk-video.is-playing,
+.pf-video.is-playing {
+    opacity: 1;
+}
+
+.mk-video {
+    filter: brightness(.8) contrast(1.08);
+    transition: opacity 1.2s cubic-bezier(.22, 1, .36, 1), filter 1.1s cubic-bezier(.22, 1, .36, 1);
+}
+
+.pf-video {
+    z-index: 0;
+    filter: brightness(.78) contrast(1.08);
+    transition: opacity 1.2s cubic-bezier(.22, 1, .36, 1), filter 1s cubic-bezier(.22, 1, .36, 1);
+}
+
+.pf-work:hover .pf-video,
+.pf-work.is-lit .pf-video {
+    filter: brightness(1) contrast(1);
+}
+
+/* ── 2 · La lampe ──
+   Le calque bleu reste en place ; un masque radial y perce un trou
+   qui suit le pointeur. Rayon nul = calque entier. */
+html.swp-lamp .pf-frame::before,
+html.swp-lamp .mk-shot::after {
+    -webkit-mask-image: radial-gradient(circle at var(--lx, -999px) var(--ly, -999px),
+            transparent 0,
+            transparent calc(var(--lr, 0px) * .42),
+            rgba(0, 0, 0, .55) calc(var(--lr, 0px) * .78),
+            #000 var(--lr, 0px));
+    mask-image: radial-gradient(circle at var(--lx, -999px) var(--ly, -999px),
+            transparent 0,
+            transparent calc(var(--lr, 0px) * .42),
+            rgba(0, 0, 0, .55) calc(var(--lr, 0px) * .78),
+            #000 var(--lr, 0px));
+}
+
+/* La lampe remplace le dévoilement complet au survol… */
+html.swp-lamp .pf-work:hover .pf-frame::before,
+html.swp-lamp .hero .mk:hover .mk-shot::after {
+    opacity: 1;
+}
+
+/* Avec la lampe, le reste de l'image garde sa pénombre : seule la
+   zone éclairée change, et le cartel posé sur Portolan reste lisible */
+html.swp-lamp .pf-work:hover .pf-frame img,
+html.swp-lamp .pf-work:hover .pf-video {
+    filter: brightness(.84) contrast(1.06);
+}
+
+html.swp-lamp .hero .mk:hover .mk-shot img,
+html.swp-lamp .hero .mk:hover .mk-video {
+    filter: brightness(.86) contrast(1.06);
+}
+
+html.swp-lamp .pf-work:hover .pf-frame::after {
+    opacity: 1;
+}
+
+/* …mais le clavier garde le dévoilement complet */
+html.swp-lamp .pf-work:has(:focus-visible) .pf-frame::before {
+    opacity: 0;
+}
+
+/* Un halo très doux accompagne la lampe : la lumière se voit */
+.swp-halo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 1px;
+    z-index: 1;
+    pointer-events: none;
+    border-radius: 50%;
+    opacity: 0;
+    transform: translate(var(--lx, -999px), var(--ly, -999px));
+    transition: opacity .6s ease;
+}
+
+.swp-halo::before {
+    content: '';
+    position: absolute;
+    left: calc(var(--lr, 0px) * -1);
+    top: calc(var(--lr, 0px) * -1);
+    width: calc(var(--lr, 0px) * 2);
+    height: calc(var(--lr, 0px) * 2);
+    border-radius: 50%;
+    mix-blend-mode: screen;
+    background: radial-gradient(circle, rgba(255, 238, 210, .16) 0%, rgba(255, 238, 210, .06) 40%, transparent 68%);
+}
+
+.is-lamping .swp-halo {
+    opacity: 1;
+}
+
+/* ── 3 · La plongée ──
+   Pendant la plongée, la teinte de Portolan est pilotée par --tint */
+html.swp-dive .hero .mk-browser .mk-shot::after {
+    opacity: var(--tint, 1);
+}
+
+html.swp-dive .hero .mk-browser .mk-shot img,
+html.swp-dive .hero .mk-browser .mk-video {
+    filter: brightness(calc(.8 + (1 - var(--tint, 1)) * .2)) contrast(calc(1.08 - (1 - var(--tint, 1)) * .08));
+}
+
+/* Le cartel de fin de plongée */
+.dive-note {
+    position: absolute;
+    left: 50%;
+    bottom: clamp(1.5rem, 5vh, 3rem);
+    z-index: 4;
+    translate: -50% 0;
+    display: flex;
+    align-items: center;
+    gap: .9rem;
+    font-size: .72rem;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: rgba(226, 232, 240, .78);
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.dive-note b {
+    font-weight: 500;
+    color: var(--blue-l, #60A5FA);
+}
+
+.dive-note i {
+    display: block;
+    width: 2.5rem;
+    height: 1px;
+    background: rgba(226, 232, 240, .35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hero .mk {
+        translate: none;
+        rotate: none;
+        scale: none;
+        opacity: 1;
+    }
+
+    .mk-video,
+    .pf-video,
+    .dive-note {
+        display: none;
+    }
+}
+
+/* La carte Portolan joue une vidéo lumineuse : le voile de lecture
+   sous son cartel est renforcé pour que le texte reste lisible */
+@media (min-width: 769px) {
+.pf-work--wide .pf-frame::after {
+    background:
+        linear-gradient(90deg, rgba(5, 8, 15, .9) 0%, rgba(5, 8, 15, .72) 26%, rgba(5, 8, 15, .38) 46%, transparent 66%),
+        linear-gradient(to top, rgba(5, 8, 15, .55) 0%, transparent 40%);
+}
+}
+
+/* ── Le rythme de l'accueil ──
+   13rem de chaque côté faisaient plus de 400 px de vide entre deux
+   sections : la page dépassait 27 000 px. On garde la respiration,
+   on retire l'attente. (Au-dessous de 1100 px, space.css prend le relais.) */
+@media (min-width: 1101px) {
+    :root {
+        --sp-section: 10rem;
+        --sp-section-sm: 7.5rem;
+    }
+}
+
+/* La plongée : le hero reste collé en haut de son conteneur, rendu plus
+   haut par wahou.js. Aucun élément n'est déplacé dans le DOM. */
+html.swp-dive .hero-pin > .hero {
+    position: sticky;
+    top: 0;
+}
+
+/* overflow-x: hidden sur body fait de body un conteneur de défilement,
+   ce qui neutralise position: sticky. clip coupe pareil, sans ce défaut. */
+html.swp-dive,
+html.swp-dive body {
+    overflow-x: clip !important;
+    overflow-y: visible !important;
+}
