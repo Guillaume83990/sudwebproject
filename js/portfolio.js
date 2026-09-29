@@ -36,7 +36,9 @@
        1 · LE COMPTEUR
        ═══════════════════════════════════════════════════════ */
     var counter = gallery.querySelector('.pf-count b');
-    var total = works.length;
+    /* Les intitulés de registre (.pf-reg) ne sont pas des projets : on ne les compte pas */
+    var projects = works.filter(function (w) { return !w.classList.contains('pf-reg'); });
+    var total = projects.length;
 
     function setCount(i) {
         if (counter) counter.textContent = ('0' + (i + 1)).slice(-2);
@@ -45,10 +47,10 @@
     if ('IntersectionObserver' in window && counter) {
         var io = new IntersectionObserver(function (entries) {
             entries.forEach(function (e) {
-                if (e.isIntersecting) setCount(works.indexOf(e.target));
+                if (e.isIntersecting) setCount(projects.indexOf(e.target));
             });
         }, { rootMargin: '-40% 0px -40% 0px', threshold: 0 });
-        works.forEach(function (w) { io.observe(w); });
+        projects.forEach(function (w) { io.observe(w); });
     }
 
     /* ═════════════════════════════════════════════════════════
