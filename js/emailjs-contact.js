@@ -36,6 +36,16 @@
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<span>Envoi en cours...</span>';
 
+            /* Le modèle EmailJS affiche le message : le budget (champ facultatif)
+               est recopié en tête du message, puis le texte d'origine est remis
+               en place si l'envoi échoue. */
+            const champMessage = this.querySelector('[name="message"]');
+            const texteOrigine = champMessage ? champMessage.value : '';
+            const budget = this.querySelector('[name="budget"]');
+            if (champMessage && budget && budget.value) {
+                champMessage.value = 'Budget envisagé : ' + budget.value + '\n\n' + texteOrigine;
+            }
+
             // Envoyer via EmailJS
             emailjs.sendForm('service_d2fohuj', 'template_aoqc49m', this)
                 .then(function (response) {
@@ -49,6 +59,9 @@
 
                     // Afficher un message d'erreur
                     showNotification('❌ Erreur d\'envoi. Contactez-moi : contact@sudwebproject.com', 'error');
+
+                    // Remettre le message tel que le visiteur l'a écrit
+                    if (champMessage) champMessage.value = texteOrigine;
 
                     // Réactiver le bouton
                     submitBtn.disabled = false;

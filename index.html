@@ -934,6 +934,20 @@
             color: var(--mist);
         }
 
+        .tier-anchor {
+            display: block;
+            margin: .15rem 0 .35rem;
+            font-size: .76rem;
+            line-height: 1.5;
+            color: var(--mist);
+        }
+
+        .tier-anchor a {
+            color: var(--blue-l);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
         .tier-delay-note {
             max-width: 62ch;
             margin: 1.75rem auto 0;
@@ -1312,7 +1326,7 @@
                     Chaque projet ci-dessous part d'une entreprise différente, et chaque choix visuel s'explique par
                     quelque chose qu'elle est la seule à avoir.</p>
                 <p class="pf-disclaimer">Les projets ci-dessous sont des démonstrations&nbsp;: des entreprises imaginées, des
-                    sites bien réels, en ligne et consultables.</p>
+                    sites bien réels, en ligne et consultables. Le studio a ouvert en 2026&nbsp;: les premiers projets clients arrivent.</p>
             </div>
 
             <div class="pf-gallery">
@@ -1344,9 +1358,9 @@
                         <p class="pf-why">Un yacht de cinquante mètres ne se regarde pas en vignette. La visite
                             commence au large, monte à bord, traverse chaque pièce, puis mène à la réservation.</p>
                         <ul class="pf-tech">
-                            <li>Visite immersive au défilement</li>
+                            <li>Des demandes qui arrivent qualifiées</li>
+                            <li>Une flotte gérée sans technicien</li>
                             <li>Quatre langues</li>
-                            <li>Réservation et espace de gestion</li>
                         </ul>
                         <div class="pf-foot-line">
                             <a class="pf-tier" href="#formule-ultra">Web Ultra</a>
@@ -1577,9 +1591,9 @@
             </div>
 
             <p class="pf-legend">
-                <span><b>Essentiel</b> · à partir de 850 €</span>
-                <span><b>Premium</b> · à partir de 1 500 €</span>
                 <span><b>Ultra</b> · sur devis</span>
+                <span><b>Premium</b> · à partir de 1 500 €</span>
+                <span><b>Essentiel</b> · à partir de 850 €</span>
                 <a href="#tarifs">Voir le détail des formules</a>
             </p>
 
@@ -1664,6 +1678,96 @@
                 <em>Il ne pouvait pas être le sien.</em>
             </p>
 
+        </div>
+    </section>
+
+    <!-- ═══ À PROPOS ═══ -->
+    <section class="about" id="apropos" aria-labelledby="about-title">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-img-side">
+                    <div class="about-img-wrap">
+                        <picture>
+                            <source media="(max-width: 768px)"
+                                srcset="assets/images/photo-profil-developpeur-mobile.webp" width="768" height="900" />
+                            <img src="assets/images/photo-profil-developpeur.webp"
+                                alt="Guillaume Robin — développeur web freelance Saint-Tropez Var 83" loading="lazy"
+                                width="800" height="960" decoding="async" />
+                        </picture>
+                        <div class="about-deco" aria-hidden="true">
+                            <span>Guillaume Robin</span>
+                            <span>Saint-Tropez, Var 83</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-text">
+                    <div class="section-label">À propos</div>
+
+                    <p class="about-statement">Le métier est le vôtre.
+                        <em>L'image que vous en donnez doit l'être aussi.</em>
+                    </p>
+
+                    <h2 id="about-title" class="about-title">
+                        <span class="split-reveal">Guillaume Robin,</span>
+                        <span class="split-reveal about-italic">développeur web Saint-Tropez.</span>
+                    </h2>
+
+                    <p class="about-lead">Je crée des <strong>sites internet sur mesure</strong> pour les
+                        artisans, agences immobilières, restaurants, conciergeries et PME du Var. Si je code
+                        à la main plutôt que d'installer un outil tout prêt, c'est pour pouvoir partir de
+                        l'entreprise elle-même&nbsp;: <strong>traduire en ligne son niveau d'exigence et ce qu'elle
+                            doit représenter.</strong> Je travaille seul, sur toute la chaîne&nbsp;: c'est moi qui
+                        écoute, qui dessine, qui code, qui met en ligne et qui reste joignable ensuite.</p>
+
+                    <div class="about-pts">
+                        <div class="about-pt">
+                            <span class="apt-icon" aria-hidden="true"></span>
+                            <div>
+                                <h3>Je commence par votre métier</h3>
+                                <p>Avant de parler design ou technique, on parle de ce que vous faites, de qui
+                                    vous appelle et de ce que vous voulez qu'il se passe après la visite. Tout
+                                    le reste découle de cette conversation.</p>
+                            </div>
+                        </div>
+                        <div class="about-pt">
+                            <span class="apt-icon" aria-hidden="true"></span>
+                            <div>
+                                <h3>Présent dans le Var, disponible partout</h3>
+                                <p>Je me déplace dans tout le Golfe de Saint-Tropez&nbsp;: Ramatuelle, Gassin,
+                                    Grimaud, Cogolin, Sainte-Maxime. Voir un lieu, rencontrer quelqu'un et
+                                    comprendre un métier sur le terrain change ce qu'on met sur un site.</p>
+                            </div>
+                        </div>
+                        <div class="about-pt">
+                            <span class="apt-icon" aria-hidden="true"></span>
+                            <div>
+                                <h3>Je dis ce qui est</h3>
+                                <p>Les projets de démonstration de mon portfolio sont signalés comme tels, les
+                                    délais sont annoncés avec leurs conditions, et ce qui n'est pas compris
+                                    dans un tarif est écrit noir sur blanc. Réponse sous 24h, du premier
+                                    échange à la mise en ligne.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="about-sign">
+                        <b>Sud Web Project</b>
+                        <span>Atelier web · Golfe de Saint-Tropez</span>
+                    </p>
+
+                    <p class="about-more"><a href="#methode">Voir comment se passe un projet, étape par
+                            étape →</a></p>
+
+                    <a href="#contact" class="btn-primary">
+                        <span>Parlons de votre projet</span>
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                            <path d="M3.75 9h10.5M9.75 4.5L14.25 9l-4.5 4.5" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1919,7 +2023,7 @@
             <div class="socle" data-scroll>
                 <span class="socle-head">Compris dans chaque projet, quelle que soit la formule</span>
                 <ul class="socle-grid">
-                    <li><span aria-hidden="true">01</span> Une direction artistique construite à partir de votre métier&nbsp;: aucune maquette réutilisée d'un client à l'autre, et un développement sur mesure de
+                    <li><span aria-hidden="true">01</span> Un site construit à partir de votre métier, jamais d'un modèle&nbsp;: aucune maquette réutilisée d'un client à l'autre, et un développement sur mesure de
                         bout en bout</li>
                     <li><span aria-hidden="true">02</span> Adaptation réelle au mobile et à la tablette, pensée pour
                         ces écrans plutôt que réduite depuis le desktop</li>
@@ -2012,6 +2116,7 @@
                             prestige</p>
                         <span class="tier-carry">Tout le Premium, <em>plus</em></span>
                         <ul class="tier-feats">
+                            <li>Une identité complète, logo compris, pensée pour votre maison</li>
                             <li>Expérience immersive&nbsp;: narration, interactions, transitions</li>
                             <li>Multilingue pensé dès l'architecture</li>
                             <li>Boutique en ligne possible</li>
@@ -2021,6 +2126,7 @@
                     <div class="tier-price">
                         <span class="tier-from">Tarif</span>
                         <span class="tier-num">Sur devis</span>
+                        <span class="tier-anchor">Repère&nbsp;: un projet comme <a href="etude-cas-portolan.html">Portolan</a> commence à 18&nbsp;000&nbsp;€</span>
                         <span class="tier-delay">Délai indicatif&nbsp;: 4 à 5 semaines</span>
                         <a href="#contact" class="tier-cta">
                             <span>Parlons de votre projet</span>
@@ -2120,16 +2226,16 @@
                     <li class="opt-row">
                         <span class="opt-idx" aria-hidden="true">02</span>
                         <div class="opt-main">
-                            <strong>Logo professionnel</strong>
-                            <span>Logo unique avec plusieurs déclinaisons</span>
+                            <strong>Logo</strong>
+                            <span>Un logo dessiné pour votre entreprise, avec ses déclinaisons (compris dans l'offre Ultra)</span>
                         </div>
                         <span class="opt-tag">Sur devis</span>
                     </li>
                     <li class="opt-row">
                         <span class="opt-idx" aria-hidden="true">03</span>
                         <div class="opt-main">
-                            <strong>Rédaction contenu SEO</strong>
-                            <span>Textes optimisés Google pour votre site</span>
+                            <strong>Rédaction des textes</strong>
+                            <span>Des textes écrits pour vos clients, et structurés pour Google</span>
                         </div>
                         <span class="opt-tag">Sur devis</span>
                     </li>
@@ -2144,21 +2250,13 @@
                     <li class="opt-row">
                         <span class="opt-idx" aria-hidden="true">05</span>
                         <div class="opt-main">
-                            <strong>Page supplémentaire</strong>
-                            <span>Création et intégration d'une page de plus</span>
-                        </div>
-                        <span class="opt-tag">Sur devis</span>
-                    </li>
-                    <li class="opt-row">
-                        <span class="opt-idx" aria-hidden="true">06</span>
-                        <div class="opt-main">
                             <strong>Mises à jour et modifications</strong>
                             <span>Heures supplémentaires hors forfait</span>
                         </div>
                         <span class="opt-tag opt-tag--rate">+50€/h</span>
                     </li>
                     <li class="opt-row">
-                        <span class="opt-idx" aria-hidden="true">07</span>
+                        <span class="opt-idx" aria-hidden="true">06</span>
                         <div class="opt-main">
                             <strong>Mise en ligne</strong>
                             <span>Souscription du domaine et de l'hébergement, déploiement, indexation</span>
@@ -2405,95 +2503,7 @@
         </div>
     </section>
 
-    <!-- ═══ À PROPOS ═══ -->
-    <section class="about" id="apropos" aria-labelledby="about-title">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-img-side">
-                    <div class="about-img-wrap">
-                        <picture>
-                            <source media="(max-width: 768px)"
-                                srcset="assets/images/photo-profil-developpeur-mobile.webp" width="768" height="900" />
-                            <img src="assets/images/photo-profil-developpeur.webp"
-                                alt="Guillaume Robin — développeur web freelance Saint-Tropez Var 83" loading="lazy"
-                                width="800" height="960" decoding="async" />
-                        </picture>
-                        <div class="about-deco" aria-hidden="true">
-                            <span>Guillaume Robin</span>
-                            <span>Saint-Tropez, Var 83</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="about-text">
-                    <div class="section-label">À propos</div>
-
-                    <p class="about-statement">Le métier est le vôtre.
-                        <em>L'image que vous en donnez doit l'être aussi.</em>
-                    </p>
-
-                    <h2 id="about-title" class="about-title">
-                        <span class="split-reveal">Guillaume Robin,</span>
-                        <span class="split-reveal about-italic">développeur web Saint-Tropez.</span>
-                    </h2>
-
-                    <p class="about-lead">Je crée des <strong>sites internet sur mesure</strong> pour les
-                        artisans, agences immobilières, restaurants, conciergeries et PME du Var. Si je code
-                        à la main plutôt que d'installer un outil tout prêt, c'est pour pouvoir partir de
-                        l'entreprise elle-même&nbsp;: <strong>traduire en ligne son niveau d'exigence et ce qu'elle
-                            doit représenter.</strong> Je travaille seul, sur toute la chaîne&nbsp;: c'est moi qui
-                        écoute, qui dessine, qui code, qui met en ligne et qui reste joignable ensuite.</p>
-
-                    <div class="about-pts">
-                        <div class="about-pt">
-                            <span class="apt-icon" aria-hidden="true"></span>
-                            <div>
-                                <h3>Je commence par votre métier</h3>
-                                <p>Avant de parler design ou technique, on parle de ce que vous faites, de qui
-                                    vous appelle et de ce que vous voulez qu'il se passe après la visite. Tout
-                                    le reste découle de cette conversation.</p>
-                            </div>
-                        </div>
-                        <div class="about-pt">
-                            <span class="apt-icon" aria-hidden="true"></span>
-                            <div>
-                                <h3>Présent dans le Var, disponible partout</h3>
-                                <p>Je me déplace dans tout le Golfe de Saint-Tropez&nbsp;: Ramatuelle, Gassin,
-                                    Grimaud, Cogolin, Sainte-Maxime. Voir un lieu, rencontrer quelqu'un et
-                                    comprendre un métier sur le terrain change ce qu'on met sur un site.</p>
-                            </div>
-                        </div>
-                        <div class="about-pt">
-                            <span class="apt-icon" aria-hidden="true"></span>
-                            <div>
-                                <h3>Je dis ce qui est</h3>
-                                <p>Les projets de démonstration de mon portfolio sont signalés comme tels, les
-                                    délais sont annoncés avec leurs conditions, et ce qui n'est pas compris
-                                    dans un tarif est écrit noir sur blanc. Réponse sous 24h, du premier
-                                    échange à la mise en ligne.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <p class="about-sign">
-                        <b>Sud Web Project</b>
-                        <span>Atelier web · Golfe de Saint-Tropez</span>
-                    </p>
-
-                    <p class="about-more"><a href="#methode">Voir comment se passe un projet, étape par
-                            étape →</a></p>
-
-                    <a href="#contact" class="btn-primary">
-                        <span>Parlons de votre projet</span>
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-                            <path d="M3.75 9h10.5M9.75 4.5L14.25 9l-4.5 4.5" stroke="currentColor" stroke-width="1.5"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+    
 
     <!-- ═══ ZONE D'INTERVENTION ═══ -->
     <section class="zone" id="zone-intervention" aria-labelledby="zone-title">
@@ -2653,8 +2663,8 @@
                                     title="Indiquez un numéro à 10 chiffres, ou au format international"
                                     placeholder="06 XX XX XX XX" /></div>
                             <div class="fg">
-                                <label for="city">Ville *</label>
-                                <select id="city" name="city" required>
+                                <label for="city">Ville</label>
+                                <select id="city" name="city">
                                     <option value="">Sélectionnez...</option>
                                     <optgroup label="Golfe de Saint-Tropez">
                                         <option>Saint-Tropez</option>
@@ -2696,9 +2706,20 @@
                                 <option>Je ne sais pas encore</option>
                             </select>
                         </div>
+                        <div class="fg">
+                            <label for="budget">Budget envisagé</label>
+                            <select id="budget" name="budget">
+                                <option value="">Facultatif</option>
+                                <option>Moins de 1 500 €</option>
+                                <option>De 1 500 à 5 000 €</option>
+                                <option>De 5 000 à 15 000 €</option>
+                                <option>Plus de 15 000 €</option>
+                                <option>Je ne sais pas encore</option>
+                            </select>
+                        </div>
                         <div class="fg"><label for="message">Décrivez votre projet *</label><textarea id="message"
                                 name="message" rows="4" required
-                                placeholder="Votre activité, ce que le site devrait provoquer, votre échéance, et votre budget si vous en avez déjà un."></textarea>
+                                placeholder="Votre activité, ce que le site devrait provoquer, et votre échéance."></textarea>
                         </div>
                         <button type="submit" class="submit-btn">
                             <span>Envoyer ma demande</span>

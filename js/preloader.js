@@ -12,7 +12,7 @@
 
     var CONFIG = {
         ANCHOR: '#swp-logo-anchor',   // le logo du header — destination
-        SPEED: 1,                     // 1 = tempo de référence · 1.3 = plus rapide · 0.8 = plus lent
+        SPEED: window.matchMedia('(max-width: 768px)').matches ? 3.2 : 2.4, // 1 = tempo d'origine (5,3 s) · 2,4 = 2,2 s · 3,2 = 1,7 s sur téléphone : l'intro ne doit pas retenir le visiteur
         WATCHDOG_MS: 9000             // au-delà, on rend la main quoi qu'il arrive
     };
 

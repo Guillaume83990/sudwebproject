@@ -6,7 +6,13 @@
 (function () {
     'use strict';
 
+    /* Aucun outil de mesure d'audience n'est branché (voir enableAnalytics plus bas) :
+       sans traceur, il n'y a rien à consentir, donc pas de bannière. Passer à true le jour
+       où un outil qui dépose des cookies est activé. */
+    var ANALYTICS_ACTIF = false;
+
     document.addEventListener('DOMContentLoaded', function () {
+        if (!ANALYTICS_ACTIF) return;
 
         var KEY = 'swp_cookie_consent';
         var banner = document.querySelector('.cookie-banner');

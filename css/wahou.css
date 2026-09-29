@@ -230,3 +230,21 @@ html.swp-dive body {
     overflow-x: clip !important;
     overflow-y: visible !important;
 }
+
+/* ── Le H1 : mots inchangés (SEO), hiérarchie inversée à l'œil ──
+   La première ligne porte les mots-clés, la seconde la signature.
+   On réduit la première pour que la signature porte le hero. */
+.hero-title > .split-reveal:first-child {
+    display: block;
+    font-size: .56em;
+    line-height: 1.25;
+    letter-spacing: 0;
+    color: rgba(226, 232, 240, .82);
+    margin-bottom: .3em;
+}
+
+@media (max-width: 620px) {
+    .hero-title > .split-reveal:first-child {
+        font-size: .72em;
+    }
+}
