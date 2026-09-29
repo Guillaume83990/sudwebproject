@@ -469,6 +469,43 @@ body.pf-hovering .cursor {
 }
 
 /* ───────────────────────────────────────────────────────────────
+   6 bis · L'ACCROCHAGE EMBOÎTÉ (29/09)
+   Chaque œuvre s'accroche à mi-hauteur de la précédente, de l'autre
+   côté de la cimaise : la salle se lit en quinconce, sans mur vide.
+   Les captures gardent leurs vraies couleurs ; le voile ne fait plus
+   qu'effleurer le bas de l'image.
+   ─────────────────────────────────────────────────────────────── */
+@media (min-width: 1101px) {
+    .pf-work {
+        margin-bottom: 5rem;
+    }
+
+    .pf-work--wide {
+        margin-bottom: 7rem;
+    }
+
+    .pf-work--left+.pf-work--right,
+    .pf-work--right+.pf-work--left {
+        margin-top: -17rem;
+    }
+}
+
+.pf-frame img {
+    filter: saturate(.96) brightness(.96);
+}
+
+.pf-frame::after {
+    background:
+        linear-gradient(130deg, rgba(147, 196, 253, .06), transparent 40%),
+        linear-gradient(to top, rgba(5, 8, 15, .22), transparent 35%);
+}
+
+/* La pièce maîtresse garde son dégradé : son cartel est posé sur l'image */
+.pf-work--wide .pf-frame::after {
+    background: linear-gradient(90deg, rgba(5, 8, 15, .78) 0%, rgba(5, 8, 15, .35) 42%, transparent 70%);
+}
+
+/* ───────────────────────────────────────────────────────────────
    7 · RESPONSIVE
    La cimaise se déplace à gauche : les œuvres s'y accrochent
    toutes du même côté, comme un accrochage de couloir.
@@ -539,6 +576,11 @@ body.pf-hovering .cursor {
 
     .pf-work--wide .pf-name {
         font-size: 1.7rem;
+    }
+
+    /* Cartel sous l'image : plus besoin d'assombrir la capture */
+    .pf-work--wide .pf-frame::after {
+        background: linear-gradient(to top, rgba(5, 8, 15, .22), transparent 35%);
     }
 
     .pf-label {
