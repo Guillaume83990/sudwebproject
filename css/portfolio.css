@@ -500,6 +500,46 @@ body.pf-hovering .cursor {
         linear-gradient(to top, rgba(5, 8, 15, .22), transparent 35%);
 }
 
+/* LE BLEU SWP : au repos, chaque capture est ramenée dans le bleu nuit de la
+   maison (le calque garde la lumière de l'image et lui impose la teinte).
+   Au survol, ou au centre de l'écran sur téléphone, le projet révèle ses
+   vraies couleurs : l'univers du client apparaît dans celui de SWP. */
+.pf-frame::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: #26395C;
+    mix-blend-mode: color;
+    opacity: 1;
+    transition: opacity 1.1s var(--ease);
+}
+
+.pf-frame img {
+    filter: brightness(.78) contrast(1.08);
+}
+
+.pf-work:hover .pf-frame::before,
+.pf-work:focus-within .pf-frame::before {
+    opacity: 0;
+}
+
+.pf-work:hover .pf-frame img,
+.pf-work:focus-within .pf-frame img {
+    filter: brightness(1) contrast(1);
+}
+
+@media (hover: none) {
+    .pf-work.is-lit .pf-frame::before {
+        opacity: 0;
+    }
+
+    .pf-work.is-lit .pf-frame img {
+        filter: brightness(1) contrast(1);
+    }
+}
+
 /* La pièce maîtresse garde son dégradé : son cartel est posé sur l'image */
 .pf-work--wide .pf-frame::after {
     background: linear-gradient(90deg, rgba(5, 8, 15, .78) 0%, rgba(5, 8, 15, .35) 42%, transparent 70%);

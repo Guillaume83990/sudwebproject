@@ -787,6 +787,32 @@
             object-position: 50% 45%;
         }
 
+        /* Le bleu SWP sur les panneaux : couleurs du projet au survol */
+        .mk-shot::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: #26395C;
+            mix-blend-mode: color;
+            pointer-events: none;
+            transition: opacity 1.1s cubic-bezier(.22, 1, .36, 1);
+        }
+
+        .mk-shot img {
+            filter: brightness(.8) contrast(1.08);
+            transition: filter 1.1s cubic-bezier(.22, 1, .36, 1);
+        }
+
+        @media (hover: hover) and (pointer: fine) {
+            .mk:hover .mk-shot::after {
+                opacity: 0;
+            }
+
+            .mk:hover .mk-shot img {
+                filter: none;
+            }
+        }
+
         .mk-url {
             margin-left: .8em;
             font-size: .72em;
@@ -2807,8 +2833,9 @@
         </button>
     </footer>
 
-    <!-- ═══ LIBRAIRIES — en local ═══ -->
-    <script src="js/vendor/three.min.js" defer></script>
+    <!-- ═══ LIBRAIRIES — en local ═══
+         three.js (reflets du hero) n'est plus chargé ici : il arrive après le chargement
+         de la page, voir plus bas, pour ne pas ralentir le premier affichage. -->
     <script src="js/vendor/gsap.min.js" defer></script>
     <script src="js/vendor/ScrollTrigger.min.js" defer></script>
     <script src="js/vendor/lenis.min.js" defer></script>
@@ -2831,7 +2858,6 @@
     <script src="js/zone.js" defer></script>
     <script src="js/contact.js" defer></script>
     <script src="js/footer.js" defer></script>
-    <script src="js/hero-fx.js" defer></script>
     <!-- titles.js reprend la main sur les titres préparés par global.js : toujours en dernier -->
     <script src="js/titles.js" defer></script>
     <script src="js/anchor.js" defer></script>
@@ -2839,6 +2865,17 @@
     <script>
         window.addEventListener('load', function () {
             var ric = window.requestIdleCallback || function (cb) { setTimeout(cb, 200); };
+            /* Reflets du hero : three.js puis hero-fx.js, au premier geste du visiteur
+               (souris, défilement, toucher, clavier). Rien ne pèse sur le premier affichage. */
+            var fxEvents = ['pointermove', 'scroll', 'touchstart', 'keydown', 'wheel'];
+            function loadFx() {
+                fxEvents.forEach(function (e) { window.removeEventListener(e, loadFx); });
+                var t = document.createElement('script');
+                t.src = 'js/vendor/three.min.js';
+                t.onload = function () { var fx = document.createElement('script'); fx.src = 'js/hero-fx.js'; document.body.appendChild(fx); };
+                document.body.appendChild(t);
+            }
+            fxEvents.forEach(function (e) { window.addEventListener(e, loadFx, { once: true, passive: true }); });
             ric(function () {
                 var s1 = document.createElement('script');
                 s1.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';

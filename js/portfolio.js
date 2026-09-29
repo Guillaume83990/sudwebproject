@@ -47,6 +47,8 @@
     if ('IntersectionObserver' in window && counter) {
         var io = new IntersectionObserver(function (entries) {
             entries.forEach(function (e) {
+                /* is-lit : sur téléphone, le projet au centre de l'écran révèle ses couleurs */
+                e.target.classList.toggle('is-lit', e.isIntersecting);
                 if (e.isIntersecting) setCount(projects.indexOf(e.target));
             });
         }, { rootMargin: '-40% 0px -40% 0px', threshold: 0 });
