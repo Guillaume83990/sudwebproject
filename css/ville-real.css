@@ -1,0 +1,103 @@
+/* ═══════════════════════════════════════════════════════════════
+   VILLE-REAL.CSS — Sud Web Project — pages villes
+   Les cartes « Réalisations » montrent les vraies captures des
+   démonstrations, ramenées dans le bleu nuit de la maison comme
+   sur l'accueil. La couleur apparaît sous la lampe (ordinateur)
+   ou quand la carte passe au centre de l'écran (téléphone).
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Ratio natif des captures (2,2:1) : aucune démo n'est rognée */
+.st-real-img {
+    aspect-ratio: 2.2 / 1 !important;
+}
+
+.st-real-card:hover .st-real-img img {
+    transform: scale(1.02);
+}
+
+.st-real-img img {
+    object-position: 50% 0%;
+    filter: brightness(.78) contrast(1.08);
+    transition: transform 5s ease, filter 1s cubic-bezier(.22, 1, .36, 1);
+}
+
+.st-real-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: #26395C;
+    mix-blend-mode: color;
+    transition: opacity 1.1s cubic-bezier(.22, 1, .36, 1);
+}
+
+/* Sans lampe (clavier, écrans tactiles) : la couleur revient entière */
+.st-real-card:focus-within .st-real-img::after,
+.st-real-card.is-lit .st-real-img::after {
+    opacity: 0;
+}
+
+.st-real-card:focus-within .st-real-img img,
+.st-real-card.is-lit .st-real-img img {
+    filter: brightness(1) contrast(1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    html:not(.swp-lamp) .st-real-card:hover .st-real-img::after {
+        opacity: 0;
+    }
+
+    html:not(.swp-lamp) .st-real-card:hover .st-real-img img {
+        filter: brightness(1) contrast(1);
+    }
+}
+
+/* La lampe : le calque bleu est percé autour du pointeur */
+html.swp-lamp .st-real-img::after {
+    -webkit-mask-image: radial-gradient(circle at var(--lx, -999px) var(--ly, -999px),
+            transparent 0,
+            transparent calc(var(--lr, 0px) * .42),
+            rgba(0, 0, 0, .55) calc(var(--lr, 0px) * .78),
+            #000 var(--lr, 0px));
+    mask-image: radial-gradient(circle at var(--lx, -999px) var(--ly, -999px),
+            transparent 0,
+            transparent calc(var(--lr, 0px) * .42),
+            rgba(0, 0, 0, .55) calc(var(--lr, 0px) * .78),
+            #000 var(--lr, 0px));
+}
+
+.st-real-img .swp-halo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 1px;
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(var(--lx, -999px), var(--ly, -999px));
+    transition: opacity .6s ease;
+}
+
+.st-real-img .swp-halo::before {
+    content: '';
+    position: absolute;
+    left: calc(var(--lr, 0px) * -1);
+    top: calc(var(--lr, 0px) * -1);
+    width: calc(var(--lr, 0px) * 2);
+    height: calc(var(--lr, 0px) * 2);
+    border-radius: 50%;
+    mix-blend-mode: screen;
+    background: radial-gradient(circle, rgba(255, 238, 210, .16) 0%, rgba(255, 238, 210, .06) 40%, transparent 68%);
+}
+
+.st-real-img.is-lamping .swp-halo {
+    opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .st-real-img img {
+        transition: none;
+    }
+}
